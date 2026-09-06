@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101e2c" />
+  <meta name="description" content="把常用能力整理在一起，让 Java 项目少写一点重复代码。" />
+  <title>Commons Lib · PiscesCup</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../projects.css" />
+  <link rel="alternate" hreflang="zh-CN" href="./commons-lib.html" />
+  <link rel="alternate" hreflang="en" href="../en/projects/commons-lib.html" />
+  <script src="../script.js" defer></script>
+</head>
+<body class="project-page" data-page="project" id="top">
+  <a class="skip-link" href="#overview">跳转到项目简介</a>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页"><span class="brand-mark" aria-hidden="true">P<span>·</span></span>PiscesCup<span class="brand-dot">.</span></a>
+      <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false"><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="主导航">
+        <a class="nav-link" href="../index.html#home">首页</a>
+        <a class="nav-link is-active" href="../index.html#projects" aria-current="location">项目</a>
+        <a class="nav-link" href="../index.html#about">关于我</a>
+        <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+      <nav class="language-switch" aria-label="选择语言">
+        <span lang="zh-CN" aria-current="true">中文</span>
+        <a href="../en/projects/commons-lib.html" lang="en" hreflang="en" data-language-switch>EN</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="project-hero" aria-labelledby="project-title">
+      <div class="project-hero-inner">
+        <nav class="breadcrumbs" aria-label="当前位置"><a href="../index.html">首页</a><span aria-hidden="true">/</span><a href="../index.html#projects">项目</a><span aria-hidden="true">/</span><span aria-current="page">Commons Lib</span></nav>
+        <p class="eyebrow">Java 通用工具库</p>
+        <h1 id="project-title">Commons Lib</h1>
+        <p class="project-lead">把常用能力整理在一起，让 Java 项目少写一点重复代码。</p>
+        <div class="project-actions">
+          <a class="hero-button" href="#getting-started">从这里开始 <span aria-hidden="true">↓</span></a>
+          <a class="source-button" href="https://github.com/Piscescup/commons-lib" target="_blank" rel="noopener noreferrer">在 GitHub 查看 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+    <div class="project-section-bar">
+      <nav class="project-sections" aria-label="本页导航">
+        <a href="#overview">项目简介</a>
+        <a href="#features">主要功能</a>
+        <a href="#getting-started">开始使用</a>
+      </nav>
+    </div>
+    <div class="project-layout">
+      <div class="project-main">
+        <section id="overview" class="detail-section" aria-labelledby="overview-title">
+          <p class="eyebrow">01 / OVERVIEW</p>
+          <h2 id="overview-title">项目简介</h2>
+          <p>Commons Lib 是一个面向 Java 21 的通用工具库，包含数据校验、常见数据结构及函数式编程工具。各模块围绕可复用、低耦合的日常开发组件组织，可以通过 Maven 添加到项目。</p>
+        </section>
+        <section id="features" class="detail-section" aria-labelledby="features-title">
+          <p class="eyebrow">02 / FEATURES</p>
+          <h2 id="features-title">主要功能</h2>
+          <div class="feature-grid">
+            <article class="feature-item">
+              <span class="feature-index">01</span>
+              <h3>实用工具与校验</h3>
+              <p>提供字符串、数组和比较工具，以及空值、参数与状态校验。</p>
+            </article>
+            <article class="feature-item">
+              <span class="feature-index">02</span>
+              <h3>结构化数据</h3>
+              <p>包含区间模型、Pair、固定长度元组，以及普通与原子计数器。</p>
+            </article>
+            <article class="feature-item">
+              <span class="feature-index">03</span>
+              <h3>扩展函数接口</h3>
+              <p>支持多参数、基本类型与可抛异常接口，并提供柯里化、部分应用和记忆化工具。</p>
+            </article>
+          </div>
+        </section>
+        <section id="getting-started" class="detail-section" aria-labelledby="getting-started-title">
+          <p class="eyebrow">03 / GET STARTED</p>
+          <h2 id="getting-started-title">开始使用</h2>
+          <div class="getting-started">
+            <ol>
+              <li><strong>准备 Java 21</strong><br />确认项目运行在 Java 21 或兼容的更新环境中。</li>
+              <li><strong>添加 Maven 依赖</strong><br />将下方依赖添加到 pom.xml。版本 1.1.2 已在 Maven Central 发布。</li>
+              <li><strong>从示例开始</strong><br />README 包含命名转换、区间、计数器、函数与 Pair 的快速示例。</li>
+            </ol>
+            <p class="code-caption">Maven · pom.xml</p>
+            <pre class="code-example" tabindex="0" aria-label="Commons Lib Maven 依赖"><code>&lt;dependency&gt;
+    &lt;groupId&gt;io.github.piscescup&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-lib&lt;/artifactId&gt;
+    &lt;version&gt;1.1.2&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+            <p class="source-note"><a href="https://github.com/Piscescup/commons-lib/blob/master/README.md" target="_blank" rel="noopener noreferrer">阅读 README 示例 <span aria-hidden="true">↗</span></a></p>
+
+          </div>
+        </section>
+      </div>
+      <aside class="project-facts" aria-labelledby="facts-title">
+        <h2 id="facts-title">项目信息</h2>
+        <dl>
+          <div><dt>作者</dt><dd>PiscesCup</dd></div>
+          <div><dt>运行环境</dt><dd>Java 21</dd></div>
+          <div><dt>适用平台</dt><dd>Java / Maven</dd></div>
+        </dl>
+        <a href="https://github.com/Piscescup/commons-lib" target="_blank" rel="noopener noreferrer">源代码 <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/Piscescup/commons-lib/issues" target="_blank" rel="noopener noreferrer">交流与反馈 <span aria-hidden="true">↗</span></a>
+        <a class="facts-back" href="../index.html#projects"><span aria-hidden="true">←</span> 返回全部项目</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div><a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a><p>© <span id="year">2026</span> PiscesCup</p></div>
+    <p>以代码记录想法，让作品介绍自己。</p>
+    <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+  </footer>
+</body>
+</html>
+

@@ -8,9 +8,11 @@
   <title>PiscesCup · 个人主页与项目</title>
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="alternate" hreflang="zh-CN" href="./index.html" />
+  <link rel="alternate" hreflang="en" href="./en/index.html" />
   <script src="./script.js" defer></script>
 </head>
-<body>
+<body data-page="home">
   <a class="skip-link" href="#projects">跳转到项目</a>
   <header class="site-header">
     <div class="nav-shell">
@@ -21,6 +23,10 @@
         <a class="nav-link" href="#projects">项目</a>
         <a class="nav-link" href="#about">关于我</a>
         <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+      <nav class="language-switch" aria-label="选择语言">
+        <span lang="zh-CN" aria-current="true">中文</span>
+        <a href="./en/index.html" lang="en" hreflang="en" data-language-switch>EN</a>
       </nav>
     </div>
   </header>
@@ -42,23 +48,23 @@
       <section id="projects" class="projects-section" aria-labelledby="projects-title">
         <div class="section-heading"><div><p class="eyebrow">SELECTED PROJECTS</p><h2 id="projects-title">把想法写成作品<span class="heading-dot">.</span></h2></div><span class="section-count">01 — 04</span></div>
         <p class="section-description">一些正在 GitHub 上生长的项目。</p>
-        <!-- 项目按展示顺序排列。修改标题、描述和链接即可更新。 -->
+        <!-- 项目详情位于 projects/；对应英文页面位于 en/projects/。 -->
         <div class="project-list">
           <article class="project-card project-featured">
             <div class="project-visual visual-library" aria-hidden="true"><span class="visual-label">DEVELOPER LIBRARY</span><div class="visual-code"><span class="code-bracket">{</span><span class="code-name">PC<span>Lib</span><small>VERSION 2</small></span><span class="code-bracket">}</span></div><div class="visual-bottom"><span>JAVA / MINECRAFT</span><span>01</span></div></div>
-            <div class="project-body"><div class="project-topline"><span class="project-category">开发工具</span><span class="project-number">PROJECT 01</span></div><h3><a href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2" target="_blank" rel="noopener noreferrer">PiscesCup Develop Lib <span class="version-tag">V2</span></a></h3><p>面向 Minecraft Fabric 的开发基础库，提供内容注册、数据生成、命令与常用工具等可复用能力。</p><div class="project-footer"><div class="tags"><span><i class="language-dot"></i>Java</span><span>Minecraft</span></div><a class="project-link" href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 查看 PiscesCup Develop Lib V2">查看项目 <span aria-hidden="true">↗</span></a></div></div>
+            <div class="project-body"><div class="project-topline"><span class="project-category">开发工具</span><span class="project-number">PROJECT 01</span></div><h3><a href="./projects/pc-develop-lib.html">PiscesCup Develop Lib <span class="version-tag">V2</span></a></h3><p>面向 Minecraft Fabric 的开发基础库，提供内容注册、数据生成、命令与常用工具等可复用能力。</p><div class="project-footer"><div class="tags"><span><i class="language-dot"></i>Java</span><span>Minecraft</span></div><a class="project-link" href="./projects/pc-develop-lib.html" aria-label="了解项目：PiscesCup Develop Lib V2">项目介绍 <span aria-hidden="true">↗</span></a></div></div>
           </article>
           <article class="project-card">
             <div class="project-visual visual-whitelist" aria-hidden="true"><span class="visual-label">MINECRAFT MOD</span><div class="visual-type">ACCESS<em>GRANTED<span>_</span></em></div><div class="visual-bottom"><span>FABRIC / PLAYER MANAGEMENT</span><span>02</span></div></div>
-            <div class="project-body"><div class="project-topline"><span class="project-category">Minecraft 模组</span><span class="project-number">PROJECT 02</span></div><h3><a href="https://github.com/Piscescup/pisces-cup-easy-fabric-1.21.4" target="_blank" rel="noopener noreferrer">Pisces Cup Easy</a></h3><p>通过玩家名管理白名单、OP 与封禁名单的 Fabric 模组，提供中英文切换，让玩家管理更方便。</p><div class="project-footer"><div class="tags"><span><i class="language-dot"></i>Java</span><span>Fabric</span></div><a class="project-link" href="https://github.com/Piscescup/pisces-cup-easy-fabric-1.21.4" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 查看 Pisces Cup Easy">查看项目 <span aria-hidden="true">↗</span></a></div></div>
+            <div class="project-body"><div class="project-topline"><span class="project-category">Minecraft 模组</span><span class="project-number">PROJECT 02</span></div><h3><a href="./projects/piscescup-easy.html">Pisces Cup Easy</a></h3><p>通过玩家名管理白名单、OP 与封禁名单的 Fabric 模组，提供中英文切换，让玩家管理更方便。</p><div class="project-footer"><div class="tags"><span><i class="language-dot"></i>Java</span><span>Fabric</span></div><a class="project-link" href="./projects/piscescup-easy.html" aria-label="了解项目：Pisces Cup Easy">项目介绍 <span aria-hidden="true">↗</span></a></div></div>
           </article>
           <article class="project-card">
             <div class="project-visual visual-advancement" aria-hidden="true"><span class="visual-label">MINECRAFT MOD</span><div class="visual-type">MORE<em>ADVANCEMENTS<span>+</span></em></div><div class="visual-bottom"><span>FABRIC / EXPLORATION</span><span>03</span></div></div>
-            <div class="project-body"><div class="project-topline"><span class="project-category">Minecraft 模组</span><span class="project-number">PROJECT 03</span></div><h3><a href="https://github.com/Piscescup/More-Advancement-fabric-1.21.4" target="_blank" rel="noopener noreferrer">More Advancements</a></h3><p>为 Minecraft 增加额外进度挑战的 Fabric 模组，让游戏中的探索有更多值得完成的目标。</p><div class="project-footer"><div class="tags"><span><i class="language-dot"></i>Java</span><span>Fabric</span></div><a class="project-link" href="https://github.com/Piscescup/More-Advancement-fabric-1.21.4" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 查看 More Advancements">查看项目 <span aria-hidden="true">↗</span></a></div></div>
+            <div class="project-body"><div class="project-topline"><span class="project-category">Minecraft 模组</span><span class="project-number">PROJECT 03</span></div><h3><a href="./projects/more-advancements.html">More Advancements</a></h3><p>为 Minecraft 增加额外进度挑战的 Fabric 模组，让游戏中的探索有更多值得完成的目标。</p><div class="project-footer"><div class="tags"><span><i class="language-dot"></i>Java</span><span>Fabric</span></div><a class="project-link" href="./projects/more-advancements.html" aria-label="了解项目：More Advancements">项目介绍 <span aria-hidden="true">↗</span></a></div></div>
           </article>
           <article class="project-card">
             <div class="project-visual visual-commons" aria-hidden="true"><span class="visual-label">JAVA LIBRARY</span><div class="visual-code commons-code"><span class="code-bracket">&lt;</span><span class="code-name">commons<small>LESS REPETITION.</small></span><span class="code-bracket">/&gt;</span></div><div class="visual-bottom"><span>COMMONS / LIB</span><span>04</span></div></div>
-            <div class="project-body"><div class="project-topline"><span class="project-category">开发工具</span><span class="project-number">PROJECT 04</span></div><h3><a href="https://github.com/Piscescup/commons-lib" target="_blank" rel="noopener noreferrer">Commons Lib</a></h3><p>基于 Java 21 的通用工具库，涵盖字符串与数组、参数校验、区间、元组和函数接口，减少重复代码。</p><div class="project-footer"><div class="tags"><span><i class="language-dot"></i>Java 21</span><span>Library</span></div><a class="project-link" href="https://github.com/Piscescup/commons-lib" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 查看 Commons Lib">查看项目 <span aria-hidden="true">↗</span></a></div></div>
+            <div class="project-body"><div class="project-topline"><span class="project-category">开发工具</span><span class="project-number">PROJECT 04</span></div><h3><a href="./projects/commons-lib.html">Commons Lib</a></h3><p>基于 Java 21 的通用工具库，涵盖字符串与数组、参数校验、区间、元组和函数接口，减少重复代码。</p><div class="project-footer"><div class="tags"><span><i class="language-dot"></i>Java 21</span><span>Library</span></div><a class="project-link" href="./projects/commons-lib.html" aria-label="了解项目：Commons Lib">项目介绍 <span aria-hidden="true">↗</span></a></div></div>
           </article>
         </div>
         <a class="all-projects" href="https://github.com/Piscescup?tab=repositories" target="_blank" rel="noopener noreferrer"><span>还有一些想法，正在变成代码。</span><strong>查看所有仓库 <span aria-hidden="true">↗</span></strong></a>

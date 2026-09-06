@@ -2,8 +2,8 @@
   "name": "piscescup-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "PiscesCup 的个人主页与项目展示",
+  "description": "PiscesCup 的中英文个人主页与独立项目介绍页面",
   "type": "module",
-  "scripts": { "dev": "node scripts/serve.mjs", "build": "node scripts/build.mjs" },
+  "scripts": { "dev": "node scripts/serve.mjs", "check": "node scripts/check-site.mjs", "build": "npm run check && node scripts/build.mjs" },
   "engines": { "node": ">=18" }
 }
