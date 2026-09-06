@@ -1,1 +1,81 @@
-Welcome to the pages of Pisces Cup
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101e2c" />
+  <meta name="description" content="你好，我是 PiscesCup。这里是我的个人主页，分享 Minecraft 模组、Java 开发库和开源项目。" />
+  <title>PiscesCup · 个人主页与项目</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="alternate" hreflang="zh-CN" href="./index.html" />
+  <link rel="alternate" hreflang="en" href="./en/index.html" />
+  <script src="./script.js" defer></script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#projects">跳转到项目</a>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#home" aria-label="PiscesCup 首页"><span class="brand-mark" aria-hidden="true">P<span>·</span></span>PiscesCup<span class="brand-dot">.</span></a>
+      <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false"><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="主导航">
+        <a class="nav-link is-active" href="#home" aria-current="location">首页</a>
+        <a class="nav-link" href="#projects">项目</a>
+        <a class="nav-link" href="#about">关于我</a>
+        <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+      <nav class="language-switch" aria-label="选择语言">
+        <span lang="zh-CN" aria-current="true">中文</span>
+        <a href="./en/index.html" lang="en" hreflang="en" data-language-switch>EN</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="orbital orbital-one" aria-hidden="true"></div>
+      <div class="orbital orbital-two" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow hero-eyebrow"><span></span> HELLO, WORLD.</p>
+        <h1 id="hero-title">PiscesCup<span>.</span></h1>
+        <p class="hero-description">想法从这里出发，在代码里慢慢成形。</p>
+        <div class="hero-topics" aria-label="项目方向"><span>Minecraft</span><span>Java</span><span>Open source</span></div>
+        <a class="hero-button" href="#projects">探索我的项目 <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-bottom"><span>一个关于我和我的作品的小小空间</span><a href="#projects" aria-label="向下浏览项目">向下探索 <span aria-hidden="true">↓</span></a><span class="hero-index">PERSONAL SPACE / 01</span></div>
+    </section>
+    <div class="content-shell">
+      <section id="projects" class="projects-section" aria-labelledby="projects-title">
+        <div class="section-heading"><div><p class="eyebrow">SELECTED PROJECTS</p><h2 id="projects-title">把想法写成作品<span class="heading-dot">.</span></h2></div><span class="section-count">01 — 04</span></div>
+        <p class="section-description">一些正在 GitHub 上生长的项目。</p>
+        <!-- 项目详情位于 projects/；对应英文页面位于 en/projects/。 -->
+        <div class="project-list">
+          <article class="project-card project-featured">
+            <div class="project-visual visual-library" aria-hidden="true"><span class="visual-label">DEVELOPER LIBRARY</span><div class="visual-code"><span class="code-bracket">{</span><span class="code-name">PC<span>Lib</span><small>VERSION 2</small></span><span class="code-bracket">}</span></div><div class="visual-bottom"><span>JAVA / MINECRAFT</span><span>01</span></div></div>
+            <div class="project-body"><div class="project-topline"><span class="project-category">开发工具</span><span class="project-number">PROJECT 01</span></div><h3><a href="./projects/pc-develop-lib.html">PiscesCup Develop Lib <span class="version-tag">V2</span></a></h3><p>面向 Minecraft Fabric 的开发基础库，提供内容注册、数据生成、命令与常用工具等可复用能力。</p><div class="project-footer"><div class="tags"><span><i class="language-dot"></i>Java</span><span>Minecraft</span></div><a class="project-link" href="./projects/pc-develop-lib.html" aria-label="了解项目：PiscesCup Develop Lib V2">项目介绍 <span aria-hidden="true">↗</span></a></div></div>
+          </article>
+          <article class="project-card">
+            <div class="project-visual visual-whitelist" aria-hidden="true"><span class="visual-label">MINECRAFT MOD</span><div class="visual-type">ACCESS<em>GRANTED<span>_</span></em></div><div class="visual-bottom"><span>FABRIC / PLAYER MANAGEMENT</span><span>02</span></div></div>
+            <div class="project-body"><div class="project-topline"><span class="project-category">Minecraft 模组</span><span class="project-number">PROJECT 02</span></div><h3><a href="./projects/piscescup-easy.html">Pisces Cup Easy</a></h3><p>通过玩家名管理白名单、OP 与封禁名单的 Fabric 模组，提供中英文切换，让玩家管理更方便。</p><div class="project-footer"><div class="tags"><span><i class="language-dot"></i>Java</span><span>Fabric</span></div><a class="project-link" href="./projects/piscescup-easy.html" aria-label="了解项目：Pisces Cup Easy">项目介绍 <span aria-hidden="true">↗</span></a></div></div>
+          </article>
+          <article class="project-card">
+            <div class="project-visual visual-advancement" aria-hidden="true"><span class="visual-label">MINECRAFT MOD</span><div class="visual-type">MORE<em>ADVANCEMENTS<span>+</span></em></div><div class="visual-bottom"><span>FABRIC / EXPLORATION</span><span>03</span></div></div>
+            <div class="project-body"><div class="project-topline"><span class="project-category">Minecraft 模组</span><span class="project-number">PROJECT 03</span></div><h3><a href="./projects/more-advancements.html">More Advancements</a></h3><p>为 Minecraft 增加额外进度挑战的 Fabric 模组，让游戏中的探索有更多值得完成的目标。</p><div class="project-footer"><div class="tags"><span><i class="language-dot"></i>Java</span><span>Fabric</span></div><a class="project-link" href="./projects/more-advancements.html" aria-label="了解项目：More Advancements">项目介绍 <span aria-hidden="true">↗</span></a></div></div>
+          </article>
+          <article class="project-card">
+            <div class="project-visual visual-commons" aria-hidden="true"><span class="visual-label">JAVA LIBRARY</span><div class="visual-code commons-code"><span class="code-bracket">&lt;</span><span class="code-name">commons<small>LESS REPETITION.</small></span><span class="code-bracket">/&gt;</span></div><div class="visual-bottom"><span>COMMONS / LIB</span><span>04</span></div></div>
+            <div class="project-body"><div class="project-topline"><span class="project-category">开发工具</span><span class="project-number">PROJECT 04</span></div><h3><a href="./projects/commons-lib.html">Commons Lib</a></h3><p>基于 Java 21 的通用工具库，涵盖字符串与数组、参数校验、区间、元组和函数接口，减少重复代码。</p><div class="project-footer"><div class="tags"><span><i class="language-dot"></i>Java 21</span><span>Library</span></div><a class="project-link" href="./projects/commons-lib.html" aria-label="了解项目：Commons Lib">项目介绍 <span aria-hidden="true">↗</span></a></div></div>
+          </article>
+        </div>
+        <a class="all-projects" href="https://github.com/Piscescup?tab=repositories" target="_blank" rel="noopener noreferrer"><span>还有一些想法，正在变成代码。</span><strong>查看所有仓库 <span aria-hidden="true">↗</span></strong></a>
+      </section>
+      <aside class="sidebar" aria-label="个人资料">
+        <section id="about" class="profile-card" aria-labelledby="profile-name"><div class="profile-cover" aria-hidden="true"><span>KEEP CREATING.</span><span>✳</span></div><div class="profile-content"><img class="avatar" src="./assets/avatar.jpg" alt="PiscesCup 的 GitHub 头像" width="88" height="88" loading="lazy" /><p class="profile-greeting">很高兴在这里遇见你</p><h2 id="profile-name">PiscesCup<span>.</span></h2><p class="profile-description">你好，欢迎来到我的个人空间。<br />这里收集我的项目，也为接下来的想法留一点位置。</p><div class="profile-tags"><span>Java</span><span>Minecraft</span><span>开源项目</span></div><a class="profile-button" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">在 GitHub 找到我 <span aria-hidden="true">↗</span></a></div></section>
+        <section class="note-card" aria-labelledby="note-title"><p class="eyebrow">A LITTLE NOTE</p><h2 id="note-title">关于这个小站</h2><p>从一行代码开始，慢慢搭建属于自己的地方。</p><p>如果某个项目让你感兴趣，欢迎去仓库看看，或通过 Issue 交流想法。</p><span class="note-signature">See you on GitHub <span aria-hidden="true">↗</span></span></section>
+        <div class="sidebar-footnote"><span class="status-dot" aria-hidden="true"></span>保持好奇，继续创造。</div>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-footer"><div><a class="footer-brand" href="#home">PiscesCup<span>.</span></a><p>© <span id="year">2026</span> PiscesCup</p></div><p>以代码记录想法，让作品介绍自己。</p><a class="back-top" href="#home">回到顶部 <span aria-hidden="true">↑</span></a></footer>
+</body>
+</html>
