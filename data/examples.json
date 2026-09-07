@@ -1,0 +1,27 @@
+{
+  "commons-lib": {
+    "readmeUrl": "https://github.com/Piscescup/commons-lib/blob/master/README.md",
+    "checkedAt": "2026-09-07",
+    "introKey": "examples.commons.intro",
+    "items": [
+      { "id": "string-naming", "className": "StringNaming", "titleKey": "examples.commons.naming", "descriptionKey": "examples.commons.namingDescription", "anchor": "string-naming-conversion", "output": "hello_world\nPlayerInventory\nplayerLevel" },
+      { "id": "interval-checks", "className": "IntervalChecks", "titleKey": "examples.commons.interval", "descriptionKey": "examples.commons.intervalDescription", "anchor": "interval-checks", "output": "true\nfalse\nInt Interval: [1, 10)" },
+      { "id": "counters", "className": "Counters", "titleKey": "examples.commons.counter", "descriptionKey": "examples.commons.counterDescription", "anchor": "counters", "output": "5" },
+      { "id": "extended-functions", "className": "ExtendedFunctions", "titleKey": "examples.commons.function", "descriptionKey": "examples.commons.functionDescription", "anchor": "extended-function", "output": "24\n24\n24" },
+      { "id": "pair-mapping", "className": "PairMapping", "titleKey": "examples.commons.pair", "descriptionKey": "examples.commons.pairDescription", "anchor": "pair-mapping", "output": "APPLE\n3" }
+    ]
+  },
+  "linq-for-java": {
+    "readmeUrl": "https://github.com/Piscescup/linq-for-java/blob/main/README.md",
+    "checkedAt": "2026-09-07",
+    "introKey": "examples.linq.intro",
+    "items": [
+      { "id": "filtering", "className": "Filtering", "titleKey": "examples.linq.filter", "descriptionKey": "examples.linq.filterDescription", "anchor": "filtering", "output": "[2, 4]" },
+      { "id": "projection", "className": "Projection", "titleKey": "examples.linq.projection", "descriptionKey": "examples.linq.projectionDescription", "anchor": "projection", "output": "[5, 3, 7]" },
+      { "id": "ordering", "className": "Ordering", "titleKey": "examples.linq.ordering", "descriptionKey": "examples.linq.orderingDescription", "anchor": "ordering", "output": "[Bob-20, Alice-25, Charlie-25]" },
+      { "id": "aggregation", "className": "Aggregation", "titleKey": "examples.linq.aggregation", "descriptionKey": "examples.linq.aggregationDescription", "anchor": "aggregation", "output": "total = 15, avg = 3.0" },
+      { "id": "set-operations", "className": "SetOperations", "titleKey": "examples.linq.sets", "descriptionKey": "examples.linq.setsDescription", "anchor": "set-operations", "output": "distinct = [1, 2, 3, 4]\nexcept = [1, 2]\nintersect = [3, 4]\nunion = [1, 2, 3, 4, 5, 6]" },
+      { "id": "student-query", "className": "StudentQuery", "titleKey": "examples.linq.students", "descriptionKey": "examples.linq.studentsDescription", "anchor": "example", "output": "[Alice, Charlie]" }
+    ]
+  }
+}

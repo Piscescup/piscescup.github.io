@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101e2c" />
+  <meta name="description" content="LINQ for Java：面向 Java 25 的 Enumerable 查询库，支持链式查询、延迟执行与基本类型专用序列。" data-i18n-content="linq.description" />
+  <title data-i18n="linq.title">LINQ for Java · PiscesCup</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/projects.css" />
+  <link rel="stylesheet" href="../css/catalog.css" />
+  <link rel="alternate" hreflang="zh-CN" href="./linq-for-java.html?lang=zh-CN" />
+  <link rel="alternate" hreflang="en" href="./linq-for-java.html?lang=en" />
+  <script src="../js/translations.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/clipboard.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <script src="../js/dependency-formats.js" defer></script>
+  <script src="../js/dependencies.js" defer></script>
+  <script src="../js/code-examples.js" defer></script>
+</head>
+<body class="project-page" data-page="project" id="top">
+  <a class="skip-link" href="#overview" data-i18n="project.skip">跳转到项目简介</a>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P<span>·</span></span>PiscesCup<span class="brand-dot">.</span></a>
+      <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false" data-i18n-aria-label="nav.open"><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="主导航" data-i18n-aria-label="nav.label">
+        <a class="nav-link is-active" href="../index.html#home" aria-current="location" data-i18n="nav.home">首页</a>
+        <a class="nav-link" href="../index.html#projects" data-i18n="nav.projects">项目</a>
+        <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
+        <a class="nav-link" href="../projects/index.html" data-i18n="nav.directory">目录</a>
+        <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+      <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
+        <button type="button" lang="zh-CN" data-language="zh-CN" aria-pressed="true">中文</button>
+        <button type="button" lang="en" data-language="en" aria-pressed="false">EN</button>
+      </nav>
+    </div>
+  </header>
+  <main><section class="project-hero" aria-labelledby="project-title">
+  <div class="project-hero-inner">
+    <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../projects/index.html" data-i18n="catalog.heading">项目分类</a><span aria-hidden="true">/</span><a href="../categories/general.html" data-i18n="category.general">通用项目</a><span aria-hidden="true">/</span><span aria-current="page">LINQ for Java</span></nav>
+    <p class="eyebrow" data-i18n="linq.eyebrow">Java 序列查询库</p>
+    <h1 id="project-title">LINQ for Java</h1>
+    <p class="project-lead" data-i18n="linq.lead">用熟悉的 LINQ 风格，把数据处理写成可组合的查询。</p>
+    <div class="project-actions"><a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">从这里开始</span> <span aria-hidden="true">↓</span></a><a class="source-button" href="https://github.com/Piscescup/linq-for-java" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">在 GitHub 查看</span> <span aria-hidden="true">↗</span></a><a class="source-button" href="../javadoc/linq-for-java.html" data-project-javadoc data-i18n="javadoc.label">Javadoc 文档</a>
+        </div>
+  </div>
+</section>
+<div class="project-section-bar"><nav class="project-sections" aria-label="本页导航" data-i18n-aria-label="project.onPage"><a href="#overview" data-i18n="project.overview">项目简介</a><a href="#enumerables" data-i18n="linq.enumerables">序列类型</a><a href="#features" data-i18n="project.features">主要功能</a><a href="#getting-started" data-i18n="project.start">开始使用</a><a href="#examples" data-i18n="examples.heading">代码示例</a></nav></div>
+<div class="project-layout">
+  <div class="project-main">
+    <section id="overview" class="detail-section"><p class="eyebrow">01 / OVERVIEW</p><h2 data-i18n="project.overview">项目简介</h2><p data-i18n="linq.overview">LINQ for Java 基于 Enumerable 模型，为 Java 集合与序列提供查询操作。通过 where、select、orderBy 等方法组合处理步骤，许多中间操作会在遍历或消费结果时执行。</p></section>
+    <section id="enumerables" class="detail-section">
+      <p class="eyebrow">02 / ENUMERABLE FAMILY</p><h2 data-i18n="linq.enumerables">序列类型</h2><p data-i18n="linq.enumerablesIntro">在同一个项目中，根据数据类型选择对应的查询入口。</p>
+      <div class="sequence-grid">
+        <article id="enumerable" class="feature-item"><code translate="no" class="notranslate">Enumerable&lt;T&gt;</code><h3 data-i18n="linq.object">对象序列</h3><p data-i18n="linq.objectDescription">从数组、集合或可变参数创建序列，使用筛选、排序、分组和连接等通用操作。</p></article>
+        <article id="int-enumerable" class="feature-item"><code translate="no" class="notranslate">IntEnumerable</code><h3><span translate="no" class="notranslate">Int</span> <span data-i18n="linq.sequences">序列</span></h3><p data-i18n="linq.intDescription">通过 Linq.ofInts 创建 int 专用序列，支持数值查询与 sum、average 等聚合操作。</p></article>
+        <article id="long-enumerable" class="feature-item"><code translate="no" class="notranslate">LongEnumerable</code><h3><span translate="no" class="notranslate">Long</span> <span data-i18n="linq.sequences">序列</span></h3><p data-i18n="linq.longDescription">通过 Linq.ofLongs 处理 long 数据，在基本类型管道中减少不必要的装箱与拆箱。</p></article>
+        <article id="double-enumerable" class="feature-item"><code translate="no" class="notranslate">DoubleEnumerable</code><h3><span translate="no" class="notranslate">Double</span> <span data-i18n="linq.sequences">序列</span></h3><p data-i18n="linq.doubleDescription">通过 Linq.ofDoubles 查询 double 数据，适合浮点数筛选、转换与统计。</p></article>
+      </div>
+    </section>
+    <section id="features" class="detail-section"><p class="eyebrow">03 / QUERY OPERATORS</p><h2 data-i18n="project.features">主要功能</h2><div class="sequence-grid">
+      <article class="feature-item"><span class="feature-index">01</span><h3 data-i18n="linq.features.filter">筛选与投影</h3><p data-i18n="linq.features.filterDescription">where 筛选元素，select 转换结果；skip 与 take 控制序列范围。</p></article>
+      <article class="feature-item"><span class="feature-index">02</span><h3 data-i18n="linq.features.order">排序与分组</h3><p data-i18n="linq.features.orderDescription">orderBy 与 thenBy 组合多级排序，groupBy 按键组织元素。</p></article>
+      <article class="feature-item"><span class="feature-index">03</span><h3 data-i18n="linq.features.join">连接与集合</h3><p data-i18n="linq.features.joinDescription">join、groupJoin 关联序列，distinct、union、intersect、except 处理集合关系。</p></article>
+      <article class="feature-item"><span class="feature-index">04</span><h3 data-i18n="linq.features.aggregate">聚合与结果</h3><p data-i18n="linq.features.aggregateDescription">使用 count、first、aggregate 等操作消费结果，或转换为 List、数组和 Map。</p></article>
+    </div></section>
+    <section id="getting-started" class="detail-section"><p class="eyebrow">04 / GET STARTED</p><h2 data-i18n="project.start">开始使用</h2><div class="getting-started">
+      <ol><li><strong data-i18n="linq.prepare">准备 Java 25</strong><br /><span data-i18n="linq.prepareDescription">仓库的 README 与编译配置要求 JDK 25 或更新版本。</span></li><li><strong data-i18n="linq.install">添加依赖</strong><br /><span data-i18n="linq.installDescription">选择构建工具并复制依赖示例。1.0.0 来自仓库 pom.xml；使用前请确认已发布，或先按 README 构建并安装到本地仓库。</span></li></ol>
+      <!-- dependency:start -->
+<div class="dependency-widget" data-dependency data-group-id="io.github.piscescup" data-artifact-id="linq-for-java" data-release-status="source">
+    <div class="dependency-heading"><div><p class="dependency-kicker">INSTALL / LINQ for Java</p><h3 data-i18n="dependency.heading">把它加入你的项目</h3></div><label class="dependency-version" hidden><span data-i18n="dependency.version">版本</span><select data-dependency-version translate="no" class="notranslate" disabled><option value="1.0.0" selected>1.0.0</option></select></label></div>
+    <p class="dependency-notice dependency-notice-source" id="linq-for-java-dependency-notice"><span data-i18n="dependency.source">源码版本示例：检查时 Maven Central 未返回此项目的版本元数据。直接添加可能无法解析，请先确认发布状态或在本地构建安装。</span> <span class="dependency-checked"><span data-i18n="dependency.checked">核对日期：</span> <time datetime="2026-09-07">2026-09-07</time></span></p>
+    <div class="dependency-tabs" role="tablist" aria-label="依赖引入格式" data-i18n-aria-label="dependency.formats" hidden><button type="button" role="tab" id="linq-for-java-dependency-tab-maven" aria-controls="linq-for-java-dependency-panel-maven" aria-selected="true" tabindex="0" data-dependency-tab="maven" translate="no" class="notranslate">Maven</button><button type="button" role="tab" id="linq-for-java-dependency-tab-gradle" aria-controls="linq-for-java-dependency-panel-gradle" aria-selected="false" tabindex="-1" data-dependency-tab="gradle" translate="no" class="notranslate">Gradle</button><button type="button" role="tab" id="linq-for-java-dependency-tab-kotlin" aria-controls="linq-for-java-dependency-panel-kotlin" aria-selected="false" tabindex="-1" data-dependency-tab="kotlin" translate="no" class="notranslate">Gradle Kotlin</button><button type="button" role="tab" id="linq-for-java-dependency-tab-ivy" aria-controls="linq-for-java-dependency-panel-ivy" aria-selected="false" tabindex="-1" data-dependency-tab="ivy" translate="no" class="notranslate">Ivy</button><button type="button" role="tab" id="linq-for-java-dependency-tab-download" aria-controls="linq-for-java-dependency-panel-download" aria-selected="false" tabindex="-1" data-dependency-tab="download" translate="no" class="notranslate">Download</button></div>
+    <section class="dependency-panel" id="linq-for-java-dependency-panel-maven" data-dependency-panel="maven">
+      <div class="dependency-toolbar"><h4 translate="no" class="notranslate">Maven <span>· pom.xml</span></h4><button type="button" class="dependency-copy" data-dependency-copy hidden><span data-i18n="dependency.copy">复制依赖</span><span aria-hidden="true"> ⧉</span></button></div>
+      <pre class="code-example" tabindex="0" aria-label="Maven" aria-describedby="linq-for-java-dependency-notice"><code translate="no" class="notranslate">&lt;dependency&gt;
+    &lt;groupId&gt;io.github.piscescup&lt;/groupId&gt;
+    &lt;artifactId&gt;linq-for-java&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+      <p class="dependency-help" data-i18n="dependency.mavenHelp">放入 pom.xml 的 dependencies 节点中。</p>
+    </section>
+<section class="dependency-panel" id="linq-for-java-dependency-panel-gradle" data-dependency-panel="gradle">
+      <div class="dependency-toolbar"><h4 translate="no" class="notranslate">Gradle <span>· build.gradle</span></h4><button type="button" class="dependency-copy" data-dependency-copy hidden><span data-i18n="dependency.copy">复制依赖</span><span aria-hidden="true"> ⧉</span></button></div>
+      <pre class="code-example" tabindex="0" aria-label="Gradle" aria-describedby="linq-for-java-dependency-notice"><code translate="no" class="notranslate">repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation &#39;io.github.piscescup:linq-for-java:1.0.0&#39;
+}</code></pre>
+      <p class="dependency-help" data-i18n="dependency.gradleHelp">合并到 build.gradle 对应的 repositories 和 dependencies 配置中。</p>
+    </section>
+<section class="dependency-panel" id="linq-for-java-dependency-panel-kotlin" data-dependency-panel="kotlin">
+      <div class="dependency-toolbar"><h4 translate="no" class="notranslate">Gradle Kotlin <span>· build.gradle.kts</span></h4><button type="button" class="dependency-copy" data-dependency-copy hidden><span data-i18n="dependency.copy">复制依赖</span><span aria-hidden="true"> ⧉</span></button></div>
+      <pre class="code-example" tabindex="0" aria-label="Gradle Kotlin" aria-describedby="linq-for-java-dependency-notice"><code translate="no" class="notranslate">repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(&quot;io.github.piscescup:linq-for-java:1.0.0&quot;)
+}</code></pre>
+      <p class="dependency-help" data-i18n="dependency.kotlinHelp">合并到 build.gradle.kts 对应的 repositories 和 dependencies 配置中。</p>
+    </section>
+<section class="dependency-panel" id="linq-for-java-dependency-panel-ivy" data-dependency-panel="ivy">
+      <div class="dependency-toolbar"><h4 translate="no" class="notranslate">Ivy <span>· ivy.xml</span></h4><button type="button" class="dependency-copy" data-dependency-copy hidden><span data-i18n="dependency.copy">复制依赖</span><span aria-hidden="true"> ⧉</span></button></div>
+      <pre class="code-example" tabindex="0" aria-label="Ivy" aria-describedby="linq-for-java-dependency-notice"><code translate="no" class="notranslate">&lt;dependency org=&quot;io.github.piscescup&quot; name=&quot;linq-for-java&quot; rev=&quot;1.0.0&quot; conf=&quot;default-&gt;default&quot; /&gt;</code></pre>
+      <p class="dependency-help" data-i18n="dependency.ivyHelp">放入 ivy.xml 的 dependencies 节点，并在 Ivy settings 中配置 Maven Central 解析器。</p>
+    </section>
+    <section class="dependency-panel dependency-download" id="linq-for-java-dependency-panel-download" data-dependency-panel="download"><h4 translate="no">Download</h4><p data-i18n="dependency.noDownload">尚未确认可下载的发布包，因此这里暂不提供 JAR 直链。请先阅读仓库的构建说明。</p><div class="dependency-download-links"><a href="https://github.com/Piscescup/linq-for-java#readme" target="_blank" rel="noopener noreferrer"><span data-i18n="dependency.readme">查看构建与使用说明</span> <span aria-hidden="true">↗</span></a></div></section>
+    <div class="dependency-footer"><p class="dependency-feedback" role="status" aria-live="polite" aria-atomic="true" data-dependency-feedback></p><a href="https://github.com/Piscescup/linq-for-java/blob/main/pom.xml" target="_blank" rel="noopener noreferrer"><span data-i18n="dependency.pomSource">查看源码 POM</span> <span aria-hidden="true">↗</span></a></div>
+    <noscript><p class="dependency-help" data-i18n="dependency.noScript">未启用 JavaScript：已显示默认版本的所有依赖格式，可手动选中复制。版本切换与一键复制需要 JavaScript。</p></noscript>
+  </div>
+<!-- dependency:end -->
+      <p><a href="#examples" data-i18n="examples.explore">查看 README 代码示例</a></p>
+      <p class="source-note"><a href="https://central.sonatype.com/artifact/io.github.piscescup/linq-for-java" target="_blank" rel="noopener noreferrer">Maven Central ↗</a></p>
+      <p class="source-note"><a href="https://github.com/Piscescup/linq-for-java#readme" target="_blank" rel="noopener noreferrer" data-i18n="linq.readme">阅读完整 README</a></p>
+    </div></section>
+    <section id="examples" class="detail-section" aria-labelledby="examples-title"><p class="eyebrow">05 / README EXAMPLES</p><h2 id="examples-title" data-i18n="examples.heading">代码示例</h2><!-- examples:start -->
+<p data-i18n="examples.linq.intro">选取 LINQ for Java README 的六组查询示例，补齐 import、main 和必要的 record 定义。已使用仓库 1.0.0 源码与 JDK 25 编译运行；该源码版本的发布状态仍以依赖区提示为准。</p>
+    <p class="examples-intro" data-i18n="examples.runHint">展开示例可查看完整 Java 类和运行结果。先添加依赖，再将代码保存为标注的文件名并运行 main；代码和类型名不随语言切换而改变。示例不随依赖版本选择自动改写。</p>
+    <p class="examples-checked"><span data-i18n="examples.checked">README 核对日期：</span> <time datetime="2026-09-07">2026-09-07</time></p>
+    <div class="readme-examples"><details class="readme-example" data-example="filtering" open>
+      <summary id="example-filtering"><span class="example-number" aria-hidden="true">01</span><span data-i18n="examples.linq.filter">筛选偶数</span><span class="example-toggle" aria-hidden="true">+</span></summary>
+      <div class="example-body"><p data-i18n="examples.linq.filterDescription">使用 Linq.ofInts 创建 Int 序列，通过 where 保留偶数，再用 toArray 获取结果。</p>
+        <div class="example-toolbar"><span translate="no" class="notranslate">Filtering.java</span><button class="dependency-copy" type="button" data-example-copy hidden><span data-i18n="examples.copy">复制代码</span><span aria-hidden="true"> ⧉</span></button></div>
+        <pre class="code-example" tabindex="0" aria-labelledby="example-filtering"><code translate="no" class="notranslate" data-example-code>import io.github.piscescup.linq4j.Linq;
+import java.util.Arrays;
+
+public class Filtering {
+    public static void main(String[] args) {
+        var evens = Linq.ofInts(1, 2, 3, 4, 5)
+            .where(value -&gt; value % 2 == 0)
+            .toArray();
+
+        System.out.println(Arrays.toString(evens));
+    }
+}</code></pre>
+        <p class="example-feedback" role="status" aria-live="polite" aria-atomic="true" data-example-feedback></p>
+        <h3 class="example-output-label" id="example-filtering-output" data-i18n="examples.output">运行结果</h3>
+        <pre class="example-output" tabindex="0" aria-labelledby="example-filtering-output"><code translate="no" class="notranslate">[2, 4]</code></pre>
+        <a class="example-source" href="https://github.com/Piscescup/linq-for-java/blob/main/README.md#filtering" target="_blank" rel="noopener noreferrer"><span data-i18n="examples.source">查看 README 对应示例</span> <span aria-hidden="true">↗</span></a>
+      </div>
+    </details>
+<details class="readme-example" data-example="projection">
+      <summary id="example-projection"><span class="example-number" aria-hidden="true">02</span><span data-i18n="examples.linq.projection">投影为字符串长度</span><span class="example-toggle" aria-hidden="true">+</span></summary>
+      <div class="example-body"><p data-i18n="examples.linq.projectionDescription">通过 select 和 String::length 将名字转换为长度，再收集为 List。</p>
+        <div class="example-toolbar"><span translate="no" class="notranslate">Projection.java</span><button class="dependency-copy" type="button" data-example-copy hidden><span data-i18n="examples.copy">复制代码</span><span aria-hidden="true"> ⧉</span></button></div>
+        <pre class="code-example" tabindex="0" aria-labelledby="example-projection"><code translate="no" class="notranslate" data-example-code>import io.github.piscescup.linq4j.Linq;
+
+public class Projection {
+    public static void main(String[] args) {
+        var nameLengths = Linq.of(&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;)
+            .select(String::length)
+            .toList();
+
+        System.out.println(nameLengths);
+    }
+}</code></pre>
+        <p class="example-feedback" role="status" aria-live="polite" aria-atomic="true" data-example-feedback></p>
+        <h3 class="example-output-label" id="example-projection-output" data-i18n="examples.output">运行结果</h3>
+        <pre class="example-output" tabindex="0" aria-labelledby="example-projection-output"><code translate="no" class="notranslate">[5, 3, 7]</code></pre>
+        <a class="example-source" href="https://github.com/Piscescup/linq-for-java/blob/main/README.md#projection" target="_blank" rel="noopener noreferrer"><span data-i18n="examples.source">查看 README 对应示例</span> <span aria-hidden="true">↗</span></a>
+      </div>
+    </details>
+<details class="readme-example" data-example="ordering">
+      <summary id="example-ordering"><span class="example-number" aria-hidden="true">03</span><span data-i18n="examples.linq.ordering">多级排序</span><span class="example-toggle" aria-hidden="true">+</span></summary>
+      <div class="example-body"><p data-i18n="examples.linq.orderingDescription">先按 age 排序，再按 name 排序。Person 的 toString 保留 README 中的输出格式，省略了非运行必需的注解。</p>
+        <div class="example-toolbar"><span translate="no" class="notranslate">Ordering.java</span><button class="dependency-copy" type="button" data-example-copy hidden><span data-i18n="examples.copy">复制代码</span><span aria-hidden="true"> ⧉</span></button></div>
+        <pre class="code-example" tabindex="0" aria-labelledby="example-ordering"><code translate="no" class="notranslate" data-example-code>import io.github.piscescup.linq4j.Linq;
+
+public class Ordering {
+    record Person(String name, int age) {
+        @Override
+        public String toString() {
+            return name + &quot;-&quot; + age;
+        }
+    }
+
+    public static void main(String[] args) {
+        var people = Linq.of(
+            new Person(&quot;Alice&quot;, 25),
+            new Person(&quot;Bob&quot;, 20),
+            new Person(&quot;Charlie&quot;, 25)
+        );
+
+        var ordered = people
+            .orderBy(Person::age)
+            .thenBy(Person::name)
+            .toList();
+
+        System.out.println(ordered);
+    }
+}</code></pre>
+        <p class="example-feedback" role="status" aria-live="polite" aria-atomic="true" data-example-feedback></p>
+        <h3 class="example-output-label" id="example-ordering-output" data-i18n="examples.output">运行结果</h3>
+        <pre class="example-output" tabindex="0" aria-labelledby="example-ordering-output"><code translate="no" class="notranslate">[Bob-20, Alice-25, Charlie-25]</code></pre>
+        <a class="example-source" href="https://github.com/Piscescup/linq-for-java/blob/main/README.md#ordering" target="_blank" rel="noopener noreferrer"><span data-i18n="examples.source">查看 README 对应示例</span> <span aria-hidden="true">↗</span></a>
+      </div>
+    </details>
+<details class="readme-example" data-example="aggregation">
+      <summary id="example-aggregation"><span class="example-number" aria-hidden="true">04</span><span data-i18n="examples.linq.aggregation">数值聚合</span><span class="example-toggle" aria-hidden="true">+</span></summary>
+      <div class="example-body"><p data-i18n="examples.linq.aggregationDescription">使用 IntEnumerable 的 sum 和 average 求和与平均值；将 README 打印标签中的 age 修正为 avg。</p>
+        <div class="example-toolbar"><span translate="no" class="notranslate">Aggregation.java</span><button class="dependency-copy" type="button" data-example-copy hidden><span data-i18n="examples.copy">复制代码</span><span aria-hidden="true"> ⧉</span></button></div>
+        <pre class="code-example" tabindex="0" aria-labelledby="example-aggregation"><code translate="no" class="notranslate" data-example-code>import io.github.piscescup.linq4j.core.IntEnumerable;
+
+public class Aggregation {
+    public static void main(String[] args) {
+        int total = IntEnumerable.ofInts(1, 2, 3, 4, 5).sum();
+        double avg = IntEnumerable.ofInts(1, 2, 3, 4, 5).average();
+
+        System.out.println(&quot;total = &quot; + total + &quot;, avg = &quot; + avg);
+    }
+}</code></pre>
+        <p class="example-feedback" role="status" aria-live="polite" aria-atomic="true" data-example-feedback></p>
+        <h3 class="example-output-label" id="example-aggregation-output" data-i18n="examples.output">运行结果</h3>
+        <pre class="example-output" tabindex="0" aria-labelledby="example-aggregation-output"><code translate="no" class="notranslate">total = 15, avg = 3.0</code></pre>
+        <a class="example-source" href="https://github.com/Piscescup/linq-for-java/blob/main/README.md#aggregation" target="_blank" rel="noopener noreferrer"><span data-i18n="examples.source">查看 README 对应示例</span> <span aria-hidden="true">↗</span></a>
+      </div>
+    </details>
+<details class="readme-example" data-example="set-operations">
+      <summary id="example-set-operations"><span class="example-number" aria-hidden="true">05</span><span data-i18n="examples.linq.sets">集合运算</span><span class="example-toggle" aria-hidden="true">+</span></summary>
+      <div class="example-body"><p data-i18n="examples.linq.setsDescription">分别使用 distinct、except、intersect 和 union 获得去重、差集、交集与并集结果。</p>
+        <div class="example-toolbar"><span translate="no" class="notranslate">SetOperations.java</span><button class="dependency-copy" type="button" data-example-copy hidden><span data-i18n="examples.copy">复制代码</span><span aria-hidden="true"> ⧉</span></button></div>
+        <pre class="code-example" tabindex="0" aria-labelledby="example-set-operations"><code translate="no" class="notranslate" data-example-code>import io.github.piscescup.linq4j.Linq;
+
+public class SetOperations {
+    public static void main(String[] args) {
+        var seq1 = Linq.of(1, 2, 3, 4);
+        var seq2 = Linq.of(3, 4, 5, 6);
+
+        var distinct = seq1.distinct().toList();
+        var except = seq1.except(seq2).toList();
+        var intersect = seq1.intersect(seq2).toList();
+        var union = seq1.union(seq2).toList();
+
+        System.out.println(&quot;distinct = &quot; + distinct);
+        System.out.println(&quot;except = &quot; + except);
+        System.out.println(&quot;intersect = &quot; + intersect);
+        System.out.println(&quot;union = &quot; + union);
+    }
+}</code></pre>
+        <p class="example-feedback" role="status" aria-live="polite" aria-atomic="true" data-example-feedback></p>
+        <h3 class="example-output-label" id="example-set-operations-output" data-i18n="examples.output">运行结果</h3>
+        <pre class="example-output" tabindex="0" aria-labelledby="example-set-operations-output"><code translate="no" class="notranslate">distinct = [1, 2, 3, 4]
+except = [1, 2]
+intersect = [3, 4]
+union = [1, 2, 3, 4, 5, 6]</code></pre>
+        <a class="example-source" href="https://github.com/Piscescup/linq-for-java/blob/main/README.md#set-operations" target="_blank" rel="noopener noreferrer"><span data-i18n="examples.source">查看 README 对应示例</span> <span aria-hidden="true">↗</span></a>
+      </div>
+    </details>
+<details class="readme-example" data-example="student-query">
+      <summary id="example-student-query"><span class="example-number" aria-hidden="true">06</span><span data-i18n="examples.linq.students">组合查询：成绩筛选与排序</span><span class="example-toggle" aria-hidden="true">+</span></summary>
+      <div class="example-body"><p data-i18n="examples.linq.studentsDescription">沿用 README 的 Student 示例，保留成绩至少 80 分的学生，按成绩降序排列后取出姓名。</p>
+        <div class="example-toolbar"><span translate="no" class="notranslate">StudentQuery.java</span><button class="dependency-copy" type="button" data-example-copy hidden><span data-i18n="examples.copy">复制代码</span><span aria-hidden="true"> ⧉</span></button></div>
+        <pre class="code-example" tabindex="0" aria-labelledby="example-student-query"><code translate="no" class="notranslate" data-example-code>import io.github.piscescup.linq4j.Linq;
+
+public class StudentQuery {
+    record Student(String name, int score) {}
+
+    public static void main(String[] args) {
+        var names = Linq.of(
+                new Student(&quot;Alice&quot;, 92),
+                new Student(&quot;Bob&quot;, 75),
+                new Student(&quot;Charlie&quot;, 88)
+            )
+            .where(student -&gt; student.score() &gt;= 80)
+            .orderByDescending(Student::score)
+            .select(Student::name)
+            .toList();
+
+        System.out.println(names);
+    }
+}</code></pre>
+        <p class="example-feedback" role="status" aria-live="polite" aria-atomic="true" data-example-feedback></p>
+        <h3 class="example-output-label" id="example-student-query-output" data-i18n="examples.output">运行结果</h3>
+        <pre class="example-output" tabindex="0" aria-labelledby="example-student-query-output"><code translate="no" class="notranslate">[Alice, Charlie]</code></pre>
+        <a class="example-source" href="https://github.com/Piscescup/linq-for-java/blob/main/README.md#example" target="_blank" rel="noopener noreferrer"><span data-i18n="examples.source">查看 README 对应示例</span> <span aria-hidden="true">↗</span></a>
+      </div>
+    </details></div>
+<!-- examples:end --></section>
+    <section class="detail-section"><h2 data-i18n="catalog.related">相关项目</h2><p data-i18n="linq.relatedDescription">也可以了解项目使用的 Commons Lib 工具库，或查看独立的 linq-in-java 仓库。</p><p><a href="./commons-lib.html">Commons Lib</a> · <a href="https://github.com/Piscescup/linq-in-java" target="_blank" rel="noopener noreferrer">linq-in-java ↗</a></p></section>
+  </div>
+  <aside class="project-facts" aria-labelledby="facts-title"><h2 id="facts-title" data-i18n="project.facts">项目信息</h2><dl><div><dt data-i18n="project.author">作者</dt><dd>PiscesCup</dd></div><div><dt data-i18n="project.runtime">运行环境</dt><dd>Java 25+</dd></div><div><dt data-i18n="linq.version">仓库版本</dt><dd>1.0.0</dd></div></dl>
+    <a class="sequence-link" href="#enumerable">Enumerable&lt;T&gt;</a><a class="sequence-link" href="#int-enumerable">IntEnumerable</a><a class="sequence-link" href="#long-enumerable">LongEnumerable</a><a class="sequence-link" href="#double-enumerable">DoubleEnumerable</a>
+    <a href="https://github.com/Piscescup/linq-for-java" target="_blank" rel="noopener noreferrer" data-i18n="project.source">源代码</a><a href="https://github.com/Piscescup/linq-for-java/issues" target="_blank" rel="noopener noreferrer" data-i18n="project.feedback">交流与反馈</a><a class="facts-javadoc" href="../javadoc/linq-for-java.html" data-project-javadoc data-i18n="javadoc.label">Javadoc 文档</a>
+        <a class="facts-back" href="../categories/general.html" data-i18n="catalog.backCategory">返回所属分类</a>
+  </aside>
+</div>
+</main>
+  <footer class="site-footer"><div><a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a><p>© <span id="year">2026</span> PiscesCup</p></div><p data-i18n="footer.motto">以代码记录想法，让作品介绍自己。</p><a class="back-top" href="#top"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a></footer>
+</body>
+</html>

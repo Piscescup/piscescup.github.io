@@ -4,112 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#101e2c" />
-  <meta name="description" content="让熟悉的探索和日常行动，拥有新的进度挑战。" />
+  <meta name="description" content="让熟悉的探索和日常行动，拥有新的进度挑战。" data-i18n-content="more-advancements.meta.description" />
   <title>More Advancements · PiscesCup</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="../projects.css" />
-  <link rel="alternate" hreflang="zh-CN" href="./more-advancements.html" />
-  <link rel="alternate" hreflang="en" href="../en/projects/more-advancements.html" />
-  <script src="../script.js" defer></script>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/projects.css" />
+  <link rel="alternate" hreflang="zh-CN" href="./more-advancements.html?lang=zh-CN" />
+  <link rel="alternate" hreflang="en" href="./more-advancements.html?lang=en" />
+  <script src="../js/translations.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/script.js" defer></script>
 </head>
 <body class="project-page" data-page="project" id="top">
-  <a class="skip-link" href="#overview">跳转到项目简介</a>
+  <a class="skip-link" href="#overview" data-i18n="project.skip">跳转到项目简介</a>
   <header class="site-header">
     <div class="nav-shell">
-      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页"><span class="brand-mark" aria-hidden="true">P<span>·</span></span>PiscesCup<span class="brand-dot">.</span></a>
-      <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false"><span></span><span></span></button>
-      <nav id="site-nav" class="site-nav" aria-label="主导航">
-        <a class="nav-link" href="../index.html#home">首页</a>
-        <a class="nav-link is-active" href="../index.html#projects" aria-current="location">项目</a>
-        <a class="nav-link" href="../index.html#about">关于我</a>
+      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P<span>·</span></span>PiscesCup<span class="brand-dot">.</span></a>
+      <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false" data-i18n-aria-label="nav.open"><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="主导航" data-i18n-aria-label="nav.label">
+        <a class="nav-link" href="../index.html#home" data-i18n="nav.home">首页</a>
+        <a class="nav-link is-active" href="../index.html#projects" aria-current="location" data-i18n="nav.projects">项目</a>
+        <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
+        <a class="nav-link" href="../projects/index.html" data-i18n="nav.directory">目录</a>
         <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
-      <nav class="language-switch" aria-label="选择语言">
-        <span lang="zh-CN" aria-current="true">中文</span>
-        <a href="../en/projects/more-advancements.html" lang="en" hreflang="en" data-language-switch>EN</a>
+      <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
+        <button type="button" lang="zh-CN" data-language="zh-CN" aria-pressed="true">中文</button>
+        <button type="button" lang="en" data-language="en" aria-pressed="false">EN</button>
       </nav>
     </div>
   </header>
   <main>
     <section class="project-hero" aria-labelledby="project-title">
       <div class="project-hero-inner">
-        <nav class="breadcrumbs" aria-label="当前位置"><a href="../index.html">首页</a><span aria-hidden="true">/</span><a href="../index.html#projects">项目</a><span aria-hidden="true">/</span><span aria-current="page">More Advancements</span></nav>
-        <p class="eyebrow">Minecraft 进度模组</p>
+        <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../projects/index.html" data-i18n="catalog.heading">项目分类</a><span aria-hidden="true">/</span><a href="../categories/minecraft.html" data-i18n="category.minecraft">Minecraft 项目</a><span aria-hidden="true">/</span><span aria-current="page">More Advancements</span></nav>
+        <p class="eyebrow" data-i18n="more-advancements.eyebrow">Minecraft 进度模组</p>
         <h1 id="project-title">More Advancements</h1>
-        <p class="project-lead">让熟悉的探索和日常行动，拥有新的进度挑战。</p>
+        <p class="project-lead" data-i18n="more-advancements.lead">让熟悉的探索和日常行动，拥有新的进度挑战。</p>
         <div class="project-actions">
-          <a class="hero-button" href="#getting-started">从这里开始 <span aria-hidden="true">↓</span></a>
-          <a class="source-button" href="https://github.com/Piscescup/More-Advancement-fabric-1.21.4" target="_blank" rel="noopener noreferrer">在 GitHub 查看 <span aria-hidden="true">↗</span></a>
+          <a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">从这里开始</span> <span aria-hidden="true">↓</span></a>
+          <a class="source-button" href="https://github.com/Piscescup/More-Advancement-fabric-1.21.4" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">在 GitHub 查看</span> <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
     <div class="project-section-bar">
-      <nav class="project-sections" aria-label="本页导航">
-        <a href="#overview">项目简介</a>
-        <a href="#features">主要功能</a>
-        <a href="#getting-started">开始使用</a>
+      <nav class="project-sections" aria-label="本页导航" data-i18n-aria-label="project.onPage">
+        <a href="#overview" data-i18n="project.overview">项目简介</a>
+        <a href="#features" data-i18n="project.features">主要功能</a>
+        <a href="#getting-started" data-i18n="project.start">开始使用</a>
       </nav>
     </div>
     <div class="project-layout">
       <div class="project-main">
         <section id="overview" class="detail-section" aria-labelledby="overview-title">
           <p class="eyebrow">01 / OVERVIEW</p>
-          <h2 id="overview-title">项目简介</h2>
-          <p>More Advancements 为 Minecraft 增加额外进度与趣味目标。从探索不同维度到完成日常行动，这个项目为游戏提供了更多可以尝试的挑战，并包含中文和英文文本。</p>
+          <h2 id="overview-title" data-i18n="project.overview">项目简介</h2>
+          <p data-i18n="more-advancements.overview">More Advancements 为 Minecraft 增加额外进度与趣味目标。从探索不同维度到完成日常行动，这个项目为游戏提供了更多可以尝试的挑战，并包含中文和英文文本。</p>
         </section>
         <section id="features" class="detail-section" aria-labelledby="features-title">
           <p class="eyebrow">02 / FEATURES</p>
-          <h2 id="features-title">主要功能</h2>
+          <h2 id="features-title" data-i18n="project.features">主要功能</h2>
           <div class="feature-grid">
             <article class="feature-item">
               <span class="feature-index">01</span>
-              <h3>主题进度</h3>
-              <p>生成的进度数据按冒险、末地、农牧业、Minecraft 与下界分类组织。</p>
+              <h3 data-i18n="more-advancements.features.1.title">主题进度</h3>
+              <p data-i18n="more-advancements.features.1.description">生成的进度数据按冒险、末地、农牧业、Minecraft 与下界分类组织。</p>
             </article>
             <article class="feature-item">
               <span class="feature-index">02</span>
-              <h3>趣味目标</h3>
-              <p>现有目标包括收集头颅、用望远镜观察生物，以及食用紫颂果。</p>
+              <h3 data-i18n="more-advancements.features.2.title">趣味目标</h3>
+              <p data-i18n="more-advancements.features.2.description">现有目标包括收集头颅、用望远镜观察生物，以及食用紫颂果。</p>
             </article>
             <article class="feature-item">
               <span class="feature-index">03</span>
-              <h3>中英文显示</h3>
-              <p>仓库包含 zh_cn 与 en_us 的进度标题和描述。</p>
+              <h3 data-i18n="more-advancements.features.3.title">中英文显示</h3>
+              <p data-i18n="more-advancements.features.3.description">仓库包含 zh_cn 与 en_us 的进度标题和描述。</p>
             </article>
           </div>
         </section>
         <section id="getting-started" class="detail-section" aria-labelledby="getting-started-title">
           <p class="eyebrow">03 / GET STARTED</p>
-          <h2 id="getting-started-title">开始使用</h2>
+          <h2 id="getting-started-title" data-i18n="project.start">开始使用</h2>
           <div class="getting-started">
             <ol>
-              <li><strong>了解项目</strong><br />先阅读 README，了解项目增加进度挑战的目标。</li>
-              <li><strong>浏览进度数据</strong><br />查看生成的进度数据，并结合语言文件了解每个目标的标题与描述。</li>
-              <li><strong>分享新的目标</strong><br />如果你有新的进度想法，可以按照 README 的建议，通过 GitHub Issues 提交。</li>
+              <li><strong data-i18n="more-advancements.steps.1.title">了解项目</strong><br /><span data-i18n="more-advancements.steps.1.description">先阅读 README，了解项目增加进度挑战的目标。</span></li>
+              <li><strong data-i18n="more-advancements.steps.2.title">浏览进度数据</strong><br /><span data-i18n="more-advancements.steps.2.description">查看生成的进度数据，并结合语言文件了解每个目标的标题与描述。</span></li>
+              <li><strong data-i18n="more-advancements.steps.3.title">分享新的目标</strong><br /><span data-i18n="more-advancements.steps.3.description">如果你有新的进度想法，可以按照 README 的建议，通过 GitHub Issues 提交。</span></li>
             </ol>
-            <p class="source-note"><a href="https://github.com/Piscescup/More-Advancement-fabric-1.21.4/blob/master/README.md" target="_blank" rel="noopener noreferrer">阅读项目说明 <span aria-hidden="true">↗</span></a></p>
-            <p class="source-note"><a href="https://github.com/Piscescup/More-Advancement-fabric-1.21.4/tree/master/src/main/generated/data/more_advancement/advancement" target="_blank" rel="noopener noreferrer">浏览进度数据 <span aria-hidden="true">↗</span></a></p>
+            <p class="source-note"><a href="https://github.com/Piscescup/More-Advancement-fabric-1.21.4/blob/master/README.md" target="_blank" rel="noopener noreferrer"><span data-i18n="more-advancements.sources.link1">阅读项目说明</span> <span aria-hidden="true">↗</span></a></p>
+            <p class="source-note"><a href="https://github.com/Piscescup/More-Advancement-fabric-1.21.4/tree/master/src/main/generated/data/more_advancement/advancement" target="_blank" rel="noopener noreferrer"><span data-i18n="more-advancements.sources.link2">浏览进度数据</span> <span aria-hidden="true">↗</span></a></p>
           </div>
         </section>
       </div>
       <aside class="project-facts" aria-labelledby="facts-title">
-        <h2 id="facts-title">项目信息</h2>
+        <h2 id="facts-title" data-i18n="project.facts">项目信息</h2>
         <dl>
-          <div><dt>作者</dt><dd>PiscesCup</dd></div>
-          <div><dt>运行环境</dt><dd>Java 21</dd></div>
-          <div><dt>适用平台</dt><dd>Minecraft Fabric</dd></div>
+          <div><dt data-i18n="project.author">作者</dt><dd>PiscesCup</dd></div>
+          <div><dt data-i18n="project.runtime">运行环境</dt><dd>Java 21</dd></div>
+          <div><dt data-i18n="project.platform">适用平台</dt><dd>Minecraft Fabric</dd></div>
         </dl>
-        <a href="https://github.com/Piscescup/More-Advancement-fabric-1.21.4" target="_blank" rel="noopener noreferrer">源代码 <span aria-hidden="true">↗</span></a>
-        <a href="https://github.com/Piscescup/More-Advancement-fabric-1.21.4/issues" target="_blank" rel="noopener noreferrer">交流与反馈 <span aria-hidden="true">↗</span></a>
-        <a class="facts-back" href="../index.html#projects"><span aria-hidden="true">←</span> 返回全部项目</a>
+        <a href="https://github.com/Piscescup/More-Advancement-fabric-1.21.4" target="_blank" rel="noopener noreferrer"><span data-i18n="project.source">源代码</span> <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/Piscescup/More-Advancement-fabric-1.21.4/issues" target="_blank" rel="noopener noreferrer"><span data-i18n="project.feedback">交流与反馈</span> <span aria-hidden="true">↗</span></a>
+        <a class="facts-back" href="../categories/minecraft.html" data-i18n="catalog.backCategory">返回所属分类</a>
       </aside>
     </div>
   </main>
   <footer class="site-footer">
     <div><a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a><p>© <span id="year">2026</span> PiscesCup</p></div>
-    <p>以代码记录想法，让作品介绍自己。</p>
-    <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+    <p data-i18n="footer.motto">以代码记录想法，让作品介绍自己。</p>
+    <a class="back-top" href="#top"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a>
   </footer>
 </body>
 </html>

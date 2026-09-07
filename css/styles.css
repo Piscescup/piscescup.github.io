@@ -289,7 +289,7 @@ a:focus-visible, button:focus-visible {
     transform: translateY(-3px)
 }
 
-.hero-button span {
+.hero-button span[aria-hidden="true"] {
     font-size: 22px;
     font-weight: 400
 }
@@ -319,7 +319,7 @@ a:focus-visible, button:focus-visible {
     transform: translateX(-50%)
 }
 
-.hero-bottom > a span {
+.hero-bottom > a span[aria-hidden="true"] {
     font-size: 21px
 }
 
@@ -624,7 +624,7 @@ a:focus-visible, button:focus-visible {
     white-space: nowrap
 }
 
-.project-link span {
+.project-link span[aria-hidden="true"] {
     font-size: 17px;
     margin-left: 6px
 }
@@ -650,7 +650,7 @@ a:focus-visible, button:focus-visible {
     white-space: nowrap
 }
 
-.all-projects strong span {
+.all-projects strong span[aria-hidden="true"] {
     margin-left: 7px
 }
 
@@ -764,7 +764,7 @@ a:focus-visible, button:focus-visible {
     background: #25616a
 }
 
-.profile-button span {
+.profile-button span[aria-hidden="true"] {
     font-size: 19px;
     color: #9cd6d6
 }
@@ -863,7 +863,7 @@ a:focus-visible, button:focus-visible {
     font-size: 14px
 }
 
-.back-top span {
+.back-top span[aria-hidden="true"] {
     margin-left: 14px;
     font-size: 18px
 }
@@ -1366,7 +1366,7 @@ a:focus-visible, button:focus-visible {
     white-space: nowrap;
 }
 
-.language-switch a, .language-switch > span {
+.language-switch button {
     padding: .25rem .5rem;
     border-radius: 4px;
     min-height: 32px;
@@ -1375,16 +1375,19 @@ a:focus-visible, button:focus-visible {
     justify-content: center;
 }
 
-.language-switch > span {
+.language-switch button[aria-pressed="true"] {
     color: #173b43;
     background: #bce6e1;
 }
 
-.language-switch a {
+.language-switch button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
     color: #d4e5e8;
 }
 
-.language-switch a:hover {
+.language-switch button[aria-pressed="false"]:hover {
     background: #ffffff13;
 }
 
@@ -1483,7 +1486,7 @@ html[lang="en"] .project-footer {
         display: none;
     }
 
-    .language-switch a, .language-switch > span {
+    .language-switch button {
         padding-inline: .4rem;
     }
 

@@ -4,6 +4,12 @@
   "private": true,
   "description": "PiscesCup 的中英文个人主页与独立项目介绍页面",
   "type": "module",
-  "scripts": { "dev": "node scripts/serve.mjs", "check": "node scripts/check-site.mjs", "build": "npm run check && node scripts/build.mjs" },
+  "scripts": {
+    "generate": "node scripts/generate-site.mjs",
+    "dev": "npm run generate && node scripts/serve.mjs",
+    "check": "node --test scripts/dependencies.test.mjs && node scripts/check-site.mjs",
+    "check:java": "node scripts/check-java-examples.mjs",
+    "build": "npm run generate && npm run check && node scripts/build.mjs"
+  },
   "engines": { "node": ">=18" }
 }
