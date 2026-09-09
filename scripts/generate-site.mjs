@@ -5,6 +5,7 @@ import { root, publicFiles } from './site-files.mjs';
 import { loadLocales, escapeHtml as esc, translateHtml, bundleLocales } from './locales.mjs';
 import { dependencyWidget, validateDependency } from './dependencies.mjs';
 import { loadExamples, renderExamples } from './examples.mjs';
+import '../js/javadoc-status.js';
 
 const dictionaries = await loadLocales();
 const zh = dictionaries['zh-CN'];
@@ -19,6 +20,13 @@ for (const project of projects) {
   assert(project.tags.every(tag => Object.hasOwn(tags, tag)), 'Unknown tag.');
   assert(Object.hasOwn(zh, project.summaryKey), `Missing summary: ${project.slug}`);
   if (project.dependency) validateDependency(project.dependency);
+  if (project.downloads) {
+    assert.equal(project.category, 'minecraft', 'Mod downloads belong to Minecraft projects.');
+    const patterns = { modrinth: /^https:\/\/modrinth\.com\/mod\/[a-z0-9-]+\/versions$/, curseforge: /^https:\/\/www\.curseforge\.com\/minecraft\/mc-mods\/[a-z0-9-]+\/files$/ };
+    for (const [platform, url] of Object.entries(project.downloads)) {
+      assert(patterns[platform]?.test(url), `Invalid ${platform} download page for ${project.slug}.`);
+    }
+  }
   if (project.javadoc) {
     assert.equal(project.category, 'general', 'Javadoc navigation belongs to general-purpose projects.');
     assert(['available', 'unavailable'].includes(project.javadoc.status), 'Unknown Javadoc status.');
@@ -29,6 +37,7 @@ for (const project of projects) {
 }
 const t = (key, tag = 'span') => { assert(Object.hasOwn(zh, key), `Missing key ${key}`); return `<${tag} data-i18n="${key}">${esc(zh[key])}</${tag}>`; };
 const link = (href, key, cls = '') => `<a${cls ? ` class="${cls}"` : ''} href="${href}" data-i18n="${key}">${esc(zh[key])}</a>`;
+const external = (url, key, attributes = '') => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer"${attributes}>${t(key)}<span aria-hidden="true">↗</span></a>`;
 const write = async (file, content) => {
   const target = path.join(root, file);
   await mkdir(path.dirname(target), { recursive: true });
@@ -72,7 +81,7 @@ function page(file, title, description, content, type = 'catalog') {
 `;
 }
 function rows(items) {
-  return items.map(p => `<article class="catalog-row" data-project="${p.slug}"><h3><a href="../projects/${p.slug}.html">${esc(p.name)} <span aria-hidden="true">↗</span></a></h3>${t(p.summaryKey, 'p')}<div class="catalog-meta">${p.tags.map(tag => `<span>${tags[tag]}</span>`).join('')}</div><div class="catalog-actions">${link(`../projects/${p.slug}.html`, 'project.explore')}${p.javadoc ? link(`../javadoc/${p.slug}.html`, 'javadoc.label') : ''}</div></article>`).join('\n');
+  return items.map(p => `<article class="catalog-row" data-project="${p.slug}"><h3><a href="../projects/${p.slug}.html">${esc(p.name)} <span aria-hidden="true">↗</span></a></h3>${t(p.summaryKey, 'p')}<div class="catalog-meta">${p.tags.map(tag => `<span>${tags[tag]}</span>`).join('')}</div><div class="catalog-actions">${link(`../projects/${p.slug}.html`, 'project.explore')}${p.downloads ? link(`../downloads/${p.slug}.html`, 'downloads.label') : ''}${p.javadoc ? link(`../javadoc/${p.slug}.html`, 'javadoc.label') : ''}</div></article>`).join('\n');
 }
 function group(id, title, description, items) {
   return `<section class="catalog-group" id="${id}"><h2>${title} <small>(${items.length})</small></h2>${description ? t(description,'p') : ''}${rows(items)}</section>`;
@@ -114,23 +123,39 @@ for (const category of categories) {
     <div class="catalog-layout" id="directory"><div class="catalog-main">${link('../projects/index.html', 'catalog.backCategories', 'catalog-home-link')}${group(category, t('catalog.inCategory'), '', byCategory(category))}</div><aside class="catalog-aside">${t('catalog.categories', 'h2')}${categoryLinks(category)}</aside></div>`));
 }
 
+for (const project of projects.filter(p => p.downloads)) {
+  const file = `downloads/${project.slug}.html`;
+  const platforms = ['modrinth', 'curseforge'].map(platform => {
+    const url = project.downloads[platform];
+    return `<section class="download-platform download-${platform}"><h2>${platform === 'modrinth' ? 'Modrinth' : 'CurseForge'}</h2>${t(`downloads.${platform}Description`, 'p')}${url ? external(url, `downloads.${platform}`, ' class="source-button"') : t('downloads.pending', 'p')}</section>`;
+  }).join('\n');
+  await write(file, page(file, `downloads.${project.slug}.title`, 'downloads.description', `
+    <section class="project-hero"><div class="project-hero-inner"><nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb">${link('../categories/minecraft.html', 'category.minecraft')}<span aria-hidden="true">/</span><a href="../projects/${project.slug}.html">${esc(project.name)}</a><span aria-hidden="true">/</span><span aria-current="page" data-i18n="downloads.label">${esc(zh['downloads.label'])}</span></nav><p class="eyebrow">MOD DOWNLOADS</p><h1>${esc(project.name)} · ${t('downloads.label')}</h1><p class="project-lead" data-i18n="downloads.description">${esc(zh['downloads.description'])}</p></div></section>
+    <div class="catalog-layout" id="directory"><div class="catalog-main"><div class="download-platforms">${platforms}</div>${t('downloads.chooseVersion', 'p')}<div class="docs-links">${external(project.repository, 'project.github')}${link(`../projects/${project.slug}.html`, 'javadoc.backProject')}</div></div><aside class="catalog-aside">${t('catalog.categories', 'h2')}${categoryLinks('minecraft')}</aside></div>`));
+}
+
 for (const project of projects.filter(p => p.javadoc)) {
   const doc = project.javadoc;
   const available = doc.status === 'available';
-  const external = (url, key) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${t(key)}<span aria-hidden="true">↗</span></a>`;
+  const groupId = doc.groupId || project.dependency?.groupId || 'io.github.piscescup';
+  const artifactId = doc.artifactId || project.dependency?.artifactId || project.slug;
+  const urls = globalThis.siteJavadoc.urls(groupId, artifactId);
   const file = `javadoc/${project.slug}.html`;
   await write(file, page(file, `javadoc.${project.slug}.title`, 'javadoc.description', `
     <section class="project-hero"><div class="project-hero-inner"><nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb">${link('../categories/general.html', 'category.general')}<span aria-hidden="true">/</span><a href="../projects/${project.slug}.html">${esc(project.name)}</a><span aria-hidden="true">/</span><span aria-current="page">Javadoc</span></nav><p class="eyebrow">API REFERENCE</p><h1>${esc(project.name)} · Javadoc</h1><p class="project-lead" data-i18n="javadoc.description">${esc(zh['javadoc.description'])}</p></div></section>
-    <div class="catalog-layout" id="directory"><div class="catalog-main">
-      <section class="docs-status${available ? '' : ' docs-status-unavailable'}" data-javadoc-status="${doc.status}">${t(available ? 'javadoc.available' : 'javadoc.unavailable', 'h2')}${t(available ? 'javadoc.availableDescription' : 'javadoc.unavailableDescription', 'p')}</section>
+    <div class="catalog-layout" id="directory" data-javadoc data-group-id="${esc(groupId)}" data-artifact-id="${esc(artifactId)}"><div class="catalog-main">
+      <section class="docs-status" data-javadoc-status="${available ? 'snapshot' : 'unknown'}" role="status" aria-live="polite" aria-atomic="true"><h2 data-javadoc-heading data-i18n="javadoc.${available ? 'snapshot' : 'unknown'}">${esc(zh[`javadoc.${available ? 'snapshot' : 'unknown'}`])}</h2><p data-javadoc-description data-i18n="javadoc.${available ? 'snapshot' : 'unknown'}Description">${esc(zh[`javadoc.${available ? 'snapshot' : 'unknown'}Description`])}</p></section>
+      <button class="docs-retry" type="button" data-javadoc-retry hidden data-i18n="javadoc.retry">${esc(zh['javadoc.retry'])}</button>
       <h2 data-i18n="javadoc.links">${esc(zh['javadoc.links'])}</h2><div class="docs-links">
-        ${available ? external(doc.url, 'javadoc.open') + external(doc.versionUrl, 'javadoc.fixedVersion') : external(doc.versionsUrl, 'javadoc.versions')}
+        ${external(urls.doc, 'javadoc.open')}${external(available ? doc.versionUrl : urls.doc, 'javadoc.fixedVersion', ` data-javadoc-fixed${available ? '' : ' hidden'}`)}${external(urls.versions, 'javadoc.versions')}
         ${external(project.repository + '#readme', 'javadoc.readme')}
         ${link(`../projects/${project.slug}.html`, 'javadoc.backProject')}
       </div>
-    </div><aside class="catalog-aside"><h2 data-i18n="project.facts">${esc(zh['project.facts'])}</h2><p>${t('javadoc.coordinate')}<br /><span class="docs-coordinate">io.github.piscescup:<wbr />${esc(project.slug)}</span></p>${available ? `<p>${t('javadoc.version')}<br />${esc(doc.version)}</p>` : ''}<p>${t('javadoc.checked')}<br /><time datetime="${doc.checkedAt}">${doc.checkedAt}</time></p>${link('../categories/general.html', 'category.general')}</aside></div>`));
+    </div><aside class="catalog-aside"><h2 data-i18n="project.facts">${esc(zh['project.facts'])}</h2><p>${t('javadoc.coordinate')}<br /><span class="docs-coordinate">${esc(groupId)}:<wbr />${esc(artifactId)}</span></p><p><span data-javadoc-version-label data-i18n="javadoc.snapshotVersion">${esc(zh['javadoc.snapshotVersion'])}</span><br /><span data-javadoc-version>${available ? esc(doc.version) : '—'}</span></p><p><span data-javadoc-checked-label data-i18n="javadoc.snapshotChecked">${esc(zh['javadoc.snapshotChecked'])}</span><br /><time data-javadoc-checked datetime="${doc.checkedAt}">${doc.checkedAt}</time></p>${link('../categories/general.html', 'category.general')}</aside></div>`).replace('</head>', '  <script src="../js/javadoc-status.js" defer></script>\n  <script src="../js/javadoc.js" defer></script>\n</head>'));
 }
-await write('projects/linq-for-java.html', translateHtml(page('projects/linq-for-java.html','linq.title','linq.description', await readFile(path.join(root,'templates/linq-for-java.html'),'utf8'),'project'), zh));
+for (const [slug, prefix] of [['linq-for-java', 'linq'], ['mc-wiki', 'mc-wiki']]) {
+  await write(`projects/${slug}.html`, translateHtml(page(`projects/${slug}.html`, `${prefix}.title`, `${prefix}.description`, await readFile(path.join(root, `templates/${slug}.html`), 'utf8'), 'project'), zh));
+}
 
 // Keep project breadcrumbs and documentation entries tied to the same manifest.
 for (const project of projects) {
@@ -161,6 +186,12 @@ for (const project of projects) {
   html = html.replace(/<nav class="breadcrumbs"[\s\S]*?<\/nav>/, `<nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb">${link('../projects/index.html', 'catalog.heading')}<span aria-hidden="true">/</span><a href="../categories/${project.category}.html" data-i18n="category.${project.category}">${esc(zh[`category.${project.category}`])}</a><span aria-hidden="true">/</span><span aria-current="page">${esc(project.name)}</span></nav>`);
   html = html.replace(/<a class="facts-back"[\s\S]*?<\/a>/, link(`../categories/${project.category}.html`, 'catalog.backCategory', 'facts-back'));
   html = html.replace(/<a\b[^>]*\bdata-project-javadoc\b[^>]*>[\s\S]*?<\/a>\s*/g, '');
+  html = html.replace(/<a\b[^>]*\bdata-project-downloads\b[^>]*>[\s\S]*?<\/a>\s*/g, '');
+  if (project.downloads) {
+    const downloadLink = cls => `<a class="${cls}" href="../downloads/${project.slug}.html" data-project-downloads data-i18n="downloads.label">${esc(zh['downloads.label'])}</a>`;
+    html = html.replace(/(<div class="project-actions">[\s\S]*?)(<\/div>)/, (_, start, end) => `${start}${downloadLink('source-button')}\n        ${end}`);
+    html = html.replace('<a class="facts-back"', `${downloadLink('facts-downloads')}\n        <a class="facts-back"`);
+  }
   if (project.javadoc) {
     const docLink = cls => `<a class="${cls}" href="../javadoc/${project.slug}.html" data-project-javadoc data-i18n="javadoc.label">${esc(zh['javadoc.label'])}</a>`;
     html = html.replace(/(<div class="project-actions">[\s\S]*?)(<\/div>)/, (_, start, end) => `${start}${docLink('source-button')}\n        ${end}`);

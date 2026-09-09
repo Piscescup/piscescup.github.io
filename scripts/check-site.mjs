@@ -5,6 +5,7 @@ import { root, publicFiles } from './site-files.mjs';
 import { loadLocales, translateHtml, bundleLocales } from './locales.mjs';
 import { dependencyWidget, validateDependency } from './dependencies.mjs';
 import { loadExamples, renderExamples } from './examples.mjs';
+import '../js/javadoc-status.js';
 
 const files = await publicFiles();
 const published = new Set(files);
@@ -76,6 +77,17 @@ for (const project of projects) {
   }
   const detail = pages.get(`projects/${project.slug}.html`).html;
   assert(detail.includes(`categories/${project.category}.html`), 'Missing return link to project category.');
+  if (project.downloads) {
+    const download = pages.get(`downloads/${project.slug}.html`)?.html;
+    assert(download, 'Missing Mod download page: ' + project.slug);
+    for (const html of [detail, pages.get('categories/minecraft.html').html, pages.get('tags/index.html').html]) {
+      assert(html.includes(`downloads/${project.slug}.html`), 'Missing Mod download entry: ' + project.slug);
+    }
+    for (const platform of ['modrinth', 'curseforge']) {
+      if (project.downloads[platform]) assert(download.includes(`href="${project.downloads[platform]}"`), 'Incorrect platform URL.');
+      else assert(!download.includes(`data-i18n="downloads.${platform}"`), 'Missing platform URL must not offer a download link.');
+    }
+  }
   if (project.dependency) {
     validateDependency(project.dependency);
     assert(detail.includes(dependencyWidget(project, dictionaries['zh-CN'])), 'Stale dependency widget: ' + project.slug);
@@ -89,10 +101,14 @@ for (const project of projects) {
     assert(doc, 'Missing Javadoc navigation page: ' + project.slug);
     assert(detail.includes(`javadoc/${project.slug}.html`), 'Project is missing its Javadoc entry.');
     assert(pages.get('categories/general.html').html.includes(`javadoc/${project.slug}.html`), 'General category is missing its Javadoc entry.');
-    assert(doc.includes(`data-javadoc-status="${project.javadoc.status}"`), 'Incorrect Javadoc status.');
-    const expectedUrl = project.javadoc.status === 'available' ? project.javadoc.url : project.javadoc.versionsUrl;
-    assert(doc.includes(`href="${expectedUrl}"`), 'Incorrect Javadoc destination.');
-    if (project.javadoc.status === 'unavailable') assert(!doc.includes('data-i18n="javadoc.open"'), 'Unavailable documentation must not offer a live Javadoc button.');
+    const groupId = project.javadoc.groupId || project.dependency?.groupId || 'io.github.piscescup';
+    const artifactId = project.javadoc.artifactId || project.dependency?.artifactId || project.slug;
+    assert(doc.includes('data-javadoc data-group-id="' + groupId + '" data-artifact-id="' + artifactId + '"'), 'Missing dynamic Javadoc coordinates.');
+    const urls = globalThis.siteJavadoc.urls(groupId, artifactId);
+    for (const url of [urls.doc, urls.versions]) assert(doc.includes(`href="${url}"`), 'Missing permanent Javadoc destination.');
+    for (const script of ['javadoc-status', 'javadoc']) assert(doc.includes(`src="../js/${script}.js"`), 'Missing Javadoc script.');
+    assert(doc.includes('data-javadoc-retry hidden'), 'Javadoc retry must progressively enhance the page.');
+    assert(!doc.includes('data-i18n="javadoc.unavailable"'), 'Do not report missing documentation from a static snapshot.');
   }
 }
 const linq = pages.get('projects/linq-for-java.html').html;
@@ -107,5 +123,5 @@ for (const [slug, group] of Object.entries(examples)) {
   for (const item of group.items) assert(!published.has(item.file), 'Java source files are embedded, not published as separate downloads.');
 }
 for (const term of ['Int', 'Long', 'Double']) assert(linq.includes(`<span translate="no" class="notranslate">${term}</span>`), 'Technical sequence name must not be translated: ' + term);
-assert.equal(pages.size,projects.length + 5 + categories.length + projects.filter(p => p.javadoc).length,'Unexpected number of shared pages.');
+assert.equal(pages.size,projects.length + 5 + categories.length + projects.filter(p => p.javadoc).length + projects.filter(p => p.downloads).length,'Unexpected number of shared pages.');
 console.log('Verified ' + pages.size + ' shared pages, ' + checkedLinks + ' local links, ' + Object.keys(dictionaries.en).length + ' bilingual translation keys and ' + projects.length + ' projects.');

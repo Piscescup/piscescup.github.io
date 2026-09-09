@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#101e2c" />
-  <meta name="description" content="为 Minecraft 开发提供可复用的注册与数据生成模块。" data-i18n-content="pc-develop-lib.meta.description" />
+  <meta name="description" content="PC Develop Lib V2 面向 Minecraft Fabric 模组开发，提供可复用的内容注册、语言数据生成与标签数据生成模块。" data-i18n-content="pc-develop-lib.meta.description" />
   <title>PC Develop Lib · V2 · PiscesCup</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <link rel="stylesheet" href="../css/styles.css" />
@@ -40,10 +40,11 @@
         <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../projects/index.html" data-i18n="catalog.heading">项目分类</a><span aria-hidden="true">/</span><a href="../categories/minecraft.html" data-i18n="category.minecraft">Minecraft 项目</a><span aria-hidden="true">/</span><span aria-current="page">PiscesCup Develop Lib V2</span></nav>
         <p class="eyebrow" data-i18n="pc-develop-lib.eyebrow">Minecraft 开发库</p>
         <h1 id="project-title">PC Develop Lib · V2</h1>
-        <p class="project-lead" data-i18n="pc-develop-lib.lead">为 Minecraft 开发提供可复用的注册与数据生成模块。</p>
+        <p class="project-lead" data-i18n="pc-develop-lib.lead">面向 Minecraft Fabric 模组开发，提供可复用的内容注册与数据生成模块。</p>
         <div class="project-actions">
-          <a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">从这里开始</span> <span aria-hidden="true">↓</span></a>
+          <a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">使用指南</span> <span aria-hidden="true">↓</span></a>
           <a class="source-button" href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">在 GitHub 查看</span> <span aria-hidden="true">↗</span></a>
+        <a class="source-button" href="../downloads/pc-develop-lib.html" data-project-downloads data-i18n="downloads.label">下载 Mod</a>
         </div>
       </div>
     </section>
@@ -59,7 +60,7 @@
         <section id="overview" class="detail-section" aria-labelledby="overview-title">
           <p class="eyebrow">01 / OVERVIEW</p>
           <h2 id="overview-title" data-i18n="project.overview">项目简介</h2>
-          <p data-i18n="pc-develop-lib.overview">PC Develop Lib V2 是一个面向 Minecraft Fabric 的开发基础库。它把内容注册、语言和标签数据生成组织成独立模块，方便在模组项目中复用。</p>
+          <p data-i18n="pc-develop-lib.overview">PC Develop Lib V2 是面向 Minecraft Fabric 的开发基础库，将内容注册、语言数据生成和标签数据生成封装为独立模块，支持在模组项目中复用。</p>
         </section>
         <section id="features" class="detail-section" aria-labelledby="features-title">
           <p class="eyebrow">02 / FEATURES</p>
@@ -73,7 +74,7 @@
             <article class="feature-item">
               <span class="feature-index">02</span>
               <h3 data-i18n="pc-develop-lib.features.2.title">语言数据生成</h3>
-              <p data-i18n="pc-develop-lib.features.2.description">数据生成入口演示了中文和英文语言工厂的配置。</p>
+              <p data-i18n="pc-develop-lib.features.2.description">数据生成入口提供中文与英文语言工厂的配置示例。</p>
             </article>
             <article class="feature-item">
               <span class="feature-index">03</span>
@@ -87,9 +88,9 @@
           <h2 id="getting-started-title" data-i18n="project.start">开始使用</h2>
           <div class="getting-started">
             <ol>
-              <li><strong data-i18n="pc-develop-lib.steps.1.title">查看项目配置</strong><br /><span data-i18n="pc-develop-lib.steps.1.description">当前源码配置使用 Java 25、Minecraft 1.21.10 与 Fabric。开始前先查看仓库中的构建配置。</span></li>
-              <li><strong data-i18n="pc-develop-lib.steps.2.title">浏览注册示例</strong><br /><span data-i18n="pc-develop-lib.steps.2.description">从 register 模块和配套的 test 示例目录开始，了解注册模块如何组织。</span></li>
-              <li><strong data-i18n="pc-develop-lib.steps.3.title">了解数据生成</strong><br /><span data-i18n="pc-develop-lib.steps.3.description">阅读 PCDevelopLibDataGenerator.java 中的语言和标签配置，再结合示例了解具体用法。</span></li>
+              <li><strong data-i18n="pc-develop-lib.steps.1.title">查看项目配置</strong><br /><span data-i18n="pc-develop-lib.steps.1.description">当前源码配置使用 Java 25、Minecraft 1.21.10 与 Fabric。使用前请查阅仓库中的构建配置，确认开发环境要求。</span></li>
+              <li><strong data-i18n="pc-develop-lib.steps.2.title">浏览注册示例</strong><br /><span data-i18n="pc-develop-lib.steps.2.description">查阅 register 模块及配套的 test 示例目录，了解注册模块的组织方式与使用方法。</span></li>
+              <li><strong data-i18n="pc-develop-lib.steps.3.title">了解数据生成</strong><br /><span data-i18n="pc-develop-lib.steps.3.description">查阅 PCDevelopLibDataGenerator.java 中的语言与标签配置，并参考配套示例了解数据生成流程。</span></li>
             </ol>
             <p class="source-note"><a href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/tree/master/src/main/java/io/github/piscescup/mc/fabric/test" target="_blank" rel="noopener noreferrer"><span data-i18n="pc-develop-lib.sources.link1">查看源码示例</span> <span aria-hidden="true">↗</span></a></p>
             <p class="source-note"><a href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/blob/master/src/main/java/io/github/piscescup/mc/fabric/PCDevelopLibDataGenerator.java" target="_blank" rel="noopener noreferrer"><span data-i18n="pc-develop-lib.sources.link2">阅读数据生成入口</span> <span aria-hidden="true">↗</span></a></p>
@@ -105,13 +106,14 @@
         </dl>
         <a href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2" target="_blank" rel="noopener noreferrer"><span data-i18n="project.source">源代码</span> <span aria-hidden="true">↗</span></a>
         <a href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/issues" target="_blank" rel="noopener noreferrer"><span data-i18n="project.feedback">交流与反馈</span> <span aria-hidden="true">↗</span></a>
+        <a class="facts-downloads" href="../downloads/pc-develop-lib.html" data-project-downloads data-i18n="downloads.label">下载 Mod</a>
         <a class="facts-back" href="../categories/minecraft.html" data-i18n="catalog.backCategory">返回所属分类</a>
       </aside>
     </div>
   </main>
   <footer class="site-footer">
     <div><a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a><p>© <span id="year">2026</span> PiscesCup</p></div>
-    <p data-i18n="footer.motto">以代码记录想法，让作品介绍自己。</p>
+    <p data-i18n="footer.motto">记录开发实践，分享开源成果。</p>
     <a class="back-top" href="#top"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a>
   </footer>
 </body>

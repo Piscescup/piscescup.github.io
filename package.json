@@ -7,7 +7,7 @@
   "scripts": {
     "generate": "node scripts/generate-site.mjs",
     "dev": "npm run generate && node scripts/serve.mjs",
-    "check": "node --test scripts/dependencies.test.mjs && node scripts/check-site.mjs",
+    "check": "node --test scripts/dependencies.test.mjs scripts/javadoc.test.mjs && node scripts/check-site.mjs",
     "check:java": "node scripts/check-java-examples.mjs",
     "build": "npm run generate && npm run check && node scripts/build.mjs"
   },
