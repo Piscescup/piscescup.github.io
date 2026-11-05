@@ -7,6 +7,23 @@
         mobile.addEventListener('change', event => { directory.open = !event.matches; });
     }
     const t = key => window.siteI18n?.t(key) ?? window.SITE_TRANSLATIONS?.['zh-CN']?.[key] ?? key;
+    // Add syntax colors without altering the text used by the copy button.
+    document.querySelectorAll('[data-tutorial-source]').forEach(code => {
+        const source = code.textContent;
+        const tokens = /\/\*[\s\S]*?\*\/|\/\/[^\n]*|"(?:\\.|[^"\\])*"|@\w+|\b(?:public|private|static|final|class|return|new|import|void|throws)\b/g;
+        const fragment = document.createDocumentFragment();
+        let offset = 0;
+        for (const match of source.matchAll(tokens)) {
+            fragment.append(document.createTextNode(source.slice(offset, match.index)));
+            const span = document.createElement('span');
+            span.className = 'tutorial-token-' + (match[0].startsWith('/') ? 'comment' : match[0].startsWith('"') ? 'string' : match[0].startsWith('@') ? 'annotation' : 'keyword');
+            span.textContent = match[0];
+            fragment.append(span);
+            offset = match.index + match[0].length;
+        }
+        fragment.append(document.createTextNode(source.slice(offset)));
+        code.replaceChildren(fragment);
+    });
     document.querySelectorAll('[data-tutorial-example]').forEach(example => {
         const button = example.querySelector('[data-tutorial-copy]');
         const code = example.querySelector('code');

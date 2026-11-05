@@ -92,13 +92,14 @@ export async function generateTutorials({ zh, write, header, footer }) {
   ]));
   for (const chapter of chapters) {
     let body = await readFile(path.join(root, chapter.template), 'utf8');
+    const metadata = chapter.metadata?.length ? `<div class="tutorial-reading-meta">${chapter.metadata.map(value => `<span>${esc(value)}</span>`).join('')}</div>` : '';
     // Keep the author's Java example in an editable source file, not in JSON escapes.
     for (const match of [...body.matchAll(/<code\b[^>]*data-tutorial-source="([^"]+)"[^>]*>[\s\S]*?<\/code>/g)]) {
       assert(/^examples\/tutorials\/[\w-]+\.java$/.test(match[1]), 'Unexpected tutorial code source.');
       const source = await readFile(path.join(root, match[1]), 'utf8');
       body = body.replace(match[0], () => match[0].replace(/>[\s\S]*<\/code>$/, () => '>' + esc(source) + '</code>'));
     }
-    const content = `<header class="tutorial-heading"><p class="eyebrow">CHAPTER ${chapter.number} <span aria-hidden="true">/</span> FABRIC</p>${text(chapter.titleKey, 'h1')}${text(chapter.descriptionKey, 'p', ' class="tutorial-lead"')}<div class="tutorial-byline"><span>PiscesCup</span>${chapter.status === 'content-pending' ? text('tutorial.pending.label', 'span', ' class="tutorial-status"') : ''}</div></header>
+    const content = `<header class="tutorial-heading"><p class="eyebrow">CHAPTER ${chapter.number} <span aria-hidden="true">/</span> FABRIC</p>${text(chapter.titleKey, 'h1')}${text(chapter.descriptionKey, 'p', ' class="tutorial-lead"')}${metadata}<div class="tutorial-byline"><span>PiscesCup</span>${chapter.status === 'content-pending' ? text('tutorial.pending.label', 'span', ' class="tutorial-status"') : ''}</div></header>
       <details class="tutorial-inline-toc"><summary data-i18n="tutorial.onPage">${esc(zh['tutorial.onPage'])}</summary><nav>${chapter.sections.map(section => `<a href="#${section.id}">${text(section.titleKey)}</a>`).join('')}</nav></details>
       ${body}
       <nav class="tutorial-pagination" aria-label="章节翻页" data-i18n-aria-label="tutorial.pagination"><a href="./index.html"><span aria-hidden="true">←</span><span>${text('tutorial.back', 'small')}${text('tutorial.title', 'strong')}</span></a></nav>`;
