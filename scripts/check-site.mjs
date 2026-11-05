@@ -143,6 +143,17 @@ for (const chapter of chapters) {
   for (const section of chapter.sections) assert(pages.get(file).ids.has(section.id), 'Missing chapter section: ' + section.id);
   if (chapter.status === 'content-pending') assert(html.includes('data-i18n="tutorial.pending.title"'), 'An unpublished body needs an honest pending state.');
   else assert(!html.includes('data-i18n="tutorial.pending.title"'), 'A published chapter must not display the pending state.');
+  if (chapter.referenceFile) {
+    assert(html.includes('id="references" role="doc-bibliography"'), 'Missing chapter bibliography.');
+    assert(!html.includes('class="tutorial-references"'), 'Do not mix section reference lists with the chapter bibliography.');
+    const citations = [...html.matchAll(/role="doc-noteref" data-citation="(\d+)"/g)].map(match => Number(match[1]));
+    const entries = [...html.matchAll(/data-reference="(\d+)"/g)].map(match => Number(match[1]));
+    assert(entries.length && citations.length, 'A bibliography must have body citations.');
+    assert.deepEqual(entries, entries.map((_, index) => index + 1), 'Reference numbers must be consecutive.');
+    assert.deepEqual([...new Set(citations)].sort((a,b) => a-b), entries, 'Every bibliographic entry must be cited.');
+    assert.equal([...html.matchAll(/role="doc-backlink"/g)].length, citations.length, 'Every citation needs a return link.');
+    assert(html.indexOf('id="references"') > html.indexOf(`id="${chapter.sections.at(-1).id}"`), 'References belong after the chapter text.');
+  }
 }
 const chapter00 = pages.get('tutorials/chapter-00.html').html;
 const chinesePaths = [...chapter00.matchAll(/<dd lang="zh-CN" translate="no" class="notranslate">/g)].length;

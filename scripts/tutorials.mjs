@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { root } from './site-files.mjs';
 import { escapeHtml as esc } from './locales.mjs';
+import { renderTutorialReferences } from './tutorial-references.mjs';
 
 export async function loadTutorials() {
   const chapters = JSON.parse(await readFile(path.join(root, 'data/tutorials.json'), 'utf8'));
@@ -12,6 +13,7 @@ export async function loadTutorials() {
     assert(['content-pending', 'published'].includes(chapter.status), 'Unknown chapter state.');
     assert(chapter.sections.length, 'A chapter needs a table of contents.');
     assert.equal(chapter.template, `templates/tutorials/${chapter.slug}.html`, 'Unexpected chapter source.');
+    if (chapter.referenceFile) assert.equal(chapter.referenceFile, `data/tutorials/${chapter.slug}.references.json`, 'Unexpected reference file.');
   }
   return chapters;
 }
@@ -92,6 +94,10 @@ export async function generateTutorials({ zh, write, header, footer }) {
   ]));
   for (const chapter of chapters) {
     let body = await readFile(path.join(root, chapter.template), 'utf8');
+    const references = chapter.referenceFile ? JSON.parse(await readFile(path.join(root, chapter.referenceFile), 'utf8')) : [];
+    const rendered = renderTutorialReferences(body, references, zh);
+    body = rendered.html;
+    const sections = rendered.referenceCount ? [...chapter.sections, { id: 'references', titleKey: 'tutorial.bibliography' }] : chapter.sections;
     const metadata = chapter.metadata?.length ? `<div class="tutorial-reading-meta">${chapter.metadata.map(value => `<span>${esc(value)}</span>`).join('')}</div>` : '';
     // Keep the author's Java example in an editable source file, not in JSON escapes.
     for (const match of [...body.matchAll(/<code\b[^>]*data-tutorial-source="([^"]+)"[^>]*>[\s\S]*?<\/code>/g)]) {
@@ -100,9 +106,9 @@ export async function generateTutorials({ zh, write, header, footer }) {
       body = body.replace(match[0], () => match[0].replace(/>[\s\S]*<\/code>$/, () => '>' + esc(source) + '</code>'));
     }
     const content = `<header class="tutorial-heading"><p class="eyebrow">CHAPTER ${chapter.number} <span aria-hidden="true">/</span> FABRIC</p>${text(chapter.titleKey, 'h1')}${text(chapter.descriptionKey, 'p', ' class="tutorial-lead"')}${metadata}<div class="tutorial-byline"><span>PiscesCup</span>${chapter.status === 'content-pending' ? text('tutorial.pending.label', 'span', ' class="tutorial-status"') : ''}</div></header>
-      <details class="tutorial-inline-toc"><summary data-i18n="tutorial.onPage">${esc(zh['tutorial.onPage'])}</summary><nav>${chapter.sections.map(section => `<a href="#${section.id}">${text(section.titleKey)}</a>`).join('')}</nav></details>
+      <details class="tutorial-inline-toc"><summary data-i18n="tutorial.onPage">${esc(zh['tutorial.onPage'])}</summary><nav>${sections.map(section => `<a href="#${section.id}">${text(section.titleKey)}</a>`).join('')}</nav></details>
       ${body}
       <nav class="tutorial-pagination" aria-label="章节翻页" data-i18n-aria-label="tutorial.pagination"><a href="./index.html"><span aria-hidden="true">←</span><span>${text('tutorial.back', 'small')}${text('tutorial.title', 'strong')}</span></a></nav>`;
-    await write(`tutorials/${chapter.slug}.html`, documentPage(`tutorials/${chapter.slug}.html`, `tutorial.${chapter.slug}.pageTitle`, chapter.descriptionKey, content, chapter.sections));
+    await write(`tutorials/${chapter.slug}.html`, documentPage(`tutorials/${chapter.slug}.html`, `tutorial.${chapter.slug}.pageTitle`, chapter.descriptionKey, content, sections));
   }
 }

@@ -7,6 +7,7 @@
     "status": "published",
     "metadata": ["Minecraft 26.3", "JDK 25", "IntelliJ IDEA 2026.3"],
     "template": "templates/tutorials/chapter-00.html",
+    "referenceFile": "data/tutorials/chapter-00.references.json",
     "sections": [
       {
         "id": "environment",

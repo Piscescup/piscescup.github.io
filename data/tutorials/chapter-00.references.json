@@ -1,0 +1,170 @@
+[
+  {
+    "id": "fabric-26-3",
+    "publisher": "FabricMC",
+    "url": "https://fabricmc.net/2026/09/15/263.html",
+    "titleKey": "tutorial.reference.fabric-26-3"
+  },
+  {
+    "id": "gradle-jvm",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/gradle-jvm-selection.html",
+    "titleKey": "tutorial.reference.gradle-jvm"
+  },
+  {
+    "id": "fabric-launch",
+    "publisher": "FabricMC",
+    "url": "https://docs.fabricmc.net/develop/getting-started/launching-the-game",
+    "titleKey": "tutorial.reference.fabric-launch"
+  },
+  {
+    "id": "idea-settings",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/configuring-project-and-ide-settings.html",
+    "titleKey": "tutorial.reference.idea-settings"
+  },
+  {
+    "id": "idea-system",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/system-settings.html",
+    "titleKey": "tutorial.reference.idea-system"
+  },
+  {
+    "id": "idea-updates",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/update.html",
+    "titleKey": "tutorial.reference.idea-updates"
+  },
+  {
+    "id": "idea-appearance",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/settings-appearance.html",
+    "titleKey": "tutorial.reference.idea-appearance"
+  },
+  {
+    "id": "idea-background",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/setting-background-image.html",
+    "titleKey": "tutorial.reference.idea-background"
+  },
+  {
+    "id": "idea-font",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/settings-editor-font.html",
+    "titleKey": "tutorial.reference.idea-font"
+  },
+  {
+    "id": "idea-colors",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/configuring-colors-and-fonts.html",
+    "titleKey": "tutorial.reference.idea-colors"
+  },
+  {
+    "id": "idea-editor-appearance",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/settings-editor-appearance.html",
+    "titleKey": "tutorial.reference.idea-editor-appearance"
+  },
+  {
+    "id": "idea-completion",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/auto-completing-code.html",
+    "titleKey": "tutorial.reference.idea-completion"
+  },
+  {
+    "id": "idea-imports",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/settings-auto-import.html",
+    "titleKey": "tutorial.reference.idea-imports"
+  },
+  {
+    "id": "idea-encodings",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/settings-file-encodings.html",
+    "titleKey": "tutorial.reference.idea-encodings"
+  },
+  {
+    "id": "idea-console",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/settings-console-folding.html",
+    "titleKey": "tutorial.reference.idea-console"
+  },
+  {
+    "id": "idea-templates",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/using-file-and-code-templates.html",
+    "titleKey": "tutorial.reference.idea-templates"
+  },
+  {
+    "id": "minecraft-development",
+    "publisher": "JetBrains Marketplace",
+    "url": "https://plugins.jetbrains.com/plugin/8327-minecraft-development",
+    "titleKey": "tutorial.reference.minecraft-development"
+  },
+  {
+    "id": "ignore-plugin",
+    "publisher": "JetBrains Marketplace",
+    "url": "https://plugins.jetbrains.com/plugin/7495--ignore",
+    "titleKey": "tutorial.reference.ignore-plugin"
+  },
+  {
+    "id": "idea-language",
+    "publisher": "JetBrains",
+    "url": "https://www.jetbrains.com/help/idea/language-and-region.html",
+    "titleKey": "tutorial.reference.idea-language"
+  },
+  {
+    "id": "template-build",
+    "publisher": "FabricMC",
+    "url": "https://raw.githubusercontent.com/FabricMC/fabric-example-mod/26.3/build.gradle",
+    "titleKey": "tutorial.reference.template-build"
+  },
+  {
+    "id": "template-properties",
+    "publisher": "FabricMC",
+    "url": "https://raw.githubusercontent.com/FabricMC/fabric-example-mod/26.3/gradle.properties",
+    "titleKey": "tutorial.reference.template-properties"
+  },
+  {
+    "id": "template-metadata",
+    "publisher": "FabricMC",
+    "url": "https://raw.githubusercontent.com/FabricMC/fabric-example-mod/26.3/src/main/resources/fabric.mod.json",
+    "titleKey": "tutorial.reference.template-metadata"
+  },
+  {
+    "id": "fabric-loader",
+    "publisher": "FabricMC",
+    "url": "https://github.com/FabricMC/fabric-loader/blob/master/src/main/java/net/fabricmc/loader/api/FabricLoader.java",
+    "titleKey": "tutorial.reference.fabric-loader"
+  },
+  {
+    "id": "jspecify",
+    "publisher": "JSpecify",
+    "url": "https://jspecify.dev/docs/api/org/jspecify/annotations/NonNull.html",
+    "titleKey": "tutorial.reference.jspecify"
+  },
+  {
+    "id": "jetbrains-annotations",
+    "publisher": "JetBrains",
+    "url": "https://github.com/JetBrains/java-annotations",
+    "titleKey": "tutorial.reference.jetbrains-annotations"
+  },
+  {
+    "id": "template-entrypoint",
+    "publisher": "FabricMC",
+    "url": "https://raw.githubusercontent.com/FabricMC/fabric-example-mod/26.3/src/main/java/com/example/ExampleMod.java",
+    "titleKey": "tutorial.reference.template-entrypoint"
+  },
+  {
+    "id": "java-initialization",
+    "publisher": "Oracle",
+    "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-12.html#jls-12.4.1",
+    "titleKey": "tutorial.reference.java-initialization"
+  },
+  {
+    "id": "gradle-wrapper",
+    "publisher": "Gradle",
+    "url": "https://docs.gradle.org/current/userguide/gradle_wrapper.html",
+    "titleKey": "tutorial.reference.gradle-wrapper"
+  }
+]
