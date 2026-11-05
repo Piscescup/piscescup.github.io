@@ -1330,6 +1330,19 @@ a:focus-visible, button:focus-visible {
     }
 }
 
+/* The tutorial is its own entry on the homepage. */
+.home-tutorial { max-width: 1184px; margin: 3rem auto 0; padding: 2rem 2.25rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(225px, .55fr); gap: 2rem; align-items: center; background: #fff; border: 1px solid var(--line); border-left: 3px solid #7da89b; border-radius: 10px; }
+.home-tutorial h2 { font-size: 1.7rem; line-height: 1.4; margin: .65rem 0; }
+.home-tutorial > div > p:not(.eyebrow) { color: var(--muted); font-size: 1rem; line-height: 1.9; max-width: 55ch; margin: 0; }
+.home-tutorial-link { position: relative; display: flex; flex-direction: column; gap: .5rem; padding: 1.3rem 2.8rem 1.3rem 1.3rem; background: #eff5f2; border: 1px solid #e0eae5; border-radius: 7px; color: #2c6b60; }
+.home-tutorial-link:hover { border-color: #80a99c; }
+.home-tutorial-link strong { font-size: 1rem; font-weight: 600; }
+.home-tutorial-link small { font-size: .8125rem; line-height: 1.7; color: #627f75; }
+.home-tutorial-link > span:last-child { position: absolute; right: 1.2rem; top: calc(50% - 1rem); font-size: 1.3rem; }
+@media (max-width: 1280px) { .home-tutorial { margin-inline: 3rem; } }
+@media (max-width: 900px) { .home-tutorial { margin-inline: 2rem; grid-template-columns: 1fr; gap: 1.5rem; } }
+@media (max-width: 600px) { .home-tutorial { margin: 1.5rem 1.3rem 0; padding: 1.5rem; } .home-tutorial h2 { font-size: 1.45rem; } }
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto

@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "chapter-00",
+    "number": "00",
+    "titleKey": "tutorial.chapter00.title",
+    "descriptionKey": "tutorial.chapter00.description",
+    "status": "published",
+    "metadata": ["Minecraft 26.3", "JDK 25", "IntelliJ IDEA 2026.3"],
+    "template": "templates/tutorials/chapter-00.html",
+    "referenceFile": "data/tutorials/chapter-00.references.json",
+    "sections": [
+      {
+        "id": "environment",
+        "titleKey": "chapter00.environment.title"
+      },
+      {
+        "id": "idea-settings",
+        "titleKey": "chapter00.settings.title"
+      },
+      {
+        "id": "idea-plugins",
+        "titleKey": "chapter00.plugins.title"
+      },
+      {
+        "id": "project-files",
+        "titleKey": "chapter00.files.title"
+      },
+      {
+        "id": "my-habits",
+        "titleKey": "chapter00.habits.title"
+      }
+    ]
+  }
+]

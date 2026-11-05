@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101e2c" />
+  <meta name="description" content="JDK 25、IDEA 设置、Fabric 模板与项目结构。" data-i18n-content="tutorial.chapter00.description" />
+  <title data-i18n="tutorial.chapter-00.pageTitle">Chapter 00 · 开发环境配置 — PiscesCup</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/tutorials.css" />
+  <link rel="alternate" hreflang="zh-CN" href="./chapter-00.html?lang=zh-CN" />
+  <link rel="alternate" hreflang="en" href="./chapter-00.html?lang=en" />
+  <script src="../js/translations.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/clipboard.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <script src="../js/tutorials.js" defer></script>
+</head>
+<body class="tutorial-page" data-page="tutorial" id="top">
+  <a class="skip-link" href="#tutorial-main" data-i18n="tutorial.skip">跳转到正文</a>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P<span>·</span></span>PiscesCup<span class="brand-dot">.</span></a>
+      <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false" data-i18n-aria-label="nav.open"><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="主导航" data-i18n-aria-label="nav.label">
+        <a class="nav-link is-active" href="../index.html#home" aria-current="location" data-i18n="nav.home">首页</a>
+        <a class="nav-link" href="../index.html#projects" data-i18n="nav.projects">项目</a>
+        <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
+        <a class="nav-link" href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a class="nav-link" href="../projects/index.html" data-i18n="nav.directory">目录</a>
+        <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+      <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
+        <button type="button" lang="zh-CN" data-language="zh-CN" aria-pressed="true">中文</button>
+        <button type="button" lang="en" data-language="en" aria-pressed="false">EN</button>
+      </nav>
+    </div>
+  </header>
+  <main class="tutorial-layout">
+    <aside class="tutorial-sidebar">
+        <details class="tutorial-navigation" open>
+          <summary data-i18n="tutorial.navigation">章节目录</summary>
+          <nav aria-label="教程章节" data-i18n-aria-label="tutorial.chapterNav">
+            <a class="tutorial-course-link" href="./index.html"><span data-i18n="tutorial.overview">教程首页</span></a>
+            <p class="tutorial-group-title" data-i18n="tutorial.group">入门</p>
+            <a class="tutorial-chapter-link" href="./chapter-00.html" aria-current="page" data-tutorial-chapter="chapter-00"><span class="tutorial-chapter-number">Chapter 00</span><span data-i18n="tutorial.chapter00.title">开发环境配置</span></a>
+          </nav>
+        </details>
+        <a class="tutorial-back-home" href="../index.html"><span aria-hidden="true">←</span> <span data-i18n="tutorial.home">回到个人主页</span></a>
+      </aside>
+    <article class="tutorial-article" id="tutorial-main" tabindex="-1">
+      <nav class="tutorial-breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../index.html" data-i18n="nav.home">首页</a><span aria-hidden="true">/</span><a href="./index.html" data-i18n="nav.tutorials">教程</a><span aria-hidden="true">/</span><span aria-current="page">Chapter 00</span></nav>
+      <header class="tutorial-heading"><p class="eyebrow">CHAPTER 00 <span aria-hidden="true">/</span> FABRIC</p><h1 data-i18n="tutorial.chapter00.title">开发环境配置</h1><p data-i18n="tutorial.chapter00.description" class="tutorial-lead">JDK 25、IDEA 设置、Fabric 模板与项目结构。</p><div class="tutorial-reading-meta"><span>Minecraft 26.3</span><span>JDK 25</span><span>IntelliJ IDEA 2026.3</span></div><div class="tutorial-byline"><span>PiscesCup</span></div></header>
+      <details class="tutorial-inline-toc"><summary data-i18n="tutorial.onPage">本页内容</summary><nav><a href="#environment"><span data-i18n="chapter00.environment.title">开发环境配置</span></a><a href="#idea-settings"><span data-i18n="chapter00.settings.title">IDEA 常用设置</span></a><a href="#idea-plugins"><span data-i18n="chapter00.plugins.title">开发插件</span></a><a href="#project-files"><span data-i18n="chapter00.files.title">项目文件</span></a><a href="#my-habits"><span data-i18n="chapter00.habits.title">我的习惯</span></a><a href="#references"><span data-i18n="tutorial.bibliography">参考文献</span></a></nav></details>
+      <p class="tutorial-baseline" data-i18n="chapter00.baseline">中文路径可能随语言包变化，可在 Settings 中搜索对应英文名称。</p>
+<section class="tutorial-section" id="environment" aria-labelledby="environment-title">
+<h2 data-section="01" data-i18n="chapter00.environment.title" id="environment-title">开发环境配置</h2>
+<h3 data-i18n="chapter00.environment.jdk">1.1 JDK 25</h3>
+<p data-i18n="chapter00.environment.jdkIntro">下载 JDK 25，并选择与系统、处理器架构匹配的安装包。</p>
+<p><a href="https://adoptium.net/temurin/releases/?version=25" target="_blank" rel="noopener noreferrer"><span data-i18n="chapter00.environment.jdkDownload">下载 Eclipse Temurin JDK 25</span></a></p>
+<p data-i18n="chapter00.environment.arch">常见 Windows 电脑选 x64，Apple Silicon Mac 选 aarch64。安装后执行以下命令，确认主版本均为 25。</p>
+<pre class="tutorial-code" tabindex="0"><code translate="no" class="notranslate">java -version
+javac -version</code></pre>
+<p data-i18n="chapter00.environment.jdkMismatch">版本不一致时检查 PATH 和 JAVA_HOME；JAVA_HOME 应指向 JDK 根目录。</p>
+<h3 data-i18n="chapter00.environment.idea">1.2 IntelliJ IDEA</h3>
+<p><a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="noopener noreferrer"><span data-i18n="chapter00.environment.ideaDownload">从 JetBrains 官网下载 IntelliJ IDEA</span></a></p>
+<p><span data-i18n="chapter00.environment.ideaIntro">打开模板项目，将 Project SDK 和 Gradle JVM 设为 JDK 25。</span><sup class="tutorial-citation" id="cite-gradle-jvm-1" tabindex="-1"><a href="#ref-gradle-jvm" role="doc-noteref" data-citation="1" aria-describedby="tutorial-citation-label">[1]</a></sup></p>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">文件 → 项目结构 → 项目 → SDK → JDK 25</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">File → Project Structure → Project → SDK → JDK 25</dd></div>
+<div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 构建、执行、部署 → 构建工具 → Gradle → Gradle JVM → JDK 25</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Build, Execution, Deployment → Build Tools → Gradle → Gradle JVM → JDK 25</dd></div>
+</dl>
+<h3 data-i18n="chapter00.environment.template">1.3 Fabric Mod Template</h3>
+<p><a href="https://fabricmc.net/develop/template/" target="_blank" rel="noopener noreferrer"><span data-i18n="chapter00.environment.generator">打开 Fabric 官方模板生成器</span></a></p>
+<p><span data-i18n="chapter00.environment.templateIntro">选择 Minecraft 26.3，填写模组名称、Mod ID 和包名。示例：Vocabulary Spark / vocabulary-spark / io.github.piscescup.vocabularyspark。</span><sup class="tutorial-citation" id="cite-fabric-26-3-1" tabindex="-1"><a href="#ref-fabric-26-3" role="doc-noteref" data-citation="2" aria-describedby="tutorial-citation-label">[2]</a></sup></p>
+<p data-i18n="chapter00.environment.templateOptions">按需启用客户端源码分离和数据生成。解压后，用 IDEA 打开项目根目录，等待 Gradle 同步完成。</p>
+<p><span data-i18n="chapter00.environment.firstRun">在项目根目录执行对应系统的命令：</span><sup class="tutorial-citation" id="cite-fabric-launch-1" tabindex="-1"><a href="#ref-fabric-launch" role="doc-noteref" data-citation="3" aria-describedby="tutorial-citation-label">[3]</a></sup></p>
+<pre class="tutorial-code" tabindex="0"><code translate="no" class="notranslate"># Windows PowerShell
+.\gradlew.bat runClient
+
+# macOS / Linux
+./gradlew runClient</code></pre>
+<p data-i18n="chapter00.environment.success">客户端正常启动即完成验证。失败时查看 Build 或终端报错。</p>
+</section>
+
+<section class="tutorial-section" id="idea-settings" aria-labelledby="idea-settings-title">
+<h2 data-section="02" data-i18n="chapter00.settings.title" id="idea-settings-title">IDEA 常用设置</h2>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.open">2.1 打开设置窗口</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">Windows / Linux：文件 → 设置；macOS：IntelliJ IDEA → 设置</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Windows / Linux: File → Settings; macOS: IntelliJ IDEA → Settings</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.shortcuts">快捷键：Windows / Linux 为 Ctrl + Alt + S，macOS 为 ⌘ + ,。</span><sup class="tutorial-citation" id="cite-idea-settings-1" tabindex="-1"><a href="#ref-idea-settings" role="doc-noteref" data-citation="4" aria-describedby="tutorial-citation-label">[4]</a></sup></p></div>
+<div class="tutorial-settings-group"><h3 data-i18n="chapter00.settings.system">2.2 系统设置</h3>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.reopen">启动时重新打开项目</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 外观与行为 → 系统设置 → 启动时重新打开项目</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Appearance &amp; Behavior → System Settings → Reopen projects on startup</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.reopenBody">启用后恢复上次项目；关闭后显示欢迎页。</span><sup class="tutorial-citation" id="cite-idea-system-1" tabindex="-1"><a href="#ref-idea-system" role="doc-noteref" data-citation="5" aria-describedby="tutorial-citation-label">[5]</a></sup></p>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 外观与行为 → 系统设置 → 更新 → 取消勾选“检查 IDE 更新对象”</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Appearance &amp; Behavior → System Settings → Updates → clear Check IDE updates for<sup class="tutorial-citation" id="cite-idea-updates-1" tabindex="-1"><a href="#ref-idea-updates" role="doc-noteref" data-citation="6" aria-describedby="tutorial-citation-label">[6]</a></sup></dd></div>
+</dl></div>
+</div>
+<div class="tutorial-settings-group"><h3 data-i18n="chapter00.settings.appearance">2.3 整体主题与界面</h3>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.theme">选择主题</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 外观与行为 → 外观 → 主题（Theme）</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Appearance &amp; Behavior → Appearance → Theme</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.themeBody">设置窗口和工具栏主题。</span><sup class="tutorial-citation" id="cite-idea-appearance-1" tabindex="-1"><a href="#ref-idea-appearance" role="doc-noteref" data-citation="7" aria-describedby="tutorial-citation-label">[7]</a></sup></p></div>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.uiFont">菜单和窗口的字体大小</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 外观与行为 → 外观 → 使用自定义字体 → 大小</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Appearance &amp; Behavior → Appearance → Use custom font → Size</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.uiFontBody">启用自定义字体，调整菜单和项目树字号。</span><sup class="tutorial-citation" id="cite-idea-appearance-2" tabindex="-1"><a href="#ref-idea-appearance" role="doc-noteref" data-citation="7" aria-describedby="tutorial-citation-label">[7]</a></sup></p></div>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.background">IDEA 背景图</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 外观与行为 → 外观 → 背景图像…</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Appearance &amp; Behavior → Appearance → Background Image…</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.backgroundBody">选择图片并调整透明度；This project only（仅此项目）限制作用范围。</span><sup class="tutorial-citation" id="cite-idea-background-1" tabindex="-1"><a href="#ref-idea-background" role="doc-noteref" data-citation="8" aria-describedby="tutorial-citation-label">[8]</a></sup></p></div>
+</div>
+<div class="tutorial-settings-group"><h3 data-i18n="chapter00.settings.editor">2.4 编辑器主题、字号与注释颜色</h3>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.scheme">编辑器配色方案</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 配色方案 → 方案</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → Color Scheme → Scheme</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.schemeBody">设置语法颜色。修改内置方案时，先创建副本。</span><sup class="tutorial-citation" id="cite-idea-colors-1" tabindex="-1"><a href="#ref-idea-colors" role="doc-noteref" data-citation="9" aria-describedby="tutorial-citation-label">[9]</a></sup></p></div>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.codeFont">编辑器字号</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 字体 → 大小</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → Font → Size</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.codeFontBody">设置字体和字号。方案专用字体会覆盖此默认值。</span><sup class="tutorial-citation" id="cite-idea-font-1" tabindex="-1"><a href="#ref-idea-font" role="doc-noteref" data-citation="10" aria-describedby="tutorial-citation-label">[10]</a></sup></p></div>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.comments">注释的字体颜色</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 配色方案 → 语言默认设置 → 注释</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → Color Scheme → Language Defaults → Comments</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.commentsBody">选择注释类型并修改前景色。仅调整 Java 时进入 Color Scheme → Java；必要时取消 Inherit values from。</span><sup class="tutorial-citation" id="cite-idea-colors-2" tabindex="-1"><a href="#ref-idea-colors" role="doc-noteref" data-citation="9" aria-describedby="tutorial-citation-label">[9]</a></sup></p></div>
+</div>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.lines">2.5 显示行号与方法分隔线</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 常规 → 外观 → 显示行号 / 显示方法分隔符</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → General → Appearance → Show line numbers / Show method separators</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.linesBody">按需开启行号和方法分隔线。</span><sup class="tutorial-citation" id="cite-idea-editor-appearance-1" tabindex="-1"><a href="#ref-idea-editor-appearance" role="doc-noteref" data-citation="11" aria-describedby="tutorial-citation-label">[11]</a></sup></p></div>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.completion">2.6 代码补全</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 常规 → 代码补全 → 弹出窗口</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → General → Code Completion → Popup</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.completionBody">开启 Show suggestions as you type；按需调整 Match case。Windows 下 Ctrl + Space 可手动补全。</span><sup class="tutorial-citation" id="cite-idea-completion-1" tabindex="-1"><a href="#ref-idea-completion" role="doc-noteref" data-citation="12" aria-describedby="tutorial-citation-label">[12]</a></sup></p></div>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.import">2.7 自动导包</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 常规 → 自动导入 → Java</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → General → Auto Import → Java</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.importBody">开启 Add unambiguous imports on the fly；按需开启 Optimize imports on the fly。存在同名类时核对包名。</span><sup class="tutorial-citation" id="cite-idea-imports-1" tabindex="-1"><a href="#ref-idea-imports" role="doc-noteref" data-citation="13" aria-describedby="tutorial-citation-label">[13]</a></sup></p></div>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.encoding">2.8 项目文件编码：统一为 UTF-8</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 文件编码 → 全局编码 / 项目编码方式 / 属性文件的默认编码方式</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → File Encodings → Global Encoding / Project Encoding / Default encoding for properties files</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.encodingBody">将 Global Encoding、Project Encoding 和 Properties 默认编码设为 UTF-8，并检查文件夹覆盖项。</span><sup class="tutorial-citation" id="cite-idea-encodings-1" tabindex="-1"><a href="#ref-idea-encodings" role="doc-noteref" data-citation="14" aria-describedby="tutorial-citation-label">[14]</a></sup></p>
+<p data-i18n="chapter00.settings.encodingConvert">已有文件需按原始编码选择 Reload 或 Convert。native-to-ascii 转换不是 UTF-8 开关。</p></div>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.console">2.9 控制台编码</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 常规 → 控制台 → 默认编码 → UTF-8</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → General → Console → Default Encoding → UTF-8</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.consoleBody">设为 UTF-8。若仍有乱码，同时检查程序实际输出的编码。</span><sup class="tutorial-citation" id="cite-idea-console-1" tabindex="-1"><a href="#ref-idea-console" role="doc-noteref" data-citation="15" aria-describedby="tutorial-citation-label">[15]</a></sup></p></div>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.header">2.10 新建 Java 类时的文档注释</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 文件和代码模板 → 包含 → File Header</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → File and Code Templates → Includes → File Header</dd></div>
+</dl>
+<p><span data-i18n="chapter00.settings.headerBody">填写文件头模板，并替换作者名。${NAME} 会在创建文件时替换为类名。</span><sup class="tutorial-citation" id="cite-idea-templates-1" tabindex="-1"><a href="#ref-idea-templates" role="doc-noteref" data-citation="16" aria-describedby="tutorial-citation-label">[16]</a></sup></p>
+<pre class="tutorial-code" tabindex="0"><code translate="no" class="notranslate">/**
+ *
+ *
+ * @author Github: <a href="https://github.com/Piscescup">Pisces Cup</a><br>
+ *          Name: <b>Yuantong Ren</b>
+ * @since 1.0.0
+ * @version 1.0.0
+ */</code></pre>
+<p data-i18n="chapter00.settings.headerScope">Default 用于 IDE，Project 仅用于当前项目。Files → Class 中保留一次 #parse(&quot;File Header.java&quot;)；模板仅影响新文件。</p></div>
+</section>
+
+<section class="tutorial-section" id="idea-plugins" aria-labelledby="idea-plugins-title">
+<h2 data-section="03" data-i18n="chapter00.plugins.title" id="idea-plugins-title">开发插件</h2>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 插件 → Marketplace → 搜索插件名称 → 安装</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Plugins → Marketplace → search for the plugin → Install</dd></div>
+</dl>
+<h3 data-i18n="chapter00.plugins.mcdev">Minecraft Development</h3>
+<p><span data-i18n="chapter00.plugins.mcdevBody">提供 Minecraft 代码检查和导航。选择与 IDEA 2026.3 兼容的版本；项目仍通过 Fabric 官方生成器创建。</span><sup class="tutorial-citation" id="cite-minecraft-development-1" tabindex="-1"><a href="#ref-minecraft-development" role="doc-noteref" data-citation="17" aria-describedby="tutorial-citation-label">[17]</a></sup></p>
+<h3 data-i18n="chapter00.plugins.ignore">.ignore（可选）</h3>
+<p><span data-i18n="chapter00.plugins.ignoreBody">辅助编辑 .gitignore，可选安装。</span><sup class="tutorial-citation" id="cite-ignore-plugin-1" tabindex="-1"><a href="#ref-ignore-plugin" role="doc-noteref" data-citation="18" aria-describedby="tutorial-citation-label">[18]</a></sup></p>
+<h3 data-i18n="chapter00.plugins.language">中文界面设置</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 外观与行为 → 系统设置 → 语言和区域 → 语言 → 简体中文</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Appearance &amp; Behavior → System Settings → Language and Region → Language → Chinese (Simplified)</dd></div>
+</dl>
+<p><span data-i18n="chapter00.plugins.languageBody">中文支持已内置。若没有该选项，检查 Plugins → Installed 中的 Chinese Language Pack 是否启用。</span><sup class="tutorial-citation" id="cite-idea-language-1" tabindex="-1"><a href="#ref-idea-language" role="doc-noteref" data-citation="19" aria-describedby="tutorial-citation-label">[19]</a></sup></p>
+</section>
+
+<section class="tutorial-section" id="project-files" aria-labelledby="project-files-title">
+<h2 data-section="04" data-i18n="chapter00.files.title" id="project-files-title">项目文件</h2>
+<h3 data-i18n="chapter00.files.gradle">Gradle</h3>
+<div class="tutorial-table-wrap"><table class="tutorial-table"><thead><tr><th data-i18n="chapter00.files.table.file" scope="col">文件或目录</th><th data-i18n="chapter00.files.table.role" scope="col">用途</th></tr>
+</thead>
+<tbody><tr><td><code translate="no">build.gradle</code></td><td><span data-i18n="chapter00.files.gradleRow0">声明 Loom、Minecraft 和 Fabric 依赖，以及编译、资源处理规则。26.3 模板使用 net.fabricmc.fabric-loom。</span><sup class="tutorial-citation" id="cite-template-build-1" tabindex="-1"><a href="#ref-template-build" role="doc-noteref" data-citation="20" aria-describedby="tutorial-citation-label">[20]</a></sup></td></tr>
+<tr><td><code translate="no">gradle.properties</code></td><td><span data-i18n="chapter00.files.gradleRow1">保存版本与项目属性：minecraft_version、loader_version、fabric_api_version、version、group。</span><sup class="tutorial-citation" id="cite-template-properties-1" tabindex="-1"><a href="#ref-template-properties" role="doc-noteref" data-citation="21" aria-describedby="tutorial-citation-label">[21]</a></sup></td></tr>
+<tr><td><code translate="no">settings.gradle</code></td><td data-i18n="chapter00.files.gradleRow2">定义项目名称、插件解析仓库等设置。</td></tr>
+<tr><td><code translate="no">gradle/wrapper/gradle-wrapper.properties</code></td><td><span data-i18n="chapter00.files.gradleRow3">指定 Gradle 版本，使用项目自带 Wrapper 即可。</span><sup class="tutorial-citation" id="cite-gradle-wrapper-1" tabindex="-1"><a href="#ref-gradle-wrapper" role="doc-noteref" data-citation="22" aria-describedby="tutorial-citation-label">[22]</a></sup></td></tr>
+<tr><td><code translate="no">gradlew / gradlew.bat</code></td><td data-i18n="chapter00.files.gradleRow4">Wrapper 启动脚本：macOS / Linux 使用 gradlew，Windows 使用 gradlew.bat。</td></tr>
+<tr><td><code translate="no">.gradle/ · build/</code></td><td data-i18n="chapter00.files.gradleRow5">本地缓存与构建输出，不作为源码提交。</td></tr>
+</tbody>
+</table>
+</div>
+<h3 data-i18n="chapter00.files.fabric">Fabric</h3>
+<div class="tutorial-table-wrap"><table class="tutorial-table"><thead><tr><th data-i18n="chapter00.files.fabricTable.file" scope="col">位置</th><th data-i18n="chapter00.files.fabricTable.role" scope="col">用途</th></tr>
+</thead>
+<tbody><tr><td><code translate="no">src/main/java/</code></td><td data-i18n="chapter00.files.fabricRow0">通用 Java 代码和 ModInitializer 入口，不放客户端专用类。</td></tr>
+<tr><td><code translate="no">src/client/java/</code></td><td data-i18n="chapter00.files.fabricRow1">启用源码分离时的客户端代码，包含 ClientModInitializer。</td></tr>
+<tr><td><code translate="no">src/main/resources/fabric.mod.json</code></td><td><span data-i18n="chapter00.files.fabricRow2">声明 id、name、version、environment、entrypoints、depends、mixins。</span><sup class="tutorial-citation" id="cite-template-metadata-1" tabindex="-1"><a href="#ref-template-metadata" role="doc-noteref" data-citation="23" aria-describedby="tutorial-citation-label">[23]</a></sup></td></tr>
+<tr><td><code translate="no">assets/vocabulary-spark/</code></td><td data-i18n="chapter00.files.fabricRow3">resources 下的客户端资源目录，命名空间与 Mod ID 一致。</td></tr>
+<tr><td><code translate="no">data/vocabulary-spark/</code></td><td data-i18n="chapter00.files.fabricRow4">配方、战利品表等服务端数据，按需创建。</td></tr>
+<tr><td><code translate="no">*.mixins.json</code></td><td data-i18n="chapter00.files.fabricRow5">Mixin 配置；客户端配置可位于 src/client/resources。</td></tr>
+<tr><td><code translate="no">src/main/generated/</code></td><td data-i18n="chapter00.files.fabricRow6">启用数据生成后的输出目录；修改生成器后重新生成。</td></tr>
+</tbody>
+</table>
+</div>
+<p data-i18n="chapter00.files.idReminder">Mod ID 可用 vocabulary-spark；Java 包名不能包含连字符。</p>
+<h3 data-i18n="chapter00.files.build">构建验证</h3>
+<pre class="tutorial-code" tabindex="0"><code translate="no" class="notranslate"># Windows PowerShell
+.\gradlew.bat build
+
+# macOS / Linux
+./gradlew build</code></pre>
+<p data-i18n="chapter00.files.buildBody">产物位于 build/libs，注意区分模组 JAR 与 sources JAR。</p>
+</section>
+
+<section class="tutorial-section" id="my-habits" aria-labelledby="my-habits-title">
+<h2 data-section="05" data-i18n="chapter00.habits.title" id="my-habits-title">我的习惯</h2>
+<p data-i18n="chapter00.habits.intro">我将 Mod ID、元数据、日志和工具方法集中放在 References 类中，便于维护。</p>
+<h3 data-i18n="chapter00.habits.example">References 示例</h3>
+<p data-i18n="chapter00.habits.exampleIntro">按项目补充 package 声明，并保持 Mod ID 与 fabric.mod.json 一致。</p>
+<div class="tutorial-example" data-tutorial-example><div class="tutorial-code-toolbar"><span>VocabularySparkModReferences.java</span><button class="tutorial-copy" type="button" data-tutorial-copy hidden data-i18n="tutorial.code.copy">复制代码</button></div>
+<pre class="tutorial-code" tabindex="0" aria-label="References Java 示例" data-i18n-aria-label="tutorial.code.referencesLabel"><code translate="no" class="notranslate" data-tutorial-source="examples/tutorials/VocabularySparkModReferences.java">import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
+import net.fabricmc.loader.api.metadata.ModMetadata;
+import net.minecraft.resources.Identifier;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.Contract;
+import org.jspecify.annotations.NonNull;
+
+/**
+ * Constants
+ *
+ * @author REN YuanTong
+ * @since 1.0.0
+ */
+public final class VocabularySparkModReferences {
+
+    private VocabularySparkModReferences() {
+    }
+
+    /** The mod identifier, also used as the namespace for mod resources. */
+    public static final String MOD_ID = &quot;vocabulary-spark&quot;;
+
+    /** The Fabric loader instance providing access to registered mods. */
+    public static final FabricLoader FABRIC_LOADER = FabricLoader.getInstance();
+
+    /** The registered container for the mod identified by {@link #MOD_ID}. */
+    public static final ModContainer VOCABULARY_SPARK_MOD = FABRIC_LOADER
+            .getModContainer(MOD_ID)
+            .orElseThrow();
+
+    /** The metadata supplied by {@link #VOCABULARY_SPARK_MOD}. */
+    public static final ModMetadata VOCABULARY_SPARK_METADATA = VOCABULARY_SPARK_MOD
+            .getMetadata();
+
+    /** The human-readable mod name obtained from the registered metadata. */
+    public static final String MOD_NAME = VOCABULARY_SPARK_METADATA
+            .getName();
+
+    /** The friendly version string obtained from the registered metadata. */
+    public static final String MOD_VERSION = VOCABULARY_SPARK_METADATA
+            .getVersion()
+            .getFriendlyString();
+
+    /**
+     * The shared Gson instance for JSON serialization and deserialization.
+     * Uses pretty printing and disables HTML character escaping in JSON output.
+     */
+    public static final Gson GSON = new GsonBuilder()
+            .setPrettyPrinting()
+            .disableHtmlEscaping()
+            .create();
+
+    /** The shared Log4j logger named using {@link #MOD_NAME}. */
+    public static final Logger MOD_LOGGER = LogManager.getLogger(MOD_NAME);
+
+    /**
+     * Creates a resource identifier using {@link #MOD_ID} as its namespace.
+     * For example, {@code &quot;textures/gui/dictionary.png&quot;} produces
+     * {@code &quot;vocabulary-spark:textures/gui/dictionary.png&quot;}.
+     *
+     * &lt;p&gt;The path is passed unchanged to
+     * {@link Identifier#fromNamespaceAndPath(String, String)}. It must contain
+     * only lowercase ASCII letters, digits, slashes, periods, underscores or
+     * hyphens; a namespace prefix must not be included.
+     *
+     * @param path the non-null resource path within the mod&#39;s namespace
+     * @return a new identifier with the mod namespace and the supplied path
+     * @throws NullPointerException if {@code path} is null
+     * @throws net.minecraft.IdentifierException if {@code path} contains an
+     *         invalid resource-path character
+     * @see Identifier#fromNamespaceAndPath(String, String)
+     */
+    @NonNull
+    @Contract(&quot;_ -&gt; new&quot;)
+    public static Identifier fromPath(String path) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path);
+    }
+}
+
+</code></pre>
+<p class="tutorial-copy-feedback" data-tutorial-feedback role="status" aria-live="polite"></p>
+</div>
+<h3 data-i18n="chapter00.habits.fields">字段与方法</h3>
+<div class="tutorial-table-wrap"><table class="tutorial-table"><thead><tr><th data-i18n="chapter00.habits.table.symbol" scope="col">字段或方法</th><th data-i18n="chapter00.habits.table.role" scope="col">用途</th></tr>
+</thead>
+<tbody><tr><td><code translate="no">MOD_ID</code></td><td data-i18n="chapter00.habits.row0">模组标识与资源命名空间。</td></tr>
+<tr><td><code translate="no">FABRIC_LOADER</code></td><td><span data-i18n="chapter00.habits.row1">Fabric Loader 实例。</span><sup class="tutorial-citation" id="cite-fabric-loader-1" tabindex="-1"><a href="#ref-fabric-loader" role="doc-noteref" data-citation="24" aria-describedby="tutorial-citation-label">[24]</a></sup></td></tr>
+<tr><td><code translate="no">VOCABULARY_SPARK_MOD</code></td><td><span data-i18n="chapter00.habits.row2">按 Mod ID 查找容器；不存在时 orElseThrow() 抛出异常。</span><sup class="tutorial-citation" id="cite-fabric-loader-2" tabindex="-1"><a href="#ref-fabric-loader" role="doc-noteref" data-citation="24" aria-describedby="tutorial-citation-label">[24]</a></sup></td></tr>
+<tr><td><code translate="no">VOCABULARY_SPARK_METADATA</code></td><td data-i18n="chapter00.habits.row3">模组元数据，提供名称与版本。</td></tr>
+<tr><td><code translate="no">GSON</code></td><td data-i18n="chapter00.habits.row4">共享 JSON 工具，启用格式化输出并关闭 HTML 字符转义。</td></tr>
+<tr><td><code translate="no">MOD_LOGGER</code></td><td data-i18n="chapter00.habits.row5">Log4j 日志器，注意导入对应的 Logger 类型。</td></tr>
+<tr><td><code translate="no">fromPath(path)</code></td><td data-i18n="chapter00.habits.row6">为资源路径补上本模组命名空间，参数不带命名空间前缀。</td></tr>
+</tbody>
+</table>
+</div>
+<p data-i18n="chapter00.habits.call">创建贴图资源标识的示例：</p>
+<pre class="tutorial-code" tabindex="0"><code translate="no" class="notranslate">Identifier texture = VocabularySparkModReferences
+        .fromPath(&quot;textures/gui/dictionary.png&quot;);
+// vocabulary-spark:textures/gui/dictionary.png</code></pre>
+<h3 data-i18n="chapter00.habits.lifecycle">静态初始化</h3>
+<p><span data-i18n="chapter00.habits.lifecycleBody">调用 fromPath() 也会初始化元数据字段，因此需在 Fabric 已加载模组信息后使用。MOD_ID 是编译期常量，单独读取通常不触发初始化。</span><sup class="tutorial-citation" id="cite-java-initialization-1" tabindex="-1"><a href="#ref-java-initialization" role="doc-noteref" data-citation="25" aria-describedby="tutorial-citation-label">[25]</a></sup></p>
+<h3 data-i18n="chapter00.habits.annotations">注解</h3>
+<p><span data-i18n="chapter00.habits.annotationsBody">@NonNull 来自 JSpecify，表示非空返回类型；@Contract 来自 JetBrains，&quot;_ -&gt; new&quot; 表示正常返回新对象。两者用于静态分析，不执行运行时判空。</span><sup class="tutorial-citation" id="cite-jspecify-1" tabindex="-1"><a href="#ref-jspecify" role="doc-noteref" data-citation="26" aria-describedby="tutorial-citation-label">[26]</a></sup><sup class="tutorial-citation" id="cite-jetbrains-annotations-1" tabindex="-1"><a href="#ref-jetbrains-annotations" role="doc-noteref" data-citation="27" aria-describedby="tutorial-citation-label">[27]</a></sup></p>
+<h3 data-i18n="chapter00.habits.versionNote">版本适配</h3>
+<p><span data-i18n="chapter00.habits.versionBody">MC 26.3 使用 net.minecraft.resources.Identifier。此示例采用 Log4j，官方模板使用 SLF4J，注意区分 Logger 导入。</span><sup class="tutorial-citation" id="cite-template-entrypoint-1" tabindex="-1"><a href="#ref-template-entrypoint" role="doc-noteref" data-citation="28" aria-describedby="tutorial-citation-label">[28]</a></sup></p>
+</section>
+
+<section class="tutorial-section tutorial-bibliography" id="references" role="doc-bibliography" aria-labelledby="references-title">
+    <h2 data-i18n="tutorial.bibliography" id="references-title" data-section="REF">参考</h2>
+    <span data-i18n="tutorial.citation.open" id="tutorial-citation-label" class="tutorial-visually-hidden">查看文末参考</span>
+    <span data-i18n="tutorial.citation.back" id="tutorial-backlink-label" class="tutorial-visually-hidden">返回正文引用位置</span>
+    <ol class="tutorial-reference-list"><li class="tutorial-reference-entry" id="ref-gradle-jvm" tabindex="-1" data-reference="1">
+      <span class="tutorial-reference-number">[1]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/gradle-jvm-selection.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.gradle-jvm">Gradle JVM 选择</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-gradle-jvm-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-fabric-26-3" tabindex="-1" data-reference="2">
+      <span class="tutorial-reference-number">[2]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">FabricMC.</span> <a href="https://fabricmc.net/2026/09/15/263.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.fabric-26-3">Minecraft 26.3 开发说明</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>fabricmc.net</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-fabric-26-3-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-fabric-launch" tabindex="-1" data-reference="3">
+      <span class="tutorial-reference-number">[3]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">FabricMC.</span> <a href="https://docs.fabricmc.net/develop/getting-started/launching-the-game" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.fabric-launch">启动开发客户端</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>docs.fabricmc.net</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-fabric-launch-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-settings" tabindex="-1" data-reference="4">
+      <span class="tutorial-reference-number">[4]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/configuring-project-and-ide-settings.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-settings">项目与 IDE 设置</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-settings-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-system" tabindex="-1" data-reference="5">
+      <span class="tutorial-reference-number">[5]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/system-settings.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-system">系统设置</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-system-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-updates" tabindex="-1" data-reference="6">
+      <span class="tutorial-reference-number">[6]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/update.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-updates">更新 IntelliJ IDEA</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-updates-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-appearance" tabindex="-1" data-reference="7">
+      <span class="tutorial-reference-number">[7]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/settings-appearance.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-appearance">外观设置</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-appearance-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩1</a><a href="#cite-idea-appearance-2" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩2</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-background" tabindex="-1" data-reference="8">
+      <span class="tutorial-reference-number">[8]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/setting-background-image.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-background">设置背景图片</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-background-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-colors" tabindex="-1" data-reference="9">
+      <span class="tutorial-reference-number">[9]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/configuring-colors-and-fonts.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-colors">颜色与字体</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-colors-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩1</a><a href="#cite-idea-colors-2" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩2</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-font" tabindex="-1" data-reference="10">
+      <span class="tutorial-reference-number">[10]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/settings-editor-font.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-font">编辑器字体</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-font-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-editor-appearance" tabindex="-1" data-reference="11">
+      <span class="tutorial-reference-number">[11]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/settings-editor-appearance.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-editor-appearance">编辑器外观</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-editor-appearance-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-completion" tabindex="-1" data-reference="12">
+      <span class="tutorial-reference-number">[12]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/auto-completing-code.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-completion">代码补全</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-completion-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-imports" tabindex="-1" data-reference="13">
+      <span class="tutorial-reference-number">[13]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/settings-auto-import.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-imports">自动导入</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-imports-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-encodings" tabindex="-1" data-reference="14">
+      <span class="tutorial-reference-number">[14]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/settings-file-encodings.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-encodings">文件编码</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-encodings-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-console" tabindex="-1" data-reference="15">
+      <span class="tutorial-reference-number">[15]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/settings-console-folding.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-console">控制台设置</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-console-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-templates" tabindex="-1" data-reference="16">
+      <span class="tutorial-reference-number">[16]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/using-file-and-code-templates.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-templates">文件和代码模板</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-templates-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-minecraft-development" tabindex="-1" data-reference="17">
+      <span class="tutorial-reference-number">[17]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains Marketplace.</span> <a href="https://plugins.jetbrains.com/plugin/8327-minecraft-development" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.minecraft-development">Minecraft Development 插件</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>plugins.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-minecraft-development-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-ignore-plugin" tabindex="-1" data-reference="18">
+      <span class="tutorial-reference-number">[18]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains Marketplace.</span> <a href="https://plugins.jetbrains.com/plugin/7495--ignore" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.ignore-plugin">.ignore 插件</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>plugins.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-ignore-plugin-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-idea-language" tabindex="-1" data-reference="19">
+      <span class="tutorial-reference-number">[19]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://www.jetbrains.com/help/idea/language-and-region.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.idea-language">语言和区域</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>www.jetbrains.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-idea-language-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-template-build" tabindex="-1" data-reference="20">
+      <span class="tutorial-reference-number">[20]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">FabricMC.</span> <a href="https://raw.githubusercontent.com/FabricMC/fabric-example-mod/26.3/build.gradle" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.template-build">Fabric 26.3 示例：build.gradle</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>raw.githubusercontent.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-template-build-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-template-properties" tabindex="-1" data-reference="21">
+      <span class="tutorial-reference-number">[21]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">FabricMC.</span> <a href="https://raw.githubusercontent.com/FabricMC/fabric-example-mod/26.3/gradle.properties" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.template-properties">Fabric 26.3 示例：gradle.properties</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>raw.githubusercontent.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-template-properties-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-gradle-wrapper" tabindex="-1" data-reference="22">
+      <span class="tutorial-reference-number">[22]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">Gradle.</span> <a href="https://docs.gradle.org/current/userguide/gradle_wrapper.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.gradle-wrapper">Gradle Wrapper</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>docs.gradle.org</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-gradle-wrapper-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-template-metadata" tabindex="-1" data-reference="23">
+      <span class="tutorial-reference-number">[23]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">FabricMC.</span> <a href="https://raw.githubusercontent.com/FabricMC/fabric-example-mod/26.3/src/main/resources/fabric.mod.json" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.template-metadata">Fabric 26.3 示例：fabric.mod.json</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>raw.githubusercontent.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-template-metadata-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-fabric-loader" tabindex="-1" data-reference="24">
+      <span class="tutorial-reference-number">[24]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">FabricMC.</span> <a href="https://github.com/FabricMC/fabric-loader/blob/master/src/main/java/net/fabricmc/loader/api/FabricLoader.java" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.fabric-loader">FabricLoader API 源码</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>github.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-fabric-loader-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩1</a><a href="#cite-fabric-loader-2" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩2</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-java-initialization" tabindex="-1" data-reference="25">
+      <span class="tutorial-reference-number">[25]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">Oracle.</span> <a href="https://docs.oracle.com/javase/specs/jls/se25/html/jls-12.html#jls-12.4.1" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.java-initialization">Java 语言规范 §12.4.1：初始化时机</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>docs.oracle.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-java-initialization-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-jspecify" tabindex="-1" data-reference="26">
+      <span class="tutorial-reference-number">[26]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JSpecify.</span> <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/NonNull.html" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.jspecify">NonNull API 文档</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>jspecify.dev</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-jspecify-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-jetbrains-annotations" tabindex="-1" data-reference="27">
+      <span class="tutorial-reference-number">[27]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">JetBrains.</span> <a href="https://github.com/JetBrains/java-annotations" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.jetbrains-annotations">Java 注解库</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>github.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-jetbrains-annotations-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li>
+<li class="tutorial-reference-entry" id="ref-template-entrypoint" tabindex="-1" data-reference="28">
+      <span class="tutorial-reference-number">[28]</span>
+      <div class="tutorial-reference-body"><span class="tutorial-reference-publisher">FabricMC.</span> <a href="https://raw.githubusercontent.com/FabricMC/fabric-example-mod/26.3/src/main/java/com/example/ExampleMod.java" target="_blank" rel="noopener noreferrer"><span data-i18n="tutorial.reference.template-entrypoint">Fabric 26.3 示例：ExampleMod.java</span></a><span class="tutorial-reference-type"> [EB/OL].</span>
+        <div class="tutorial-reference-meta"><span>raw.githubusercontent.com</span><nav class="tutorial-reference-backlinks" aria-describedby="tutorial-backlink-label"><a href="#cite-template-entrypoint-1" role="doc-backlink" aria-describedby="tutorial-backlink-label">↩</a></nav></div>
+      </div>
+    </li></ol>
+  </section>
+      <nav class="tutorial-pagination" aria-label="章节翻页" data-i18n-aria-label="tutorial.pagination"><a href="./index.html"><span aria-hidden="true">←</span><span><small data-i18n="tutorial.back">返回教程目录</small><strong data-i18n="tutorial.title">Fabric 模组开发教程</strong></span></a></nav>
+    </article>
+    <aside class="tutorial-toc" aria-labelledby="tutorial-toc-title">
+      <h2 data-i18n="tutorial.onPage" id="tutorial-toc-title">本页内容</h2>
+      <nav aria-labelledby="tutorial-toc-title"><a href="#environment" data-tutorial-toc><span data-i18n="chapter00.environment.title">开发环境配置</span></a><a href="#idea-settings" data-tutorial-toc><span data-i18n="chapter00.settings.title">IDEA 常用设置</span></a><a href="#idea-plugins" data-tutorial-toc><span data-i18n="chapter00.plugins.title">开发插件</span></a><a href="#project-files" data-tutorial-toc><span data-i18n="chapter00.files.title">项目文件</span></a><a href="#my-habits" data-tutorial-toc><span data-i18n="chapter00.habits.title">我的习惯</span></a><a href="#references" data-tutorial-toc><span data-i18n="tutorial.bibliography">参考文献</span></a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer"><div><a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a><p>© <span id="year">2026</span> PiscesCup</p></div><p data-i18n="footer.motto">记录开发实践，分享开源成果。</p><a class="back-top" href="#top"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a></footer>
+</body>
+</html>

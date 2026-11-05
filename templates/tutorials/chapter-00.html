@@ -1,0 +1,208 @@
+<p class="tutorial-baseline" data-i18n="chapter00.baseline">中文路径可能随语言包变化，可在 Settings 中搜索对应英文名称。</p>
+<section class="tutorial-section" id="environment" aria-labelledby="environment-title">
+<h2 data-section="01" data-i18n="chapter00.environment.title" id="environment-title">1. 开发环境配置</h2>
+<h3 data-i18n="chapter00.environment.jdk">1.1 JDK 25</h3>
+<p data-i18n="chapter00.environment.jdkIntro">JDK 包含 Java 运行环境和 javac 等开发工具。本教程使用 JDK 25；安装时请选择 JDK，而非仅包含运行环境的 JRE。</p>
+<p><a href="https://adoptium.net/temurin/releases/?version=25" target="_blank" rel="noopener noreferrer"><span data-i18n="chapter00.environment.jdkDownload">下载 Eclipse Temurin JDK 25</span></a></p>
+<p data-i18n="chapter00.environment.arch">下载与操作系统、处理器架构匹配的安装包：常见 Windows 电脑通常选择 x64，Apple Silicon Mac 选择 aarch64。安装后重新打开终端，执行以下命令，确认 java 和 javac 的主版本均为 25。</p>
+<pre class="tutorial-code" tabindex="0"><code translate="no" class="notranslate">java -version
+javac -version</code></pre>
+<p data-i18n="chapter00.environment.jdkMismatch">如果 java 和 javac 版本不同，先检查 PATH 与 JAVA_HOME。JAVA_HOME 指向 JDK 的根目录，不是它下面的 bin 文件夹。改完后重新打开终端再试。</p>
+<h3 data-i18n="chapter00.environment.idea">1.2 IntelliJ IDEA</h3>
+<p><a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="noopener noreferrer"><span data-i18n="chapter00.environment.ideaDownload">从 JetBrains 官网下载 IntelliJ IDEA</span></a></p>
+<p data-i18n="chapter00.environment.ideaIntro" data-cite="gradle-jvm">安装 IDEA 并打开模板项目后，检查 Project SDK 和 Gradle JVM 的配置，选择已安装的 JDK 25。两项配置的导航路径如下。</p>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">文件 → 项目结构 → 项目 → SDK → JDK 25</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">File → Project Structure → Project → SDK → JDK 25</dd></div>
+<div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 构建、执行、部署 → 构建工具 → Gradle → Gradle JVM → JDK 25</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Build, Execution, Deployment → Build Tools → Gradle → Gradle JVM → JDK 25</dd></div>
+</dl>
+<h3 data-i18n="chapter00.environment.template">1.3 Fabric Mod Template</h3>
+<p><a href="https://fabricmc.net/develop/template/" target="_blank" rel="noopener noreferrer"><span data-i18n="chapter00.environment.generator">打开 Fabric 官方模板生成器</span></a></p>
+<p data-i18n="chapter00.environment.templateIntro" data-cite="fabric-26-3">选择 Minecraft 26.3，填好模组名称、Mod ID 和包名。我这里用 Vocabulary Spark、vocabulary-spark 作为例子；包名换成你自己的，例如 io.github.piscescup.vocabularyspark。Mod ID 是资源命名空间，尽量在一开始就确定下来。</p>
+<p data-i18n="chapter00.environment.templateOptions">选择 Java，并按需启用客户端源码分离和数据生成。下载、解压后，在 IDEA 中使用 Open 打开包含 settings.gradle、build.gradle 和 gradlew 的项目根目录，等待首次 Gradle 同步完成。</p>
+<p data-i18n="chapter00.environment.firstRun" data-cite="fabric-launch">同步成功后，在项目根目录的终端启动开发客户端。Windows PowerShell 用第一条，macOS / Linux 用第二条；它们是两种系统的写法，不是要依次执行。</p>
+<pre class="tutorial-code" tabindex="0"><code translate="no" class="notranslate"># Windows PowerShell
+.\gradlew.bat runClient
+
+# macOS / Linux
+./gradlew runClient</code></pre>
+<p data-i18n="chapter00.environment.success">开发客户端正常启动后，环境配置完成。若启动失败，查看 Build 或终端中的报错，检查 JDK 配置与依赖同步状态。</p>
+</section>
+
+<section class="tutorial-section" id="idea-settings" aria-labelledby="idea-settings-title">
+<h2 data-section="02" data-i18n="chapter00.settings.title" id="idea-settings-title">2. IDEA 常用设置</h2>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.open">2.1 打开设置窗口</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">Windows / Linux：文件 → 设置；macOS：IntelliJ IDEA → 设置</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Windows / Linux: File → Settings; macOS: IntelliJ IDEA → Settings</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.shortcuts" data-cite="idea-settings">默认快捷键：Windows / Linux 是 Ctrl + Alt + S，macOS 是 ⌘ + ,。设置窗口左上角也能搜索，不知道某个选项在哪时，先搜英文名称通常最快。以下路径都从这个窗口开始。</p></div>
+<div class="tutorial-settings-group"><h3 data-i18n="chapter00.settings.system">2.2 系统设置</h3>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.reopen">启动时重新打开项目</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 外观与行为 → 系统设置 → 启动时重新打开项目</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Appearance &amp; Behavior → System Settings → Reopen projects on startup</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.reopenBody" data-cite="idea-system">勾选后，IDEA 启动时会恢复上次的项目。想每次先看到欢迎页，就取消勾选。这个选择只影响启动习惯，不会删掉项目。</p>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 外观与行为 → 系统设置 → 更新 → 取消勾选“检查 IDE 更新对象”</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no" data-cite="idea-updates">Settings → Appearance &amp; Behavior → System Settings → Updates → clear Check IDE updates for</dd></div>
+</dl></div>
+</div>
+<div class="tutorial-settings-group"><h3 data-i18n="chapter00.settings.appearance">2.3 整体主题与界面</h3>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.theme">选择主题</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 外观与行为 → 外观 → 主题（Theme）</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Appearance &amp; Behavior → Appearance → Theme</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.themeBody" data-cite="idea-appearance">此处设置窗口、工具栏等界面的主题。编辑器内的语法颜色在配色方案中配置。</p></div>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.uiFont">菜单和窗口的字体大小</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 外观与行为 → 外观 → 使用自定义字体 → 大小</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Appearance &amp; Behavior → Appearance → Use custom font → Size</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.uiFontBody" data-cite="idea-appearance">启用自定义字体后调整大小。这会影响菜单、项目树等界面文字，不会把编辑器里的 Java 代码一起放大。</p></div>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.background">IDEA 背景图</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 外观与行为 → 外观 → 背景图像…</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Appearance &amp; Behavior → Appearance → Background Image…</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.backgroundBody" data-cite="idea-background">先打开一个项目，再选图片并调整透明度。只想这个项目使用它，就勾选 This project only（仅此项目）。背景图完全可选，别让它盖过代码的对比度。</p></div>
+</div>
+<div class="tutorial-settings-group"><h3 data-i18n="chapter00.settings.editor">2.4 编辑器主题、字号与注释颜色</h3>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.scheme">编辑器配色方案</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 配色方案 → 方案</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → Color Scheme → Scheme</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.schemeBody" data-cite="idea-colors">这里决定关键字、字符串、注释等代码元素的颜色。修改内置方案时，如果 IDEA 提示先复制或另存为一个方案，先保存自己的副本再调。</p></div>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.codeFont">编辑器字号</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 字体 → 大小</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → Font → Size</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.codeFontBody" data-cite="idea-font">在 Font 中设置编辑器字体和字号。若配色方案启用了专用字体，Color Scheme → Color Scheme Font 中的设置会覆盖默认字体。</p></div>
+<div class="tutorial-setting"><h4 data-i18n="chapter00.settings.comments">注释的字体颜色</h4>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 配色方案 → 语言默认设置 → 注释</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → Color Scheme → Language Defaults → Comments</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.commentsBody" data-cite="idea-colors">在注释分组里选择行注释、块注释或文档注释对应的元素，再改前景色。只想改 Java 时，可以进入 Editor → Color Scheme → Java 查找对应元素；若它继承默认配色，先取消 Inherit values from。具体叶节点的中文名称可能随语言包变化。</p></div>
+</div>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.lines">2.5 显示行号与方法分隔线</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 常规 → 外观 → 显示行号 / 显示方法分隔符</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → General → Appearance → Show line numbers / Show method separators</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.linesBody" data-cite="idea-editor-appearance">行号便于定位代码和错误。方法分隔符在方法之间显示分隔线，可按需启用。</p></div>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.completion">2.6 代码补全</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 常规 → 代码补全 → 弹出窗口</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → General → Code Completion → Popup</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.completionBody" data-cite="idea-completion">在 2026.3 中，输入建议的选项位于 Popup 下。确认 Show suggestions as you type（输入时显示建议）开启；Match case（区分大小写）可以按习惯调整。不想依赖自动弹出时，Windows 默认键位也可以按 Ctrl + Space 主动请求补全。</p></div>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.import">2.7 自动导包</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 常规 → 自动导入 → Java</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → General → Auto Import → Java</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.importBody" data-cite="idea-imports">开启 Add unambiguous imports on the fly（动态添加明确的 import），让 IDEA 在候选唯一时自动导入。Optimize imports on the fly（动态优化 import）会整理未使用或顺序不合适的导入，是否开启看自己的习惯。</p></div>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.encoding">2.8 项目文件编码：统一为 UTF-8</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 文件编码 → 全局编码 / 项目编码方式 / 属性文件的默认编码方式</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → File Encodings → Global Encoding / Project Encoding / Default encoding for properties files</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.encodingBody" data-cite="idea-encodings">这三项都设为 UTF-8，再查看下面的文件、文件夹覆盖列表，避免某个目录仍单独指定旧编码。项目编码影响当前项目，后续新项目的默认值可以从 File → New Projects Setup → Settings for New Projects 调整。</p>
+<p data-i18n="chapter00.settings.encodingConvert">已有乱码时，不要只改选项就立刻保存。先确认文件原来用什么编码，再在状态栏的文件编码菜单里选择正确的 Reload 或 Convert。Transparent native-to-ascii conversion 只是 Properties 文件的转义处理，不等于开启 UTF-8。</p></div>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.console">2.9 控制台编码</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 常规 → 控制台 → 默认编码 → UTF-8</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → General → Console → Default Encoding → UTF-8</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.consoleBody" data-cite="idea-console">这里决定 IDEA 如何解读控制台输出。它不会自动改变 Java 程序或其他工具实际写出的字节；如果日志还乱码，要把输出端的编码也一起检查。它和项目文件编码是两回事。</p></div>
+<div class="tutorial-setting"><h3 data-i18n="chapter00.settings.header">2.10 新建 Java 类时的文档注释</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 编辑器 → 文件和代码模板 → 包含 → File Header</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Editor → File and Code Templates → Includes → File Header</dd></div>
+</dl>
+<p data-i18n="chapter00.settings.headerBody" data-cite="idea-templates">可以把下面这段放进文件头模板。作者名当然换成自己的；这里保留 REN YuanTong 和 1.0.0，是为了与本教程的示例一致。${NAME} 是 IDEA 模板变量，不是让你把这个字面量留进最终 Java 文件。</p>
+<pre class="tutorial-code" tabindex="0"><code translate="no" class="notranslate">/**
+ * ${NAME}
+ *
+ * @author REN YuanTong
+ * @since 1.0.0
+ */</code></pre>
+<p data-i18n="chapter00.settings.headerScope">Scheme 选 Default 时用于 IDE 默认模板，选 Project 时只用于当前项目。到 Files → Class 检查类模板是否包含 #parse(&quot;File Header.java&quot;)；通常模板已经带着它，不要重复加两次。这个设置只影响之后创建的文件，不会替你改已有的类。</p></div>
+</section>
+
+<section class="tutorial-section" id="idea-plugins" aria-labelledby="idea-plugins-title">
+<h2 data-section="03" data-i18n="chapter00.plugins.title" id="idea-plugins-title">3. IDEA 开发插件</h2>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 插件 → Marketplace → 搜索插件名称 → 安装</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Plugins → Marketplace → search for the plugin → Install</dd></div>
+</dl>
+<h3 data-i18n="chapter00.plugins.mcdev">Minecraft Development</h3>
+<p data-i18n="chapter00.plugins.mcdevBody" data-cite="minecraft-development">提供 Minecraft 开发相关的代码识别、检查和导航。安装时选与 IDEA 2026.3 兼容的版本，按提示重启。这里仍然使用 Fabric 官网生成器创建工程：插件里的项目模板可能比新游戏版本更新得慢。</p>
+<h3 data-i18n="chapter00.plugins.ignore">.ignore（可选）</h3>
+<p data-i18n="chapter00.plugins.ignoreBody" data-cite="ignore-plugin">如果你经常编辑 .gitignore，可以用它辅助处理忽略规则。模板已经带了一份 .gitignore，先沿用它即可；不装这个插件，Git 的忽略规则也照样生效。</p>
+<h3 data-i18n="chapter00.plugins.language">中文界面设置</h3>
+<dl class="tutorial-paths"><div><dt>中文</dt><dd lang="zh-CN" translate="no" class="notranslate">设置 → 外观与行为 → 系统设置 → 语言和区域 → 语言 → 简体中文</dd></div>
+<div><dt>EN</dt><dd lang="en" translate="no">Settings → Appearance &amp; Behavior → System Settings → Language and Region → Language → Chinese (Simplified)</dd></div>
+</dl>
+<p data-i18n="chapter00.plugins.languageBody" data-cite="idea-language">当前 IDEA 已内置中文语言支持，不需要跟着旧教程额外找一个汉化包。若没有中文选项，先到 Plugins → Installed 确认 Chinese Language Pack 没被禁用，再按提示重启。</p>
+</section>
+
+<section class="tutorial-section" id="project-files" aria-labelledby="project-files-title">
+<h2 data-section="04" data-i18n="chapter00.files.title" id="project-files-title">4. 项目文件介绍</h2>
+<h3 data-i18n="chapter00.files.gradle">4.1 Gradle：构建和依赖</h3>
+<div class="tutorial-table-wrap"><table class="tutorial-table"><thead><tr><th data-i18n="chapter00.files.table.file" scope="col">文件或目录</th><th data-i18n="chapter00.files.table.role" scope="col">用途</th></tr>
+</thead>
+<tbody><tr><td><code translate="no">build.gradle</code></td><td data-i18n="chapter00.files.gradleRow0" data-cite="template-build">构建脚本。声明 Loom、Minecraft、Fabric Loader / API 等依赖，以及编译和资源处理规则。26.3 官方模板使用 net.fabricmc.fabric-loom，不要直接套旧模板的插件名和 modImplementation 写法。</td></tr>
+<tr><td><code translate="no">gradle.properties</code></td><td data-i18n="chapter00.files.gradleRow1" data-cite="template-properties">集中放版本与项目属性。当前模板使用 minecraft_version、loader_version、fabric_api_version、version 和 group 等键；旧教程的 mod_version、maven_group 不一定适用于这一份脚本。</td></tr>
+<tr><td><code translate="no">settings.gradle</code></td><td data-i18n="chapter00.files.gradleRow2">定义项目名称、插件解析仓库等设置。</td></tr>
+<tr><td><code translate="no">gradle/wrapper/gradle-wrapper.properties</code></td><td data-i18n="chapter00.files.gradleRow3" data-cite="gradle-wrapper">指定本项目使用的 Gradle 发行版。优先使用项目的 Wrapper，无须额外安装一个全局 Gradle 来替代它。</td></tr>
+<tr><td><code translate="no">gradlew / gradlew.bat</code></td><td data-i18n="chapter00.files.gradleRow4">Gradle Wrapper 的启动脚本。前者用于 macOS / Linux，后者用于 Windows。</td></tr>
+<tr><td><code translate="no">.gradle/ · build/</code></td><td data-i18n="chapter00.files.gradleRow5">分别保存本地构建缓存与输出。它们不是主要源码目录，也不应该把每次构建产生的文件当成手写代码提交。</td></tr>
+</tbody>
+</table>
+</div>
+<h3 data-i18n="chapter00.files.fabric">4.2 Fabric：入口、资源和模组信息</h3>
+<div class="tutorial-table-wrap"><table class="tutorial-table"><thead><tr><th data-i18n="chapter00.files.fabricTable.file" scope="col">位置</th><th data-i18n="chapter00.files.fabricTable.role" scope="col">用途</th></tr>
+</thead>
+<tbody><tr><td><code translate="no">src/main/java/</code></td><td data-i18n="chapter00.files.fabricRow0">放通用 Java 代码，包括实现 ModInitializer 的入口类。这里的代码可能同时用于客户端和独立服务端，别把只存在于客户端的渲染类随手放进来。</td></tr>
+<tr><td><code translate="no">src/client/java/</code></td><td data-i18n="chapter00.files.fabricRow1">启用客户端源码分离时放客户端专用代码，通常包含 ClientModInitializer。是否存在这个目录取决于生成模板时的选项。</td></tr>
+<tr><td><code translate="no">src/main/resources/fabric.mod.json</code></td><td data-i18n="chapter00.files.fabricRow2" data-cite="template-metadata">模组的描述文件。重点看 id、name、version、environment、entrypoints、depends 和 mixins。入口类改名或搬包后，也要检查这里的全限定类名。</td></tr>
+<tr><td><code translate="no">assets/vocabulary-spark/</code></td><td data-i18n="chapter00.files.fabricRow3">客户端资源的命名空间目录，一般位于 resources 下，放语言、贴图等资源。这里的 vocabulary-spark 要与 Mod ID 对上。</td></tr>
+<tr><td><code translate="no">data/vocabulary-spark/</code></td><td data-i18n="chapter00.files.fabricRow4">服务端数据的命名空间目录，例如配方、战利品表等。随着后面增加内容再创建，不需要在这一章把所有子目录都搭完。</td></tr>
+<tr><td><code translate="no">*.mixins.json</code></td><td data-i18n="chapter00.files.fabricRow5">列出 Mixin 类与相关配置。客户端配置也可能位于 src/client/resources。暂时不写 Mixin 时，先知道入口在这里即可。</td></tr>
+<tr><td><code translate="no">src/main/generated/</code></td><td data-i18n="chapter00.files.fabricRow6">启用并配置数据生成后可能出现的输出目录，不是每份基础模板都自带。通常修改生成器再重新生成，不要把它当主要手写目录。</td></tr>
+</tbody>
+</table>
+</div>
+<p data-i18n="chapter00.files.idReminder">特别留意 Mod ID 与 Java 包名的区别：vocabulary-spark 可以做 Mod ID，但 Java 包名不能带连字符。包名可以写成 vocabularyspark，资源路径仍然使用 vocabulary-spark。</p>
+<h3 data-i18n="chapter00.files.build">构建验证</h3>
+<pre class="tutorial-code" tabindex="0"><code translate="no" class="notranslate"># Windows PowerShell
+.\gradlew.bat build
+
+# macOS / Linux
+./gradlew build</code></pre>
+<p data-i18n="chapter00.files.buildBody">构建产物位于 build/libs，其中可能同时包含源码 JAR 等附加文件。发布时选择模组 JAR，注意与 sources 包区分。</p>
+</section>
+
+<section class="tutorial-section" id="my-habits" aria-labelledby="my-habits-title">
+<h2 data-section="05" data-i18n="chapter00.habits.title" id="my-habits-title">5. 我的习惯</h2>
+<p data-i18n="chapter00.habits.intro">我习惯将 Mod ID、模组元数据、日志和常用工具方法集中放在 References 类中，方便统一维护。小型项目也可以将这些内容保留在入口类中。</p>
+<h3 data-i18n="chapter00.habits.example">5.1 VocabularySparkModReferences</h3>
+<p data-i18n="chapter00.habits.exampleIntro">示例包含完整 imports，使用 Gson 和 Log4j，并通过私有构造器防止实例化。package 声明按项目填写，Mod ID 应与 fabric.mod.json 中的 id 保持一致。</p>
+<div class="tutorial-example" data-tutorial-example><div class="tutorial-code-toolbar"><span>VocabularySparkModReferences.java</span><button class="tutorial-copy" type="button" data-tutorial-copy hidden data-i18n="tutorial.code.copy">复制代码</button></div>
+<pre class="tutorial-code" tabindex="0" aria-label="References Java 示例" data-i18n-aria-label="tutorial.code.referencesLabel"><code translate="no" class="notranslate" data-tutorial-source="examples/tutorials/VocabularySparkModReferences.java"></code></pre>
+<p class="tutorial-copy-feedback" data-tutorial-feedback role="status" aria-live="polite"></p>
+</div>
+<h3 data-i18n="chapter00.habits.fields">5.2 字段与方法说明</h3>
+<div class="tutorial-table-wrap"><table class="tutorial-table"><thead><tr><th data-i18n="chapter00.habits.table.symbol" scope="col">字段或方法</th><th data-i18n="chapter00.habits.table.role" scope="col">用途</th></tr>
+</thead>
+<tbody><tr><td><code translate="no">MOD_ID</code></td><td data-i18n="chapter00.habits.row0">唯一的模组标识，也是资源的命名空间。建议只在一处定义，别在整个项目里重复写字符串。</td></tr>
+<tr><td><code translate="no">FABRIC_LOADER</code></td><td data-i18n="chapter00.habits.row1" data-cite="fabric-loader">Fabric Loader 的实例，供后续查询已经发现的模组信息。</td></tr>
+<tr><td><code translate="no">VOCABULARY_SPARK_MOD</code></td><td data-i18n="chapter00.habits.row2" data-cite="fabric-loader">用 Mod ID 找到对应的 ModContainer。这里用 orElseThrow() 明确表示：找不到自己的模组就直接失败，先检查 ID 是否一致。</td></tr>
+<tr><td><code translate="no">VOCABULARY_SPARK_METADATA</code></td><td data-i18n="chapter00.habits.row3">模组的元数据入口；MOD_NAME 和 MOD_VERSION 从这里读取，避免另外维护一份名字或版本。</td></tr>
+<tr><td><code translate="no">GSON</code></td><td data-i18n="chapter00.habits.row4">共享的 JSON 工具。setPrettyPrinting() 让输出便于阅读；disableHtmlEscaping() 保留部分 HTML 字符原样，但不代表可以直接把 JSON 当 HTML 插入网页。</td></tr>
+<tr><td><code translate="no">MOD_LOGGER</code></td><td data-i18n="chapter00.habits.row5">以模组名称创建的 Log4j 日志器。这里的 Logger 必须导入 Log4j 的类型，不能误选成 org.slf4j.Logger。</td></tr>
+<tr><td><code translate="no">fromPath(path)</code></td><td data-i18n="chapter00.habits.row6">自动补上本模组的命名空间，少重复写 MOD_ID。传入的只是路径，不包含 vocabulary-spark: 这样的前缀。</td></tr>
+</tbody>
+</table>
+</div>
+<p data-i18n="chapter00.habits.call">创建贴图资源标识的示例：</p>
+<pre class="tutorial-code" tabindex="0"><code translate="no" class="notranslate">Identifier texture = VocabularySparkModReferences
+        .fromPath(&quot;textures/gui/dictionary.png&quot;);
+// vocabulary-spark:textures/gui/dictionary.png</code></pre>
+<h3 data-i18n="chapter00.habits.lifecycle">5.3 静态初始化</h3>
+<p data-i18n="chapter00.habits.lifecycleBody" data-cite="java-initialization">这个类里的元数据字段，会在类首次初始化时按顺序执行。即使只调用 fromPath()，也会先查询 ModContainer。因此它适合放在 Fabric 已经准备好模组信息的初始化流程中使用，不要把它拿到没有 Fabric 环境的普通 main() 里直接测试。</p>
+<h3 data-i18n="chapter00.habits.annotations">5.4 注解说明</h3>
+<p data-i18n="chapter00.habits.annotationsBody" data-cite="jspecify jetbrains-annotations">这里的 @NonNull 明确采用 org.jspecify.annotations.NonNull，@Contract 来自 org.jetbrains.annotations.Contract。前者说明正常返回值不应为 null，后者的 &quot;_ -&gt; new&quot; 告诉静态分析器正常返回时是新对象。它们描述代码的约定，不会替你完成运行时检查；自动导包时注意不要选成 Lombok 的同名注解。</p>
+<h3 data-i18n="chapter00.habits.versionNote">5.5 版本适配</h3>
+<p data-i18n="chapter00.habits.versionBody" data-cite="template-entrypoint">这里采用 MC 26.3 模板中的 net.minecraft.resources.Identifier 与 fromNamespaceAndPath。旧教程里 net.minecraft.util.Identifier 或 ResourceLocation 的导包不能直接套过来。官方模板本身使用 SLF4J；本例保留 Log4j，是一种明确的工程选择，不是说所有 Fabric 模组都必须换日志框架。</p>
+</section>

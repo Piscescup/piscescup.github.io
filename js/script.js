@@ -36,7 +36,7 @@ function updateActiveLink() {
     const hash = page === 'project' ? '#projects' : location.hash || '#home';
     navLinks.forEach(link => {
         const target = new URL(link.href);
-        const active = page === 'catalog' ? target.pathname.endsWith('/projects/index.html') : target.hash === hash;
+        const active = page === 'tutorial' ? target.pathname.endsWith('/tutorials/index.html') : page === 'catalog' ? target.pathname.endsWith('/projects/index.html') : !target.pathname.includes('/tutorials/') && target.hash === hash;
         link.classList.toggle('is-active', active);
         if (active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
     });

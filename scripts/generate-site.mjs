@@ -5,6 +5,7 @@ import { root, publicFiles } from './site-files.mjs';
 import { loadLocales, escapeHtml as esc, translateHtml, bundleLocales } from './locales.mjs';
 import { dependencyWidget, validateDependency } from './dependencies.mjs';
 import { loadExamples, renderExamples } from './examples.mjs';
+import { generateTutorials } from './tutorials.mjs';
 import '../js/javadoc-status.js';
 
 const dictionaries = await loadLocales();
@@ -43,7 +44,11 @@ const write = async (file, content) => {
   await mkdir(path.dirname(target), { recursive: true });
   if (await readFile(target, 'utf8').catch(() => null) !== content) await writeFile(target, content, 'utf8');
 };
-let home = await readFile(path.join(root, 'index.html'), 'utf8');
+function withTutorialNavigation(html, href) {
+  if (html.includes('data-i18n="nav.tutorials"')) return html;
+  return html.replace(/(<a class="nav-link"[^>]*data-i18n="nav.directory")/, `<a class="nav-link" href="${href}" data-i18n="nav.tutorials">${esc(zh['nav.tutorials'])}</a>\n        $1`);
+}
+let home = withTutorialNavigation(await readFile(path.join(root, 'index.html'), 'utf8'), './tutorials/index.html');
 const nestedLinks = html => html.replace(/href="([^\"]+)"/g, (match, href) => {
   if (/^https?:/.test(href)) return match;
   const destination = new URL(href, 'https://site.invalid/index.html');
@@ -160,7 +165,7 @@ for (const [slug, prefix] of [['linq-for-java', 'linq'], ['mc-wiki', 'mc-wiki']]
 // Keep project breadcrumbs and documentation entries tied to the same manifest.
 for (const project of projects) {
   const file = `projects/${project.slug}.html`;
-  let html = await readFile(path.join(root, file), 'utf8');
+  let html = withTutorialNavigation(await readFile(path.join(root, file), 'utf8'), '../tutorials/index.html');
   if (project.dependency) {
     const region = /<!-- dependency:start -->[\s\S]*?<!-- dependency:end -->/;
     assert(region.test(html), `Missing dependency region in ${file}.`);
@@ -202,7 +207,12 @@ for (const project of projects) {
 
 home = home.replace(/<!-- project-(?:cards|categories):start -->[\s\S]*?<!-- project-(?:cards|categories):end -->/, `<!-- project-categories:start -->\n        ${categoryCards('./')}\n        <!-- project-categories:end -->`);
 home = home.replace(/<span class="section-count">[^<]*<\/span>/, `<span class="section-count">01 — ${String(categories.length).padStart(2,'0')}</span>`);
+if (!home.includes('id="tutorials"')) {
+  const tutorialEntry = `<section class="home-tutorial" id="tutorials" aria-labelledby="home-tutorial-title"><div><p class="eyebrow" data-i18n="tutorial.home.eyebrow">${esc(zh['tutorial.home.eyebrow'])}</p><h2 id="home-tutorial-title" data-i18n="tutorial.home.title">${esc(zh['tutorial.home.title'])}</h2>${t('tutorial.home.description','p')}</div><a class="home-tutorial-link" href="./tutorials/index.html">${t('tutorial.home.open','strong')}${t('tutorial.home.chapter','small')}<span aria-hidden="true">→</span></a></section>`;
+  home = home.replace('    <div class="content-shell">', `    ${tutorialEntry}\n    <div class="content-shell">`);
+}
 await write('index.html', translateHtml(home,zh));
+await generateTutorials({ zh, write, header, footer });
 let notFound = page('404.html','notFound.title','notFound.description', `<section class="project-hero" id="directory"><div class="project-hero-inner"><p class="eyebrow">404</p><h1 data-i18n="notFound.heading">${esc(zh['notFound.heading'])}</h1><p class="project-lead" data-i18n="notFound.description">${esc(zh['notFound.description'])}</p><div class="project-actions">${link('../index.html','nav.home','hero-button')}${link('../projects/index.html','nav.directory','source-button')}</div></div></section>`);
 notFound = notFound.replace(/(href|src)="\.\.\//g,'$1="/').replace(/href="\.\/404.html/g,'href="/404.html').replace('<script src="/js/translations.js"', '<script src="/js/legacy-routes.js" defer></script>\n  <script src="/js/translations.js"');
 await write('404.html',notFound);

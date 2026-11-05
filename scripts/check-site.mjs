@@ -5,6 +5,7 @@ import { root, publicFiles } from './site-files.mjs';
 import { loadLocales, translateHtml, bundleLocales } from './locales.mjs';
 import { dependencyWidget, validateDependency } from './dependencies.mjs';
 import { loadExamples, renderExamples } from './examples.mjs';
+import { loadTutorials } from './tutorials.mjs';
 import '../js/javadoc-status.js';
 
 const files = await publicFiles();
@@ -12,6 +13,7 @@ const published = new Set(files);
 const dictionaries = await loadLocales();
 const projects = JSON.parse(await readFile(path.join(root, 'data/projects.json'), 'utf8'));
 const examples = await loadExamples();
+const chapters = await loadTutorials();
 const pages = new Map();
 const base = 'https://portfolio.invalid/';
 const attributes = tag => Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(match => [match[1], match[2]]));
@@ -30,7 +32,9 @@ for (const file of files.filter(file => file.endsWith('.html'))) {
     for (const [language,dict] of Object.entries(dictionaries)) assert(Object.hasOwn(dict,key), file + ': missing ' + language + ' translation ' + key);
   }
   assert.equal(translateHtml(html,dictionaries['zh-CN']),html, file + ': stale Chinese fallback; run npm run generate.');
-  const english = translateHtml(html,dictionaries.en).replace(/<!--[\s\S]*?-->/g,'').replace(/>中文</g,'><');
+  const english = translateHtml(html,dictionaries.en).replace(/<!--[\s\S]*?-->/g,'').replace(/>中文</g,'><')
+    // Deliberately bilingual Settings paths remain visible in either UI language.
+    .replace(/<dd lang="zh-CN" translate="no" class="notranslate">[^<]*<\/dd>/g, '');
   assert.doesNotMatch(english, /[\u3400-\u9fff]/, file + ': text or accessibility labels without a translation key');
   for (const language of ['zh-CN','en']) assert.match(html, new RegExp('data-language="' + language + '"'), file + ': missing language button');
   pages.set(file, { html, ids: new Set(ids) });
@@ -123,5 +127,40 @@ for (const [slug, group] of Object.entries(examples)) {
   for (const item of group.items) assert(!published.has(item.file), 'Java source files are embedded, not published as separate downloads.');
 }
 for (const term of ['Int', 'Long', 'Double']) assert(linq.includes(`<span translate="no" class="notranslate">${term}</span>`), 'Technical sequence name must not be translated: ' + term);
-assert.equal(pages.size,projects.length + 5 + categories.length + projects.filter(p => p.javadoc).length + projects.filter(p => p.downloads).length,'Unexpected number of shared pages.');
+for (const [file, page] of pages) {
+  assert(page.html.includes('data-i18n="nav.tutorials"'), file + ': missing tutorial navigation');
+}
+const course = pages.get('tutorials/index.html')?.html;
+assert(course, 'Missing tutorial overview.');
+assert(pages.get('index.html').html.includes('id="tutorials"'), 'Missing tutorial entry on the homepage.');
+for (const chapter of chapters) {
+  const file = `tutorials/${chapter.slug}.html`;
+  const html = pages.get(file)?.html;
+  assert(html, 'Missing chapter: ' + chapter.slug);
+  assert(course.includes(`data-tutorial-card="${chapter.slug}"`), 'Chapter missing from the course index.');
+  assert(html.includes(`data-tutorial-chapter="${chapter.slug}"`), 'Chapter missing from the chapter navigation.');
+  assert(html.includes('data-page="tutorial"'), 'Chapter must activate the tutorial navigation.');
+  for (const section of chapter.sections) assert(pages.get(file).ids.has(section.id), 'Missing chapter section: ' + section.id);
+  if (chapter.status === 'content-pending') assert(html.includes('data-i18n="tutorial.pending.title"'), 'An unpublished body needs an honest pending state.');
+  else assert(!html.includes('data-i18n="tutorial.pending.title"'), 'A published chapter must not display the pending state.');
+  if (chapter.referenceFile) {
+    assert(html.includes('id="references" role="doc-bibliography"'), 'Missing chapter bibliography.');
+    assert(!html.includes('class="tutorial-references"'), 'Do not mix section reference lists with the chapter bibliography.');
+    const citations = [...html.matchAll(/role="doc-noteref" data-citation="(\d+)"/g)].map(match => Number(match[1]));
+    const entries = [...html.matchAll(/data-reference="(\d+)"/g)].map(match => Number(match[1]));
+    assert(entries.length && citations.length, 'A bibliography must have body citations.');
+    assert.deepEqual(entries, entries.map((_, index) => index + 1), 'Reference numbers must be consecutive.');
+    assert.deepEqual([...new Set(citations)].sort((a,b) => a-b), entries, 'Every bibliographic entry must be cited.');
+    assert.equal([...html.matchAll(/role="doc-backlink"/g)].length, citations.length, 'Every citation needs a return link.');
+    assert(html.indexOf('id="references"') > html.indexOf(`id="${chapter.sections.at(-1).id}"`), 'References belong after the chapter text.');
+  }
+}
+const chapter00 = pages.get('tutorials/chapter-00.html').html;
+const chinesePaths = [...chapter00.matchAll(/<dd lang="zh-CN" translate="no" class="notranslate">/g)].length;
+const englishPaths = [...chapter00.matchAll(/<dd lang="en" translate="no">/g)].length;
+assert(chinesePaths >= 16 && chinesePaths === englishPaths, 'Chapter 00 needs paired Chinese and English settings paths.');
+assert(chapter00.includes('data-tutorial-source="examples/tutorials/VocabularySparkModReferences.java"'), 'Missing author References example.');
+assert(chapter00.includes('data-tutorial-copy hidden'), 'References copy button must progressively enhance the page.');
+assert(!chapter00.includes('&#xA;') && !chapter00.includes('&#x70;'), 'Clipboard formatting entities leaked into the article.');
+assert.equal(pages.size,projects.length + 6 + categories.length + chapters.length + projects.filter(p => p.javadoc).length + projects.filter(p => p.downloads).length,'Unexpected number of shared pages.');
 console.log('Verified ' + pages.size + ' shared pages, ' + checkedLinks + ' local links, ' + Object.keys(dictionaries.en).length + ' bilingual translation keys and ' + projects.length + ' projects.');
