@@ -50,6 +50,7 @@ export async function generateTutorials({ zh, write, header, footer }) {
   <link rel="alternate" hreflang="en" href="${self}?lang=en" />
   <script src="../js/translations.js" defer></script>
   <script src="../js/i18n.js" defer></script>
+  <script src="../js/clipboard.js" defer></script>
   <script src="../js/script.js" defer></script>
   <script src="../js/tutorials.js" defer></script>
 </head>
@@ -90,8 +91,15 @@ export async function generateTutorials({ zh, write, header, footer }) {
     { id: 'about-course', titleKey: 'tutorial.welcome.title' }, { id: 'chapters', titleKey: 'tutorial.chapters' }
   ]));
   for (const chapter of chapters) {
-    const body = await readFile(path.join(root, chapter.template), 'utf8');
+    let body = await readFile(path.join(root, chapter.template), 'utf8');
+    // Keep the author's Java example in an editable source file, not in JSON escapes.
+    for (const match of [...body.matchAll(/<code\b[^>]*data-tutorial-source="([^"]+)"[^>]*>[\s\S]*?<\/code>/g)]) {
+      assert(/^examples\/tutorials\/[\w-]+\.java$/.test(match[1]), 'Unexpected tutorial code source.');
+      const source = await readFile(path.join(root, match[1]), 'utf8');
+      body = body.replace(match[0], () => match[0].replace(/>[\s\S]*<\/code>$/, () => '>' + esc(source) + '</code>'));
+    }
     const content = `<header class="tutorial-heading"><p class="eyebrow">CHAPTER ${chapter.number} <span aria-hidden="true">/</span> FABRIC</p>${text(chapter.titleKey, 'h1')}${text(chapter.descriptionKey, 'p', ' class="tutorial-lead"')}<div class="tutorial-byline"><span>PiscesCup</span>${chapter.status === 'content-pending' ? text('tutorial.pending.label', 'span', ' class="tutorial-status"') : ''}</div></header>
+      <details class="tutorial-inline-toc"><summary data-i18n="tutorial.onPage">${esc(zh['tutorial.onPage'])}</summary><nav>${chapter.sections.map(section => `<a href="#${section.id}">${text(section.titleKey)}</a>`).join('')}</nav></details>
       ${body}
       <nav class="tutorial-pagination" aria-label="章节翻页" data-i18n-aria-label="tutorial.pagination"><a href="./index.html"><span aria-hidden="true">←</span><span>${text('tutorial.back', 'small')}${text('tutorial.title', 'strong')}</span></a></nav>`;
     await write(`tutorials/${chapter.slug}.html`, documentPage(`tutorials/${chapter.slug}.html`, `tutorial.${chapter.slug}.pageTitle`, chapter.descriptionKey, content, chapter.sections));

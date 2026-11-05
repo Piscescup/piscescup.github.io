@@ -32,7 +32,9 @@ for (const file of files.filter(file => file.endsWith('.html'))) {
     for (const [language,dict] of Object.entries(dictionaries)) assert(Object.hasOwn(dict,key), file + ': missing ' + language + ' translation ' + key);
   }
   assert.equal(translateHtml(html,dictionaries['zh-CN']),html, file + ': stale Chinese fallback; run npm run generate.');
-  const english = translateHtml(html,dictionaries.en).replace(/<!--[\s\S]*?-->/g,'').replace(/>中文</g,'><');
+  const english = translateHtml(html,dictionaries.en).replace(/<!--[\s\S]*?-->/g,'').replace(/>中文</g,'><')
+    // Deliberately bilingual Settings paths remain visible in either UI language.
+    .replace(/<dd lang="zh-CN" translate="no" class="notranslate">[^<]*<\/dd>/g, '');
   assert.doesNotMatch(english, /[\u3400-\u9fff]/, file + ': text or accessibility labels without a translation key');
   for (const language of ['zh-CN','en']) assert.match(html, new RegExp('data-language="' + language + '"'), file + ': missing language button');
   pages.set(file, { html, ids: new Set(ids) });
@@ -142,5 +144,12 @@ for (const chapter of chapters) {
   if (chapter.status === 'content-pending') assert(html.includes('data-i18n="tutorial.pending.title"'), 'An unpublished body needs an honest pending state.');
   else assert(!html.includes('data-i18n="tutorial.pending.title"'), 'A published chapter must not display the pending state.');
 }
+const chapter00 = pages.get('tutorials/chapter-00.html').html;
+const chinesePaths = [...chapter00.matchAll(/<dd lang="zh-CN" translate="no" class="notranslate">/g)].length;
+const englishPaths = [...chapter00.matchAll(/<dd lang="en" translate="no">/g)].length;
+assert(chinesePaths >= 16 && chinesePaths === englishPaths, 'Chapter 00 needs paired Chinese and English settings paths.');
+assert(chapter00.includes('data-tutorial-source="examples/tutorials/VocabularySparkModReferences.java"'), 'Missing author References example.');
+assert(chapter00.includes('data-tutorial-copy hidden'), 'References copy button must progressively enhance the page.');
+assert(!chapter00.includes('&#xA;') && !chapter00.includes('&#x70;'), 'Clipboard formatting entities leaked into the article.');
 assert.equal(pages.size,projects.length + 6 + categories.length + chapters.length + projects.filter(p => p.javadoc).length + projects.filter(p => p.downloads).length,'Unexpected number of shared pages.');
 console.log('Verified ' + pages.size + ' shared pages, ' + checkedLinks + ' local links, ' + Object.keys(dictionaries.en).length + ' bilingual translation keys and ' + projects.length + ' projects.');

@@ -55,6 +55,45 @@
 .tutorial-article figure { margin: 1.5rem 0; }
 .tutorial-article figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
 .tutorial-article figcaption { text-align: center; color: var(--muted); font-size: .8125rem; margin-top: .6rem; }
+.tutorial-section h3 { margin: 1.8rem 0 .8rem; font-size: 1.125rem; line-height: 1.6; }
+.tutorial-section h4 { margin: 1.2rem 0 .6rem; font-size: 1rem; }
+.tutorial-section li { color: var(--muted); line-height: 1.95; margin-bottom: .65rem; }
+.tutorial-section a:not(.tutorial-copy) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.tutorial-section :not(pre) > code { font: .875em var(--mono); background: #edf3f2; border-radius: 4px; padding: .12em .3em; overflow-wrap: anywhere; }
+.tutorial-paths { border: 1px solid var(--line); border-radius: 7px; background: #f7faf9; padding: .8rem 1rem; margin: .8rem 0; }
+.tutorial-paths > div { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: .7rem; margin: .35rem 0; align-items: start; }
+.tutorial-paths dt { color: #6c8781; font: .75rem/1.9 var(--mono); }
+.tutorial-paths dd { margin: 0; font-size: .875rem; line-height: 1.85; overflow-wrap: anywhere; }
+.tutorial-setting { margin-top: 1.8rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); scroll-margin-top: 1.5rem; }
+.tutorial-setting h3 { margin-top: 0; }
+.tutorial-setting > p { font-size: 1rem; line-height: 1.95; color: var(--muted); }
+.tutorial-source { font-size: .8125rem!important; color: var(--muted); margin-top: .7rem; }
+.tutorial-table-wrap { overflow-x: auto; margin: 1.25rem 0; border: 1px solid var(--line); border-radius: 7px; }
+.tutorial-table { border-collapse: collapse; width: 100%; font-size: .9375rem; text-align: left; }
+.tutorial-table th, .tutorial-table td { padding: .9rem 1rem; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.8; }
+.tutorial-table th { background: #edf4f1; font-weight: 600; white-space: nowrap; }
+.tutorial-table tr:last-child td { border-bottom: 0; }
+.tutorial-table td:first-child { min-width: 145px; }
+.tutorial-table td { color: var(--muted); }
+.tutorial-table code { white-space: normal; }
+.tutorial-example { margin: 1.2rem 0; border: 1px solid #29434e; border-radius: 8px; overflow: hidden; }
+.tutorial-code-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .65rem 1rem; background: #203b45; color: #d3e5e1; font: .75rem/1.7 var(--mono); }
+.tutorial-copy { font: inherit; color: #d6eee5; background: transparent; border: 1px solid #638276; border-radius: 4px; padding: .2rem .65rem; cursor: pointer; }
+.tutorial-copy[hidden] { display: none; }
+.tutorial-copy:hover { background: #ffffff10; }
+.tutorial-example .tutorial-code { border-radius: 0; margin: 0; max-height: 640px; }
+.tutorial-example pre:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+.tutorial-copy-feedback { font-size: .8125rem; min-height: 1.5em; color: var(--accent); margin: .3rem 0; }
+.tutorial-copy-feedback:empty { display: none; }
+.tutorial-inline-toc { border: 1px solid var(--line); border-radius: 7px; padding: .9rem 1.2rem; margin-bottom: 2rem; }
+.tutorial-inline-toc summary { cursor: pointer; font-weight: 600; font-size: .875rem; color: var(--accent); }
+.tutorial-inline-toc nav { display: grid; gap: .8rem; padding: 1rem 0 .2rem; font-size: .875rem; }
+.tutorial-inline-toc nav a { color: var(--muted); }
+.tutorial-inline-toc nav a:hover { color: var(--accent); }
+@media (min-width: 1201px) { .tutorial-inline-toc { display: none; } }
+.tutorial-toc { max-height: calc(100vh - 4rem); overflow: auto; }
+.tutorial-reading-meta { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+.tutorial-reading-meta span { border: 1px solid #d4e6df; background: #f1f7f4; color: #527567; border-radius: 4px; padding: .15rem .55rem; font-size: .75rem; }
 @media (max-width: 1200px) {
   .tutorial-layout { grid-template-columns: 210px minmax(0, 1fr); gap: 2rem; padding-inline: 2rem; }
   .tutorial-toc { display: none; }

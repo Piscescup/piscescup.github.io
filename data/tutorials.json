@@ -4,10 +4,29 @@
     "number": "00",
     "titleKey": "tutorial.chapter00.title",
     "descriptionKey": "tutorial.chapter00.description",
-    "status": "content-pending",
+    "status": "published",
     "template": "templates/tutorials/chapter-00.html",
     "sections": [
-      { "id": "chapter-content", "titleKey": "tutorial.body" }
+      {
+        "id": "environment",
+        "titleKey": "chapter00.environment.title"
+      },
+      {
+        "id": "idea-settings",
+        "titleKey": "chapter00.settings.title"
+      },
+      {
+        "id": "idea-plugins",
+        "titleKey": "chapter00.plugins.title"
+      },
+      {
+        "id": "project-files",
+        "titleKey": "chapter00.files.title"
+      },
+      {
+        "id": "my-habits",
+        "titleKey": "chapter00.habits.title"
+      }
     ]
   }
 ]

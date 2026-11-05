@@ -26,16 +26,19 @@ assets/                            头像和图标
 
 ## Fabric 教程区
 
-教程首页为 `tutorials/index.html`，目前只建立 `Chapter 00 · 开发环境配置`，正文等待作者提供。没有预填安装步骤、版本号或尚未完成的章节。
+教程首页为 `tutorials/index.html`。`Chapter 00 · 开发环境配置` 已接入作者的大纲与 References 示例，按 Minecraft 26.3、JDK 25、IntelliJ IDEA 2026.3 编写，资料核对日期为 2026-11-05。
 
 - `data/tutorials.json`：章节顺序、标题键、正文状态和本页目录。
-- `templates/tutorials/chapter-00.html`：Chapter 00 的正文模板。目前保留明确的待补充提示；接入正文时替换该区域。
-- `locales/zh-CN.json`、`locales/en.json`：教程的中文与英文文案，以 `tutorial.` 开头。
+- `templates/tutorials/chapter-00.html`：五部分正文模板，包含设置路径、插件入口与项目文件表格。
+- `locales/zh-CN.json`、`locales/en.json`：教程的中文与英文文案，以 `tutorial.`、`chapter00.` 开头。
+- `examples/tutorials/VocabularySparkModReferences.java`：作者示例的可编辑 Java 源码。生成时转义并嵌入正文，网页提供复制按钮，源码目录不作为站点资源公开。
 - `css/tutorials.css`：文档布局、代码块、提示框和图片说明样式。
 - `js/tutorials.js`：窄屏章节目录与本页目录高亮；关闭 JavaScript 后，中文正文和章节链接依然可读。
 - `scripts/tutorials.mjs`：生成教程页面，复用全站导航与语言设置。
 
-正文接入后，将章节状态从 `content-pending` 改为 `published`，并为 `sections` 配置真实的正文锚点。正文模板中可使用 `.tutorial-code` 排代码、`.tutorial-note` 排提示框、`figure` 与 `figcaption` 排截图及说明。普通文案通过 `data-i18n` 接入现有翻译，代码保留原文。执行 `npm run generate` 更新页面，再用 `npm run build` 检查和构建。
+Chapter 00 的状态为 `published`，目录包含开发环境、IDEA 设置、IDEA 插件、项目文件和 References 五个锚点。设置路径的中英文需要同时展示，因此使用带 `lang` 和 `translate="no"` 的成对 `dd`，切换页面语言时保留原文；其余说明通过 `data-i18n` 翻译。只对这种显式双语路径放宽英文页面的中文检测，其余文字仍检查遗漏翻译。
+
+新章节正文接入后，将状态从 `content-pending` 改为 `published`，并为 `sections` 配置真实锚点。正文模板中可使用 `.tutorial-code` 排代码、`.tutorial-note` 排提示框、`figure` 与 `figcaption` 排截图及说明。普通文案接入翻译，代码保留原文。执行 `npm run generate` 更新页面，再用 `npm run build` 检查和构建。References 的 imports 和类型按官方 26.3 模板与依赖元数据核对；网站检查不等于完整模组的 Gradle 编译和运行验证。
 
 添加后续章节时，按顺序扩展清单、增加对应正文模板及双语文案。教程目录和页数检查会跟随清单更新，不需要手动维护第二份目录。
 
