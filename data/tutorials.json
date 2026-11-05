@@ -1,0 +1,13 @@
+[
+  {
+    "slug": "chapter-00",
+    "number": "00",
+    "titleKey": "tutorial.chapter00.title",
+    "descriptionKey": "tutorial.chapter00.description",
+    "status": "content-pending",
+    "template": "templates/tutorials/chapter-00.html",
+    "sections": [
+      { "id": "chapter-content", "titleKey": "tutorial.body" }
+    ]
+  }
+]

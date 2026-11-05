@@ -20,6 +20,7 @@ export async function publicFiles() {
   await collect('tags', new Set(['.html']));
   await collect('javadoc', new Set(['.html']));
   await collect('downloads', new Set(['.html']));
+  await collect('tutorials', new Set(['.html']));
   await collect('css', new Set(['.css']));
   await collect('js', new Set(['.js']));
   await collect('assets', new Set(['.svg', '.jpg', '.jpeg', '.png', '.webp', '.woff', '.woff2']));

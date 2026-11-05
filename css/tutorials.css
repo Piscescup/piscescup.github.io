@@ -1,0 +1,77 @@
+/* Fabric tutorials share the site's palette, with a quieter reading surface. */
+.tutorial-page { background: #fff; }
+.tutorial-page .site-header { position: relative; background: var(--hero); }
+.tutorial-page .nav-shell { max-width: 1440px; }
+.tutorial-layout { display: grid; grid-template-columns: 235px minmax(0, 760px) 155px; gap: 3rem; max-width: 1440px; padding: 2.5rem 2.5rem 5rem; margin: auto; align-items: start; }
+.tutorial-sidebar { position: sticky; top: 2rem; font-size: .9rem; }
+.tutorial-navigation summary { font-size: .85rem; font-weight: 650; cursor: pointer; padding: .6rem .8rem 1rem; }
+.tutorial-navigation summary::marker { color: var(--accent); }
+.tutorial-navigation nav { display: grid; gap: .3rem; }
+.tutorial-course-link, .tutorial-chapter-link { display: flex; flex-direction: column; gap: .2rem; padding: .75rem .9rem; border-left: 2px solid transparent; border-radius: 0 6px 6px 0; }
+.tutorial-navigation a:hover { background: #f3f7f7; color: var(--accent); }
+.tutorial-navigation [aria-current="page"] { background: #eaf4f2; border-left-color: var(--accent); color: #12645f; }
+.tutorial-group-title { margin: 1.3rem .9rem .5rem; font-size: .75rem; color: var(--muted); }
+.tutorial-chapter-number { font: .75rem/1.7 var(--mono); color: var(--muted); margin: 0; }
+.tutorial-chapter-link small { color: #7c755b; font-size: .75rem; margin-top: .3rem; }
+.tutorial-back-home { display: inline-flex; align-items: center; gap: .7rem; margin: 2rem .8rem 0; color: var(--muted); font-size: .8125rem; }
+.tutorial-back-home:hover { color: var(--accent); }
+.tutorial-article { min-width: 0; outline: none; }
+.tutorial-breadcrumbs { display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; margin: .5rem 0 2.5rem; color: var(--muted); font-size: .8125rem; }
+.tutorial-breadcrumbs a:hover { color: var(--accent); }
+.tutorial-heading { padding-bottom: 2rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
+.tutorial-heading h1 { margin: .8rem 0 1.2rem; font-size: clamp(2rem, 3.2vw, 2.85rem); line-height: 1.3; letter-spacing: -.03em; overflow-wrap: anywhere; }
+.tutorial-lead { max-width: 62ch; font-size: 1.125rem; line-height: 1.9; color: var(--muted); margin: 0; }
+.tutorial-byline { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; color: var(--muted); font-size: .8125rem; }
+.tutorial-status { display: inline-block; padding: .2rem .65rem; font-size: .75rem; font-weight: 400; line-height: 1.8; color: #76602d; background: #f7f2e5; border: 1px solid #ede3c8; border-radius: 4px; }
+.tutorial-section { margin-bottom: 2.5rem; scroll-margin-top: 2rem; }
+.tutorial-section h2 { font-size: 1.45rem; line-height: 1.5; margin: 0 0 1rem; font-weight: 650; }
+.tutorial-section > p { margin: 0 0 1.25rem; font-size: 1rem; line-height: 1.95; color: var(--muted); }
+.tutorial-note { background: #eff6f5; border-left: 3px solid #438b81; border-radius: 0 6px 6px 0; padding: 1.2rem 1.4rem; margin: 1.6rem 0; font-size: 1rem; }
+.tutorial-note strong { font-weight: 600; color: #2d625e; }
+.tutorial-note p { margin: .4rem 0 0; color: #56716f; line-height: 1.9; }
+.tutorial-section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.tutorial-series-label { font: .75rem var(--mono); color: var(--accent); letter-spacing: .08em; }
+.tutorial-lesson-card { display: grid; grid-template-columns: 54px minmax(0, 1fr) 20px; gap: 1.25rem; align-items: start; padding: 1.5rem; border: 1px solid var(--line); border-radius: 10px; transition: border-color .2s, background .2s; }
+.tutorial-lesson-card:hover { border-color: #84aaa3; background: #f9fcfb; }
+.tutorial-lesson-number { display: grid; place-items: center; height: 54px; border-radius: 8px; color: #407971; background: #eaf3ef; font: 1.2rem var(--mono); }
+.tutorial-lesson-card h3 { font-size: 1.2rem; margin: .25rem 0 .5rem; line-height: 1.6; }
+.tutorial-lesson-card p:not(.tutorial-chapter-number) { font-size: 1rem; color: var(--muted); margin: 0 0 .8rem; line-height: 1.85; }
+.tutorial-lesson-arrow { align-self: center; color: var(--accent); font-size: 1.3rem; }
+.tutorial-toc { position: sticky; top: 2.5rem; border-left: 1px solid var(--line); padding: .35rem 0 .35rem 1rem; font-size: .8125rem; }
+.tutorial-toc h2 { font-size: .8125rem; font-weight: 600; margin: 0 0 .8rem; }
+.tutorial-toc nav { display: grid; gap: .8rem; }
+.tutorial-toc a { color: var(--muted); }
+.tutorial-toc a:hover, .tutorial-toc a[aria-current="location"] { color: var(--accent); }
+.tutorial-pending { display: flex; align-items: flex-start; gap: 1.5rem; padding: 2rem; border: 1px dashed #ccd9d7; border-radius: 10px; background: #fafcfb; }
+.tutorial-pending-number { font: 2.5rem/1.3 var(--mono); color: #b1c6c0; }
+.tutorial-pending h3 { font-size: 1.1rem; margin: .15rem 0 .5rem; }
+.tutorial-pending p { font-size: 1rem; color: var(--muted); line-height: 1.9; margin: 0; }
+.tutorial-pagination { padding-top: 2rem; border-top: 1px solid var(--line); }
+.tutorial-pagination a { display: inline-flex; gap: 1rem; align-items: center; color: var(--accent); }
+.tutorial-pagination small, .tutorial-pagination strong { display: block; }
+.tutorial-pagination small { font-size: .8125rem; color: var(--muted); margin-bottom: .25rem; }
+.tutorial-pagination strong { font-size: 1rem; font-weight: 500; }
+.tutorial-code { max-width: 100%; overflow: auto; padding: 1.4rem; border-radius: 8px; background: #142b35; color: #d2e8e5; font: .875rem/1.9 var(--mono); }
+.tutorial-article figure { margin: 1.5rem 0; }
+.tutorial-article figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
+.tutorial-article figcaption { text-align: center; color: var(--muted); font-size: .8125rem; margin-top: .6rem; }
+@media (max-width: 1200px) {
+  .tutorial-layout { grid-template-columns: 210px minmax(0, 1fr); gap: 2rem; padding-inline: 2rem; }
+  .tutorial-toc { display: none; }
+}
+@media (max-width: 800px) {
+  .tutorial-layout { grid-template-columns: minmax(0, 1fr); gap: 1.8rem; padding: 1.4rem 1.4rem 3rem; }
+  .tutorial-sidebar { position: static; border: 1px solid var(--line); border-radius: 8px; }
+  .tutorial-navigation { padding: .35rem .6rem; }
+  .tutorial-navigation summary { padding-block: .6rem; }
+  .tutorial-navigation nav { padding-bottom: .5rem; }
+  .tutorial-back-home { display: none; }
+  .tutorial-breadcrumbs { margin: 0 0 1.5rem; }
+  .tutorial-heading { margin-bottom: 2rem; }
+  .tutorial-lead { font-size: 1rem; }
+  .tutorial-lesson-card { padding: 1.1rem; gap: .9rem; grid-template-columns: 40px minmax(0, 1fr) 16px; }
+  .tutorial-lesson-number { height: 40px; font-size: 1rem; }
+  .tutorial-pending { padding: 1.4rem; gap: 1rem; }
+  .tutorial-pending-number { font-size: 2rem; }
+}
+@media (prefers-reduced-motion: reduce) { .tutorial-lesson-card { transition: none; } }

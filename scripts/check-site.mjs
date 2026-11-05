@@ -5,6 +5,7 @@ import { root, publicFiles } from './site-files.mjs';
 import { loadLocales, translateHtml, bundleLocales } from './locales.mjs';
 import { dependencyWidget, validateDependency } from './dependencies.mjs';
 import { loadExamples, renderExamples } from './examples.mjs';
+import { loadTutorials } from './tutorials.mjs';
 import '../js/javadoc-status.js';
 
 const files = await publicFiles();
@@ -12,6 +13,7 @@ const published = new Set(files);
 const dictionaries = await loadLocales();
 const projects = JSON.parse(await readFile(path.join(root, 'data/projects.json'), 'utf8'));
 const examples = await loadExamples();
+const chapters = await loadTutorials();
 const pages = new Map();
 const base = 'https://portfolio.invalid/';
 const attributes = tag => Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(match => [match[1], match[2]]));
@@ -123,5 +125,22 @@ for (const [slug, group] of Object.entries(examples)) {
   for (const item of group.items) assert(!published.has(item.file), 'Java source files are embedded, not published as separate downloads.');
 }
 for (const term of ['Int', 'Long', 'Double']) assert(linq.includes(`<span translate="no" class="notranslate">${term}</span>`), 'Technical sequence name must not be translated: ' + term);
-assert.equal(pages.size,projects.length + 5 + categories.length + projects.filter(p => p.javadoc).length + projects.filter(p => p.downloads).length,'Unexpected number of shared pages.');
+for (const [file, page] of pages) {
+  assert(page.html.includes('data-i18n="nav.tutorials"'), file + ': missing tutorial navigation');
+}
+const course = pages.get('tutorials/index.html')?.html;
+assert(course, 'Missing tutorial overview.');
+assert(pages.get('index.html').html.includes('id="tutorials"'), 'Missing tutorial entry on the homepage.');
+for (const chapter of chapters) {
+  const file = `tutorials/${chapter.slug}.html`;
+  const html = pages.get(file)?.html;
+  assert(html, 'Missing chapter: ' + chapter.slug);
+  assert(course.includes(`data-tutorial-card="${chapter.slug}"`), 'Chapter missing from the course index.');
+  assert(html.includes(`data-tutorial-chapter="${chapter.slug}"`), 'Chapter missing from the chapter navigation.');
+  assert(html.includes('data-page="tutorial"'), 'Chapter must activate the tutorial navigation.');
+  for (const section of chapter.sections) assert(pages.get(file).ids.has(section.id), 'Missing chapter section: ' + section.id);
+  if (chapter.status === 'content-pending') assert(html.includes('data-i18n="tutorial.pending.title"'), 'An unpublished body needs an honest pending state.');
+  else assert(!html.includes('data-i18n="tutorial.pending.title"'), 'A published chapter must not display the pending state.');
+}
+assert.equal(pages.size,projects.length + 6 + categories.length + chapters.length + projects.filter(p => p.javadoc).length + projects.filter(p => p.downloads).length,'Unexpected number of shared pages.');
 console.log('Verified ' + pages.size + ' shared pages, ' + checkedLinks + ' local links, ' + Object.keys(dictionaries.en).length + ' bilingual translation keys and ' + projects.length + ' projects.');

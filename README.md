@@ -24,6 +24,21 @@ assets/                            头像和图标
 
 中文与英文使用独立文件和 URL。右上角的语言切换前往当前页面的另一语言版本；启用 JavaScript 时会保留正在阅读的章节。站内导航会继续使用当前语言，不依赖浏览器存储、在线翻译或服务器重定向。
 
+## Fabric 教程区
+
+教程首页为 `tutorials/index.html`，目前只建立 `Chapter 00 · 开发环境配置`，正文等待作者提供。没有预填安装步骤、版本号或尚未完成的章节。
+
+- `data/tutorials.json`：章节顺序、标题键、正文状态和本页目录。
+- `templates/tutorials/chapter-00.html`：Chapter 00 的正文模板。目前保留明确的待补充提示；接入正文时替换该区域。
+- `locales/zh-CN.json`、`locales/en.json`：教程的中文与英文文案，以 `tutorial.` 开头。
+- `css/tutorials.css`：文档布局、代码块、提示框和图片说明样式。
+- `js/tutorials.js`：窄屏章节目录与本页目录高亮；关闭 JavaScript 后，中文正文和章节链接依然可读。
+- `scripts/tutorials.mjs`：生成教程页面，复用全站导航与语言设置。
+
+正文接入后，将章节状态从 `content-pending` 改为 `published`，并为 `sections` 配置真实的正文锚点。正文模板中可使用 `.tutorial-code` 排代码、`.tutorial-note` 排提示框、`figure` 与 `figcaption` 排截图及说明。普通文案通过 `data-i18n` 接入现有翻译，代码保留原文。执行 `npm run generate` 更新页面，再用 `npm run build` 检查和构建。
+
+添加后续章节时，按顺序扩展清单、增加对应正文模板及双语文案。教程目录和页数检查会跟随清单更新，不需要手动维护第二份目录。
+
 ## 本地预览
 
 需要 Node.js 18 或更新版本，无第三方依赖。
