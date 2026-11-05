@@ -14,7 +14,8 @@ http.createServer(async (request, response) => {
     const relative = path.relative(root, target);
     const publicPath = '/' + relative.split(path.sep).join('/');
     if (relative.startsWith('..') || path.isAbsolute(relative) || !allowedFiles.has(publicPath)) {
-      response.writeHead(404).end('Not found');
+      const fallback = await readFile(path.join(root, '404.html'));
+      response.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' }).end(fallback);
       return;
     }
     const content = await readFile(target);
