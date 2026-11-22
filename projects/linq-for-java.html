@@ -3,35 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#101e2c" />
-  <meta name="description" content="LINQ for Java：面向 Java 25 的 Enumerable 查询库，支持链式查询、延迟执行与基本类型专用序列。" data-i18n-content="linq.description" />
-  <title data-i18n="linq.title">LINQ for Java · PiscesCup</title>
+  <meta name="theme-color" content="#0a0711" />
+  <meta name="description" content="照 .NET LINQ 写的 Java 25 查询库：筛选、投影、排序、分组、连接都有，还顺手做了 int、long、double 的专用序列。" data-i18n-content="home.linq.summary" />
+  <title>LINQ for Java · PiscesCup</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/projects.css" />
-  <link rel="stylesheet" href="../css/catalog.css" />
   <link rel="alternate" hreflang="zh-CN" href="./linq-for-java.html?lang=zh-CN" />
   <link rel="alternate" hreflang="en" href="./linq-for-java.html?lang=en" />
   <script src="../js/translations.js" defer></script>
   <script src="../js/i18n.js" defer></script>
   <script src="../js/clipboard.js" defer></script>
-  <script src="../js/script.js" defer></script>
   <script src="../js/dependency-formats.js" defer></script>
   <script src="../js/dependencies.js" defer></script>
   <script src="../js/code-examples.js" defer></script>
+  <script src="../js/script.js" defer></script>
 </head>
 <body class="project-page" data-page="project" id="top">
-  <a class="skip-link" href="#overview" data-i18n="project.skip">跳转到项目简介</a>
-  <header class="site-header">
+  <a class="skip-link" href="#main" data-i18n="project.skip">跳到主要内容</a>
+<header class="site-header">
     <div class="nav-shell">
-      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P<span>·</span></span>PiscesCup<span class="brand-dot">.</span></a>
+      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P·</span>PiscesCup<span class="brand-dot">.</span></a>
       <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false" data-i18n-aria-label="nav.open"><span></span><span></span></button>
       <nav id="site-nav" class="site-nav" aria-label="主导航" data-i18n-aria-label="nav.label">
         <a class="nav-link is-active" href="../index.html#home" aria-current="location" data-i18n="nav.home">首页</a>
+        <a class="nav-link" href="../index.html#directions" data-i18n="nav.directions">方向</a>
         <a class="nav-link" href="../index.html#projects" data-i18n="nav.projects">项目</a>
-        <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
         <a class="nav-link" href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
         <a class="nav-link" href="../projects/index.html" data-i18n="nav.directory">目录</a>
+        <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
         <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
       <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
@@ -40,38 +40,111 @@
       </nav>
     </div>
   </header>
-  <main><section class="project-hero" aria-labelledby="project-title">
-  <div class="project-hero-inner">
-    <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../projects/index.html" data-i18n="catalog.heading">项目分类</a><span aria-hidden="true">/</span><a href="../categories/general.html" data-i18n="category.general">通用项目</a><span aria-hidden="true">/</span><span aria-current="page">LINQ for Java</span></nav>
-    <p class="eyebrow" data-i18n="linq.eyebrow">Java 序列查询库</p>
-    <h1 id="project-title">LINQ for Java</h1>
-    <p class="project-lead" data-i18n="linq.lead">基于 LINQ 查询风格，为 Java 集合与序列提供可组合的数据处理操作。</p>
-    <div class="project-actions"><a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">使用指南</span> <span aria-hidden="true">↓</span></a><a class="source-button" href="https://github.com/Piscescup/linq-for-java" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">在 GitHub 查看</span> <span aria-hidden="true">↗</span></a><a class="source-button" href="../javadoc/linq-for-java.html" data-project-javadoc data-i18n="javadoc.label">Javadoc 文档</a>
-        </div>
-  </div>
-</section>
-<div class="project-section-bar"><nav class="project-sections" aria-label="本页导航" data-i18n-aria-label="project.onPage"><a href="#overview" data-i18n="project.overview">项目简介</a><a href="#enumerables" data-i18n="linq.enumerables">序列类型</a><a href="#features" data-i18n="project.features">主要功能</a><a href="#getting-started" data-i18n="project.start">开始使用</a><a href="#examples" data-i18n="examples.heading">代码示例</a></nav></div>
-<div class="project-layout">
-  <div class="project-main">
-    <section id="overview" class="detail-section"><p class="eyebrow">01 / OVERVIEW</p><h2 data-i18n="project.overview">项目简介</h2><p data-i18n="linq.overview">LINQ for Java 基于 Enumerable 模型，为 Java 集合与序列提供查询操作。通过 where、select、orderBy 等方法组合数据处理步骤，多种中间操作采用延迟执行机制，在遍历或消费结果时执行。</p></section>
-    <section id="enumerables" class="detail-section">
-      <p class="eyebrow">02 / ENUMERABLE FAMILY</p><h2 data-i18n="linq.enumerables">序列类型</h2><p data-i18n="linq.enumerablesIntro">提供对象序列及 int、long、double 基本类型专用序列，可根据数据类型选择相应查询入口。</p>
-      <div class="sequence-grid">
-        <article id="enumerable" class="feature-item"><code translate="no" class="notranslate">Enumerable&lt;T&gt;</code><h3 data-i18n="linq.object">对象序列</h3><p data-i18n="linq.objectDescription">从数组、集合或可变参数创建序列，使用筛选、排序、分组和连接等通用操作。</p></article>
-        <article id="int-enumerable" class="feature-item"><code translate="no" class="notranslate">IntEnumerable</code><h3><span translate="no" class="notranslate">Int</span> <span data-i18n="linq.sequences">序列</span></h3><p data-i18n="linq.intDescription">通过 Linq.ofInts 创建 int 专用序列，支持数值查询与 sum、average 等聚合操作。</p></article>
-        <article id="long-enumerable" class="feature-item"><code translate="no" class="notranslate">LongEnumerable</code><h3><span translate="no" class="notranslate">Long</span> <span data-i18n="linq.sequences">序列</span></h3><p data-i18n="linq.longDescription">通过 Linq.ofLongs 处理 long 数据，在基本类型管道中减少不必要的装箱与拆箱。</p></article>
-        <article id="double-enumerable" class="feature-item"><code translate="no" class="notranslate">DoubleEnumerable</code><h3><span translate="no" class="notranslate">Double</span> <span data-i18n="linq.sequences">序列</span></h3><p data-i18n="linq.doubleDescription">通过 Linq.ofDoubles 查询 double 数据，适合浮点数筛选、转换与统计。</p></article>
+  <main id="main" tabindex="-1">
+    <section class="project-hero" aria-labelledby="project-title">
+      <div class="hero-stars" aria-hidden="true"></div>
+      <div class="hero-aurora" aria-hidden="true"></div>
+      <div class="project-hero-inner">
+        <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../projects/index.html"><span data-i18n="catalog.heading">项目目录</span></a><span aria-hidden="true">/</span><a href="../categories/general.html"><span data-i18n="category.general">Java 开发库</span></a><span aria-hidden="true">/</span><span aria-current="page">LINQ for Java</span></nav>
+        <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="linq.eyebrow">Java 序列查询库</span></p>
+        <h1 id="project-title">LINQ for Java</h1>
+        <p class="project-lead" data-i18n="linq.lead">想在 Java 里写 .NET 那种链式查询，于是自己写了一个。</p>
+        <ul class="tag-row project-tags" aria-label="标签" data-i18n-aria-label="project.tagsLabel"><li>Java</li><li>Java 25</li><li>Library</li><li>LINQ</li></ul>
+        <div class="project-actions"><a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">看看怎么用</span> <span aria-hidden="true">↓</span></a>
+          <a class="source-button" href="https://github.com/Piscescup/linq-for-java" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">在 GitHub 查看</span> <span aria-hidden="true">↗</span></a>
+          <a href="../javadoc/linq-for-java.html" class="source-button" data-project-javadoc><span data-i18n="javadoc.label">Javadoc 文档</span></a></div>
       </div>
+      <p class="project-plate" aria-hidden="true"><span class="project-plate-glyph">( linq )</span><span class="project-plate-slug">linq-for-java.md</span></p>
     </section>
-    <section id="features" class="detail-section"><p class="eyebrow">03 / QUERY OPERATORS</p><h2 data-i18n="project.features">主要功能</h2><div class="sequence-grid">
-      <article class="feature-item"><span class="feature-index">01</span><h3 data-i18n="linq.features.filter">筛选与投影</h3><p data-i18n="linq.features.filterDescription">通过 where 筛选元素、select 转换结果，并使用 skip 与 take 控制序列范围。</p></article>
-      <article class="feature-item"><span class="feature-index">02</span><h3 data-i18n="linq.features.order">排序与分组</h3><p data-i18n="linq.features.orderDescription">通过 orderBy 与 thenBy 实现多级排序，使用 groupBy 按键对元素分组。</p></article>
-      <article class="feature-item"><span class="feature-index">03</span><h3 data-i18n="linq.features.join">连接与集合</h3><p data-i18n="linq.features.joinDescription">通过 join 与 groupJoin 关联序列，使用 distinct、union、intersect 与 except 执行去重及集合运算。</p></article>
-      <article class="feature-item"><span class="feature-index">04</span><h3 data-i18n="linq.features.aggregate">聚合与结果</h3><p data-i18n="linq.features.aggregateDescription">使用 count、first、aggregate 等操作消费结果，或转换为 List、数组和 Map。</p></article>
-    </div></section>
-    <section id="getting-started" class="detail-section"><p class="eyebrow">04 / GET STARTED</p><h2 data-i18n="project.start">开始使用</h2><div class="getting-started">
-      <ol><li><strong data-i18n="linq.prepare">配置 Java 环境</strong><br /><span data-i18n="linq.prepareDescription">仓库的 README 与编译配置要求 JDK 25 或更新版本。</span></li><li><strong data-i18n="linq.install">添加依赖</strong><br /><span data-i18n="linq.installDescription">选择构建工具并复制依赖配置示例。版本 1.0.0 取自仓库 pom.xml；使用前请确认发布状态，或按 README 说明构建并安装至本地仓库。</span></li></ol>
-      <!-- dependency:start -->
+    <div class="project-section-bar">
+      <div class="project-sections-shell">
+        <nav class="project-sections" aria-label="本页导航" data-i18n-aria-label="project.onPage"><a href="#overview"><span data-i18n="project.overview">这是做什么的</span></a><a href="#features"><span data-i18n="project.features">能做什么</span></a><a href="#enumerables"><span data-i18n="linq.enumerables">序列类型</span></a><a href="#getting-started"><span data-i18n="project.start">怎么用</span></a><a href="#examples"><span data-i18n="examples.heading">代码示例</span></a></nav>
+        <span class="project-section-meta" aria-hidden="true"><span data-i18n="category.general">Java 开发库</span> · LINQ for Java</span>
+      </div>
+    </div>
+    <div class="project-layout">
+      <div class="project-main">
+      <section id="overview" class="detail-section" aria-labelledby="overview-title">
+        <p class="eyebrow">01 / OVERVIEW</p>
+        <h2 id="overview-title"><span data-i18n="project.overview">这是做什么的</span></h2>
+        <p><span data-i18n="linq.overview">LINQ for Java 基于 Enumerable 模型，为 Java 集合与序列提供查询操作。通过 where、select、orderBy 等方法组合数据处理步骤，多种中间操作采用延迟执行机制，在遍历或消费结果时执行。</span></p>
+      </section>
+
+      <section id="features" class="detail-section" aria-labelledby="features-title">
+        <p class="eyebrow">02 / FEATURES</p>
+        <h2 id="features-title"><span data-i18n="project.features">能做什么</span></h2>
+        <div class="feature-grid">
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">01</span>
+            <h3><span data-i18n="linq.features.filter">筛选与投影</span></h3>
+            <p><span data-i18n="linq.features.filterDescription">通过 where 筛选元素、select 转换结果，并使用 skip 与 take 控制序列范围。</span></p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">02</span>
+            <h3><span data-i18n="linq.features.order">排序与分组</span></h3>
+            <p><span data-i18n="linq.features.orderDescription">通过 orderBy 与 thenBy 实现多级排序，使用 groupBy 按键对元素分组。</span></p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">03</span>
+            <h3><span data-i18n="linq.features.join">连接与集合</span></h3>
+            <p><span data-i18n="linq.features.joinDescription">通过 join 与 groupJoin 关联序列，使用 distinct、union、intersect 与 except 执行去重及集合运算。</span></p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">04</span>
+            <h3><span data-i18n="linq.features.aggregate">聚合与结果</span></h3>
+            <p><span data-i18n="linq.features.aggregateDescription">使用 count、first、aggregate 等操作消费结果，或转换为 List、数组和 Map。</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="enumerables" class="detail-section">
+        
+        <p class="eyebrow">03 / ENUMERABLES</p>
+        <h2><span data-i18n="linq.enumerables">序列类型</span></h2>
+        <span data-i18n="linq.enumerablesIntro" class="section-note">提供对象序列及 int、long、double 基本类型专用序列，可根据数据类型选择相应查询入口。</span>
+        <div class="sequence-grid">
+          <article class="feature-item feature-item-code" id="enumerable">
+            <code translate="no" class="notranslate">Enumerable&lt;T&gt;</code>
+            <h3><span data-i18n="linq.object">对象序列</span></h3>
+            <p><span data-i18n="linq.objectDescription">从数组、集合或可变参数创建序列，使用筛选、排序、分组和连接等通用操作。</span></p>
+          </article>
+          <article class="feature-item feature-item-code" id="int-enumerable">
+            <code translate="no" class="notranslate">IntEnumerable</code>
+            <h3><span translate="no" class="notranslate">Int</span> <span data-i18n="linq.sequences">序列</span></h3>
+            <p><span data-i18n="linq.intDescription">通过 Linq.ofInts 创建 int 专用序列，支持数值查询与 sum、average 等聚合操作。</span></p>
+          </article>
+          <article class="feature-item feature-item-code" id="long-enumerable">
+            <code translate="no" class="notranslate">LongEnumerable</code>
+            <h3><span translate="no" class="notranslate">Long</span> <span data-i18n="linq.sequences">序列</span></h3>
+            <p><span data-i18n="linq.longDescription">通过 Linq.ofLongs 处理 long 数据，在基本类型管道中减少不必要的装箱与拆箱。</span></p>
+          </article>
+          <article class="feature-item feature-item-code" id="double-enumerable">
+            <code translate="no" class="notranslate">DoubleEnumerable</code>
+            <h3><span translate="no" class="notranslate">Double</span> <span data-i18n="linq.sequences">序列</span></h3>
+            <p><span data-i18n="linq.doubleDescription">通过 Linq.ofDoubles 查询 double 数据，适合浮点数筛选、转换与统计。</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="getting-started" class="detail-section" aria-labelledby="getting-started-title">
+        <p class="eyebrow">04 / GET STARTED</p>
+        <h2 id="getting-started-title"><span data-i18n="project.start">怎么用</span></h2>
+        <ol class="steps">
+          <li>
+            <span class="step-index" aria-hidden="true">01</span>
+            <div><h3><span data-i18n="linq.prepare">配置 Java 环境</span></h3><p><span data-i18n="linq.prepareDescription">仓库的 README 与编译配置要求 JDK 25 或更新版本。</span></p></div>
+          </li>
+          <li>
+            <span class="step-index" aria-hidden="true">02</span>
+            <div><h3><span data-i18n="linq.install">添加依赖</span></h3><p><span data-i18n="linq.installDescription">选择构建工具并复制依赖配置示例。版本 1.0.0 取自仓库 pom.xml；使用前请确认发布状态，或按 README 说明构建并安装至本地仓库。</span></p></div>
+          </li>
+          <li>
+            <span class="step-index" aria-hidden="true">03</span>
+            <div><h3><span data-i18n="linq.sample">运行查询示例</span></h3><p><span data-i18n="linq.sampleDescription">筛选偶数并计算平方，随后通过 toArray 获取查询结果。</span></p></div>
+          </li>
+        </ol>
+        
+        <!-- dependency:start -->
 <div class="dependency-widget" data-dependency data-group-id="io.github.piscescup" data-artifact-id="linq-for-java" data-release-status="source">
     <div class="dependency-heading"><div><p class="dependency-kicker">INSTALL / LINQ for Java</p><h3 data-i18n="dependency.heading">项目依赖配置</h3></div><label class="dependency-version" hidden><span data-i18n="dependency.version">版本</span><select data-dependency-version translate="no" class="notranslate" disabled><option value="1.0.0" selected>1.0.0</option></select></label></div>
     <p class="dependency-notice dependency-notice-source" id="linq-for-java-dependency-notice"><span data-i18n="dependency.source">以下配置使用源码版本。截至所列核对日期，Maven Central 未返回该项目的版本元数据。使用前请确认发布状态，或先完成本地构建与安装，以确保依赖能够解析。</span> <span class="dependency-checked"><span data-i18n="dependency.checked">核对日期：</span> <time datetime="2026-09-07">2026-09-07</time></span></p>
@@ -117,12 +190,15 @@ dependencies {
     <noscript><p class="dependency-help" data-i18n="dependency.noScript">未启用 JavaScript：已显示默认版本的所有依赖格式，可手动选中复制。版本切换与一键复制需要 JavaScript。</p></noscript>
   </div>
 <!-- dependency:end -->
-      <p><a href="#examples" data-i18n="examples.explore">查看 README 代码示例</a></p>
-      <p class="source-note"><a href="https://central.sonatype.com/artifact/io.github.piscescup/linq-for-java" target="_blank" rel="noopener noreferrer">Maven Central ↗</a></p>
-      <p class="source-note"><a href="https://github.com/Piscescup/linq-for-java#readme" target="_blank" rel="noopener noreferrer" data-i18n="linq.readme">阅读完整 README</a></p>
-    </div></section>
-    <section id="examples" class="detail-section" aria-labelledby="examples-title"><p class="eyebrow">05 / README EXAMPLES</p><h2 id="examples-title" data-i18n="examples.heading">代码示例</h2><!-- examples:start -->
-<p data-i18n="examples.linq.intro">本节选取 LINQ for Java README 的六组查询示例，补充 import、main 方法及必要的 record 定义，并已基于仓库 1.0.0 源码与 JDK 25 完成编译运行。发布状态请参阅依赖说明。</p>
+        <div class="source-links"><a href="https://central.sonatype.com/artifact/io.github.piscescup/linq-for-java" target="_blank" rel="noopener noreferrer">Maven Central <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/Piscescup/linq-for-java#readme" target="_blank" rel="noopener noreferrer"><span data-i18n="linq.readme">阅读完整 README</span> <span aria-hidden="true">↗</span></a></div>
+      </section>
+
+      <section id="examples" class="detail-section" aria-labelledby="examples-title">
+        <p class="eyebrow">05 / EXAMPLES</p>
+        <h2 id="examples-title"><span data-i18n="examples.heading">代码示例</span></h2>
+        <!-- examples:start -->
+        <p data-i18n="examples.linq.intro">本节选取 LINQ for Java README 的六组查询示例，补充 import、main 方法及必要的 record 定义，并已基于仓库 1.0.0 源码与 JDK 25 完成编译运行。发布状态请参阅依赖说明。</p>
     <p class="examples-intro" data-i18n="examples.runHint">展开示例可查看完整 Java 类与运行结果。配置依赖后，请按标注的文件名保存代码并运行 main 方法。切换依赖版本后，请确认所选版本与示例所用版本的兼容性。</p>
     <p class="examples-checked"><span data-i18n="examples.checked">README 核对日期：</span> <time datetime="2026-09-07">2026-09-07</time></p>
     <div class="readme-examples"><details class="readme-example" data-example="filtering" open>
@@ -283,16 +359,56 @@ public class StudentQuery {
         <a class="example-source" href="https://github.com/Piscescup/linq-for-java/blob/main/README.md#example" target="_blank" rel="noopener noreferrer"><span data-i18n="examples.source">查看 README 对应示例</span> <span aria-hidden="true">↗</span></a>
       </div>
     </details></div>
-<!-- examples:end --></section>
-    <section class="detail-section"><h2 data-i18n="catalog.related">相关项目</h2><p data-i18n="linq.relatedDescription">相关项目包括本项目依赖的 Commons Lib 工具库，以及独立的 linq-in-java 仓库。</p><p><a href="./commons-lib.html">Commons Lib</a> · <a href="https://github.com/Piscescup/linq-in-java" target="_blank" rel="noopener noreferrer">linq-in-java ↗</a></p></section>
-  </div>
-  <aside class="project-facts" aria-labelledby="facts-title"><h2 id="facts-title" data-i18n="project.facts">项目信息</h2><dl><div><dt data-i18n="project.author">作者</dt><dd>PiscesCup</dd></div><div><dt data-i18n="project.runtime">运行环境</dt><dd>Java 25+</dd></div><div><dt data-i18n="linq.version">仓库版本</dt><dd>1.0.0</dd></div></dl>
-    <a class="sequence-link" href="#enumerable">Enumerable&lt;T&gt;</a><a class="sequence-link" href="#int-enumerable">IntEnumerable</a><a class="sequence-link" href="#long-enumerable">LongEnumerable</a><a class="sequence-link" href="#double-enumerable">DoubleEnumerable</a>
-    <a href="https://github.com/Piscescup/linq-for-java" target="_blank" rel="noopener noreferrer" data-i18n="project.source">源代码</a><a href="https://github.com/Piscescup/linq-for-java/issues" target="_blank" rel="noopener noreferrer" data-i18n="project.feedback">交流与反馈</a><a class="facts-javadoc" href="../javadoc/linq-for-java.html" data-project-javadoc data-i18n="javadoc.label">Javadoc 文档</a>
+        <!-- examples:end -->
+      </section>
+
+      <section class="detail-section detail-related" aria-labelledby="related-title">
+        <p class="eyebrow">RELATED</p>
+        <h2 id="related-title"><span data-i18n="catalog.related">相关项目</span></h2>
+        <p><span data-i18n="linq.relatedDescription">相关项目包括本项目依赖的 Commons Lib 工具库，以及独立的 linq-in-java 仓库。</span></p>
+        <p class="related-links"><a href="commons-lib.html" class="related-link">Commons Lib</a><span aria-hidden="true"> · </span><a href="https://github.com/Piscescup/linq-in-java" target="_blank" rel="noopener noreferrer">linq-in-java <span aria-hidden="true">↗</span></a></p>
+      </section></div>
+      <aside class="project-facts" aria-labelledby="facts-title">
+        <h2 id="facts-title" data-i18n="project.facts">项目信息</h2>
+        <dl><div><dt data-i18n="project.author">作者</dt><dd>PiscesCup</dd></div>
+        <div><dt data-i18n="project.runtime">运行环境</dt><dd>Java 25+</dd></div>
+        <div><dt data-i18n="linq.version">仓库版本</dt><dd>1.0.0</dd></div></dl>
+        <a class="sequence-link" href="#enumerable">Enumerable&lt;T&gt;</a>
+        <a class="sequence-link" href="#int-enumerable">IntEnumerable</a>
+        <a class="sequence-link" href="#long-enumerable">LongEnumerable</a>
+        <a class="sequence-link" href="#double-enumerable">DoubleEnumerable</a>
+        <a href="https://github.com/Piscescup/linq-for-java" target="_blank" rel="noopener noreferrer"><span data-i18n="project.source">源代码</span> <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/Piscescup/linq-for-java/issues" target="_blank" rel="noopener noreferrer"><span data-i18n="project.feedback">提 issue 与建议</span> <span aria-hidden="true">↗</span></a>
+        
         <a class="facts-back" href="../categories/general.html" data-i18n="catalog.backCategory">返回所属分类</a>
-  </aside>
-</div>
-</main>
-  <footer class="site-footer"><div><a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a><p>© <span id="year">2026</span> PiscesCup</p></div><p data-i18n="footer.motto">记录开发实践，分享开源成果。</p><a class="back-top" href="#top"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a></footer>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a>
+        <p class="footer-motto" data-i18n="footer.motto">把做过的东西和学到的东西，慢慢攒在这里。</p>
+      </div>
+      <nav class="footer-nav" aria-label="页脚导航" data-i18n-aria-label="footer.navLabel">
+        <p class="footer-col-title" data-i18n="footer.pages">页面</p>
+        <a href="../index.html#directions" data-i18n="nav.directions">方向</a>
+        <a href="../index.html#projects" data-i18n="nav.projects">项目</a>
+        <a href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a href="../projects/index.html" data-i18n="nav.directory">目录</a>
+      </nav>
+      <div class="footer-meta">
+        <p class="footer-col-title" data-i18n="footer.contact">联系</p>
+        <a href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <p class="mono">PLAIN HTML · CSS · JS</p>
+        <p>© <span id="year">2026</span> PiscesCup</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>PISCESCUP / PORTFOLIO</span>
+      <a class="back-top" href="../index.html#home"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
 </body>
 </html>

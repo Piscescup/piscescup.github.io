@@ -1,0 +1,33 @@
+{{HEADER}}
+  <main id="main" tabindex="-1">
+    <section class="project-hero" aria-labelledby="project-title">
+      <div class="hero-stars" aria-hidden="true"></div>
+      <div class="hero-aurora" aria-hidden="true"></div>
+      <div class="project-hero-inner">
+        <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb">{{BREADCRUMBS}}</nav>
+        <p class="eyebrow"><span class="eyebrow-dot"></span>{{EYEBROW}}</p>
+        <h1 id="project-title">{{HEADING}}</h1>
+        <p class="project-lead" data-i18n="{{LEAD_KEY}}">{{LEAD}}</p>
+        <ul class="tag-row project-tags" aria-label="标签" data-i18n-aria-label="project.tagsLabel">{{TAGS}}</ul>
+        <div class="project-actions">{{ACTIONS}}</div>
+      </div>
+      <p class="project-plate" aria-hidden="true"><span class="project-plate-glyph">{{GLYPH}}</span><span class="project-plate-slug">{{SLUG}}.md</span></p>
+    </section>
+    <div class="project-section-bar">
+      <div class="project-sections-shell">
+        <nav class="project-sections" aria-label="本页导航" data-i18n-aria-label="project.onPage">{{SECTION_LINKS}}</nav>
+        <span class="project-section-meta" aria-hidden="true">{{SECTION_META}}</span>
+      </div>
+    </div>
+    <div class="project-layout">
+      <div class="project-main">{{SECTIONS}}</div>
+      <aside class="project-facts" aria-labelledby="facts-title">
+        <h2 id="facts-title" data-i18n="project.facts">项目信息</h2>
+        <dl>{{FACTS}}</dl>
+        {{ASIDE_LINKS}}
+        {{FACT_LINKS}}
+        <a class="facts-back" href="{{CATEGORY_HREF}}" data-i18n="catalog.backCategory">返回所属分类</a>
+      </aside>
+    </div>
+  </main>
+  {{FOOTER}}
