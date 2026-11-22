@@ -21,14 +21,15 @@
   <a class="skip-link" href="#tutorial-main" data-i18n="tutorial.skip">跳转到正文</a>
   <header class="site-header">
     <div class="nav-shell">
-      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P<span>·</span></span>PiscesCup<span class="brand-dot">.</span></a>
+      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P·</span>PiscesCup<span class="brand-dot">.</span></a>
       <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false" data-i18n-aria-label="nav.open"><span></span><span></span></button>
       <nav id="site-nav" class="site-nav" aria-label="主导航" data-i18n-aria-label="nav.label">
         <a class="nav-link is-active" href="../index.html#home" aria-current="location" data-i18n="nav.home">首页</a>
+        <a class="nav-link" href="../index.html#directions" data-i18n="nav.directions">方向</a>
         <a class="nav-link" href="../index.html#projects" data-i18n="nav.projects">项目</a>
-        <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
         <a class="nav-link" href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
         <a class="nav-link" href="../projects/index.html" data-i18n="nav.directory">目录</a>
+        <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
         <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
       <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
@@ -167,12 +168,10 @@ javac -version</code></pre>
 </dl>
 <p><span data-i18n="chapter00.settings.headerBody">填写文件头模板，并替换作者名。${NAME} 会在创建文件时替换为类名。</span><sup class="tutorial-citation" id="cite-idea-templates-1" tabindex="-1"><a href="#ref-idea-templates" role="doc-noteref" data-citation="16" aria-describedby="tutorial-citation-label">[16]</a></sup></p>
 <pre class="tutorial-code" tabindex="0"><code translate="no" class="notranslate">/**
+ * ${NAME}
  *
- *
- * @author Github: <a href="https://github.com/Piscescup">Pisces Cup</a><br>
- *          Name: <b>Yuantong Ren</b>
+ * @author REN YuanTong
  * @since 1.0.0
- * @version 1.0.0
  */</code></pre>
 <p data-i18n="chapter00.settings.headerScope">Default 用于 IDE，Project 仅用于当前项目。Files → Class 中保留一次 #parse(&quot;File Header.java&quot;)；模板仅影响新文件。</p></div>
 </section>
@@ -347,8 +346,8 @@ public final class VocabularySparkModReferences {
 </section>
 
 <section class="tutorial-section tutorial-bibliography" id="references" role="doc-bibliography" aria-labelledby="references-title">
-    <h2 data-i18n="tutorial.bibliography" id="references-title" data-section="REF">参考</h2>
-    <span data-i18n="tutorial.citation.open" id="tutorial-citation-label" class="tutorial-visually-hidden">查看文末参考</span>
+    <h2 data-i18n="tutorial.bibliography" id="references-title" data-section="REF">参考文献</h2>
+    <span data-i18n="tutorial.citation.open" id="tutorial-citation-label" class="tutorial-visually-hidden">查看文末参考文献</span>
     <span data-i18n="tutorial.citation.back" id="tutorial-backlink-label" class="tutorial-visually-hidden">返回正文引用位置</span>
     <ol class="tutorial-reference-list"><li class="tutorial-reference-entry" id="ref-gradle-jvm" tabindex="-1" data-reference="1">
       <span class="tutorial-reference-number">[1]</span>
@@ -526,6 +525,30 @@ public final class VocabularySparkModReferences {
       <nav aria-labelledby="tutorial-toc-title"><a href="#environment" data-tutorial-toc><span data-i18n="chapter00.environment.title">开发环境配置</span></a><a href="#idea-settings" data-tutorial-toc><span data-i18n="chapter00.settings.title">IDEA 常用设置</span></a><a href="#idea-plugins" data-tutorial-toc><span data-i18n="chapter00.plugins.title">开发插件</span></a><a href="#project-files" data-tutorial-toc><span data-i18n="chapter00.files.title">项目文件</span></a><a href="#my-habits" data-tutorial-toc><span data-i18n="chapter00.habits.title">我的习惯</span></a><a href="#references" data-tutorial-toc><span data-i18n="tutorial.bibliography">参考文献</span></a></nav>
     </aside>
   </main>
-  <footer class="site-footer"><div><a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a><p>© <span id="year">2026</span> PiscesCup</p></div><p data-i18n="footer.motto">记录开发实践，分享开源成果。</p><a class="back-top" href="#top"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a></footer>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a>
+        <p class="footer-motto" data-i18n="footer.motto">把做过的东西和学到的东西，慢慢攒在这里。</p>
+      </div>
+      <nav class="footer-nav" aria-label="页脚导航" data-i18n-aria-label="footer.navLabel">
+        <p class="footer-col-title" data-i18n="footer.pages">页面</p>
+        <a href="../index.html#directions" data-i18n="nav.directions">方向</a>
+        <a href="../index.html#projects" data-i18n="nav.projects">项目</a>
+        <a href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a href="../projects/index.html" data-i18n="nav.directory">目录</a>
+      </nav>
+      <div class="footer-meta">
+        <p class="footer-col-title" data-i18n="footer.contact">联系</p>
+        <a href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <p class="mono">PLAIN HTML · CSS · JS</p>
+        <p>© <span id="year">2026</span> PiscesCup</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>PISCESCUP / PORTFOLIO</span>
+      <a class="back-top" href="../index.html#home"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
 </body>
 </html>

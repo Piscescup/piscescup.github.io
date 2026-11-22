@@ -1,95 +1,136 @@
 # PiscesCup · 个人主页
 
-介绍自己与 GitHub 项目的中英文静态网站。使用原生 HTML、CSS 和 JavaScript，不依赖前端框架或在线接口，适合 GitHub Pages。
+介绍自己与开源项目的中英文静态网站：Java 开发库、Minecraft 模组，以及一份 Fabric 模组开发教程。使用原生 HTML、CSS 和 JavaScript，不依赖前端框架或在线接口，适合 GitHub Pages。
+
+站点由 `scripts/` 中的 Node 脚本生成：页面骨架（页头、页脚、导航、目录页、分类页、项目页）都来自同一套模板与数据，改内容只需要改 `data/` 和 `locales/`。
+
+## 设计
+
+主题为「午夜星图 · 玫瑰金」：近黑紫底、星点与极光、玫瑰金强调色，标题用衬线字，正文用系统无衬线，数据与标签用等宽字。所有颜色、字体、圆角与间距集中在 `css/styles.css` 的 `:root` 变量里，改主题只需要改这一处。
+
+- `css/styles.css`：设计变量、页头页脚、首页（Hero、三个方向、项目卡片、关于）、终端入场动画与响应式规则。
+- `css/projects.css`：项目介绍页（Hero、本页导航、特性、步骤、代码块、依赖组件、README 示例、信息侧栏）。
+- `css/catalog.css`：目录、分类、标签、下载与 Javadoc 页。
+- `css/tutorials.css`：教程阅读布局，与全站共用同一套颜色变量。
+
+首页首次访问会播放一段终端开场：任意键、点击或「跳过开场」都会进入正文；同一标签页内再次访问会自动跳过（`sessionStorage`），关闭 JavaScript 时直接显示正文。相关文件为 `js/intro-boot.js`（首帧判断）与 `js/intro.js`（动画与关闭逻辑）。
 
 ## 页面结构
 
 ```text
-index.html                         中文首页
+index.html                     首页（源文件与生成结果共用，见下）
 projects/
-  pc-develop-lib.html               PC Develop Lib V2
-  piscescup-easy.html               PiscesCup Easy
-  more-advancements.html            More Advancements
-  commons-lib.html                  Commons Lib
-en/
-  index.html                       English home
-  projects/                        上述四个项目的英文页面，文件名相同
-styles.css                         全站共享样式与语言导航
-projects.css                       项目介绍页共享样式
-script.js                          导航、语言切换和年份
-assets/                            头像和图标
+  index.html                   项目目录（分类入口 + 全部项目）
+  <slug>.html                  每个项目的介绍页，均由统一模板生成
+categories/
+  index.html  minecraft.html  general.html
+tags/index.html                按标签浏览
+downloads/<slug>.html          Mod 下载页（Modrinth / CurseForge）
+javadoc/<slug>.html            Javadoc 导航页（版本查询由 js/javadoc.js 完成）
+tutorials/
+  index.html  chapter-00.html  教程首页与章节
+404.html
+css/  js/  assets/
+data/                          项目、示例、教程清单
+locales/                       中英文文案
+templates/                     项目页模板与教程正文模板
+scripts/                       生成、检查、预览与构建脚本
 ```
 
-每个 HTML 都包含完整正文，可以直接打开。首页项目标题和“项目介绍”进入站内详情；详情页包含项目简介、主要功能、开始使用和 GitHub 入口。
+`dist/` 是构建产物，不提交。
 
-中文与英文使用独立文件和 URL。右上角的语言切换前往当前页面的另一语言版本；启用 JavaScript 时会保留正在阅读的章节。站内导航会继续使用当前语言，不依赖浏览器存储、在线翻译或服务器重定向。
+## 内容模型
 
-## Fabric 教程区
+一个项目只在一处定义：`data/projects.json`。
 
-教程首页为 `tutorials/index.html`。`Chapter 00 · 开发环境配置` 已接入作者的大纲与 References 示例，按 Minecraft 26.3、JDK 25、IntelliJ IDEA 2026.3 编写，资料核对日期为 2026-11-05。
+```json
+{
+  "slug": "commons-lib",
+  "name": "Commons Lib",
+  "heading": "Commons Lib",
+  "category": "general",
+  "tags": ["java", "library"],
+  "summaryKey": "commons-lib.summary",
+  "eyebrowKey": "commons-lib.eyebrow",
+  "leadKey": "commons-lib.lead",
+  "overviewKey": "commons-lib.overview",
+  "glyph": "{ commons }",
+  "features": [{ "titleKey": "...", "descriptionKey": "..." }],
+  "steps": [{ "titleKey": "...", "descriptionKey": "..." }],
+  "facts": [{ "labelKey": "project.runtime", "value": "Java 21" }],
+  "sections": [],
+  "sourceLinks": [{ "url": "https://...", "labelKey": "..." }],
+  "repository": "https://github.com/Piscescup/commons-lib",
+  "downloads": {},
+  "javadoc": { "status": "available", "url": "https://javadoc.io/..." },
+  "dependency": { "groupId": "io.github.piscescup", "artifactId": "commons-lib" }
+}
+```
 
-- `data/tutorials.json`：章节顺序、标题键、正文状态和本页目录。
-- `templates/tutorials/chapter-00.html`：五部分正文模板，包含设置路径、插件入口与项目文件表格。
-- `locales/zh-CN.json`、`locales/en.json`：教程的中文与英文文案，以 `tutorial.`、`chapter00.` 开头。
-- `examples/tutorials/VocabularySparkModReferences.java`：作者示例的可编辑 Java 源码。生成时转义并嵌入正文，网页提供复制按钮，源码目录不作为站点资源公开。
-- `css/tutorials.css`：文档布局、代码块、提示框和图片说明样式。
-- `js/tutorials.js`：窄屏章节目录与本页目录高亮；关闭 JavaScript 后，中文正文和章节链接依然可读。
-- `scripts/tutorials.mjs`：生成教程页面，复用全站导航与语言设置。
+- `heading` 是页面标题；`glyph` 是 Hero 右侧的等宽装饰。
+- `features` / `steps` / `facts` 决定正文小节与右侧信息栏。
+- `sections` 支持两种额外小节：`cards`（如 LINQ 的序列类型）与 `code`（如 MC Wiki 的命令示例）。
+- `downloads` 存在即生成下载页（允许为空对象，此时页面显示“链接待补”）。
+- `javadoc` 存在即生成 Javadoc 导航页；`dependency` 存在即渲染依赖配置组件并挂载复制脚本。
 
-Chapter 00 的状态为 `published`，目录包含开发环境、IDEA 设置、IDEA 插件、项目文件和 References 五个锚点。设置路径的中英文需要同时展示，因此使用带 `lang` 和 `translate="no"` 的成对 `dd`，切换页面语言时保留原文；其余说明通过 `data-i18n` 翻译。只对这种显式双语路径放宽英文页面的中文检测，其余文字仍检查遗漏翻译。
+页面由 `templates/project.html` 与 `scripts/project-pages.mjs` 绘制。模板使用 `{{TOKEN}}` 占位符，脚本负责填充分节、面包屑、操作按钮、侧栏与脚本引用。新增项目时：
 
-新章节正文接入后，将状态从 `content-pending` 改为 `published`，并为 `sections` 配置真实锚点。正文模板中可使用 `.tutorial-code` 排代码、`.tutorial-note` 排提示框、`figure` 与 `figcaption` 排截图及说明。普通文案接入翻译，代码保留原文。执行 `npm run generate` 更新页面，再用 `npm run build` 检查和构建。References 的 imports 和类型按官方 26.3 模板与依赖元数据核对；网站检查不等于完整模组的 Gradle 编译和运行验证。
+1. 在 `data/projects.json` 增加一条，并用到的键写进 `locales/zh-CN.json` 与 `locales/en.json`；
+2. 需要示例代码时，在 `examples/<slug>/` 放可独立编译的 Java 类，并在 `data/examples.json` 登记；
+3. 运行 `npm run generate`，项目页、首页卡片、目录、分类、标签与下载页会一起更新。
 
-添加后续章节时，按顺序扩展清单、增加对应正文模板及双语文案。教程目录和页数检查会跟随清单更新，不需要手动维护第二份目录。
+## 中英文
 
-参考文献统一放在章末。`data/tutorials/chapter-00.references.json` 保存来源 ID、发布者、链接与双语标题键；正文在对应段落或表格单元格上标记 `data-cite="来源ID"`，多条来源用空格分隔。生成时按首次引用顺序编号，同一网址复用编号，上标链接指向文末条目，条目中的 `↩` 返回各处引用。代码与翻译切换不会改变编号。新增章节可在章节清单中设置对应的 `referenceFile`，使用相同格式。
+中文直接写在 HTML 与 `zh-CN.json` 中，带有 `data-i18n` 标记的文字会在生成阶段被替换成对应语言；`js/i18n.js` 在浏览器里用 `querySelectorAll('[data-i18n]')` 切换语言，`?lang=en` 可直达英文。两份 `locales` 的键必须完全一致，`scripts/check-site.mjs` 会校验缺失键、残留中文和未翻译的可见文字。
 
-## 本地预览
+代码、命令与项目名视为不翻译内容，模板生成时会加上 `translate="no"`。
+
+## 教程区
+
+教程首页为 `tutorials/index.html`。`Chapter 00 · 开发环境配置` 按 Minecraft 26.3、JDK 25、IntelliJ IDEA 2026.3 编写，资料核对日期为 2026-11-05。
+
+- `data/tutorials.json`：章节顺序、标题键、正文状态与本页目录。
+- `templates/tutorials/chapter-00.html`：章节正文模板。
+- `locales/*.json`：以 `tutorial.`、`chapter00.` 开头的文案。
+- `examples/tutorials/VocabularySparkModReferences.java`：作者示例源码，生成时嵌入正文并提供复制按钮。
+- `data/tutorials/*.references.json`：参考文献；正文用 `data-cite="来源ID"` 标注，生成时统一编号并生成返回链接。
+- `scripts/tutorials.mjs`、`scripts/tutorial-references.mjs`：教程页与引用渲染。
+
+新增章节时，扩展清单、增加正文模板与双语文案，把状态从 `content-pending` 改为 `published` 并配置真实锚点即可；目录与检查会跟随清单更新。
+
+## 本地预览与检查
 
 需要 Node.js 18 或更新版本，无第三方依赖。
 
 ```sh
-npm run dev
+npm run dev        # 生成站点并启动本地服务器（默认 http://localhost:4173）
+npm run generate   # 只重新生成页面
+npm run check      # 单元测试 + 全站检查（资源、内链、锚点、翻译、页面数量）
+npm run build      # 生成 + 检查 + 输出 dist/
 ```
 
-打开终端显示的本地地址，默认是 `http://localhost:4173`。也可以直接打开 `index.html`。
+`npm run check` 会验证：
 
-```sh
-npm run build
-```
-
-构建结果位于 `dist/`，只包含可公开的网页文件，不会包含开发脚本、Git 数据或个人编辑器配置。
-
-构建前会自动检查全部页面的资源、内部链接、章节锚点、语言元数据与语言切换对应关系，也可以单独运行 `npm run check`。本地服务器支持 `/`、`/en/` 以及所有项目 HTML 的直接访问。
-
-## 修改内容
-
-- `index.html` 与 `en/index.html`：各语言的首页欢迎语、关于我、四个项目的摘要与链接。自我介绍为可替换的欢迎语。
-- `projects/*.html` 与 `en/projects/*.html`：项目详情。修改中文后，请同步修改对应英文文件，正文直接写在 HTML 中。
-- `styles.css`：颜色在开头的 `:root` 中设置；文件后半部分为平板、手机与语言切换规则。
-- `projects.css`：项目封面、功能介绍、上手步骤、代码区块和项目信息侧栏。
-- `assets/avatar.jpg`：来自 PiscesCup 的 GitHub 头像，可替换为自己的图片。
-- `assets/favicon.svg`：浏览器标签页图标。
-- `script.js`：手机导航、当前导航提示、切换语言时保留章节、页脚年份。
-
-项目列表是手动精选的静态内容，不会实时同步 GitHub。新增项目时，在两个首页的 `project-list` 中各复制一个 `article`，更换标题、介绍、标签和本地详情链接；在两个 `projects/` 目录中各添加对应页面，并同步更新项目计数。新页面也需要正确的 `lang`、`hreflang` 和语言切换链接。`scripts/check-site.mjs` 末尾的预期页面数需随之更新；本地服务器需重启以纳入新文件。
+- 每个页面的标题层级、语言标记、描述、语言切换按钮与 `hreflang`；
+- 所有本地链接与锚点存在，外链带 `rel="noopener"`；
+- 每个 `data-i18n` 键在两种语言中都存在，英文版不残留中文；
+- 项目页、目录、分类、标签、下载页与 Javadoc 页的数量与项目清单一致；
+- 依赖组件、代码示例与教程引用的数量与源数据一致。
 
 ## GitHub Pages
 
-仓库根目录已包含可直接发布的页面和 `.nojekyll`，无需服务器、密钥或额外构建工作流。将更改推送到 GitHub 后，在仓库 **Settings → Pages** 中选择 **Deploy from a branch**，选择存放网页的分支和 **/(root)**。网站地址为 `https://piscescup.github.io/`。
-
-本次制作不会自动更改 GitHub Pages 设置或推送到 GitHub。
+仓库根目录已包含可直接发布的页面和 `.nojekyll`。把改动推送到 GitHub 后，在仓库 **Settings → Pages** 中选择 **Deploy from a branch**，分支选默认分支，目录选 **/(root)**。站点地址为 `https://piscescup.github.io/`。
 
 ## 内容来源
 
-项目说明于 2026-09-06 按公开仓库 README 或源代码整理：
+项目说明依据各公开仓库的 README 与源码整理：
 
-- [PC Develop Lib V2](https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2)：依据源码目录及 Fabric 配置。旧版库的版本与能力未直接套用到 V2。
-- [PiscesCup Easy](https://github.com/Piscescup/pisces-cup-easy-fabric-1.21.4)：玩家白名单、OP、封禁名单及语言切换。仓库名带有 1.21.4，实际已支持多个版本，页面因此未限定版本。
-- [More Advancements](https://github.com/Piscescup/More-Advancement-fabric-1.21.4)：额外进度挑战，未虚构数量。
-- [Commons Lib](https://github.com/Piscescup/commons-lib)：Java 21 通用工具库。
-- 头像：[GitHub 公开头像](https://avatars.githubusercontent.com/u/108559501?v=4)。
+- [PC Develop Lib V2](https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2)
+- [Pisces Cup Easy](https://github.com/Piscescup/pisces-cup-easy-fabric-1.21.4)
+- [More Advancements](https://github.com/Piscescup/More-Advancement-fabric-1.21.4)
+- [MC Wiki](https://github.com/Piscescup/mc-wiki-mod)
+- [Commons Lib](https://github.com/Piscescup/commons-lib)
+- [LINQ for Java](https://github.com/Piscescup/linq-for-java)
+- 头像：[GitHub 公开头像](https://avatars.githubusercontent.com/u/108559501?v=4)
 
-首页布局参考 [Tomorrow-Land](https://beishanair.github.io/) 的封面、内容卡片和个人资料侧栏结构。项目页的信息组织参考 [Eclipse Collections](https://eclipse.dev/collections/index.html) 的简介、功能和开始使用区块。页面样式与排版为本项目独立编写。
-
-详情页中，V2 的功能依据注册模块、示例目录与数据生成入口；More Advancements 的功能依据进度数据和语言文件；Easy 的命令示例与 Commons Lib 的 Maven 依赖依据各自 README。没有为未发布 GitHub Release 的项目添加下载按钮。
+页面版式参考 [philia-093.com](https://philia-093.com/) 的星空与终端开场氛围，以及 [Eclipse Collections](https://eclipse.dev/collections/index.html) 的项目页信息组织方式；代码与文案为本项目原创。

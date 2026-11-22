@@ -64,7 +64,12 @@ for (const [file,page] of pages) {
 }
 const categories = ['minecraft', 'general'];
 assert.deepEqual([...new Set(projects.map(p => p.category))].sort(), [...categories].sort(), 'Expected exactly two project categories.');
-for (const file of ['index.html','projects/index.html','categories/index.html']) {
+const home = pages.get('index.html').html;
+assert.equal([...home.matchAll(/class="direction-card /g)].length, 3, 'index.html: expected three direction cards');
+for (const category of categories) assert(home.includes(`categories/${category}.html`), 'index.html: missing category entry');
+assert(home.includes('tutorials/index.html'), 'index.html: missing the tutorial direction');
+assert.equal([...home.matchAll(/class="work-card"/g)].length, projects.length, 'index.html: expected one card per project');
+for (const file of ['projects/index.html', 'categories/index.html']) {
   assert.equal([...pages.get(file).html.matchAll(/class="category-card /g)].length, 2, file + ': expected two category entry cards');
   for (const category of categories) assert(pages.get(file).html.includes(`categories/${category}.html`), file + ': missing category entry');
 }

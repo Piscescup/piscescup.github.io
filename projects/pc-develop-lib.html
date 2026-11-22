@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#101e2c" />
-  <meta name="description" content="PC Develop Lib V2 面向 Minecraft Fabric 模组开发，提供可复用的内容注册、语言数据生成与标签数据生成模块。" data-i18n-content="pc-develop-lib.meta.description" />
+  <meta name="theme-color" content="#0a0711" />
+  <meta name="description" content="给 Fabric 模组开发打底的小库：内容注册、语言和标签数据生成，写新模组时少抄点代码。" data-i18n-content="pc-develop-lib.summary" />
   <title>PC Develop Lib · V2 · PiscesCup</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <link rel="stylesheet" href="../css/styles.css" />
@@ -16,17 +16,18 @@
   <script src="../js/script.js" defer></script>
 </head>
 <body class="project-page" data-page="project" id="top">
-  <a class="skip-link" href="#overview" data-i18n="project.skip">跳转到项目简介</a>
-  <header class="site-header">
+  <a class="skip-link" href="#main" data-i18n="project.skip">跳到主要内容</a>
+<header class="site-header">
     <div class="nav-shell">
-      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P<span>·</span></span>PiscesCup<span class="brand-dot">.</span></a>
+      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P·</span>PiscesCup<span class="brand-dot">.</span></a>
       <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false" data-i18n-aria-label="nav.open"><span></span><span></span></button>
       <nav id="site-nav" class="site-nav" aria-label="主导航" data-i18n-aria-label="nav.label">
-        <a class="nav-link" href="../index.html#home" data-i18n="nav.home">首页</a>
-        <a class="nav-link is-active" href="../index.html#projects" aria-current="location" data-i18n="nav.projects">项目</a>
-        <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
+        <a class="nav-link is-active" href="../index.html#home" aria-current="location" data-i18n="nav.home">首页</a>
+        <a class="nav-link" href="../index.html#directions" data-i18n="nav.directions">方向</a>
+        <a class="nav-link" href="../index.html#projects" data-i18n="nav.projects">项目</a>
         <a class="nav-link" href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
         <a class="nav-link" href="../projects/index.html" data-i18n="nav.directory">目录</a>
+        <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
         <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
       <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
@@ -35,88 +36,117 @@
       </nav>
     </div>
   </header>
-  <main>
+  <main id="main" tabindex="-1">
     <section class="project-hero" aria-labelledby="project-title">
+      <div class="hero-stars" aria-hidden="true"></div>
+      <div class="hero-aurora" aria-hidden="true"></div>
       <div class="project-hero-inner">
-        <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../projects/index.html" data-i18n="catalog.heading">项目分类</a><span aria-hidden="true">/</span><a href="../categories/minecraft.html" data-i18n="category.minecraft">Minecraft 项目</a><span aria-hidden="true">/</span><span aria-current="page">PiscesCup Develop Lib V2</span></nav>
-        <p class="eyebrow" data-i18n="pc-develop-lib.eyebrow">Minecraft 开发库</p>
+        <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../projects/index.html"><span data-i18n="catalog.heading">项目目录</span></a><span aria-hidden="true">/</span><a href="../categories/minecraft.html"><span data-i18n="category.minecraft">Minecraft 模组</span></a><span aria-hidden="true">/</span><span aria-current="page">PC Develop Lib · V2</span></nav>
+        <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="pc-develop-lib.eyebrow">Minecraft 开发库</span></p>
         <h1 id="project-title">PC Develop Lib · V2</h1>
-        <p class="project-lead" data-i18n="pc-develop-lib.lead">面向 Minecraft Fabric 模组开发，提供可复用的内容注册与数据生成模块。</p>
-        <div class="project-actions">
-          <a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">使用指南</span> <span aria-hidden="true">↓</span></a>
+        <p class="project-lead" data-i18n="pc-develop-lib.lead">把内容注册、语言和标签数据生成这些小事收进一个库，写下一个模组时不用再从头抄一遍。</p>
+        <ul class="tag-row project-tags" aria-label="标签" data-i18n-aria-label="project.tagsLabel"><li>Java</li><li>Minecraft</li><li>Fabric</li></ul>
+        <div class="project-actions"><a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">看看怎么用</span> <span aria-hidden="true">↓</span></a>
           <a class="source-button" href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">在 GitHub 查看</span> <span aria-hidden="true">↗</span></a>
-        <a class="source-button" href="../downloads/pc-develop-lib.html" data-project-downloads data-i18n="downloads.label">下载 Mod</a>
-        </div>
+          <a href="../downloads/pc-develop-lib.html" class="source-button" data-project-downloads><span data-i18n="downloads.label">下载 Mod</span></a></div>
       </div>
+      <p class="project-plate" aria-hidden="true"><span class="project-plate-glyph">[ lib ]</span><span class="project-plate-slug">pc-develop-lib.md</span></p>
     </section>
     <div class="project-section-bar">
-      <nav class="project-sections" aria-label="本页导航" data-i18n-aria-label="project.onPage">
-        <a href="#overview" data-i18n="project.overview">项目简介</a>
-        <a href="#features" data-i18n="project.features">主要功能</a>
-        <a href="#getting-started" data-i18n="project.start">开始使用</a>
-      </nav>
+      <div class="project-sections-shell">
+        <nav class="project-sections" aria-label="本页导航" data-i18n-aria-label="project.onPage"><a href="#overview"><span data-i18n="project.overview">这是做什么的</span></a><a href="#features"><span data-i18n="project.features">能做什么</span></a><a href="#getting-started"><span data-i18n="project.start">怎么用</span></a></nav>
+        <span class="project-section-meta" aria-hidden="true"><span data-i18n="category.minecraft">Minecraft 模组</span> · PC Develop Lib · V2</span>
+      </div>
     </div>
     <div class="project-layout">
       <div class="project-main">
-        <section id="overview" class="detail-section" aria-labelledby="overview-title">
-          <p class="eyebrow">01 / OVERVIEW</p>
-          <h2 id="overview-title" data-i18n="project.overview">项目简介</h2>
-          <p data-i18n="pc-develop-lib.overview">PC Develop Lib V2 是面向 Minecraft Fabric 的开发基础库，将内容注册、语言数据生成和标签数据生成封装为独立模块，支持在模组项目中复用。</p>
-        </section>
-        <section id="features" class="detail-section" aria-labelledby="features-title">
-          <p class="eyebrow">02 / FEATURES</p>
-          <h2 id="features-title" data-i18n="project.features">主要功能</h2>
-          <div class="feature-grid">
-            <article class="feature-item">
-              <span class="feature-index">01</span>
-              <h3 data-i18n="pc-develop-lib.features.1.title">内容注册</h3>
-              <p data-i18n="pc-develop-lib.features.1.description">提供物品、方块、物品组、POI 与村民相关注册模块。</p>
-            </article>
-            <article class="feature-item">
-              <span class="feature-index">02</span>
-              <h3 data-i18n="pc-develop-lib.features.2.title">语言数据生成</h3>
-              <p data-i18n="pc-develop-lib.features.2.description">数据生成入口提供中文与英文语言工厂的配置示例。</p>
-            </article>
-            <article class="feature-item">
-              <span class="feature-index">03</span>
-              <h3 data-i18n="pc-develop-lib.features.3.title">标签数据生成</h3>
-              <p data-i18n="pc-develop-lib.features.3.description">示例配置包含物品标签与 POI 类型标签。</p>
-            </article>
-          </div>
-        </section>
-        <section id="getting-started" class="detail-section" aria-labelledby="getting-started-title">
-          <p class="eyebrow">03 / GET STARTED</p>
-          <h2 id="getting-started-title" data-i18n="project.start">开始使用</h2>
-          <div class="getting-started">
-            <ol>
-              <li><strong data-i18n="pc-develop-lib.steps.1.title">查看项目配置</strong><br /><span data-i18n="pc-develop-lib.steps.1.description">当前源码配置使用 Java 25、Minecraft 1.21.10 与 Fabric。使用前请查阅仓库中的构建配置，确认开发环境要求。</span></li>
-              <li><strong data-i18n="pc-develop-lib.steps.2.title">浏览注册示例</strong><br /><span data-i18n="pc-develop-lib.steps.2.description">查阅 register 模块及配套的 test 示例目录，了解注册模块的组织方式与使用方法。</span></li>
-              <li><strong data-i18n="pc-develop-lib.steps.3.title">了解数据生成</strong><br /><span data-i18n="pc-develop-lib.steps.3.description">查阅 PCDevelopLibDataGenerator.java 中的语言与标签配置，并参考配套示例了解数据生成流程。</span></li>
-            </ol>
-            <p class="source-note"><a href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/tree/master/src/main/java/io/github/piscescup/mc/fabric/test" target="_blank" rel="noopener noreferrer"><span data-i18n="pc-develop-lib.sources.link1">查看源码示例</span> <span aria-hidden="true">↗</span></a></p>
-            <p class="source-note"><a href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/blob/master/src/main/java/io/github/piscescup/mc/fabric/PCDevelopLibDataGenerator.java" target="_blank" rel="noopener noreferrer"><span data-i18n="pc-develop-lib.sources.link2">阅读数据生成入口</span> <span aria-hidden="true">↗</span></a></p>
-          </div>
-        </section>
-      </div>
+      <section id="overview" class="detail-section" aria-labelledby="overview-title">
+        <p class="eyebrow">01 / OVERVIEW</p>
+        <h2 id="overview-title"><span data-i18n="project.overview">这是做什么的</span></h2>
+        <p><span data-i18n="pc-develop-lib.overview">PC Develop Lib V2 是面向 Minecraft Fabric 的开发基础库，将内容注册、语言数据生成和标签数据生成封装为独立模块，支持在模组项目中复用。</span></p>
+      </section>
+
+      <section id="features" class="detail-section" aria-labelledby="features-title">
+        <p class="eyebrow">02 / FEATURES</p>
+        <h2 id="features-title"><span data-i18n="project.features">能做什么</span></h2>
+        <div class="feature-grid">
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">01</span>
+            <h3><span data-i18n="pc-develop-lib.features.1.title">内容注册</span></h3>
+            <p><span data-i18n="pc-develop-lib.features.1.description">提供物品、方块、物品组、POI 与村民相关注册模块。</span></p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">02</span>
+            <h3><span data-i18n="pc-develop-lib.features.2.title">语言数据生成</span></h3>
+            <p><span data-i18n="pc-develop-lib.features.2.description">数据生成入口提供中文与英文语言工厂的配置示例。</span></p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">03</span>
+            <h3><span data-i18n="pc-develop-lib.features.3.title">标签数据生成</span></h3>
+            <p><span data-i18n="pc-develop-lib.features.3.description">示例配置包含物品标签与 POI 类型标签。</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="getting-started" class="detail-section" aria-labelledby="getting-started-title">
+        <p class="eyebrow">03 / GET STARTED</p>
+        <h2 id="getting-started-title"><span data-i18n="project.start">怎么用</span></h2>
+        <ol class="steps">
+          <li>
+            <span class="step-index" aria-hidden="true">01</span>
+            <div><h3><span data-i18n="pc-develop-lib.steps.1.title">查看项目配置</span></h3><p><span data-i18n="pc-develop-lib.steps.1.description">当前源码配置使用 Java 25、Minecraft 1.21.10 与 Fabric。使用前请查阅仓库中的构建配置，确认开发环境要求。</span></p></div>
+          </li>
+          <li>
+            <span class="step-index" aria-hidden="true">02</span>
+            <div><h3><span data-i18n="pc-develop-lib.steps.2.title">浏览注册示例</span></h3><p><span data-i18n="pc-develop-lib.steps.2.description">查阅 register 模块及配套的 test 示例目录，了解注册模块的组织方式与使用方法。</span></p></div>
+          </li>
+          <li>
+            <span class="step-index" aria-hidden="true">03</span>
+            <div><h3><span data-i18n="pc-develop-lib.steps.3.title">了解数据生成</span></h3><p><span data-i18n="pc-develop-lib.steps.3.description">查阅 PCDevelopLibDataGenerator.java 中的语言与标签配置，并参考配套示例了解数据生成流程。</span></p></div>
+          </li>
+        </ol>
+        
+        
+        <div class="source-links"><a href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/tree/master/src/main/java/io/github/piscescup/mc/fabric/test" target="_blank" rel="noopener noreferrer"><span data-i18n="pc-develop-lib.sources.link1">查看源码示例</span> <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/blob/master/src/main/java/io/github/piscescup/mc/fabric/PCDevelopLibDataGenerator.java" target="_blank" rel="noopener noreferrer"><span data-i18n="pc-develop-lib.sources.link2">阅读数据生成入口</span> <span aria-hidden="true">↗</span></a></div>
+      </section></div>
       <aside class="project-facts" aria-labelledby="facts-title">
         <h2 id="facts-title" data-i18n="project.facts">项目信息</h2>
-        <dl>
-          <div><dt data-i18n="project.author">作者</dt><dd>PiscesCup</dd></div>
-          <div><dt data-i18n="project.runtime">运行环境</dt><dd>Java 25</dd></div>
-          <div><dt data-i18n="project.platform">适用平台</dt><dd>Minecraft Fabric</dd></div>
-        </dl>
+        <dl><div><dt data-i18n="project.author">作者</dt><dd>PiscesCup</dd></div>
+        <div><dt data-i18n="project.runtime">运行环境</dt><dd>Java 25</dd></div>
+        <div><dt data-i18n="project.platform">适用平台</dt><dd>Minecraft Fabric</dd></div></dl>
         <a href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2" target="_blank" rel="noopener noreferrer"><span data-i18n="project.source">源代码</span> <span aria-hidden="true">↗</span></a>
-        <a href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/issues" target="_blank" rel="noopener noreferrer"><span data-i18n="project.feedback">交流与反馈</span> <span aria-hidden="true">↗</span></a>
-        <a class="facts-downloads" href="../downloads/pc-develop-lib.html" data-project-downloads data-i18n="downloads.label">下载 Mod</a>
+        <a href="https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/issues" target="_blank" rel="noopener noreferrer"><span data-i18n="project.feedback">提 issue 与建议</span> <span aria-hidden="true">↗</span></a>
+        
         <a class="facts-back" href="../categories/minecraft.html" data-i18n="catalog.backCategory">返回所属分类</a>
       </aside>
     </div>
   </main>
   <footer class="site-footer">
-    <div><a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a><p>© <span id="year">2026</span> PiscesCup</p></div>
-    <p data-i18n="footer.motto">记录开发实践，分享开源成果。</p>
-    <a class="back-top" href="#top"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a>
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a>
+        <p class="footer-motto" data-i18n="footer.motto">把做过的东西和学到的东西，慢慢攒在这里。</p>
+      </div>
+      <nav class="footer-nav" aria-label="页脚导航" data-i18n-aria-label="footer.navLabel">
+        <p class="footer-col-title" data-i18n="footer.pages">页面</p>
+        <a href="../index.html#directions" data-i18n="nav.directions">方向</a>
+        <a href="../index.html#projects" data-i18n="nav.projects">项目</a>
+        <a href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a href="../projects/index.html" data-i18n="nav.directory">目录</a>
+      </nav>
+      <div class="footer-meta">
+        <p class="footer-col-title" data-i18n="footer.contact">联系</p>
+        <a href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <p class="mono">PLAIN HTML · CSS · JS</p>
+        <p>© <span id="year">2026</span> PiscesCup</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>PISCESCUP / PORTFOLIO</span>
+      <a class="back-top" href="../index.html#home"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a>
+    </div>
   </footer>
+
 </body>
 </html>
-
