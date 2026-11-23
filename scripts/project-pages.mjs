@@ -189,7 +189,7 @@ export function renderProjectPage(project, { zh, header, footer, template, examp
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0a0711" />
+  <meta name="theme-color" content="#faf9f5" />
   <meta name="description" content="${esc(zh[project.summaryKey])}" data-i18n-content="${project.summaryKey}" />
   <title>${esc(project.heading)} · PiscesCup</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
@@ -197,9 +197,10 @@ export function renderProjectPage(project, { zh, header, footer, template, examp
   <link rel="stylesheet" href="../css/projects.css" />
   <link rel="alternate" hreflang="zh-CN" href="./${project.slug}.html?lang=zh-CN" />
   <link rel="alternate" hreflang="en" href="./${project.slug}.html?lang=en" />
+  <script src="../js/theme-boot.js"></script>
 ${scripts.map(script => `  <script src="../js/${script}.js" defer></script>`).join('\n')}
 </head>
-<body class="project-page" data-page="project" id="top">
+<body class="project-page" data-page="project" data-category="${esc(project.category)}" id="top">
   <a class="skip-link" href="#main" data-i18n="project.skip">跳到主要内容</a>
 ${body}
 </body>

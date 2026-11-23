@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0a0711" />
-  <meta name="description" content="PiscesCup 的个人主页：Java 开发库、Minecraft 模组，以及一份 Fabric 模组开发教程。" data-i18n-content="home.meta.description" />
-  <title data-i18n="home.title">PiscesCup · Java 库、Minecraft 模组与开发教程</title>
+  <meta name="theme-color" content="#faf9f5" />
+  <meta name="description" content="PiscesCup 的个人主页，包含 Java 开发库、Minecraft Fabric 模组与模组开发教程。" data-i18n-content="home.meta.description" />
+  <title data-i18n="home.title">PiscesCup · Java 开发库、Minecraft 模组与开发教程</title>
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
   <link rel="stylesheet" href="./css/styles.css" />
   <link rel="alternate" hreflang="zh-CN" href="./index.html?lang=zh-CN" />
   <link rel="alternate" hreflang="en" href="./index.html?lang=en" />
+  <script src="./js/theme-boot.js"></script>
   <script src="./js/intro-boot.js"></script>
   <script src="./js/translations.js" defer></script>
   <script src="./js/i18n.js" defer></script>
@@ -18,199 +19,445 @@
 </head>
 <body data-page="home" id="top">
   <div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
-    <div class="intro-inner">
-      <h2 class="visually-hidden" id="intro-title" data-i18n="intro.label">开场动画</h2>
-      <p class="intro-line intro-line-1" aria-hidden="true">PISCESCUP / PORTFOLIO</p>
-      <p class="intro-line intro-line-2" aria-hidden="true">&gt; booting java runtime <span>...... ok</span></p>
-      <p class="intro-line intro-line-3" aria-hidden="true">&gt; loading minecraft fabric <span>.. ok</span></p>
-      <p class="intro-line intro-line-4" aria-hidden="true">&gt; reading tutorials <span>....... ok</span></p>
-      <p class="intro-line intro-prompt" aria-hidden="true">&gt; press any key to continue<span class="intro-cursor"></span></p>
-      <button class="intro-skip" type="button" data-i18n="intro.skip">跳过开场</button>
+    <div class="intro-card">
+      <div class="intro-bar" aria-hidden="true">
+        <span class="workbench-dots"><i></i><i></i><i></i></span>
+        <span class="intro-bar-title">piscescup.boot</span>
+      </div>
+      <div class="intro-inner">
+        <h2 class="visually-hidden" id="intro-title" data-i18n="intro.label">开场动画</h2>
+        <p class="intro-line intro-line-1" aria-hidden="true">PISCESCUP / WORKSPACE</p>
+        <p class="intro-line intro-line-2" aria-hidden="true"><b class="intro-caret">&gt;</b> booting java 25 runtime <span>...... ok</span></p>
+        <p class="intro-line intro-line-3" aria-hidden="true"><b class="intro-caret">&gt;</b> loading minecraft fabric <span>..... ok</span></p>
+        <p class="intro-line intro-line-4" aria-hidden="true"><b class="intro-caret">&gt;</b> indexing tutorials &amp; docs <span>.... ok</span></p>
+        <p class="intro-line intro-prompt" aria-hidden="true"><b class="intro-caret">&gt;</b> press any key or click to enter<span class="intro-cursor"></span></p>
+      </div>
     </div>
+    <button class="intro-skip" type="button" data-i18n="intro.skip">跳过开场</button>
   </div>
   <a class="skip-link" href="#directions" data-i18n="home.skip-link">跳到主要内容</a>
   <header class="site-header">
     <div class="nav-shell">
-      <a class="brand" href="#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P·</span>PiscesCup<span class="brand-dot">.</span></a>
+      <a class="brand" href="#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P·</span><span class="brand-name">PiscesCup<span class="brand-dot">.</span></span></a>
       <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false" data-i18n-aria-label="nav.open"><span></span><span></span></button>
       <nav id="site-nav" class="site-nav" aria-label="主导航" data-i18n-aria-label="nav.label">
         <a class="nav-link is-active" href="#home" aria-current="location" data-i18n="nav.home">首页</a>
         <a class="nav-link" href="#directions" data-i18n="nav.directions">方向</a>
         <a class="nav-link" href="#projects" data-i18n="nav.projects">项目</a>
         <a class="nav-link" href="./tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a class="nav-link" href="./tools/index.html" data-i18n="nav.tools">工具</a>
         <a class="nav-link" href="./projects/index.html" data-i18n="nav.directory">目录</a>
         <a class="nav-link" href="#about" data-i18n="nav.about">关于我</a>
         <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
-      <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
-        <button type="button" lang="zh-CN" data-language="zh-CN" aria-pressed="true">中文</button>
-        <button type="button" lang="en" data-language="en" aria-pressed="false">EN</button>
-      </nav>
+      <div class="header-tools">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="切换明暗主题" data-i18n-aria-label="theme.toggle">
+          <svg class="icon-sun" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2.2v1.8M10 16v1.8M2.2 10H4M16 10h1.8M4.5 4.5l1.3 1.3M14.2 14.2l1.3 1.3M15.5 4.5l-1.3 1.3M5.8 14.2l-1.3 1.3"/></svg>
+          <svg class="icon-moon" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.2 11.9A6.6 6.6 0 0 1 8.1 3.8a6.6 6.6 0 1 0 8.1 8.1Z"/></svg>
+        </button>
+        <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
+          <button type="button" lang="zh-CN" data-language="zh-CN" aria-pressed="true">中文</button>
+          <button type="button" lang="en" data-language="en" aria-pressed="false">EN</button>
+        </nav>
+      </div>
     </div>
   </header>
   <main id="main" tabindex="-1">
     <section class="home-hero" id="home" aria-labelledby="hero-title">
-      <div class="hero-stars" aria-hidden="true"></div>
-      <div class="hero-aurora" aria-hidden="true"></div>
-      <div class="hero-lines" aria-hidden="true"></div>
       <div class="hero-inner">
         <div class="hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow hero-eyebrow"><span class="eyebrow-dot"></span>OPEN SOURCE / JAVA &amp; FABRIC</p>
+            <p class="eyebrow"><span class="eyebrow-dot"></span>OPEN SOURCE · JAVA 25 &amp; FABRIC</p>
             <h1 class="hero-name" id="hero-title">PiscesCup<span>.</span></h1>
-            <p class="hero-tagline" data-i18n="home.hero.tagline">写 Java 库，也做 Minecraft 模组。做出来的东西和踩过的坑，都放在这里。</p>
+            <p class="hero-tagline" data-i18n="home.hero.tagline">专注于 Java 工具库与 Minecraft Fabric 模组，在这里整理开源作品、系统教程与常用在线工具。</p>
             <div class="hero-actions">
-              <a class="button button-solid" href="#projects"><span data-i18n="home.hero.projects">看看项目</span> <span aria-hidden="true">↗</span></a>
-              <a class="button" href="./tutorials/index.html"><span data-i18n="home.hero.tutorials">读读教程</span> <span aria-hidden="true">→</span></a>
+              <a class="button button-solid" href="#projects"><span data-i18n="home.hero.projects">浏览项目</span> <span aria-hidden="true">↗</span></a>
+              <a class="button" href="./tutorials/index.html"><span data-i18n="home.hero.tutorials">阅读教程</span> <span aria-hidden="true">→</span></a>
             </div>
+            <p class="hero-footnote" data-i18n="home.hero.hint">支持 Java 21 / 25 · Minecraft Fabric 1.21.4 – 26.3</p>
           </div>
-          <nav class="hero-index" aria-label="三个方向" data-i18n-aria-label="home.hero.topicsLabel">
-            <a href="./categories/general.html"><span class="idx">01</span><span data-i18n="direction.java.title">Java 开发库</span><span class="idx-arrow" aria-hidden="true">→</span></a>
-            <a href="./categories/minecraft.html"><span class="idx">02</span><span data-i18n="direction.minecraft.title">Minecraft 模组</span><span class="idx-arrow" aria-hidden="true">→</span></a>
-            <a href="./tutorials/index.html"><span class="idx">03</span><span data-i18n="direction.tutorial.title">模组开发教程</span><span class="idx-arrow" aria-hidden="true">→</span></a>
+          <aside class="hero-shell" aria-label="工作台概览" data-i18n-aria-label="home.hero.workspace" data-hero-showcase>
+            <div class="shell-body">
+              <div class="shell-sidebar">
+                <div class="shell-chrome" aria-hidden="true">
+                  <span class="workbench-dots workbench-dots-color"><i></i><i></i><i></i></span>
+                  <span class="shell-chrome-tag">&lt;/&gt;</span>
+                </div>
+                <nav class="shell-groups" aria-label="四个方向" data-i18n-aria-label="home.hero.topicsLabel">
+                  <p class="shell-group-label" data-i18n="direction.java.title">Java 开发库</p>
+                  <a class="shell-item is-active" href="./projects/linq-for-java.html" data-preview-trigger="linq-for-java" data-domain="java"><span class="idx-dot" aria-hidden="true"></span><span>LINQ for Java</span></a>
+                  <a class="shell-item" href="./projects/commons-lib.html" data-preview-trigger="commons-lib" data-domain="java"><span class="idx-dot" aria-hidden="true"></span><span>Commons Lib</span></a>
+                  <p class="shell-group-label" data-i18n="direction.minecraft.title">Minecraft 模组</p>
+                  <a class="shell-item" href="./projects/mc-wiki.html" data-preview-trigger="mc-wiki" data-domain="minecraft"><span class="idx-dot" aria-hidden="true"></span><span>MC Wiki</span></a>
+                  <a class="shell-item" href="./projects/piscescup-easy.html" data-preview-trigger="piscescup-easy" data-domain="minecraft"><span class="idx-dot" aria-hidden="true"></span><span>Pisces Cup Easy</span></a>
+                  <a class="shell-item" href="./projects/more-advancements.html" data-preview-trigger="more-advancements" data-domain="minecraft"><span class="idx-dot" aria-hidden="true"></span><span>More Advancements</span></a>
+                  <a class="shell-item" href="./projects/pc-develop-lib.html" data-preview-trigger="pc-develop-lib" data-domain="minecraft"><span class="idx-dot" aria-hidden="true"></span><span>PC Develop Lib</span></a>
+                  <p class="shell-group-label" data-i18n="direction.tutorial.title">模组开发教程</p>
+                  <a class="shell-item" href="./tutorials/chapter-00.html" data-preview-trigger="chapter-00" data-domain="tutorial"><span class="idx-dot" aria-hidden="true"></span><span>Chapter 00</span></a>
+                  <p class="shell-group-label" data-i18n="direction.tools.title">常用工具</p>
+                  <a class="shell-item" href="./tools/lab-order.html" data-preview-trigger="lab-order" data-domain="tool"><span class="idx-dot" aria-hidden="true"></span><span data-i18n="tools.labOrder.title">实验室药品订购</span></a>
+                </nav>
+                <div class="shell-profile">
+                  <img class="shell-avatar" src="./assets/avatar.jpg" alt="PiscesCup 的 GitHub 头像" width="28" height="28" data-i18n-alt="home.profile.avatar" />
+                  <span class="shell-handle">PiscesCup</span>
+                  <span class="shell-badge">2026</span>
+                </div>
+              </div>
+              <div class="shell-stage">
+                <div class="shell-panel is-active" data-shell-panel="linq-for-java">
+                  <div class="shell-stage-head">
+                    <span class="shell-repo" translate="no"><b>piscescup</b> / linq-for-java</span>
+                    <span class="shell-env" translate="no">Java 25 · Enumerable</span>
+                  </div>
+                  <p class="shell-bubble" data-i18n="home.linq.summary">受 .NET LINQ 启发的 Java 25 序列查询库，支持筛选、投影、排序、分组与连接，并提供 int、long、double 专用序列。</p>
+                  <p class="shell-status-line" translate="no">StudentQuery.java · Deferred Execution</p>
+                  <pre class="shell-code" tabindex="0"><code translate="no" class="notranslate"><span class="tok-k">var</span> topNames = <span class="tok-t">Linq</span>.<span class="tok-f">of</span>(students)
+    .<span class="tok-f">where</span>(s -&gt; s.score() &gt;= 80)
+    .<span class="tok-f">orderByDescending</span>(<span class="tok-t">Student</span>::score)
+    .<span class="tok-f">select</span>(<span class="tok-t">Student</span>::name)
+    .<span class="tok-f">toList</span>();
+<span class="tok-c">// Output: [Alice, Charlie]</span></code></pre>
+                  <div class="shell-stage-foot">
+                    <span class="shell-coord" translate="no">io.github.piscescup:linq-for-java:1.0.0</span>
+                    <a class="shell-open" href="./projects/linq-for-java.html"><span data-i18n="project.explore">项目介绍</span> <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+
+                <div class="shell-panel" data-shell-panel="commons-lib" hidden>
+                  <div class="shell-stage-head">
+                    <span class="shell-repo" translate="no"><b>piscescup</b> / commons-lib</span>
+                    <span class="shell-env" translate="no">Java 21 · Maven Central</span>
+                  </div>
+                  <p class="shell-bubble" data-i18n="commons-lib.summary">基于 Java 21 的通用工具库，提供字符串与数组处理、参数校验、区间、元组及扩展函数接口等可复用组件。</p>
+                  <p class="shell-status-line" translate="no">IntervalChecks.java · v1.1.6 Published</p>
+                  <pre class="shell-code" tabindex="0"><code translate="no" class="notranslate"><span class="tok-t">IntInterval</span> range = <span class="tok-t">IntInterval</span>.<span class="tok-f">of</span>(
+    1, 10, <span class="tok-t">IntervalType</span>.CLOSED_OPEN_INTERVAL);
+<span class="tok-t">String</span> name = <span class="tok-t">StringUtils</span>.<span class="tok-f">toUpperCamel</span>(<span class="tok-s">"player_inventory"</span>);
+<span class="tok-t">Counter</span> counter = <span class="tok-t">Counter</span>.<span class="tok-f">atomic</span>();
+<span class="tok-c">// range.contains(1) =&gt; true · "PlayerInventory"</span></code></pre>
+                  <div class="shell-stage-foot">
+                    <span class="shell-coord" translate="no">io.github.piscescup:commons-lib:1.1.6</span>
+                    <a class="shell-open" href="./projects/commons-lib.html"><span data-i18n="project.explore">项目介绍</span> <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+
+                <div class="shell-panel" data-shell-panel="mc-wiki" hidden>
+                  <div class="shell-stage-head">
+                    <span class="shell-repo" translate="no"><b>piscescup</b> / mc-wiki</span>
+                    <span class="shell-env" translate="no">Fabric · Client Mod</span>
+                  </div>
+                  <p class="shell-bubble" data-i18n="mc-wiki.summary">客户端 Fabric 模组，支持在游戏内搜索 Minecraft Wiki 并通过内置浏览器直接阅读中英文条目。</p>
+                  <p class="shell-status-line" translate="no">MediaWiki API · MCEF Modern Browser</p>
+                  <pre class="shell-code" tabindex="0"><code translate="no" class="notranslate"><span class="tok-k">/mc-wiki</span> mobs pig
+<span class="tok-k">/wiki</span> structures village
+<span class="tok-k">/mc-wiki</span> settings lang set <span class="tok-s">zh_cn</span>
+
+<span class="tok-f">✓</span> Resolved entry in-game via MCEF Modern
+<span class="tok-c"># Supports en_us &amp; zh_cn · Client-side only</span></code></pre>
+                  <div class="shell-stage-foot">
+                    <span class="shell-coord" translate="no">Fabric API · MCEF Modern</span>
+                    <a class="shell-open" href="./projects/mc-wiki.html"><span data-i18n="project.explore">项目介绍</span> <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+
+                <div class="shell-panel" data-shell-panel="piscescup-easy" hidden>
+                  <div class="shell-stage-head">
+                    <span class="shell-repo" translate="no"><b>piscescup</b> / piscescup-easy</span>
+                    <span class="shell-env" translate="no">Fabric · Server Mod</span>
+                  </div>
+                  <p class="shell-bubble" data-i18n="piscescup-easy.summary">面向 Minecraft 服务端的 Fabric 玩家管理模组，通过统一命令管理白名单、OP 权限与封禁名单，支持中英文反馈。</p>
+                  <p class="shell-status-line" translate="no">Unified Server Administration Commands</p>
+                  <pre class="shell-code" tabindex="0"><code translate="no" class="notranslate"><span class="tok-k">/pc_easy</span> whitelist add <span class="tok-s">TestPlayer</span>
+<span class="tok-k">/pc_easy</span> setting lang set <span class="tok-s">zh_cn</span>
+
+<span class="tok-f">✓</span> Whitelist, OP &amp; ban commands unified
+<span class="tok-c"># Available on Modrinth &amp; CurseForge</span></code></pre>
+                  <div class="shell-stage-foot">
+                    <span class="shell-coord" translate="no">Modrinth · CurseForge</span>
+                    <a class="shell-open" href="./projects/piscescup-easy.html"><span data-i18n="project.explore">项目介绍</span> <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+
+                <div class="shell-panel" data-shell-panel="more-advancements" hidden>
+                  <div class="shell-stage-head">
+                    <span class="shell-repo" translate="no"><b>piscescup</b> / more-advancements</span>
+                    <span class="shell-env" translate="no">Fabric · Advancements</span>
+                  </div>
+                  <p class="shell-bubble" data-i18n="more-advancements.summary">扩展 Minecraft 原版进度系统的 Fabric 模组，围绕维度探索与日常活动新增一系列进度与挑战目标。</p>
+                  <p class="shell-status-line" translate="no">src/main/generated · 5 Themed Categories</p>
+                  <pre class="shell-code" tabindex="0"><code translate="no" class="notranslate">categories: [ <span class="tok-s">"adventure"</span>, <span class="tok-s">"end"</span>, <span class="tok-s">"husbandry"</span>,
+              <span class="tok-s">"minecraft"</span>, <span class="tok-s">"nether"</span> ]
+locales:    [ <span class="tok-s">"zh_cn.json"</span>, <span class="tok-s">"en_us.json"</span> ]
+
+<span class="tok-f">✓</span> Challenges: mob heads, spyglass, chorus fruit</code></pre>
+                  <div class="shell-stage-foot">
+                    <span class="shell-coord" translate="no">Minecraft Fabric · Bilingual</span>
+                    <a class="shell-open" href="./projects/more-advancements.html"><span data-i18n="project.explore">项目介绍</span> <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+
+                <div class="shell-panel" data-shell-panel="pc-develop-lib" hidden>
+                  <div class="shell-stage-head">
+                    <span class="shell-repo" translate="no"><b>piscescup</b> / pc-develop-lib-v2</span>
+                    <span class="shell-env" translate="no">Java 25 · Fabric Lib</span>
+                  </div>
+                  <p class="shell-bubble" data-i18n="pc-develop-lib.summary">面向 Minecraft Fabric 的模组开发基础库，提供内容注册、语言数据生成与标签数据生成等可复用模块。</p>
+                  <p class="shell-status-line" translate="no">PCDevelopLibDataGenerator.java</p>
+                  <pre class="shell-code" tabindex="0"><code translate="no" class="notranslate"><span class="tok-c">// Reusable Fabric modding modules</span>
+register: items, blocks, itemGroups, POIs, villagers
+datagen:  <span class="tok-t">LanguageFactory</span>(zh_cn, en_us)
+          <span class="tok-t">TagProvider</span>(itemTags, poiTypeTags)</code></pre>
+                  <div class="shell-stage-foot">
+                    <span class="shell-coord" translate="no">Java 25 · MC 1.21.10 · Fabric</span>
+                    <a class="shell-open" href="./projects/pc-develop-lib.html"><span data-i18n="project.explore">项目介绍</span> <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+
+                <div class="shell-panel" data-shell-panel="chapter-00" hidden>
+                  <div class="shell-stage-head">
+                    <span class="shell-repo" translate="no"><b>tutorials</b> / chapter-00</span>
+                    <span class="shell-env" translate="no">MC 26.3 · JDK 25</span>
+                  </div>
+                  <p class="shell-bubble" data-i18n="tutorial.chapter00.description">配置 JDK 25 与 IntelliJ IDEA，基于官方模板创建 Fabric 工程，并解析项目结构与基础工具类。</p>
+                  <p class="shell-status-line" translate="no">VocabularySparkModReferences.java · 28 References</p>
+                  <pre class="shell-code" tabindex="0"><code translate="no" class="notranslate"><span class="tok-k">./gradlew</span> runClient
+
+<span class="tok-t">Identifier</span> tex = <span class="tok-t">VocabularySparkModReferences</span>
+    .<span class="tok-f">fromPath</span>(<span class="tok-s">"textures/gui/dictionary.png"</span>);
+<span class="tok-c">// vocabulary-spark:textures/gui/dictionary.png</span></code></pre>
+                  <div class="shell-stage-foot">
+                    <span class="shell-coord" translate="no">Minecraft 26.3 · IDEA 2026.3</span>
+                    <a class="shell-open" href="./tutorials/chapter-00.html"><span data-i18n="home.hero.tutorials">阅读教程</span> <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+
+                <div class="shell-panel" data-shell-panel="lab-order" hidden>
+                  <div class="shell-stage-head">
+                    <span class="shell-repo" translate="no"><b>tools</b> / lab-order</span>
+                    <span class="shell-env" translate="no">Browser · Excel (.xlsx)</span>
+                  </div>
+                  <p class="shell-bubble" data-i18n="tools.labOrder.summary">按日期登记实验室每日药品订购清单，支持药剂名称、单位、数量与订购人管理，并一键导出标准 Excel (.xlsx) 文件。</p>
+                  <p class="shell-status-line" translate="no">Daily Auto-Date · Zero-Dependency OOXML Export</p>
+                  <pre class="shell-code" tabindex="0"><code translate="no" class="notranslate">date:    <span class="tok-t">today()</span>  <span class="tok-c">// auto-updates daily</span>
+fields:  [ <span class="tok-s">"Name"</span>, <span class="tok-s">"Unit"</span>, <span class="tok-s">"Quantity"</span>, <span class="tok-s">"Requester"</span> ]
+storage: <span class="tok-k">localStorage</span> · per-day ledger
+
+<span class="tok-f">✓</span> Export ready: Lab_Reagent_Order.xlsx</code></pre>
+                  <div class="shell-stage-foot">
+                    <span class="shell-coord" translate="no">Offline · LocalStorage · .xlsx</span>
+                    <a class="shell-open" href="./tools/lab-order.html"><span data-i18n="tools.open">打开工具</span> <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="hero-tiles-wrap">
+          <p class="hero-tiles-heading" data-i18n="home.tiles.heading">悬浮预览或点击直达：</p>
+          <nav class="hero-tiles" aria-label="快捷入口" data-i18n-aria-label="home.tiles.label">
+            <a class="hero-tile is-active" href="./projects/linq-for-java.html" data-preview-trigger="linq-for-java" data-domain="java">
+              <span class="hero-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M7 12h10M10 17h4"/></svg></span>
+              <strong>LINQ for Java</strong>
+            </a>
+            <a class="hero-tile" href="./projects/commons-lib.html" data-preview-trigger="commons-lib" data-domain="java">
+              <span class="hero-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6c-2 0-3 1-3 3v1.5c0 1-1 1.5-2 1.5 1 0 2 .5 2 1.5V15c0 2 1 3 3 3M16 6c2 0 3 1 3 3v1.5c0 1 1 1.5 2 1.5-1 0-2 .5-2 1.5V15c0 2-1 3-3 3"/></svg></span>
+              <strong>Commons Lib</strong>
+            </a>
+            <a class="hero-tile" href="./projects/mc-wiki.html" data-preview-trigger="mc-wiki" data-domain="minecraft">
+              <span class="hero-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></span>
+              <strong>MC Wiki</strong>
+            </a>
+            <a class="hero-tile" href="./projects/piscescup-easy.html" data-preview-trigger="piscescup-easy" data-domain="minecraft">
+              <span class="hero-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7.5 10 2.5 2-2.5 2M12.5 14h4"/></svg></span>
+              <strong>Pisces Cup Easy</strong>
+            </a>
+            <a class="hero-tile" href="./projects/more-advancements.html" data-preview-trigger="more-advancements" data-domain="minecraft">
+              <span class="hero-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.3 6.7 19.1l1-5.8-4.2-4.1 5.9-.9Z"/></svg></span>
+              <strong>Advancements</strong>
+            </a>
+            <a class="hero-tile" href="./projects/pc-develop-lib.html" data-preview-trigger="pc-develop-lib" data-domain="minecraft">
+              <span class="hero-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9Z"/><path d="M12 12 20 7.5M12 12v9M12 12 4 7.5"/></svg></span>
+              <strong>Develop Lib</strong>
+            </a>
+            <a class="hero-tile" href="./tutorials/chapter-00.html" data-preview-trigger="chapter-00" data-domain="tutorial">
+              <span class="hero-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg></span>
+              <strong data-i18n="home.tiles.tutorial">开发教程</strong>
+            </a>
+            <a class="hero-tile" href="./tools/lab-order.html" data-preview-trigger="lab-order" data-domain="tool">
+              <span class="hero-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v6.2L5.3 17a2.4 2.4 0 0 0 2.05 3.6h9.3a2.4 2.4 0 0 0 2.05-3.6L14 9.2V3"/><path d="M8.5 3h7M7.8 14h8.4"/></svg></span>
+              <strong data-i18n="home.tiles.labOrder">药品订购</strong>
+            </a>
           </nav>
         </div>
       </div>
-      <div class="hero-meta">
-        <span>PORTFOLIO / 2026</span>
-        <a class="hero-scroll" href="#directions"><span data-i18n="home.hero.scroll">向下看看</span> <span aria-hidden="true">↓</span></a>
-        <span>JAVA · FABRIC · DOCS</span>
-      </div>
     </section>
-    <section class="section directions" id="directions" aria-labelledby="directions-title">
-      <div class="section-head">
-        <p class="eyebrow">THREE DIRECTIONS</p>
-        <h2 id="directions-title" data-i18n="home.directions.title">三个方向</h2>
-        <p class="section-lead" data-i18n="home.directions.lead">平时折腾的三件事：写点别人也能用的 Java 库，做几个自己爱玩的模组，再把过程记下来。</p>
-      </div>
-      <div class="direction-grid">
-        <!-- directions:start -->
-        <a class="direction-card direction-java" href="./categories/general.html">
-          <div class="direction-top"><span>01 / JAVA</span><span class="direction-glyph" aria-hidden="true">{ }</span></div>
+
+    <div class="section-band section-band-accent">
+      <section class="section directions" id="directions" aria-labelledby="directions-title">
+        <div class="section-head section-head-centered" data-reveal>
+          <p class="eyebrow"><span class="eyebrow-dot"></span>FOUR DIRECTIONS</p>
+          <h2 id="directions-title" data-i18n="home.directions.title">四个方向</h2>
+          <p class="section-lead" data-i18n="home.directions.lead">本站围绕四个方向展开：通用 Java 工具库、Minecraft Fabric 模组、系统开发教程，以及开箱即用的在线常用工具。</p>
+        </div>
+        <div class="direction-grid">
+          <!-- directions:start -->
+        <a class="direction-card direction-java" href="./categories/general.html" data-reveal>
+          <div class="direction-top"><span class="direction-kicker"><span class="domain-dot" aria-hidden="true"></span>01 / JAVA</span><span class="direction-glyph" aria-hidden="true">{ }</span></div>
           <h3 data-i18n="direction.java.title">Java 开发库</h3>
-          <p data-i18n="direction.java.description">Commons Lib 收着日常反复要用的小工具，LINQ for Java 想让我在 Java 里也能写出 .NET 那种链式查询。</p>
+          <p data-i18n="direction.java.description">Commons Lib 提供常用的数据结构与工具组件，LINQ for Java 将 .NET 风格的链式查询引入 Java 25。</p>
           <ul class="direction-list"><li>Commons Lib</li><li>LINQ for Java</li></ul>
-          <div class="direction-foot"><span data-i18n="direction.java.meta">2 个库 · Maven Central 发布</span><span class="direction-arrow" aria-hidden="true">→</span></div>
+          <div class="direction-foot"><span data-i18n="direction.java.meta">2 个开发库 · Java 21+</span><span class="direction-arrow" aria-hidden="true">→</span></div>
         </a>
-        <a class="direction-card direction-minecraft" href="./categories/minecraft.html">
-          <div class="direction-top"><span>02 / MINECRAFT</span><span class="direction-glyph" aria-hidden="true">[ ]</span></div>
+        <a class="direction-card direction-minecraft" href="./categories/minecraft.html" data-reveal>
+          <div class="direction-top"><span class="direction-kicker"><span class="domain-dot" aria-hidden="true"></span>02 / MINECRAFT</span><span class="direction-glyph" aria-hidden="true">[ ]</span></div>
           <h3 data-i18n="direction.minecraft.title">Minecraft 模组</h3>
-          <p data-i18n="direction.minecraft.description">四个 Fabric 模组：管服务器的、加进度的、游戏里查 Wiki 的，外加一个给模组开发打底的基础库。</p>
+          <p data-i18n="direction.minecraft.description">涵盖服务器玩家管理、原版进度扩展与游戏内 Wiki 查询三个 Fabric 模组，以及一个模组开发基础库。</p>
           <ul class="direction-list"><li>PC Develop Lib · V2</li><li>Pisces Cup Easy</li><li>More Advancements</li><li>MC Wiki</li></ul>
-          <div class="direction-foot"><span data-i18n="direction.minecraft.meta">4 个模组 · Fabric</span><span class="direction-arrow" aria-hidden="true">→</span></div>
+          <div class="direction-foot"><span data-i18n="direction.minecraft.meta">4 个项目 · Fabric</span><span class="direction-arrow" aria-hidden="true">→</span></div>
         </a>
-        <a class="direction-card direction-tutorial" href="./tutorials/index.html" id="tutorials">
-          <div class="direction-top"><span>03 / TUTORIAL</span><span class="direction-glyph" aria-hidden="true">( )</span></div>
+        <a class="direction-card direction-tutorial" href="./tutorials/index.html" id="tutorials" data-reveal>
+          <div class="direction-top"><span class="direction-kicker"><span class="domain-dot" aria-hidden="true"></span>03 / TUTORIAL</span><span class="direction-glyph" aria-hidden="true">( )</span></div>
           <h3 data-i18n="direction.tutorial.title">模组开发教程</h3>
-          <p data-i18n="direction.tutorial.description">从装 JDK、配 IDEA 到跑通第一个 Fabric 项目。我把自己的配置流程原样写下来了。</p>
+          <p data-i18n="direction.tutorial.description">面向 Minecraft 26.3 与 JDK 25，系统讲解开发环境配置、IntelliJ IDEA 设置、项目文件结构与开发实践。</p>
           <ul class="direction-list"><li data-i18n="tutorial.chapter00.title">开发环境配置</li></ul>
           <div class="direction-foot"><span data-i18n="direction.tutorial.meta">Chapter 00 · 开发环境配置</span><span class="direction-arrow" aria-hidden="true">→</span></div>
         </a>
+        <a class="direction-card direction-tools" href="./tools/index.html" id="tools" data-reveal>
+          <div class="direction-top"><span class="direction-kicker"><span class="domain-dot" aria-hidden="true"></span>04 / TOOLS</span><span class="direction-glyph" aria-hidden="true">Rx</span></div>
+          <h3 data-i18n="direction.tools.title">常用工具</h3>
+          <p data-i18n="direction.tools.description">面向日常科研与开发的轻量浏览器工具，纯本地运行且免登录，支持按日记录并导出标准文件。</p>
+          <ul class="direction-list"><li data-i18n="tools.labOrder.title">实验室药品订购</li></ul>
+          <div class="direction-foot"><span data-i18n="direction.tools.meta">1 个工具 · 持续补充</span><span class="direction-arrow" aria-hidden="true">→</span></div>
+        </a>
         <!-- directions:end -->
-      </div>
-    </section>
-    <section class="section works" id="projects" aria-labelledby="works-title">
-      <div class="section-head section-head-row">
-        <div>
-          <p class="eyebrow">SELECTED WORK</p>
-          <h2 id="works-title" data-i18n="home.projects.title">写过的项目</h2>
         </div>
-        <a class="section-link" href="./projects/index.html"><span data-i18n="home.projects.directory">全部项目</span> <span aria-hidden="true">↗</span></a>
-      </div>
-      <p class="section-lead" data-i18n="home.projects.description">每个项目都有自己的介绍页：能干什么、怎么用、文档在哪。</p>
-      <div class="work-grid">
-        <!-- works:start -->
-        <article class="work-card" data-project="pc-develop-lib">
+      </section>
+    </div>
+
+    <div class="section-band">
+      <section class="section works" id="projects" aria-labelledby="works-title">
+        <div class="section-head section-head-centered" data-reveal>
+          <p class="eyebrow"><span class="eyebrow-dot"></span>SELECTED WORK</p>
+          <h2 id="works-title" data-i18n="home.projects.title">开源项目</h2>
+          <p class="section-lead" data-i18n="home.projects.description">每个项目均提供独立介绍页，包含功能概览、使用说明与文档或下载入口。</p>
+        </div>
+        <div class="works-controls" data-reveal>
+          <div class="work-filters" role="group" aria-label="按分类筛选项目" data-i18n-aria-label="home.filter.label" data-project-filters hidden>
+            <button type="button" data-filter="all" aria-pressed="true" data-i18n="home.filter.all">全部</button>
+            <button type="button" data-filter="minecraft" aria-pressed="false" data-i18n="home.filter.minecraft">Minecraft 模组</button>
+            <button type="button" data-filter="general" aria-pressed="false" data-i18n="home.filter.general">Java 开发库</button>
+          </div>
+        </div>
+        <div class="work-grid">
+          <!-- works:start -->
+        <article class="work-card" data-project="pc-develop-lib" data-category="minecraft" data-reveal>
           <a href="./projects/pc-develop-lib.html">
-            <div class="work-top"><span>01 / FABRIC</span><span class="work-arrow" aria-hidden="true">↗</span></div>
+            <div class="work-top"><span class="work-kicker"><span class="domain-dot" aria-hidden="true"></span>01 / FABRIC</span><span class="work-glyph" aria-hidden="true">[ lib ]</span><span class="work-arrow" aria-hidden="true">↗</span></div>
             <h3>PC Develop Lib · V2</h3>
-            <p data-i18n="pc-develop-lib.summary">给 Fabric 模组开发打底的小库：内容注册、语言和标签数据生成，写新模组时少抄点代码。</p>
+            <p data-i18n="pc-develop-lib.summary">面向 Minecraft Fabric 的模组开发基础库，提供内容注册、语言数据生成与标签数据生成等可复用模块。</p>
             <ul class="tag-row"><li>Java</li><li>Minecraft</li><li>Fabric</li></ul>
           </a>
         </article>
-        <article class="work-card" data-project="piscescup-easy">
+        <article class="work-card" data-project="piscescup-easy" data-category="minecraft" data-reveal>
           <a href="./projects/piscescup-easy.html">
-            <div class="work-top"><span>02 / FABRIC</span><span class="work-arrow" aria-hidden="true">↗</span></div>
+            <div class="work-top"><span class="work-kicker"><span class="domain-dot" aria-hidden="true"></span>02 / FABRIC</span><span class="work-glyph" aria-hidden="true">[ whitelist ]</span><span class="work-arrow" aria-hidden="true">↗</span></div>
             <h3>Pisces Cup Easy</h3>
-            <p data-i18n="piscescup-easy.summary">服务端的玩家管理模组：白名单、OP、封禁都能用一条命令处理，命令反馈支持中英文。</p>
+            <p data-i18n="piscescup-easy.summary">面向 Minecraft 服务端的 Fabric 玩家管理模组，通过统一命令管理白名单、OP 权限与封禁名单，支持中英文反馈。</p>
             <ul class="tag-row"><li>Java</li><li>Minecraft</li><li>Fabric</li></ul>
           </a>
         </article>
-        <article class="work-card" data-project="more-advancements">
+        <article class="work-card" data-project="more-advancements" data-category="minecraft" data-reveal>
           <a href="./projects/more-advancements.html">
-            <div class="work-top"><span>03 / FABRIC</span><span class="work-arrow" aria-hidden="true">↗</span></div>
+            <div class="work-top"><span class="work-kicker"><span class="domain-dot" aria-hidden="true"></span>03 / FABRIC</span><span class="work-glyph" aria-hidden="true">[ advancements ]</span><span class="work-arrow" aria-hidden="true">↗</span></div>
             <h3>More Advancements</h3>
-            <p data-i18n="more-advancements.summary">给 Minecraft 加一些原版没有的进度：探索、日常活动都能有点新目标。</p>
+            <p data-i18n="more-advancements.summary">扩展 Minecraft 原版进度系统的 Fabric 模组，围绕维度探索与日常活动新增一系列进度与挑战目标。</p>
             <ul class="tag-row"><li>Java</li><li>Minecraft</li><li>Fabric</li></ul>
           </a>
         </article>
-        <article class="work-card" data-project="mc-wiki">
+        <article class="work-card" data-project="mc-wiki" data-category="minecraft" data-reveal>
           <a href="./projects/mc-wiki.html">
-            <div class="work-top"><span>04 / FABRIC</span><span class="work-arrow" aria-hidden="true">↗</span></div>
+            <div class="work-top"><span class="work-kicker"><span class="domain-dot" aria-hidden="true"></span>04 / FABRIC</span><span class="work-glyph" aria-hidden="true">[ wiki ]</span><span class="work-arrow" aria-hidden="true">↗</span></div>
             <h3>MC Wiki</h3>
-            <p data-i18n="mc-wiki.summary">在游戏里搜 Minecraft Wiki，用内置浏览器直接看条目，中英文都行。</p>
+            <p data-i18n="mc-wiki.summary">客户端 Fabric 模组，支持在游戏内搜索 Minecraft Wiki 并通过内置浏览器直接阅读中英文条目。</p>
             <ul class="tag-row"><li>Java</li><li>Minecraft</li><li>Fabric</li></ul>
           </a>
         </article>
-        <article class="work-card" data-project="commons-lib">
+        <article class="work-card" data-project="commons-lib" data-category="general" data-reveal>
           <a href="./projects/commons-lib.html">
-            <div class="work-top"><span>05 / JAVA</span><span class="work-arrow" aria-hidden="true">↗</span></div>
+            <div class="work-top"><span class="work-kicker"><span class="domain-dot" aria-hidden="true"></span>05 / JAVA</span><span class="work-glyph" aria-hidden="true">{ commons }</span><span class="work-arrow" aria-hidden="true">↗</span></div>
             <h3>Commons Lib</h3>
-            <p data-i18n="commons-lib.summary">Java 21 的通用小工具库：字符串和数组处理、参数校验、区间、元组、函数接口，按需取用。</p>
+            <p data-i18n="commons-lib.summary">基于 Java 21 的通用工具库，提供字符串与数组处理、参数校验、区间、元组及扩展函数接口等可复用组件。</p>
             <ul class="tag-row"><li>Java</li><li>Library</li></ul>
           </a>
         </article>
-        <article class="work-card" data-project="linq-for-java">
+        <article class="work-card" data-project="linq-for-java" data-category="general" data-reveal>
           <a href="./projects/linq-for-java.html">
-            <div class="work-top"><span>06 / JAVA</span><span class="work-arrow" aria-hidden="true">↗</span></div>
+            <div class="work-top"><span class="work-kicker"><span class="domain-dot" aria-hidden="true"></span>06 / JAVA</span><span class="work-glyph" aria-hidden="true">( linq )</span><span class="work-arrow" aria-hidden="true">↗</span></div>
             <h3>LINQ for Java</h3>
-            <p data-i18n="home.linq.summary">照 .NET LINQ 写的 Java 25 查询库：筛选、投影、排序、分组、连接都有，还顺手做了 int、long、double 的专用序列。</p>
+            <p data-i18n="home.linq.summary">受 .NET LINQ 启发的 Java 25 序列查询库，支持筛选、投影、排序、分组与连接，并提供 int、long、double 专用序列。</p>
             <ul class="tag-row"><li>Java</li><li>Java 25</li><li>Library</li><li>LINQ</li></ul>
           </a>
         </article>
         <!-- works:end -->
-      </div>
-    </section>
-    <section class="section about" id="about" aria-labelledby="about-title">
-      <div class="about-grid">
-        <div class="about-portrait">
-          <img class="about-avatar" src="./assets/avatar.jpg" alt="PiscesCup 的 GitHub 头像" width="120" height="120" data-i18n-alt="home.profile.avatar" />
-          <p class="eyebrow">ABOUT</p>
-          <p class="about-name">PiscesCup<span>.</span></p>
-          <ul class="tag-row">
-            <li>Java</li>
-            <li>Minecraft</li>
-            <li data-i18n="home.profile.openSource">开源项目</li>
-          </ul>
         </div>
-        <div class="about-copy">
-          <h2 id="about-title" data-i18n="home.about.title">关于我</h2>
-          <p data-i18n="home.about.description">PiscesCup，大部分时间在 Java 和 Minecraft 之间来回。喜欢把重复的事写成工具，也喜欢把过程写清楚。</p>
-          <p data-i18n="home.about.detail">现在主要在写 Java 25 和 Fabric 相关的东西，顺手维护这些文档。有问题可以直接在 GitHub 上开 issue。</p>
-          <dl class="about-facts">
-            <div><dt data-i18n="home.about.language">语言</dt><dd>Java</dd></div>
-            <div><dt data-i18n="home.about.platform">平台</dt><dd>Minecraft · Fabric</dd></div>
-            <div><dt data-i18n="home.about.focus">方向</dt><dd data-i18n="home.about.focusValue">开发库 · 模组 · 教程</dd></div>
-          </dl>
-          <div class="about-actions">
-            <a class="button button-solid" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer"><span data-i18n="home.about.github">去 GitHub</span> <span aria-hidden="true">↗</span></a>
+        <div class="works-banner" data-reveal>
+          <p data-i18n="home.projects.more">更多开源项目与最新开发进展，请访问 GitHub 仓库。</p>
+          <div class="works-banner-actions">
             <a class="button" href="./projects/index.html"><span data-i18n="home.projects.directory">全部项目</span> <span aria-hidden="true">→</span></a>
+            <a class="button button-solid" href="https://github.com/Piscescup?tab=repositories" target="_blank" rel="noopener noreferrer"><span data-i18n="home.projects.repositories">查看全部仓库</span> <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+
+    <div class="section-band section-band-accent">
+      <section class="section about" id="about" aria-labelledby="about-title">
+        <div class="section-narrow about-split" data-reveal>
+          <div class="about-intro">
+            <div class="about-header">
+              <img class="about-avatar" src="./assets/avatar.jpg" alt="PiscesCup 的 GitHub 头像" width="72" height="72" data-i18n-alt="home.profile.avatar" />
+              <div>
+                <h2 id="about-title" data-i18n="home.about.title">关于我</h2>
+                <p class="about-name">PiscesCup · Java &amp; Fabric</p>
+              </div>
+            </div>
+            <p data-i18n="home.about.description">PiscesCup，长期深耕 Java 与 Minecraft Fabric 生态，致力于打造结构清晰的工具库、实用的游戏模组与规范的技术文档。</p>
+            <p data-i18n="home.about.detail">近期重心聚焦于 Java 25 与新版 Fabric，同时持续完善本站的项目指南、开发教程与日常实用工具。如在使用中遇到问题或有改进建议，欢迎在对应 GitHub 仓库提交 Issue。</p>
+            <div class="about-actions">
+              <a class="button button-solid" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer"><span data-i18n="home.about.github">访问 GitHub</span> <span aria-hidden="true">↗</span></a>
+              <a class="button" href="./projects/index.html"><span data-i18n="home.projects.directory">全部项目</span> <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div>
+            <dl class="about-facts">
+              <div><dt data-i18n="home.about.language">语言</dt><dd>Java</dd></div>
+              <div><dt data-i18n="home.about.platform">平台</dt><dd>Minecraft · Fabric</dd></div>
+              <div><dt data-i18n="home.about.focus">方向</dt><dd data-i18n="home.about.focusValue">开发库 · 模组 · 教程 · 工具</dd></div>
+            </dl>
+            <nav class="about-quick-links" aria-label="快捷入口" data-i18n-aria-label="home.tiles.label">
+              <a href="./projects/index.html"><span data-i18n="catalog.heading">项目目录</span><span aria-hidden="true">→</span></a>
+              <a href="./tutorials/index.html"><span data-i18n="tutorial.title">Fabric 模组开发教程</span><span aria-hidden="true">→</span></a>
+              <a href="./tools/index.html"><span data-i18n="tools.heading">常用工具</span><span aria-hidden="true">→</span></a>
+              <a href="./javadoc/commons-lib.html"><span>Commons Lib · Javadoc</span><span aria-hidden="true">→</span></a>
+            </nav>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand-col">
         <a class="footer-brand" href="#home">PiscesCup<span>.</span></a>
-        <p class="footer-motto" data-i18n="footer.motto">把做过的东西和学到的东西，慢慢攒在这里。</p>
+        <p class="footer-motto" data-i18n="footer.motto">整理开源项目，沉淀技术实践。</p>
       </div>
       <nav class="footer-nav" aria-label="页脚导航" data-i18n-aria-label="footer.navLabel">
         <p class="footer-col-title" data-i18n="footer.pages">页面</p>
         <a href="#directions" data-i18n="nav.directions">方向</a>
         <a href="#projects" data-i18n="nav.projects">项目</a>
         <a href="./tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a href="./tools/index.html" data-i18n="nav.tools">工具</a>
         <a href="./projects/index.html" data-i18n="nav.directory">目录</a>
       </nav>
       <div class="footer-meta">
@@ -221,7 +468,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>PISCESCUP / PORTFOLIO</span>
+      <span>PISCESCUP / WORKSPACE</span>
       <a class="back-top" href="#home"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a>
     </div>
   </footer>

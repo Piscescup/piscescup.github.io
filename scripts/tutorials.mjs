@@ -42,7 +42,7 @@ export async function generateTutorials({ zh, write, header, footer }) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#101e2c" />
+  <meta name="theme-color" content="#faf9f5" />
   <meta name="description" content="${esc(zh[descriptionKey])}" data-i18n-content="${descriptionKey}" />
   <title data-i18n="${titleKey}">${esc(zh[titleKey])}</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
@@ -50,6 +50,7 @@ export async function generateTutorials({ zh, write, header, footer }) {
   <link rel="stylesheet" href="../css/tutorials.css" />
   <link rel="alternate" hreflang="zh-CN" href="${self}?lang=zh-CN" />
   <link rel="alternate" hreflang="en" href="${self}?lang=en" />
+  <script src="../js/theme-boot.js"></script>
   <script src="../js/translations.js" defer></script>
   <script src="../js/i18n.js" defer></script>
   <script src="../js/clipboard.js" defer></script>
@@ -57,8 +58,9 @@ export async function generateTutorials({ zh, write, header, footer }) {
   <script src="../js/tutorials.js" defer></script>
 </head>
 <body class="tutorial-page" data-page="tutorial" id="top">
-  <a class="skip-link" href="#tutorial-main" data-i18n="tutorial.skip">跳转到正文</a>
+  <a class="skip-link" href="#tutorial-main" data-i18n="tutorial.skip">跳转至正文</a>
   ${header}
+  <div class="reading-progress" aria-hidden="true"><span class="reading-progress-fill"></span></div>
   <main class="tutorial-layout">
     ${side(path.posix.basename(file, '.html'))}
     <article class="tutorial-article" id="tutorial-main" tabindex="-1">

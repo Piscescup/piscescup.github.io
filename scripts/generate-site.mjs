@@ -6,6 +6,7 @@ import { loadLocales, escapeHtml as esc, translateHtml, bundleLocales } from './
 import { dependencyWidget, validateDependency } from './dependencies.mjs';
 import { loadExamples, renderExamples } from './examples.mjs';
 import { generateTutorials } from './tutorials.mjs';
+import { generateTools } from './tools.mjs';
 import { loadProjectTemplate, renderProjectPage } from './project-pages.mjs';
 import '../js/javadoc-status.js';
 
@@ -91,8 +92,8 @@ const byCategory = category => projects.filter(p => p.category === category);
 const byTag = tag => projects.filter(p => p.tags.includes(tag));
 
 function directionCard({ index, modifier, href, extra = '', kicker, glyph, titleKey, descriptionKey, metaKey, list }) {
-  return `<a class="direction-card ${modifier}" href="${href}"${extra}>
-          <div class="direction-top"><span>${String(index).padStart(2, '0')} / ${kicker}</span><span class="direction-glyph" aria-hidden="true">${glyph}</span></div>
+  return `<a class="direction-card ${modifier}" href="${href}"${extra} data-reveal>
+          <div class="direction-top"><span class="direction-kicker"><span class="domain-dot" aria-hidden="true"></span>${String(index).padStart(2, '0')} / ${kicker}</span><span class="direction-glyph" aria-hidden="true">${glyph}</span></div>
           <h3 data-i18n="${titleKey}">${esc(zh[titleKey])}</h3>
           <p data-i18n="${descriptionKey}">${esc(zh[descriptionKey])}</p>
           <ul class="direction-list">${list.map(item => item.key ? `<li data-i18n="${item.key}">${esc(zh[item.key])}</li>` : `<li>${esc(item.text)}</li>`).join('')}</ul>
@@ -115,12 +116,17 @@ const directionCards = [
     index: 3, modifier: 'direction-tutorial', href: './tutorials/index.html', extra: ' id="tutorials"', kicker: 'TUTORIAL',
     glyph: '( )', titleKey: 'direction.tutorial.title', descriptionKey: 'direction.tutorial.description', metaKey: 'direction.tutorial.meta',
     list: [{ key: 'tutorial.chapter00.title' }]
+  }),
+  directionCard({
+    index: 4, modifier: 'direction-tools', href: './tools/index.html', extra: ' id="tools"', kicker: 'TOOLS',
+    glyph: 'Rx', titleKey: 'direction.tools.title', descriptionKey: 'direction.tools.description', metaKey: 'direction.tools.meta',
+    list: [{ key: 'tools.labOrder.title' }]
   })
 ].join('\n        ');
 
-const workCards = projects.map((project, index) => `<article class="work-card" data-project="${project.slug}">
+const workCards = projects.map((project, index) => `<article class="work-card" data-project="${project.slug}" data-category="${project.category}" data-reveal>
           <a href="./projects/${project.slug}.html">
-            <div class="work-top"><span>${String(index + 1).padStart(2, '0')} / ${project.category === 'general' ? 'JAVA' : 'FABRIC'}</span><span class="work-arrow" aria-hidden="true">↗</span></div>
+            <div class="work-top"><span class="work-kicker"><span class="domain-dot" aria-hidden="true"></span>${String(index + 1).padStart(2, '0')} / ${project.category === 'general' ? 'JAVA' : 'FABRIC'}</span><span class="work-glyph" aria-hidden="true">${esc(project.glyph)}</span><span class="work-arrow" aria-hidden="true">↗</span></div>
             <h3>${esc(project.heading)}</h3>
             <p data-i18n="${project.summaryKey}">${esc(zh[project.summaryKey])}</p>
             <ul class="tag-row">${project.tags.map(tag => `<li>${esc(tags[tag])}</li>`).join('')}</ul>
@@ -141,7 +147,7 @@ function page(file, title, description, content, type = 'catalog') {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0a0711" />
+  <meta name="theme-color" content="#faf9f5" />
   <meta name="description" content="${esc(zh[description])}" data-i18n-content="${description}" />
   <title data-i18n="${title}">${esc(zh[title])}</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
@@ -150,6 +156,7 @@ function page(file, title, description, content, type = 'catalog') {
   <link rel="stylesheet" href="../css/catalog.css" />
   <link rel="alternate" hreflang="zh-CN" href="${self}?lang=zh-CN" />
   <link rel="alternate" hreflang="en" href="${self}?lang=en" />
+  <script src="../js/theme-boot.js"></script>
   <script src="../js/translations.js" defer></script>
   <script src="../js/i18n.js" defer></script>
   <script src="../js/script.js" defer></script>
@@ -165,8 +172,6 @@ function page(file, title, description, content, type = 'catalog') {
 }
 
 const hero = ({ eyebrow, title, lead, breadcrumbs = '', actions = '' }) => `<section class="project-hero">
-      <div class="hero-stars" aria-hidden="true"></div>
-      <div class="hero-aurora" aria-hidden="true"></div>
       <div class="project-hero-inner">
         ${breadcrumbs ? `<nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb">${breadcrumbs}</nav>` : ''}
         <p class="eyebrow"><span class="eyebrow-dot"></span>${eyebrow}</p>
@@ -330,6 +335,7 @@ for (const project of projects) {
 
 await write('index.html', translateHtml(home, zh));
 await generateTutorials({ zh, write, header, footer });
+await generateTools({ zh, write, header, footer });
 let notFound = page('404.html', 'notFound.title', 'notFound.description', `${hero({
   eyebrow: '404 / NOT FOUND',
   title: t('notFound.heading', 'span'),

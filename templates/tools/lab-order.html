@@ -1,0 +1,106 @@
+<section class="lab-workspace" data-lab-order aria-labelledby="lab-order-workspace-title">
+  <h2 class="visually-hidden" id="lab-order-workspace-title" data-i18n="labOrder.workspaceTitle">实验室药品订购工作区</h2>
+
+  <noscript>
+    <div class="tool-noscript">
+      <p data-i18n="labOrder.noscript">此工具依赖浏览器 JavaScript 实现按日记录、本地保存与 Excel (.xlsx) 导出，请启用 JavaScript 后使用。</p>
+    </div>
+  </noscript>
+
+  <div class="lab-date-card">
+    <div class="lab-date-top">
+      <div class="lab-date-current">
+        <span class="lab-date-kicker" data-i18n="labOrder.date.activeLabel">当前订购日期</span>
+        <div class="lab-date-display">
+          <time class="lab-date-value" data-lab-date-display>----/--/--</time>
+          <span class="lab-date-weekday" data-lab-weekday></span>
+          <span class="lab-today-badge" data-lab-today-badge hidden data-i18n="labOrder.date.todayBadge">今天</span>
+        </div>
+      </div>
+      <div class="lab-date-controls" role="group" aria-label="切换订购日期" data-i18n-aria-label="labOrder.date.controlsLabel">
+        <button type="button" class="lab-icon-btn" data-lab-prev-day aria-label="前一天" data-i18n-aria-label="labOrder.date.prev" data-i18n-title="labOrder.date.prev" title="前一天">←</button>
+        <label class="lab-date-picker-wrap">
+          <span class="visually-hidden" data-i18n="labOrder.date.pick">选择日期</span>
+          <input type="date" class="lab-date-input" data-lab-date-input />
+        </label>
+        <button type="button" class="lab-icon-btn" data-lab-next-day aria-label="后一天" data-i18n-aria-label="labOrder.date.next" data-i18n-title="labOrder.date.next" title="后一天">→</button>
+        <button type="button" class="button lab-today-btn" data-lab-today-btn data-i18n="labOrder.date.backToday">回到今天</button>
+      </div>
+    </div>
+    <div class="lab-date-history" data-lab-date-history hidden>
+      <span class="lab-history-label" data-i18n="labOrder.date.recordedLabel">已有记录的日期</span>
+      <div class="lab-history-chips" data-lab-history-chips role="list"></div>
+    </div>
+  </div>
+
+  <form class="lab-entry-card" data-lab-form novalidate>
+    <div class="lab-entry-head">
+      <h3 class="lab-entry-title">
+        <span data-i18n="labOrder.form.heading">在该日期下登记药品</span>
+        <span class="lab-entry-date-tag" data-lab-form-date></span>
+      </h3>
+      <span class="lab-entry-hint" data-i18n="labOrder.form.hint">填写完成后按回车或点击添加，数据自动保存在本地浏览器。</span>
+    </div>
+    <div class="lab-form-grid">
+      <div class="lab-field lab-field-name">
+        <label for="lab-reagent-name" data-i18n="labOrder.field.name">药剂名称</label>
+        <input id="lab-reagent-name" name="name" type="text" required autocomplete="off" placeholder="例如：无水乙醇、氯化钠" data-i18n-placeholder="labOrder.placeholder.name" />
+      </div>
+      <div class="lab-field lab-field-unit">
+        <label for="lab-reagent-unit" data-i18n="labOrder.field.unit">单位</label>
+        <input id="lab-reagent-unit" name="unit" type="text" required list="lab-unit-presets" autocomplete="off" placeholder="瓶 / g / mL" data-i18n-placeholder="labOrder.placeholder.unit" />
+        <datalist id="lab-unit-presets" data-lab-unit-list></datalist>
+      </div>
+      <div class="lab-field lab-field-qty">
+        <label for="lab-reagent-qty" data-i18n="labOrder.field.quantity">数量</label>
+        <input id="lab-reagent-qty" name="quantity" type="number" required min="0.01" step="any" value="1" inputmode="decimal" />
+      </div>
+      <div class="lab-field lab-field-requester">
+        <label for="lab-reagent-requester" data-i18n="labOrder.field.requester">订购人</label>
+        <input id="lab-reagent-requester" name="requester" type="text" required list="lab-requester-history" autocomplete="off" placeholder="填写姓名" data-i18n-placeholder="labOrder.placeholder.requester" />
+        <datalist id="lab-requester-history" data-lab-requester-list></datalist>
+      </div>
+      <div class="lab-field-submit">
+        <button type="submit" class="button button-solid lab-add-btn">
+          <span aria-hidden="true">+</span>
+          <span data-i18n="labOrder.form.add">添加药品</span>
+        </button>
+      </div>
+    </div>
+    <p class="lab-form-error" data-lab-error role="alert" hidden></p>
+  </form>
+
+  <div class="lab-board-card">
+    <div class="lab-toolbar">
+      <div class="lab-view-switch" role="group" aria-label="清单视图切换" data-i18n-aria-label="labOrder.view.label">
+        <button type="button" data-lab-view="day" aria-pressed="true" data-i18n="labOrder.view.day">当日清单</button>
+        <button type="button" data-lab-view="all" aria-pressed="false" data-i18n="labOrder.view.all">全部日期</button>
+      </div>
+      <div class="lab-search-wrap">
+        <label class="visually-hidden" for="lab-search-input" data-i18n="labOrder.search.label">筛选药品或订购人</label>
+        <input id="lab-search-input" class="lab-search-input" type="search" data-lab-search placeholder="筛选药剂名称、单位或订购人..." data-i18n-placeholder="labOrder.search.placeholder" />
+      </div>
+      <div class="lab-export-actions">
+        <button type="button" class="button button-clay lab-export-btn" data-lab-export-day data-i18n="labOrder.export.day">导出当天 Excel</button>
+        <button type="button" class="button lab-export-all-btn" data-lab-export-all data-i18n="labOrder.export.all">导出全部 Excel</button>
+        <button type="button" class="lab-clear-btn" data-lab-clear-day data-i18n="labOrder.action.clearDay">清空当天</button>
+      </div>
+    </div>
+
+    <div class="lab-stats-strip" data-lab-stats aria-live="polite">
+      <span class="lab-stat-item" data-lab-stat-items></span>
+      <span class="lab-stat-sep" aria-hidden="true">·</span>
+      <span class="lab-stat-item" data-lab-stat-qty></span>
+      <span class="lab-stat-sep" aria-hidden="true">·</span>
+      <span class="lab-stat-item" data-lab-stat-people></span>
+      <span class="lab-saved-pill" data-i18n="labOrder.status.localSaved">本地自动保存</span>
+    </div>
+
+    <div class="lab-list-container" data-lab-list></div>
+  </div>
+
+  <div class="lab-toast" data-lab-toast role="status" aria-live="polite" hidden>
+    <span data-lab-toast-text></span>
+    <button type="button" class="lab-toast-undo" data-lab-toast-undo hidden data-i18n="labOrder.action.undo">撤销</button>
+  </div>
+</section>
