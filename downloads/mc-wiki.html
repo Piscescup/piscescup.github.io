@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0a0711" />
-  <meta name="description" content="挑 Modrinth 或 CurseForge，去项目的版本列表里下载。" data-i18n-content="downloads.description" />
+  <meta name="theme-color" content="#faf9f5" />
+  <meta name="description" content="可通过 Modrinth 或 CurseForge 的版本列表下载对应模组文件。" data-i18n-content="downloads.description" />
   <title data-i18n="downloads.mc-wiki.title">MC Wiki · Mod 下载</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <link rel="stylesheet" href="../css/styles.css" />
@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../css/catalog.css" />
   <link rel="alternate" hreflang="zh-CN" href="./mc-wiki.html?lang=zh-CN" />
   <link rel="alternate" hreflang="en" href="./mc-wiki.html?lang=en" />
+  <script src="../js/theme-boot.js"></script>
   <script src="../js/translations.js" defer></script>
   <script src="../js/i18n.js" defer></script>
   <script src="../js/script.js" defer></script>
@@ -20,40 +21,45 @@
   <a class="skip-link" href="#main" data-i18n="project.skip">跳到主要内容</a>
   <header class="site-header">
     <div class="nav-shell">
-      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P·</span>PiscesCup<span class="brand-dot">.</span></a>
+      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P·</span><span class="brand-name">PiscesCup<span class="brand-dot">.</span></span></a>
       <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false" data-i18n-aria-label="nav.open"><span></span><span></span></button>
       <nav id="site-nav" class="site-nav" aria-label="主导航" data-i18n-aria-label="nav.label">
         <a class="nav-link is-active" href="../index.html#home" aria-current="location" data-i18n="nav.home">首页</a>
         <a class="nav-link" href="../index.html#directions" data-i18n="nav.directions">方向</a>
         <a class="nav-link" href="../index.html#projects" data-i18n="nav.projects">项目</a>
         <a class="nav-link" href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a class="nav-link" href="../tools/index.html" data-i18n="nav.tools">工具</a>
         <a class="nav-link" href="../projects/index.html" data-i18n="nav.directory">目录</a>
         <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
         <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
-      <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
-        <button type="button" lang="zh-CN" data-language="zh-CN" aria-pressed="true">中文</button>
-        <button type="button" lang="en" data-language="en" aria-pressed="false">EN</button>
-      </nav>
+      <div class="header-tools">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="切换明暗主题" data-i18n-aria-label="theme.toggle">
+          <svg class="icon-sun" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2.2v1.8M10 16v1.8M2.2 10H4M16 10h1.8M4.5 4.5l1.3 1.3M14.2 14.2l1.3 1.3M15.5 4.5l-1.3 1.3M5.8 14.2l-1.3 1.3"/></svg>
+          <svg class="icon-moon" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.2 11.9A6.6 6.6 0 0 1 8.1 3.8a6.6 6.6 0 1 0 8.1 8.1Z"/></svg>
+        </button>
+        <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
+          <button type="button" lang="zh-CN" data-language="zh-CN" aria-pressed="true">中文</button>
+          <button type="button" lang="en" data-language="en" aria-pressed="false">EN</button>
+        </nav>
+      </div>
     </div>
   </header>
   <main id="main" tabindex="-1">
     <section class="project-hero">
-      <div class="hero-stars" aria-hidden="true"></div>
-      <div class="hero-aurora" aria-hidden="true"></div>
       <div class="project-hero-inner">
         <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../categories/minecraft.html" data-i18n="category.minecraft">Minecraft 模组</a><span aria-hidden="true">/</span><a href="../projects/mc-wiki.html">MC Wiki</a><span aria-hidden="true">/</span><span aria-current="page" data-i18n="downloads.label">下载 Mod</span></nav>
         <p class="eyebrow"><span class="eyebrow-dot"></span>MOD DOWNLOADS</p>
         <h1>MC Wiki</h1>
-        <p class="project-lead"><span data-i18n="downloads.description">挑 Modrinth 或 CurseForge，去项目的版本列表里下载。</span></p>
+        <p class="project-lead"><span data-i18n="downloads.description">可通过 Modrinth 或 CurseForge 的版本列表下载对应模组文件。</span></p>
         
       </div>
     </section>
     <div class="catalog-layout" id="directory">
       <div class="catalog-main">
-        <div class="download-platforms"><section class="download-platform download-modrinth"><p class="download-label" aria-hidden="true">PLATFORM / modrinth</p><h2>Modrinth</h2><p data-i18n="downloads.modrinthDescription">浏览 Modrinth 上发布的版本、更新记录和依赖信息。</p><p data-i18n="downloads.pending">下载链接还没补上，可以先去看项目仓库。</p></section>
+        <div class="download-platforms"><section class="download-platform download-modrinth"><p class="download-label" aria-hidden="true">PLATFORM / modrinth</p><h2>Modrinth</h2><p data-i18n="downloads.modrinthDescription">浏览 Modrinth 上发布的版本、更新记录和依赖信息。</p><p data-i18n="downloads.pending">当前平台暂未提供下载链接，可先前往 GitHub 仓库查看源码与说明。</p></section>
 <section class="download-platform download-curseforge"><p class="download-label" aria-hidden="true">PLATFORM / curseforge</p><h2>CurseForge</h2><p data-i18n="downloads.curseforgeDescription">浏览 CurseForge 上发布的文件、适用版本和安装说明。</p><a href="https://www.curseforge.com/minecraft/mc-mods/mc-wiki-mod/files" target="_blank" rel="noopener noreferrer" class="hero-button"><span data-i18n="downloads.curseforge">前往 CurseForge 下载</span><span aria-hidden="true"> ↗</span></a></section></div>
-        <p class="section-note"><span data-i18n="downloads.chooseVersion">记得选和你的 Minecraft 版本、模组加载器对得上的文件，顺手看一眼依赖。</span></p>
+        <p class="section-note"><span data-i18n="downloads.chooseVersion">下载时请选择与当前 Minecraft 版本及模组加载器（Fabric）匹配的文件，并确认所需的前置依赖。</span></p>
         <div class="docs-links"><a href="https://github.com/Piscescup/mc-wiki-mod" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">在 GitHub 查看</span><span aria-hidden="true"> ↗</span></a><a href="../projects/mc-wiki.html" data-i18n="javadoc.backProject">返回项目介绍</a></div>
       </div>
       <aside class="catalog-aside"><h2 data-i18n="catalog.categories">分类</h2><a href="../categories/minecraft.html" aria-current="page"><span data-i18n="category.minecraft">Minecraft 模组</span><small>4</small></a><a href="../categories/general.html"><span data-i18n="category.general">Java 开发库</span><small>2</small></a></aside>
@@ -62,13 +68,14 @@
     <div class="footer-inner">
       <div class="footer-brand-col">
         <a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a>
-        <p class="footer-motto" data-i18n="footer.motto">把做过的东西和学到的东西，慢慢攒在这里。</p>
+        <p class="footer-motto" data-i18n="footer.motto">整理开源项目，沉淀技术实践。</p>
       </div>
       <nav class="footer-nav" aria-label="页脚导航" data-i18n-aria-label="footer.navLabel">
         <p class="footer-col-title" data-i18n="footer.pages">页面</p>
         <a href="../index.html#directions" data-i18n="nav.directions">方向</a>
         <a href="../index.html#projects" data-i18n="nav.projects">项目</a>
         <a href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a href="../tools/index.html" data-i18n="nav.tools">工具</a>
         <a href="../projects/index.html" data-i18n="nav.directory">目录</a>
       </nav>
       <div class="footer-meta">
@@ -79,7 +86,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>PISCESCUP / PORTFOLIO</span>
+      <span>PISCESCUP / WORKSPACE</span>
       <a class="back-top" href="../index.html#home"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a>
     </div>
   </footer>

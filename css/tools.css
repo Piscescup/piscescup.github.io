@@ -1,0 +1,958 @@
+@charset "UTF-8";
+
+/* ------------------------------------------------------------------
+   Tools Module & Lab Reagent Order Workspace
+   Editorial alabaster/charcoal cards, calm sky & clay accents,
+   tactile daily ordering workflow with crisp tabular readability.
+   ------------------------------------------------------------------ */
+
+.tools-directory,
+.tool-shell {
+  width: min(var(--shell), 100%);
+  margin-inline: auto;
+  padding: 2.5rem var(--gutter) 5.5rem;
+}
+
+.tool-hero {
+  padding-bottom: 2.25rem;
+}
+
+/* ---------- tools directory ---------- */
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.tool-card {
+  --domain-color: var(--sky);
+  --domain-soft: var(--sky-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-3);
+  box-shadow: var(--shadow-md);
+}
+
+.tool-card a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  height: 100%;
+  padding: 2rem;
+}
+
+.tool-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tool-card-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.48rem;
+  color: var(--faint);
+  font: 500 0.72rem/1.4 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tool-card-glyph {
+  display: inline-grid;
+  place-items: center;
+  min-width: 42px;
+  height: 32px;
+  padding: 0 0.55rem;
+  border-radius: 8px;
+  background: var(--sky-soft);
+  color: var(--sky);
+  font: 600 0.85rem/1 var(--mono);
+}
+
+.tool-card h2 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.tool-card p {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.72;
+}
+
+.tool-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  color: var(--faint);
+  font: 400 0.76rem/1.4 var(--mono);
+}
+
+.tool-card-cta {
+  color: var(--sky);
+  font: 500 0.84rem/1.3 var(--sans);
+  white-space: nowrap;
+}
+
+.tools-note-card {
+  margin-top: 1.5rem;
+  padding: 1.35rem 1.65rem;
+  border: 1px dashed var(--line-2);
+  border-radius: var(--radius-md);
+  background: var(--bg-soft);
+}
+
+.tools-note-card strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--ink);
+  font: 550 0.92rem/1.4 var(--sans);
+}
+
+.tools-note-card p {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.68;
+}
+
+.tool-noscript {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--clay);
+  border-radius: var(--radius-sm);
+  background: var(--clay-soft);
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+/* ---------- lab reagent order workspace ---------- */
+
+.lab-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.lab-date-card,
+.lab-entry-card,
+.lab-board-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 1. Daily date switcher bar */
+
+.lab-date-card {
+  padding: 1.35rem 1.6rem;
+}
+
+.lab-date-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.lab-date-kicker {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--faint);
+  font: 500 0.74rem/1.4 var(--sans);
+  letter-spacing: 0.04em;
+}
+
+.lab-date-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.lab-date-value {
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 2.5vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.lab-date-weekday {
+  color: var(--muted);
+  font: 500 0.9rem/1.3 var(--sans);
+}
+
+.lab-today-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.16rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background: var(--clay-soft);
+  color: var(--accent);
+  font: 500 0.75rem/1.4 var(--sans);
+}
+
+.lab-date-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.lab-icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-btn);
+  background: var(--bg-soft);
+  color: var(--ink-2);
+  font: 500 0.95rem/1 var(--sans);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.lab-icon-btn:hover {
+  border-color: var(--line-3);
+  background: var(--surface-2);
+  color: var(--ink);
+}
+
+.lab-date-input {
+  height: 38px;
+  padding: 0 0.75rem;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-btn);
+  background: var(--surface);
+  color: var(--ink);
+  font: 500 0.86rem/1 var(--mono);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lab-date-input:focus {
+  outline: none;
+  border-color: var(--sky);
+  box-shadow: 0 0 0 3px var(--sky-soft);
+}
+
+.lab-today-btn {
+  height: 38px;
+  padding: 0 0.95rem;
+  font-size: 0.84rem;
+}
+
+.lab-today-btn:disabled {
+  opacity: 0.48;
+  cursor: default;
+  pointer-events: none;
+}
+
+.lab-date-history {
+  margin-top: 1.05rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.lab-history-label {
+  color: var(--faint);
+  font: 500 0.75rem/1.4 var(--sans);
+  white-space: nowrap;
+}
+
+.lab-history-chips {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.lab-date-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.68rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--bg-soft);
+  color: var(--ink-2);
+  font: 450 0.78rem/1.35 var(--mono);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.lab-date-chip span {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.3rem;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.lab-date-chip:hover {
+  border-color: var(--line-3);
+  color: var(--ink);
+}
+
+.lab-date-chip.is-active {
+  border-color: var(--sky);
+  background: var(--sky-soft);
+  color: var(--ink);
+}
+
+.lab-date-chip.is-active span {
+  background: var(--sky);
+  color: #ffffff;
+}
+
+/* 2. Quick-add reagent entry card */
+
+.lab-entry-card {
+  padding: 1.4rem 1.6rem 1.55rem;
+}
+
+.lab-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.05rem;
+}
+
+.lab-entry-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--sans);
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.lab-entry-date-tag {
+  padding: 0.14rem 0.5rem;
+  border-radius: 6px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font: 500 0.76rem/1.4 var(--mono);
+}
+
+.lab-entry-hint {
+  color: var(--faint);
+  font-size: 0.8125rem;
+}
+
+.lab-form-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.05fr) minmax(0, 0.9fr) minmax(0, 1.35fr) auto;
+  gap: 0.8rem;
+  align-items: end;
+}
+
+.lab-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.36rem;
+}
+
+.lab-field label {
+  color: var(--ink-2);
+  font: 500 0.8rem/1.35 var(--sans);
+}
+
+.lab-field input {
+  width: 100%;
+  height: 42px;
+  padding: 0 0.85rem;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-btn);
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 0.9rem/1.4 var(--sans);
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lab-field input[type="number"] {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.lab-field input::placeholder {
+  color: var(--faint);
+}
+
+.lab-field input:focus {
+  outline: none;
+  border-color: var(--sky);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--sky-soft);
+}
+
+.lab-field input.is-invalid {
+  border-color: var(--clay);
+  box-shadow: 0 0 0 3px var(--clay-soft);
+}
+
+.lab-add-btn {
+  height: 42px;
+  padding: 0 1.25rem;
+  white-space: nowrap;
+}
+
+.lab-form-error {
+  margin: 0.75rem 0 0;
+  color: var(--accent);
+  font: 500 0.82rem/1.45 var(--sans);
+}
+
+/* 3. Order board, toolbar & table */
+
+.lab-board-card {
+  overflow: hidden;
+}
+
+.lab-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  padding: 1.1rem 1.45rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-soft);
+}
+
+.lab-view-switch {
+  display: inline-flex;
+  padding: 0.2rem;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-btn);
+  background: var(--surface);
+}
+
+.lab-view-switch button {
+  padding: 0.36rem 0.85rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  font: 500 0.82rem/1.35 var(--sans);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.lab-view-switch button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.lab-search-wrap {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.lab-search-input {
+  width: 100%;
+  height: 36px;
+  padding: 0 0.85rem;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-btn);
+  background: var(--surface);
+  color: var(--ink);
+  font: 400 0.84rem/1.4 var(--sans);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lab-search-input::placeholder {
+  color: var(--faint);
+}
+
+.lab-search-input:focus {
+  outline: none;
+  border-color: var(--sky);
+  box-shadow: 0 0 0 3px var(--sky-soft);
+}
+
+.lab-export-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.lab-export-btn,
+.lab-export-all-btn {
+  height: 36px;
+  padding: 0 0.95rem;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.button-clay {
+  border-color: var(--clay);
+  background: var(--clay);
+  color: #ffffff;
+}
+
+.button-clay:hover {
+  border-color: var(--clay-hover);
+  background: var(--clay-hover);
+  color: #ffffff;
+}
+
+.lab-export-btn:disabled,
+.lab-export-all-btn:disabled,
+.lab-clear-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.lab-clear-btn {
+  height: 36px;
+  padding: 0 0.8rem;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-btn);
+  background: transparent;
+  color: var(--muted);
+  font: 500 0.8rem/1.3 var(--sans);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.lab-clear-btn:hover {
+  border-color: var(--clay);
+  color: var(--accent);
+}
+
+.lab-clear-btn.is-confirm {
+  border-color: var(--clay);
+  background: var(--clay);
+  color: #ffffff;
+}
+
+.lab-stats-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  padding: 0.72rem 1.45rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font: 450 0.8rem/1.4 var(--sans);
+}
+
+.lab-stat-item strong {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-weight: 600;
+}
+
+.lab-stat-sep {
+  color: var(--line-3);
+}
+
+.lab-saved-pill {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--emerald);
+  font: 500 0.74rem/1.3 var(--sans);
+}
+
+.lab-saved-pill::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Table layout */
+
+.lab-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.78rem 1.45rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-soft);
+}
+
+.lab-group-header:first-child {
+  border-top: 0;
+}
+
+.lab-group-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ink);
+  font: 600 0.88rem/1.4 var(--mono);
+}
+
+.lab-group-meta {
+  color: var(--muted);
+  font: 400 0.78rem/1.4 var(--sans);
+}
+
+.lab-group-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.lab-mini-btn {
+  padding: 0.24rem 0.62rem;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font: 500 0.74rem/1.35 var(--sans);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.lab-mini-btn:hover {
+  border-color: var(--sky);
+  color: var(--sky);
+}
+
+.lab-table-wrap {
+  overflow-x: auto;
+}
+
+.lab-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.lab-table thead th {
+  padding: 0.72rem 1rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--muted);
+  font: 550 0.78rem/1.4 var(--sans);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.lab-table thead th:first-child {
+  padding-left: 1.45rem;
+  width: 3.4rem;
+}
+
+.lab-table thead th:last-child {
+  padding-right: 1.45rem;
+  text-align: right;
+  width: 9.5rem;
+}
+
+.lab-table tbody tr {
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.12s ease;
+}
+
+.lab-table tbody tr:last-child {
+  border-bottom: 0;
+}
+
+.lab-table tbody tr:hover {
+  background: var(--bg-soft);
+}
+
+.lab-table tbody td {
+  padding: 0.8rem 1rem;
+  color: var(--ink);
+  vertical-align: middle;
+}
+
+.lab-table tbody td:first-child {
+  padding-left: 1.45rem;
+  color: var(--faint);
+  font: 400 0.78rem/1.4 var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.lab-table tbody td:last-child {
+  padding-right: 1.45rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.lab-cell-name {
+  font-weight: 500;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.lab-cell-unit {
+  display: inline-block;
+  padding: 0.14rem 0.52rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg-soft);
+  color: var(--ink-2);
+  font: 500 0.8rem/1.35 var(--mono);
+}
+
+.lab-qty-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.lab-qty-step {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  font: 500 0.82rem/1 var(--mono);
+  cursor: pointer;
+  transition: border-color 0.12s ease, color 0.12s ease, background-color 0.12s ease;
+}
+
+.lab-qty-step:hover {
+  border-color: var(--line-3);
+  background: var(--surface-2);
+  color: var(--ink);
+}
+
+.lab-qty-val {
+  min-width: 2.2rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.lab-cell-requester {
+  color: var(--ink-2);
+}
+
+.lab-row-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35rem;
+}
+
+.lab-row-btn {
+  padding: 0.28rem 0.62rem;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink-2);
+  font: 500 0.76rem/1.3 var(--sans);
+  cursor: pointer;
+  transition: border-color 0.14s ease, color 0.14s ease, background-color 0.14s ease;
+}
+
+.lab-row-btn:hover {
+  border-color: var(--line-3);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.lab-row-btn-save {
+  border-color: var(--sky);
+  background: var(--sky);
+  color: #ffffff;
+}
+
+.lab-row-btn-save:hover {
+  border-color: var(--sky);
+  background: var(--sky);
+  color: #ffffff;
+  opacity: 0.92;
+}
+
+.lab-row-btn-danger:hover {
+  border-color: var(--clay);
+  color: var(--accent);
+}
+
+.lab-inline-input {
+  width: 100%;
+  min-width: 72px;
+  height: 34px;
+  padding: 0 0.58rem;
+  border: 1px solid var(--sky);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink);
+  font: 400 0.86rem/1.3 var(--sans);
+}
+
+.lab-inline-input[name="quantity"] {
+  max-width: 90px;
+  font-family: var(--mono);
+}
+
+/* Empty state */
+
+.lab-empty {
+  padding: 3.25rem 1.5rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.lab-empty-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-soft);
+  color: var(--sky);
+  font: 600 1rem/1 var(--mono);
+}
+
+.lab-empty h4 {
+  margin: 0 0 0.35rem;
+  color: var(--ink);
+  font: 550 0.98rem/1.4 var(--sans);
+}
+
+.lab-empty p {
+  max-width: 42ch;
+  margin-inline: auto;
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+/* Floating toast */
+
+.lab-toast {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 1.75rem);
+  z-index: 200;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  max-width: min(26rem, calc(100vw - 2rem));
+  padding: 0.78rem 1.05rem;
+  border: 1px solid var(--code-line);
+  border-radius: var(--radius-sm);
+  background: var(--code-bg);
+  color: var(--code-ink);
+  font: 450 0.84rem/1.45 var(--sans);
+  box-shadow: var(--shadow-lg);
+}
+
+.lab-toast[hidden] {
+  display: none;
+}
+
+.lab-toast-undo {
+  padding: 0.24rem 0.65rem;
+  border: 1px solid rgba(217, 119, 87, 0.45);
+  border-radius: 6px;
+  background: rgba(217, 119, 87, 0.16);
+  color: #f3a68c;
+  font: 500 0.78rem/1.3 var(--sans);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.lab-toast-undo:hover {
+  background: var(--clay);
+  color: #ffffff;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 960px) {
+  .tools-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lab-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lab-field-name {
+    grid-column: 1 / -1;
+  }
+  .lab-field-submit {
+    grid-column: 1 / -1;
+  }
+  .lab-add-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .tools-directory,
+  .tool-shell {
+    padding-top: 1.75rem;
+    padding-bottom: 4rem;
+  }
+  .lab-date-card,
+  .lab-entry-card {
+    padding: 1.15rem 1.1rem;
+  }
+  .lab-toolbar {
+    padding: 0.95rem 1.1rem;
+  }
+  .lab-stats-strip {
+    padding: 0.65rem 1.1rem;
+  }
+  .lab-saved-pill {
+    margin-left: 0;
+    width: 100%;
+  }
+  .lab-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lab-table thead th:first-child,
+  .lab-table tbody td:first-child {
+    padding-left: 0.9rem;
+  }
+  .lab-table thead th:last-child,
+  .lab-table tbody td:last-child {
+    padding-right: 0.9rem;
+  }
+}

@@ -23,7 +23,7 @@
     intro.removeEventListener('pointerdown', onPointer);
     skip?.removeEventListener('click', onSkip);
     intro.classList.add('is-leaving');
-    setTimeout(() => intro.remove(), 550);
+    setTimeout(() => intro.remove(), 520);
     main?.focus({ preventScroll: true });
   }
 

@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "lab-order",
+    "number": "01",
+    "eyebrow": "LAB UTILITY",
+    "glyph": "Rx",
+    "titleKey": "tools.labOrder.title",
+    "pageTitleKey": "tools.labOrder.pageTitle",
+    "summaryKey": "tools.labOrder.summary",
+    "descriptionKey": "tools.labOrder.description",
+    "metaKey": "tools.labOrder.meta",
+    "template": "templates/tools/lab-order.html",
+    "scripts": ["xlsx-export", "lab-order"],
+    "tags": ["tools.tag.daily", "tools.tag.xlsx", "tools.tag.local"]
+  }
+]

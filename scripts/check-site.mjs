@@ -6,6 +6,7 @@ import { loadLocales, translateHtml, bundleLocales } from './locales.mjs';
 import { dependencyWidget, validateDependency } from './dependencies.mjs';
 import { loadExamples, renderExamples } from './examples.mjs';
 import { loadTutorials } from './tutorials.mjs';
+import { loadTools } from './tools.mjs';
 import '../js/javadoc-status.js';
 
 const files = await publicFiles();
@@ -14,6 +15,7 @@ const dictionaries = await loadLocales();
 const projects = JSON.parse(await readFile(path.join(root, 'data/projects.json'), 'utf8'));
 const examples = await loadExamples();
 const chapters = await loadTutorials();
+const tools = await loadTools();
 const pages = new Map();
 const base = 'https://portfolio.invalid/';
 const attributes = tag => Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(match => [match[1], match[2]]));
@@ -65,9 +67,10 @@ for (const [file,page] of pages) {
 const categories = ['minecraft', 'general'];
 assert.deepEqual([...new Set(projects.map(p => p.category))].sort(), [...categories].sort(), 'Expected exactly two project categories.');
 const home = pages.get('index.html').html;
-assert.equal([...home.matchAll(/class="direction-card /g)].length, 3, 'index.html: expected three direction cards');
+assert.equal([...home.matchAll(/class="direction-card /g)].length, 4, 'index.html: expected four direction cards');
 for (const category of categories) assert(home.includes(`categories/${category}.html`), 'index.html: missing category entry');
 assert(home.includes('tutorials/index.html'), 'index.html: missing the tutorial direction');
+assert(home.includes('tools/index.html'), 'index.html: missing the tools direction');
 assert.equal([...home.matchAll(/class="work-card"/g)].length, projects.length, 'index.html: expected one card per project');
 for (const file of ['projects/index.html', 'categories/index.html']) {
   assert.equal([...pages.get(file).html.matchAll(/class="category-card /g)].length, 2, file + ': expected two category entry cards');
@@ -134,6 +137,7 @@ for (const [slug, group] of Object.entries(examples)) {
 for (const term of ['Int', 'Long', 'Double']) assert(linq.includes(`<span translate="no" class="notranslate">${term}</span>`), 'Technical sequence name must not be translated: ' + term);
 for (const [file, page] of pages) {
   assert(page.html.includes('data-i18n="nav.tutorials"'), file + ': missing tutorial navigation');
+  assert(page.html.includes('data-i18n="nav.tools"'), file + ': missing tools navigation');
 }
 const course = pages.get('tutorials/index.html')?.html;
 assert(course, 'Missing tutorial overview.');
@@ -167,5 +171,16 @@ assert(chinesePaths >= 16 && chinesePaths === englishPaths, 'Chapter 00 needs pa
 assert(chapter00.includes('data-tutorial-source="examples/tutorials/VocabularySparkModReferences.java"'), 'Missing author References example.');
 assert(chapter00.includes('data-tutorial-copy hidden'), 'References copy button must progressively enhance the page.');
 assert(!chapter00.includes('&#xA;') && !chapter00.includes('&#x70;'), 'Clipboard formatting entities leaked into the article.');
-assert.equal(pages.size,projects.length + 6 + categories.length + chapters.length + projects.filter(p => p.javadoc).length + projects.filter(p => p.downloads).length,'Unexpected number of shared pages.');
+const toolsIndex = pages.get('tools/index.html')?.html;
+assert(toolsIndex, 'Missing tools overview page.');
+assert(home.includes('id="tools"'), 'Missing tools entry on the homepage.');
+for (const tool of tools) {
+  const file = `tools/${tool.slug}.html`;
+  const html = pages.get(file)?.html;
+  assert(html, 'Missing tool page: ' + tool.slug);
+  assert(toolsIndex.includes(`data-tool-card="${tool.slug}"`), 'Tool missing from the tools index.');
+  assert(html.includes('data-page="tool"'), 'Tool page must activate the tools navigation.');
+  for (const script of tool.scripts) assert(html.includes(`src="../js/${script}.js"`), `Missing tool script ${script} in ${file}`);
+}
+assert.equal(pages.size,projects.length + 7 + categories.length + chapters.length + tools.length + projects.filter(p => p.javadoc).length + projects.filter(p => p.downloads).length,'Unexpected number of shared pages.');
 console.log('Verified ' + pages.size + ' shared pages, ' + checkedLinks + ' local links, ' + Object.keys(dictionaries.en).length + ' bilingual translation keys and ' + projects.length + ' projects.');

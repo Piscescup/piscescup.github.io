@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0a0711" />
-  <meta name="description" content="照 .NET LINQ 写的 Java 25 查询库：筛选、投影、排序、分组、连接都有，还顺手做了 int、long、double 的专用序列。" data-i18n-content="home.linq.summary" />
+  <meta name="theme-color" content="#faf9f5" />
+  <meta name="description" content="受 .NET LINQ 启发的 Java 25 序列查询库，支持筛选、投影、排序、分组与连接，并提供 int、long、double 专用序列。" data-i18n-content="home.linq.summary" />
   <title>LINQ for Java · PiscesCup</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/projects.css" />
   <link rel="alternate" hreflang="zh-CN" href="./linq-for-java.html?lang=zh-CN" />
   <link rel="alternate" hreflang="en" href="./linq-for-java.html?lang=en" />
+  <script src="../js/theme-boot.js"></script>
   <script src="../js/translations.js" defer></script>
   <script src="../js/i18n.js" defer></script>
   <script src="../js/clipboard.js" defer></script>
@@ -19,38 +20,43 @@
   <script src="../js/code-examples.js" defer></script>
   <script src="../js/script.js" defer></script>
 </head>
-<body class="project-page" data-page="project" id="top">
+<body class="project-page" data-page="project" data-category="general" id="top">
   <a class="skip-link" href="#main" data-i18n="project.skip">跳到主要内容</a>
 <header class="site-header">
     <div class="nav-shell">
-      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P·</span>PiscesCup<span class="brand-dot">.</span></a>
+      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P·</span><span class="brand-name">PiscesCup<span class="brand-dot">.</span></span></a>
       <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false" data-i18n-aria-label="nav.open"><span></span><span></span></button>
       <nav id="site-nav" class="site-nav" aria-label="主导航" data-i18n-aria-label="nav.label">
         <a class="nav-link is-active" href="../index.html#home" aria-current="location" data-i18n="nav.home">首页</a>
         <a class="nav-link" href="../index.html#directions" data-i18n="nav.directions">方向</a>
         <a class="nav-link" href="../index.html#projects" data-i18n="nav.projects">项目</a>
         <a class="nav-link" href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a class="nav-link" href="../tools/index.html" data-i18n="nav.tools">工具</a>
         <a class="nav-link" href="../projects/index.html" data-i18n="nav.directory">目录</a>
         <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
         <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
-      <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
-        <button type="button" lang="zh-CN" data-language="zh-CN" aria-pressed="true">中文</button>
-        <button type="button" lang="en" data-language="en" aria-pressed="false">EN</button>
-      </nav>
+      <div class="header-tools">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="切换明暗主题" data-i18n-aria-label="theme.toggle">
+          <svg class="icon-sun" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2.2v1.8M10 16v1.8M2.2 10H4M16 10h1.8M4.5 4.5l1.3 1.3M14.2 14.2l1.3 1.3M15.5 4.5l-1.3 1.3M5.8 14.2l-1.3 1.3"/></svg>
+          <svg class="icon-moon" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.2 11.9A6.6 6.6 0 0 1 8.1 3.8a6.6 6.6 0 1 0 8.1 8.1Z"/></svg>
+        </button>
+        <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
+          <button type="button" lang="zh-CN" data-language="zh-CN" aria-pressed="true">中文</button>
+          <button type="button" lang="en" data-language="en" aria-pressed="false">EN</button>
+        </nav>
+      </div>
     </div>
   </header>
   <main id="main" tabindex="-1">
     <section class="project-hero" aria-labelledby="project-title">
-      <div class="hero-stars" aria-hidden="true"></div>
-      <div class="hero-aurora" aria-hidden="true"></div>
       <div class="project-hero-inner">
         <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../projects/index.html"><span data-i18n="catalog.heading">项目目录</span></a><span aria-hidden="true">/</span><a href="../categories/general.html"><span data-i18n="category.general">Java 开发库</span></a><span aria-hidden="true">/</span><span aria-current="page">LINQ for Java</span></nav>
         <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="linq.eyebrow">Java 序列查询库</span></p>
         <h1 id="project-title">LINQ for Java</h1>
-        <p class="project-lead" data-i18n="linq.lead">想在 Java 里写 .NET 那种链式查询，于是自己写了一个。</p>
+        <p class="project-lead" data-i18n="linq.lead">受 .NET LINQ 启发，为 Java 25 集合与序列提供支持延迟执行的链式查询操作。</p>
         <ul class="tag-row project-tags" aria-label="标签" data-i18n-aria-label="project.tagsLabel"><li>Java</li><li>Java 25</li><li>Library</li><li>LINQ</li></ul>
-        <div class="project-actions"><a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">看看怎么用</span> <span aria-hidden="true">↓</span></a>
+        <div class="project-actions"><a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">开始使用</span> <span aria-hidden="true">↓</span></a>
           <a class="source-button" href="https://github.com/Piscescup/linq-for-java" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">在 GitHub 查看</span> <span aria-hidden="true">↗</span></a>
           <a href="../javadoc/linq-for-java.html" class="source-button" data-project-javadoc><span data-i18n="javadoc.label">Javadoc 文档</span></a></div>
       </div>
@@ -58,7 +64,7 @@
     </section>
     <div class="project-section-bar">
       <div class="project-sections-shell">
-        <nav class="project-sections" aria-label="本页导航" data-i18n-aria-label="project.onPage"><a href="#overview"><span data-i18n="project.overview">这是做什么的</span></a><a href="#features"><span data-i18n="project.features">能做什么</span></a><a href="#enumerables"><span data-i18n="linq.enumerables">序列类型</span></a><a href="#getting-started"><span data-i18n="project.start">怎么用</span></a><a href="#examples"><span data-i18n="examples.heading">代码示例</span></a></nav>
+        <nav class="project-sections" aria-label="本页导航" data-i18n-aria-label="project.onPage"><a href="#overview"><span data-i18n="project.overview">项目简介</span></a><a href="#features"><span data-i18n="project.features">主要功能</span></a><a href="#enumerables"><span data-i18n="linq.enumerables">序列类型</span></a><a href="#getting-started"><span data-i18n="project.start">使用说明</span></a><a href="#examples"><span data-i18n="examples.heading">代码示例</span></a></nav>
         <span class="project-section-meta" aria-hidden="true"><span data-i18n="category.general">Java 开发库</span> · LINQ for Java</span>
       </div>
     </div>
@@ -66,13 +72,13 @@
       <div class="project-main">
       <section id="overview" class="detail-section" aria-labelledby="overview-title">
         <p class="eyebrow">01 / OVERVIEW</p>
-        <h2 id="overview-title"><span data-i18n="project.overview">这是做什么的</span></h2>
+        <h2 id="overview-title"><span data-i18n="project.overview">项目简介</span></h2>
         <p><span data-i18n="linq.overview">LINQ for Java 基于 Enumerable 模型，为 Java 集合与序列提供查询操作。通过 where、select、orderBy 等方法组合数据处理步骤，多种中间操作采用延迟执行机制，在遍历或消费结果时执行。</span></p>
       </section>
 
       <section id="features" class="detail-section" aria-labelledby="features-title">
         <p class="eyebrow">02 / FEATURES</p>
-        <h2 id="features-title"><span data-i18n="project.features">能做什么</span></h2>
+        <h2 id="features-title"><span data-i18n="project.features">主要功能</span></h2>
         <div class="feature-grid">
           <article class="feature-item">
             <span class="feature-index" aria-hidden="true">01</span>
@@ -128,7 +134,7 @@
 
       <section id="getting-started" class="detail-section" aria-labelledby="getting-started-title">
         <p class="eyebrow">04 / GET STARTED</p>
-        <h2 id="getting-started-title"><span data-i18n="project.start">怎么用</span></h2>
+        <h2 id="getting-started-title"><span data-i18n="project.start">使用说明</span></h2>
         <ol class="steps">
           <li>
             <span class="step-index" aria-hidden="true">01</span>
@@ -140,7 +146,7 @@
           </li>
           <li>
             <span class="step-index" aria-hidden="true">03</span>
-            <div><h3><span data-i18n="linq.sample">运行查询示例</span></h3><p><span data-i18n="linq.sampleDescription">筛选偶数并计算平方，随后通过 toArray 获取查询结果。</span></p></div>
+            <div><h3><span data-i18n="linq.sample">运行查询示例</span></h3><p><span data-i18n="linq.sampleDescription">参考下方代码示例，使用 where、select、orderBy 与 toArray 等方法运行链式查询。</span></p></div>
           </li>
         </ol>
         
@@ -378,7 +384,7 @@ public class StudentQuery {
         <a class="sequence-link" href="#long-enumerable">LongEnumerable</a>
         <a class="sequence-link" href="#double-enumerable">DoubleEnumerable</a>
         <a href="https://github.com/Piscescup/linq-for-java" target="_blank" rel="noopener noreferrer"><span data-i18n="project.source">源代码</span> <span aria-hidden="true">↗</span></a>
-        <a href="https://github.com/Piscescup/linq-for-java/issues" target="_blank" rel="noopener noreferrer"><span data-i18n="project.feedback">提 issue 与建议</span> <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/Piscescup/linq-for-java/issues" target="_blank" rel="noopener noreferrer"><span data-i18n="project.feedback">问题反馈与建议</span> <span aria-hidden="true">↗</span></a>
         
         <a class="facts-back" href="../categories/general.html" data-i18n="catalog.backCategory">返回所属分类</a>
       </aside>
@@ -388,13 +394,14 @@ public class StudentQuery {
     <div class="footer-inner">
       <div class="footer-brand-col">
         <a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a>
-        <p class="footer-motto" data-i18n="footer.motto">把做过的东西和学到的东西，慢慢攒在这里。</p>
+        <p class="footer-motto" data-i18n="footer.motto">整理开源项目，沉淀技术实践。</p>
       </div>
       <nav class="footer-nav" aria-label="页脚导航" data-i18n-aria-label="footer.navLabel">
         <p class="footer-col-title" data-i18n="footer.pages">页面</p>
         <a href="../index.html#directions" data-i18n="nav.directions">方向</a>
         <a href="../index.html#projects" data-i18n="nav.projects">项目</a>
         <a href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a href="../tools/index.html" data-i18n="nav.tools">工具</a>
         <a href="../projects/index.html" data-i18n="nav.directory">目录</a>
       </nav>
       <div class="footer-meta">
@@ -405,7 +412,7 @@ public class StudentQuery {
       </div>
     </div>
     <div class="footer-bottom">
-      <span>PISCESCUP / PORTFOLIO</span>
+      <span>PISCESCUP / WORKSPACE</span>
       <a class="back-top" href="../index.html#home"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
