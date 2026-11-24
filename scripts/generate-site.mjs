@@ -44,7 +44,7 @@ for (const project of projects) {
   if (project.dependency) validateDependency(project.dependency);
   if (project.downloads) {
     assert.equal(project.category, 'minecraft', 'Mod downloads belong to Minecraft projects.');
-    const patterns = { modrinth: /^https:\/\/modrinth\.com\/mod\/[a-z0-9-]+\/versions$/, curseforge: /^https:\/\/www\.curseforge\.com\/minecraft\/mc-mods\/[a-z0-9-]+\/files$/ };
+    const patterns = { modrinth: /^https:\/\/modrinth\.com\/mod\/[a-z0-9-]+\/versions$/, curseforge: /^https:\/\/www\.curseforge\.com\/minecraft\/mc-mods\/[a-z0-9-]+\/files$/, github: /^https:\/\/github\.com\/Piscescup\/[A-Za-z0-9._-]+\/releases$/ };
     for (const [platform, url] of Object.entries(project.downloads)) {
       assert(patterns[platform]?.test(url), `Invalid ${platform} download page for ${project.slug}.`);
     }
@@ -184,7 +184,7 @@ const hero = ({ eyebrow, title, lead, breadcrumbs = '', actions = '' }) => `<sec
 function rows(items) {
   return `<div class="catalog-rows">${items.map(project => `<article class="catalog-row" data-project="${project.slug}">
         <div class="catalog-row-main">
-          <h3><a href="../projects/${project.slug}.html">${esc(project.heading)} <span class="row-arrow" aria-hidden="true">↗</span></a></h3>
+          <h3><a href="../projects/${project.slug}.html">${esc(project.heading)}</a></h3>
           ${t(project.summaryKey, 'p')}
         </div>
         <ul class="tag-row">${project.tags.map(tag => `<li>${esc(tags[tag])}</li>`).join('')}</ul>
@@ -262,9 +262,10 @@ for (const category of categories) {
 
 for (const project of projects.filter(p => p.downloads)) {
   const file = `downloads/${project.slug}.html`;
-  const platforms = ['modrinth', 'curseforge'].map(platform => {
+  const platformNames = { modrinth: 'Modrinth', curseforge: 'CurseForge', github: 'GitHub' };
+  const platforms = ['modrinth', 'curseforge', 'github'].map(platform => {
     const url = project.downloads[platform];
-    return `<section class="download-platform download-${platform}"><p class="download-label" aria-hidden="true">PLATFORM / ${platform}</p><h2>${platform === 'modrinth' ? 'Modrinth' : 'CurseForge'}</h2>${t(`downloads.${platform}Description`, 'p')}${url ? external(url, `downloads.${platform}`, ' class="hero-button"') : t('downloads.pending', 'p')}</section>`;
+    return `<section class="download-platform download-${platform}"><p class="download-label" aria-hidden="true">PLATFORM / ${platform}</p><h2>${platformNames[platform]}</h2>${t(`downloads.${platform}Description`, 'p')}${url ? external(url, `downloads.${platform}`, ' class="hero-button"') : t('downloads.pending', 'p')}</section>`;
   }).join('\n');
   await write(file, page(file, `downloads.${project.slug}.title`, 'downloads.description', `
     ${hero({

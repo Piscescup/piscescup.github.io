@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#faf9f5" />
+  <meta name="description" content="用图形界面管理 Carpet 规则：搜索、编辑，并把常用规则整理成可保存、可分享的预设。" data-i18n-content="carpet-gui.summary" />
+  <title>Carpet GUI · PiscesCup</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/projects.css" />
+  <link rel="alternate" hreflang="zh-CN" href="./carpet-gui.html?lang=zh-CN" />
+  <link rel="alternate" hreflang="en" href="./carpet-gui.html?lang=en" />
+  <script src="../js/theme-boot.js"></script>
+  <script src="../js/translations.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/script.js" defer></script>
+</head>
+<body class="project-page" data-page="project" data-category="minecraft" id="top">
+  <a class="skip-link" href="#main" data-i18n="project.skip">跳到主要内容</a>
+<header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P·</span><span class="brand-name">PiscesCup<span class="brand-dot">.</span></span></a>
+      <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false" data-i18n-aria-label="nav.open"><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="主导航" data-i18n-aria-label="nav.label">
+        <a class="nav-link is-active" href="../index.html#home" aria-current="location" data-i18n="nav.home">首页</a>
+        <a class="nav-link" href="../index.html#directions" data-i18n="nav.directions">方向</a>
+        <a class="nav-link" href="../index.html#projects" data-i18n="nav.projects">项目</a>
+        <a class="nav-link" href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a class="nav-link" href="../tools/index.html" data-i18n="nav.tools">工具</a>
+        <a class="nav-link" href="../projects/index.html" data-i18n="nav.directory">目录</a>
+        <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
+        <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+      <div class="header-tools">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="切换明暗主题" data-i18n-aria-label="theme.toggle">
+          <svg class="icon-sun" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2.2v1.8M10 16v1.8M2.2 10H4M16 10h1.8M4.5 4.5l1.3 1.3M14.2 14.2l1.3 1.3M15.5 4.5l-1.3 1.3M5.8 14.2l-1.3 1.3"/></svg>
+          <svg class="icon-moon" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.2 11.9A6.6 6.6 0 0 1 8.1 3.8a6.6 6.6 0 1 0 8.1 8.1Z"/></svg>
+        </button>
+        <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
+          <button type="button" lang="zh-CN" data-language="zh-CN" aria-pressed="true">中文</button>
+          <button type="button" lang="en" data-language="en" aria-pressed="false">EN</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="project-hero" aria-labelledby="project-title">
+      <div class="project-hero-inner">
+        <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../projects/index.html"><span data-i18n="catalog.heading">项目目录</span></a><span aria-hidden="true">/</span><a href="../categories/minecraft.html"><span data-i18n="category.minecraft">Minecraft 模组</span></a><span aria-hidden="true">/</span><span aria-current="page">Carpet GUI</span></nav>
+        <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="carpet-gui.eyebrow">Carpet 规则管理模组</span></p>
+        <h1 id="project-title">Carpet GUI</h1>
+        <p class="project-lead" data-i18n="carpet-gui.lead">不用再背 Carpet 命令：在游戏里直接浏览和修改规则，还能把一组规则存成预设，换个存档或服务器一键套用。</p>
+        <ul class="tag-row project-tags" aria-label="标签" data-i18n-aria-label="project.tagsLabel"><li>Java</li><li>Minecraft</li><li>Fabric</li></ul>
+        <div class="project-actions"><a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">开始使用</span> <span aria-hidden="true">↓</span></a>
+          <a class="source-button" href="https://github.com/Piscescup/carpet-gui" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">在 GitHub 查看</span> <span aria-hidden="true">↗</span></a>
+          <a href="../downloads/carpet-gui.html" class="source-button" data-project-downloads><span data-i18n="downloads.label">下载 Mod</span></a></div>
+      </div>
+      <p class="project-plate" aria-hidden="true"><span class="project-plate-glyph">[ carpet ]</span><span class="project-plate-slug">carpet-gui.md</span></p>
+    </section>
+    <div class="project-section-bar">
+      <div class="project-sections-shell">
+        <nav class="project-sections" aria-label="本页导航" data-i18n-aria-label="project.onPage"><a href="#overview"><span data-i18n="project.overview">项目简介</span></a><a href="#features"><span data-i18n="project.features">主要功能</span></a><a href="#getting-started"><span data-i18n="project.start">使用说明</span></a></nav>
+        <span class="project-section-meta" aria-hidden="true"><span data-i18n="category.minecraft">Minecraft 模组</span> · Carpet GUI</span>
+      </div>
+    </div>
+    <div class="project-layout">
+      <div class="project-main">
+      <section id="overview" class="detail-section" aria-labelledby="overview-title">
+        <p class="eyebrow">01 / OVERVIEW</p>
+        <h2 id="overview-title"><span data-i18n="project.overview">项目简介</span></h2>
+        <p><span data-i18n="carpet-gui.overview">Carpet GUI 把 Carpet 及其附属模组的规则浏览、编辑和配置管理集中到一个游戏内界面里。你可以按名称或描述搜索规则，把相关规则放进文件夹式的规则组，先查看当前值与目标值的差异再应用，也可以导出为 JSON 与他人分享。单人游戏和联机服务器都能使用。</span></p>
+      </section>
+
+      <section id="features" class="detail-section" aria-labelledby="features-title">
+        <p class="eyebrow">02 / FEATURES</p>
+        <h2 id="features-title"><span data-i18n="project.features">主要功能</span></h2>
+        <div class="feature-grid">
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">01</span>
+            <h3><span data-i18n="carpet-gui.features.1.title">查找与编辑</span></h3>
+            <p><span data-i18n="carpet-gui.features.1.description">支持按规则 ID、名称和描述搜索（包含中英文翻译），并用开关、选项列表或输入框直接修改规则。</span></p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">02</span>
+            <h3><span data-i18n="carpet-gui.features.2.title">规则组与提交记录</span></h3>
+            <p><span data-i18n="carpet-gui.features.2.description">把相关规则整理成规则组，暂存数值后创建带说明的本地提交，随时查看每次提交的差异。</span></p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">03</span>
+            <h3><span data-i18n="carpet-gui.features.3.title">预设与应用预览</span></h3>
+            <p><span data-i18n="carpet-gui.features.3.description">可以把已提交的值导出为 JSON，并导入到其他工作区；应用前会对比当前值与目标值，并说明无法应用某条规则的原因。</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="getting-started" class="detail-section" aria-labelledby="getting-started-title">
+        <p class="eyebrow">03 / GET STARTED</p>
+        <h2 id="getting-started-title"><span data-i18n="project.start">使用说明</span></h2>
+        <ol class="steps">
+          <li>
+            <span class="step-index" aria-hidden="true">01</span>
+            <div><h3><span data-i18n="carpet-gui.steps.1.title">安装依赖</span></h3><p><span data-i18n="carpet-gui.steps.1.description">安装 Fabric Loader、Fabric API、Carpet 与 TCDCommons，建议同时安装 Mod Menu。</span></p></div>
+          </li>
+          <li>
+            <span class="step-index" aria-hidden="true">02</span>
+            <div><h3><span data-i18n="carpet-gui.steps.2.title">放入对应版本</span></h3><p><span data-i18n="carpet-gui.steps.2.description">选择与 Minecraft 版本匹配的 Carpet GUI。若要在服务器上修改规则，服务器也需要安装相关的 Carpet 模组。</span></p></div>
+          </li>
+          <li>
+            <span class="step-index" aria-hidden="true">03</span>
+            <div><h3><span data-i18n="carpet-gui.steps.3.title">打开规则界面</span></h3><p><span data-i18n="carpet-gui.steps.3.description">进入世界后打开 Carpet GUI，就可以浏览规则、整理规则组，并按需应用或导出。</span></p></div>
+          </li>
+        </ol>
+        
+        
+        <div class="source-links"><a href="https://github.com/Piscescup/carpet-gui#readme" target="_blank" rel="noopener noreferrer"><span data-i18n="mc-wiki.readme">阅读完整使用说明</span> <span aria-hidden="true">↗</span></a></div>
+      </section></div>
+      <aside class="project-facts" aria-labelledby="facts-title">
+        <h2 id="facts-title" data-i18n="project.facts">项目信息</h2>
+        <dl><div><dt data-i18n="project.author">作者</dt><dd>PiscesCup</dd></div>
+        <div><dt data-i18n="project.runtime">运行环境</dt><dd>Java 21 / 25</dd></div>
+        <div><dt data-i18n="project.platform">适用平台</dt><dd>Minecraft Fabric</dd></div>
+        <div><dt data-i18n="mc-wiki.dependencies">所需依赖</dt><dd>Fabric API · Carpet · TCDCommons</dd></div>
+        <div><dt data-i18n="mc-wiki.versions">支持的游戏版本</dt><dd>1.21.1 – 26.3</dd></div></dl>
+        <a href="https://github.com/Piscescup/carpet-gui" target="_blank" rel="noopener noreferrer"><span data-i18n="project.source">源代码</span> <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/Piscescup/carpet-gui/issues" target="_blank" rel="noopener noreferrer"><span data-i18n="project.feedback">问题反馈与建议</span> <span aria-hidden="true">↗</span></a>
+        
+        <a class="facts-back" href="../categories/minecraft.html" data-i18n="catalog.backCategory">返回所属分类</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a>
+        <p class="footer-motto" data-i18n="footer.motto">整理开源项目，沉淀技术实践。</p>
+      </div>
+      <nav class="footer-nav" aria-label="页脚导航" data-i18n-aria-label="footer.navLabel">
+        <p class="footer-col-title" data-i18n="footer.pages">页面</p>
+        <a href="../index.html#directions" data-i18n="nav.directions">方向</a>
+        <a href="../index.html#projects" data-i18n="nav.projects">项目</a>
+        <a href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a href="../tools/index.html" data-i18n="nav.tools">工具</a>
+        <a href="../projects/index.html" data-i18n="nav.directory">目录</a>
+      </nav>
+      <div class="footer-meta">
+        <p class="footer-col-title" data-i18n="footer.contact">联系</p>
+        <a href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <p class="mono">PLAIN HTML · CSS · JS</p>
+        <p>© <span id="year">2026</span> PiscesCup</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>PISCESCUP / WORKSPACE</span>
+      <a class="back-top" href="../index.html#home"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+</body>
+</html>

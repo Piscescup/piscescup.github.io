@@ -95,7 +95,7 @@ for (const project of projects) {
     for (const html of [detail, pages.get('categories/minecraft.html').html, pages.get('tags/index.html').html]) {
       assert(html.includes(`downloads/${project.slug}.html`), 'Missing Mod download entry: ' + project.slug);
     }
-    for (const platform of ['modrinth', 'curseforge']) {
+    for (const platform of ['modrinth', 'curseforge', 'github']) {
       if (project.downloads[platform]) assert(download.includes(`href="${project.downloads[platform]}"`), 'Incorrect platform URL.');
       else assert(!download.includes(`data-i18n="downloads.${platform}"`), 'Missing platform URL must not offer a download link.');
     }

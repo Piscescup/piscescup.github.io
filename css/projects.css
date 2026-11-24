@@ -813,3 +813,13 @@
   .step-index { width: 2.05rem; height: 2.05rem; font-size: 0.74rem; }
   .steps li:not(:last-child)::before { left: 1.02rem; top: 2.15rem; }
 }
+
+/* ---------- refinement pass ---------- */
+
+.project-plate {
+  bottom: auto;
+  top: calc(var(--header) + 5.75rem);
+}
+
+.project-facts dl > div { flex-wrap: wrap; row-gap: 0.15rem; }
+.project-facts dd { flex: 1 1 8rem; min-width: 0; overflow-wrap: break-word; }

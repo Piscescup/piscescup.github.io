@@ -825,3 +825,34 @@
   .tutorial-table td:first-child { min-width: 112px; width: 38%; }
   .tutorial-code { font-size: 0.76rem; padding: 14px; }
 }
+
+/* ---------- refinement pass ---------- */
+
+.tutorial-section a.tutorial-lesson-card {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+.tutorial-section a.tutorial-lesson-card:hover { color: inherit; }
+
+.tutorial-section-heading {
+  padding-bottom: 0.65rem;
+  margin: 0 0 1.35rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.tutorial-section-heading h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.65rem;
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+}
+
+.tutorial-note {
+  border-left: 0;
+  box-shadow: inset 3px 0 0 var(--doc-accent);
+  border-radius: 12px;
+}

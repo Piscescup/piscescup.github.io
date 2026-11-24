@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#faf9f5" />
-  <meta name="description" content="客户端 Fabric 模组，支持在游戏内搜索 Minecraft Wiki 并通过内置浏览器直接阅读中英文条目。" data-i18n-content="mc-wiki.summary" />
+  <meta name="description" content="查资料不用再切出游戏了：在聊天框输入一条命令，就能直接在游戏里搜索并阅读中英文 Minecraft Wiki。" data-i18n-content="mc-wiki.summary" />
   <title>MC Wiki · PiscesCup</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <link rel="stylesheet" href="../css/styles.css" />
@@ -50,7 +50,7 @@
         <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../projects/index.html"><span data-i18n="catalog.heading">项目目录</span></a><span aria-hidden="true">/</span><a href="../categories/minecraft.html"><span data-i18n="category.minecraft">Minecraft 模组</span></a><span aria-hidden="true">/</span><span aria-current="page">MC Wiki</span></nav>
         <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="mc-wiki.eyebrow">Minecraft Wiki 查询模组</span></p>
         <h1 id="project-title">MC Wiki</h1>
-        <p class="project-lead" data-i18n="mc-wiki.lead">在 Minecraft 游戏内直接搜索并阅读 Wiki 条目，无需切换至外部浏览器，支持中英文切换。</p>
+        <p class="project-lead" data-i18n="mc-wiki.lead">玩的时候总要切出去查合成表和生物资料，于是我做了这个模组：一条命令搜索 Wiki，结果直接在游戏里打开，中英文随时切换。</p>
         <ul class="tag-row project-tags" aria-label="标签" data-i18n-aria-label="project.tagsLabel"><li>Java</li><li>Minecraft</li><li>Fabric</li></ul>
         <div class="project-actions"><a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">开始使用</span> <span aria-hidden="true">↓</span></a>
           <a class="source-button" href="https://github.com/Piscescup/mc-wiki-mod" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">在 GitHub 查看</span> <span aria-hidden="true">↗</span></a>
@@ -69,7 +69,7 @@
       <section id="overview" class="detail-section" aria-labelledby="overview-title">
         <p class="eyebrow">01 / OVERVIEW</p>
         <h2 id="overview-title"><span data-i18n="project.overview">项目简介</span></h2>
-        <p><span data-i18n="mc-wiki.overview">MC Wiki 通过 MediaWiki API 查找匹配条目，并借助 MCEF Modern 在游戏内直接打开页面。该模组仅需安装在客户端，可用于单人游戏与多人服务器。</span></p>
+        <p><span data-i18n="mc-wiki.overview">MC Wiki 会通过 MediaWiki API 找到匹配的条目，再借助 MCEF Modern 在游戏里直接打开页面。它只需要装在客户端，单人游戏和多人服务器都能用，服务器那边不需要任何改动。</span></p>
       </section>
 
       <section id="features" class="detail-section" aria-labelledby="features-title">
@@ -79,17 +79,17 @@
           <article class="feature-item">
             <span class="feature-index" aria-hidden="true">01</span>
             <h3><span data-i18n="mc-wiki.features.search.title">分类搜索</span></h3>
-            <p><span data-i18n="mc-wiki.features.search.description">按生物、方块、物品或结构等分类搜索，命令支持补全。</span></p>
+            <p><span data-i18n="mc-wiki.features.search.description">可以按生物、方块、物品、结构等分类搜索，命令带自动补全，不用记住完整名称。</span></p>
           </article>
           <article class="feature-item">
             <span class="feature-index" aria-hidden="true">02</span>
             <h3><span data-i18n="mc-wiki.features.browser.title">游戏内阅读</span></h3>
-            <p><span data-i18n="mc-wiki.features.browser.description">搜索结果直接在 MCEF Modern 浏览器界面中打开，无需切换窗口。</span></p>
+            <p><span data-i18n="mc-wiki.features.browser.description">搜索结果直接在 MCEF Modern 浏览器界面里打开，看完关掉就能接着玩。</span></p>
           </article>
           <article class="feature-item">
             <span class="feature-index" aria-hidden="true">03</span>
             <h3><span data-i18n="mc-wiki.features.language.title">中英文 Wiki</span></h3>
-            <p><span data-i18n="mc-wiki.features.language.description">通过命令切换 Wiki 语言，并在客户端配置中保存偏好。</span></p>
+            <p><span data-i18n="mc-wiki.features.language.description">一条命令就能切换中英文 Wiki，偏好会保存在客户端配置里，下次启动不用重新设置。</span></p>
           </article>
         </div>
       </section>
@@ -122,10 +122,10 @@
           </li>
           <li>
             <span class="step-index" aria-hidden="true">03</span>
-            <div><h3><span data-i18n="mc-wiki.steps.3.title">启动并查询</span></h3><p><span data-i18n="mc-wiki.steps.3.description">使用 Fabric 配置启动游戏，在聊天框输入上方示例命令即可搜索 Wiki。</span></p></div>
+            <div><h3><span data-i18n="mc-wiki.steps.3.title">启动并查询</span></h3><p><span data-i18n="mc-wiki.steps.3.description">用 Fabric 启动游戏，在聊天框输入上方的示例命令，就可以开始搜索了。</span></p></div>
           </li>
         </ol>
-        <p class="source-note"><span data-i18n="mc-wiki.firstLaunch">MCEF Modern 首次初始化可能需要联网下载浏览器运行时，请等待下载与解压完成。</span></p>
+        <p class="source-note"><span data-i18n="mc-wiki.firstLaunch">第一次启动时，MCEF Modern 可能需要联网下载浏览器运行时，稍等它下载并解压完成即可。</span></p>
         
         <div class="source-links"><a href="https://github.com/Piscescup/mc-wiki-mod#readme" target="_blank" rel="noopener noreferrer"><span data-i18n="mc-wiki.readme">阅读完整使用说明</span> <span aria-hidden="true">↗</span></a></div>
       </section></div>

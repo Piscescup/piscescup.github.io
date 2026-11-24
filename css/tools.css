@@ -956,3 +956,19 @@
     padding-right: 0.9rem;
   }
 }
+
+/* ---------- refinement pass ---------- */
+
+.lab-export-btn:disabled,
+.lab-export-all-btn:disabled,
+.lab-clear-btn:disabled,
+.lab-today-btn:disabled {
+  opacity: 1;
+  border-color: var(--line);
+  background: var(--bg-soft);
+  color: var(--faint);
+  cursor: not-allowed;
+}
+
+.tools-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+.tool-card { max-width: 640px; }

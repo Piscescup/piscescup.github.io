@@ -4,7 +4,11 @@
     "name": "PC Develop Lib · V2",
     "heading": "PC Develop Lib · V2",
     "category": "minecraft",
-    "tags": ["java", "minecraft", "fabric"],
+    "tags": [
+      "java",
+      "minecraft",
+      "fabric"
+    ],
     "summaryKey": "pc-develop-lib.summary",
     "eyebrowKey": "pc-develop-lib.eyebrow",
     "leadKey": "pc-develop-lib.lead",
@@ -12,23 +16,56 @@
     "glyph": "[ lib ]",
     "visual": "library",
     "features": [
-      { "titleKey": "pc-develop-lib.features.1.title", "descriptionKey": "pc-develop-lib.features.1.description" },
-      { "titleKey": "pc-develop-lib.features.2.title", "descriptionKey": "pc-develop-lib.features.2.description" },
-      { "titleKey": "pc-develop-lib.features.3.title", "descriptionKey": "pc-develop-lib.features.3.description" }
+      {
+        "titleKey": "pc-develop-lib.features.1.title",
+        "descriptionKey": "pc-develop-lib.features.1.description"
+      },
+      {
+        "titleKey": "pc-develop-lib.features.2.title",
+        "descriptionKey": "pc-develop-lib.features.2.description"
+      },
+      {
+        "titleKey": "pc-develop-lib.features.3.title",
+        "descriptionKey": "pc-develop-lib.features.3.description"
+      }
     ],
     "steps": [
-      { "titleKey": "pc-develop-lib.steps.1.title", "descriptionKey": "pc-develop-lib.steps.1.description" },
-      { "titleKey": "pc-develop-lib.steps.2.title", "descriptionKey": "pc-develop-lib.steps.2.description" },
-      { "titleKey": "pc-develop-lib.steps.3.title", "descriptionKey": "pc-develop-lib.steps.3.description" }
+      {
+        "titleKey": "pc-develop-lib.steps.1.title",
+        "descriptionKey": "pc-develop-lib.steps.1.description"
+      },
+      {
+        "titleKey": "pc-develop-lib.steps.2.title",
+        "descriptionKey": "pc-develop-lib.steps.2.description"
+      },
+      {
+        "titleKey": "pc-develop-lib.steps.3.title",
+        "descriptionKey": "pc-develop-lib.steps.3.description"
+      }
     ],
     "facts": [
-      { "labelKey": "project.author", "value": "PiscesCup" },
-      { "labelKey": "project.runtime", "value": "Java 25" },
-      { "labelKey": "project.platform", "value": "Minecraft Fabric" }
+      {
+        "labelKey": "project.author",
+        "value": "PiscesCup"
+      },
+      {
+        "labelKey": "project.runtime",
+        "value": "Java 25"
+      },
+      {
+        "labelKey": "project.platform",
+        "value": "Minecraft Fabric"
+      }
     ],
     "sourceLinks": [
-      { "url": "https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/tree/master/src/main/java/io/github/piscescup/mc/fabric/test", "labelKey": "pc-develop-lib.sources.link1" },
-      { "url": "https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/blob/master/src/main/java/io/github/piscescup/mc/fabric/PCDevelopLibDataGenerator.java", "labelKey": "pc-develop-lib.sources.link2" }
+      {
+        "url": "https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/tree/master/src/main/java/io/github/piscescup/mc/fabric/test",
+        "labelKey": "pc-develop-lib.sources.link1"
+      },
+      {
+        "url": "https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2/blob/master/src/main/java/io/github/piscescup/mc/fabric/PCDevelopLibDataGenerator.java",
+        "labelKey": "pc-develop-lib.sources.link2"
+      }
     ],
     "repository": "https://github.com/Piscescup/PiscesCup-Develop-Lib-Ver_2",
     "downloads": {}
@@ -38,7 +75,11 @@
     "name": "Pisces Cup Easy",
     "heading": "Pisces Cup Easy",
     "category": "minecraft",
-    "tags": ["java", "minecraft", "fabric"],
+    "tags": [
+      "java",
+      "minecraft",
+      "fabric"
+    ],
     "summaryKey": "piscescup-easy.summary",
     "eyebrowKey": "piscescup-easy.eyebrow",
     "leadKey": "piscescup-easy.lead",
@@ -46,14 +87,32 @@
     "glyph": "[ whitelist ]",
     "visual": "whitelist",
     "features": [
-      { "titleKey": "piscescup-easy.features.1.title", "descriptionKey": "piscescup-easy.features.1.description" },
-      { "titleKey": "piscescup-easy.features.2.title", "descriptionKey": "piscescup-easy.features.2.description" },
-      { "titleKey": "piscescup-easy.features.3.title", "descriptionKey": "piscescup-easy.features.3.description" }
+      {
+        "titleKey": "piscescup-easy.features.1.title",
+        "descriptionKey": "piscescup-easy.features.1.description"
+      },
+      {
+        "titleKey": "piscescup-easy.features.2.title",
+        "descriptionKey": "piscescup-easy.features.2.description"
+      },
+      {
+        "titleKey": "piscescup-easy.features.3.title",
+        "descriptionKey": "piscescup-easy.features.3.description"
+      }
     ],
     "steps": [
-      { "titleKey": "piscescup-easy.steps.1.title", "descriptionKey": "piscescup-easy.steps.1.description" },
-      { "titleKey": "piscescup-easy.steps.2.title", "descriptionKey": "piscescup-easy.steps.2.description" },
-      { "titleKey": "piscescup-easy.steps.3.title", "descriptionKey": "piscescup-easy.steps.3.description" }
+      {
+        "titleKey": "piscescup-easy.steps.1.title",
+        "descriptionKey": "piscescup-easy.steps.1.description"
+      },
+      {
+        "titleKey": "piscescup-easy.steps.2.title",
+        "descriptionKey": "piscescup-easy.steps.2.description"
+      },
+      {
+        "titleKey": "piscescup-easy.steps.3.title",
+        "descriptionKey": "piscescup-easy.steps.3.description"
+      }
     ],
     "sections": [
       {
@@ -70,11 +129,20 @@
       }
     ],
     "facts": [
-      { "labelKey": "project.author", "value": "PiscesCup" },
-      { "labelKey": "project.platform", "value": "Minecraft Fabric" }
+      {
+        "labelKey": "project.author",
+        "value": "PiscesCup"
+      },
+      {
+        "labelKey": "project.platform",
+        "value": "Minecraft Fabric"
+      }
     ],
     "sourceLinks": [
-      { "url": "https://github.com/Piscescup/pisces-cup-easy-fabric-1.21.4#readme", "labelKey": "piscescup-easy.sources.link" }
+      {
+        "url": "https://github.com/Piscescup/pisces-cup-easy-fabric-1.21.4#readme",
+        "labelKey": "piscescup-easy.sources.link"
+      }
     ],
     "repository": "https://github.com/Piscescup/pisces-cup-easy-fabric-1.21.4",
     "downloads": {
@@ -87,7 +155,11 @@
     "name": "More Advancements",
     "heading": "More Advancements",
     "category": "minecraft",
-    "tags": ["java", "minecraft", "fabric"],
+    "tags": [
+      "java",
+      "minecraft",
+      "fabric"
+    ],
     "summaryKey": "more-advancements.summary",
     "eyebrowKey": "more-advancements.eyebrow",
     "leadKey": "more-advancements.lead",
@@ -95,22 +167,52 @@
     "glyph": "[ advancements ]",
     "visual": "advancement",
     "features": [
-      { "titleKey": "more-advancements.features.1.title", "descriptionKey": "more-advancements.features.1.description" },
-      { "titleKey": "more-advancements.features.2.title", "descriptionKey": "more-advancements.features.2.description" },
-      { "titleKey": "more-advancements.features.3.title", "descriptionKey": "more-advancements.features.3.description" }
+      {
+        "titleKey": "more-advancements.features.1.title",
+        "descriptionKey": "more-advancements.features.1.description"
+      },
+      {
+        "titleKey": "more-advancements.features.2.title",
+        "descriptionKey": "more-advancements.features.2.description"
+      },
+      {
+        "titleKey": "more-advancements.features.3.title",
+        "descriptionKey": "more-advancements.features.3.description"
+      }
     ],
     "steps": [
-      { "titleKey": "more-advancements.steps.1.title", "descriptionKey": "more-advancements.steps.1.description" },
-      { "titleKey": "more-advancements.steps.2.title", "descriptionKey": "more-advancements.steps.2.description" },
-      { "titleKey": "more-advancements.steps.3.title", "descriptionKey": "more-advancements.steps.3.description" }
+      {
+        "titleKey": "more-advancements.steps.1.title",
+        "descriptionKey": "more-advancements.steps.1.description"
+      },
+      {
+        "titleKey": "more-advancements.steps.2.title",
+        "descriptionKey": "more-advancements.steps.2.description"
+      },
+      {
+        "titleKey": "more-advancements.steps.3.title",
+        "descriptionKey": "more-advancements.steps.3.description"
+      }
     ],
     "facts": [
-      { "labelKey": "project.author", "value": "PiscesCup" },
-      { "labelKey": "project.platform", "value": "Minecraft Fabric" }
+      {
+        "labelKey": "project.author",
+        "value": "PiscesCup"
+      },
+      {
+        "labelKey": "project.platform",
+        "value": "Minecraft Fabric"
+      }
     ],
     "sourceLinks": [
-      { "url": "https://github.com/Piscescup/More-Advancement-fabric-1.21.4#readme", "labelKey": "more-advancements.sources.link1" },
-      { "url": "https://github.com/Piscescup/More-Advancement-fabric-1.21.4/tree/master/src/main/generated", "labelKey": "more-advancements.sources.link2" }
+      {
+        "url": "https://github.com/Piscescup/More-Advancement-fabric-1.21.4#readme",
+        "labelKey": "more-advancements.sources.link1"
+      },
+      {
+        "url": "https://github.com/Piscescup/More-Advancement-fabric-1.21.4/tree/master/src/main/generated",
+        "labelKey": "more-advancements.sources.link2"
+      }
     ],
     "repository": "https://github.com/Piscescup/More-Advancement-fabric-1.21.4",
     "downloads": {}
@@ -120,7 +222,11 @@
     "name": "MC Wiki",
     "heading": "MC Wiki",
     "category": "minecraft",
-    "tags": ["java", "minecraft", "fabric"],
+    "tags": [
+      "java",
+      "minecraft",
+      "fabric"
+    ],
     "summaryKey": "mc-wiki.summary",
     "eyebrowKey": "mc-wiki.eyebrow",
     "leadKey": "mc-wiki.lead",
@@ -128,14 +234,32 @@
     "glyph": "[ wiki ]",
     "visual": "wiki",
     "features": [
-      { "titleKey": "mc-wiki.features.search.title", "descriptionKey": "mc-wiki.features.search.description" },
-      { "titleKey": "mc-wiki.features.browser.title", "descriptionKey": "mc-wiki.features.browser.description" },
-      { "titleKey": "mc-wiki.features.language.title", "descriptionKey": "mc-wiki.features.language.description" }
+      {
+        "titleKey": "mc-wiki.features.search.title",
+        "descriptionKey": "mc-wiki.features.search.description"
+      },
+      {
+        "titleKey": "mc-wiki.features.browser.title",
+        "descriptionKey": "mc-wiki.features.browser.description"
+      },
+      {
+        "titleKey": "mc-wiki.features.language.title",
+        "descriptionKey": "mc-wiki.features.language.description"
+      }
     ],
     "steps": [
-      { "titleKey": "mc-wiki.steps.1.title", "descriptionKey": "mc-wiki.steps.1.description" },
-      { "titleKey": "mc-wiki.steps.2.title", "descriptionKey": "mc-wiki.steps.2.description" },
-      { "titleKey": "mc-wiki.steps.3.title", "descriptionKey": "mc-wiki.steps.3.description" }
+      {
+        "titleKey": "mc-wiki.steps.1.title",
+        "descriptionKey": "mc-wiki.steps.1.description"
+      },
+      {
+        "titleKey": "mc-wiki.steps.2.title",
+        "descriptionKey": "mc-wiki.steps.2.description"
+      },
+      {
+        "titleKey": "mc-wiki.steps.3.title",
+        "descriptionKey": "mc-wiki.steps.3.description"
+      }
     ],
     "sections": [
       {
@@ -144,26 +268,55 @@
         "eyebrow": "COMMANDS",
         "titleKey": "mc-wiki.commands",
         "blocks": [
-          { "id": "search-example", "titleKey": "mc-wiki.searchExample", "code": "/mc-wiki mobs pig\n/wiki structures village" },
-          { "id": "language-example", "titleKey": "mc-wiki.languageExample", "code": "/mc-wiki settings lang get\n/mc-wiki settings lang set en_us\n/mc-wiki settings lang set zh_cn" }
+          {
+            "id": "search-example",
+            "titleKey": "mc-wiki.searchExample",
+            "code": "/mc-wiki mobs pig\n/wiki structures village"
+          },
+          {
+            "id": "language-example",
+            "titleKey": "mc-wiki.languageExample",
+            "code": "/mc-wiki settings lang get\n/mc-wiki settings lang set en_us\n/mc-wiki settings lang set zh_cn"
+          }
         ],
         "noteKey": "mc-wiki.languageHelp"
       }
     ],
     "facts": [
-      { "labelKey": "project.author", "value": "PiscesCup" },
-      { "labelKey": "project.platform", "value": "Minecraft Fabric" },
-      { "labelKey": "mc-wiki.side", "valueKey": "mc-wiki.client" },
-      { "labelKey": "mc-wiki.dependencies", "value": "Fabric API · MCEF Modern" },
-      { "labelKey": "mc-wiki.versions", "valueKey": "mc-wiki.versionHelp" }
+      {
+        "labelKey": "project.author",
+        "value": "PiscesCup"
+      },
+      {
+        "labelKey": "project.platform",
+        "value": "Minecraft Fabric"
+      },
+      {
+        "labelKey": "mc-wiki.side",
+        "valueKey": "mc-wiki.client"
+      },
+      {
+        "labelKey": "mc-wiki.dependencies",
+        "value": "Fabric API · MCEF Modern"
+      },
+      {
+        "labelKey": "mc-wiki.versions",
+        "valueKey": "mc-wiki.versionHelp"
+      }
     ],
-    "notes": ["mc-wiki.firstLaunch"],
+    "notes": [
+      "mc-wiki.firstLaunch"
+    ],
     "sourceLinks": [
-      { "url": "https://github.com/Piscescup/mc-wiki-mod#readme", "labelKey": "mc-wiki.readme" }
+      {
+        "url": "https://github.com/Piscescup/mc-wiki-mod#readme",
+        "labelKey": "mc-wiki.readme"
+      }
     ],
     "repository": "https://github.com/Piscescup/mc-wiki-mod",
     "downloads": {
-      "curseforge": "https://www.curseforge.com/minecraft/mc-mods/mc-wiki-mod/files"
+      "curseforge": "https://www.curseforge.com/minecraft/mc-mods/mc-wiki-mod/files",
+      "github": "https://github.com/Piscescup/mc-wiki-mod/releases"
     }
   },
   {
@@ -171,7 +324,10 @@
     "name": "Commons Lib",
     "heading": "Commons Lib",
     "category": "general",
-    "tags": ["java", "library"],
+    "tags": [
+      "java",
+      "library"
+    ],
     "summaryKey": "commons-lib.summary",
     "eyebrowKey": "commons-lib.eyebrow",
     "leadKey": "commons-lib.lead",
@@ -179,22 +335,52 @@
     "glyph": "{ commons }",
     "visual": "commons",
     "features": [
-      { "titleKey": "commons-lib.features.1.title", "descriptionKey": "commons-lib.features.1.description" },
-      { "titleKey": "commons-lib.features.2.title", "descriptionKey": "commons-lib.features.2.description" },
-      { "titleKey": "commons-lib.features.3.title", "descriptionKey": "commons-lib.features.3.description" }
+      {
+        "titleKey": "commons-lib.features.1.title",
+        "descriptionKey": "commons-lib.features.1.description"
+      },
+      {
+        "titleKey": "commons-lib.features.2.title",
+        "descriptionKey": "commons-lib.features.2.description"
+      },
+      {
+        "titleKey": "commons-lib.features.3.title",
+        "descriptionKey": "commons-lib.features.3.description"
+      }
     ],
     "steps": [
-      { "titleKey": "commons-lib.steps.1.title", "descriptionKey": "commons-lib.steps.1.description" },
-      { "titleKey": "commons-lib.steps.2.title", "descriptionKey": "commons-lib.steps.2.description" },
-      { "titleKey": "commons-lib.steps.3.title", "descriptionKey": "commons-lib.steps.3.description" }
+      {
+        "titleKey": "commons-lib.steps.1.title",
+        "descriptionKey": "commons-lib.steps.1.description"
+      },
+      {
+        "titleKey": "commons-lib.steps.2.title",
+        "descriptionKey": "commons-lib.steps.2.description"
+      },
+      {
+        "titleKey": "commons-lib.steps.3.title",
+        "descriptionKey": "commons-lib.steps.3.description"
+      }
     ],
     "facts": [
-      { "labelKey": "project.author", "value": "PiscesCup" },
-      { "labelKey": "project.runtime", "value": "Java 21" },
-      { "labelKey": "project.platform", "value": "Java" }
+      {
+        "labelKey": "project.author",
+        "value": "PiscesCup"
+      },
+      {
+        "labelKey": "project.runtime",
+        "value": "Java 21"
+      },
+      {
+        "labelKey": "project.platform",
+        "value": "Java"
+      }
     ],
     "sourceLinks": [
-      { "url": "https://github.com/Piscescup/commons-lib/blob/master/README.md", "labelKey": "commons-lib.sources.link" }
+      {
+        "url": "https://github.com/Piscescup/commons-lib/blob/master/README.md",
+        "labelKey": "commons-lib.sources.link"
+      }
     ],
     "repository": "https://github.com/Piscescup/commons-lib",
     "javadoc": {
@@ -208,7 +394,18 @@
       "groupId": "io.github.piscescup",
       "artifactId": "commons-lib",
       "defaultVersion": "1.1.6",
-      "versions": ["1.1.6", "1.1.5", "1.1.4", "1.1.3", "1.1.2", "1.1.1", "1.1.0", "1.0.2", "1.0.1", "1.0.0"],
+      "versions": [
+        "1.1.6",
+        "1.1.5",
+        "1.1.4",
+        "1.1.3",
+        "1.1.2",
+        "1.1.1",
+        "1.1.0",
+        "1.0.2",
+        "1.0.1",
+        "1.0.0"
+      ],
       "status": "published",
       "checkedAt": "2026-09-07",
       "sourceUrl": "https://repo.maven.apache.org/maven2/io/github/piscescup/commons-lib/maven-metadata.xml"
@@ -219,7 +416,12 @@
     "name": "LINQ for Java",
     "heading": "LINQ for Java",
     "category": "general",
-    "tags": ["java", "java-25", "library", "linq"],
+    "tags": [
+      "java",
+      "java-25",
+      "library",
+      "linq"
+    ],
     "summaryKey": "home.linq.summary",
     "eyebrowKey": "linq.eyebrow",
     "leadKey": "linq.lead",
@@ -227,15 +429,36 @@
     "glyph": "( linq )",
     "visual": "linq",
     "features": [
-      { "titleKey": "linq.features.filter", "descriptionKey": "linq.features.filterDescription" },
-      { "titleKey": "linq.features.order", "descriptionKey": "linq.features.orderDescription" },
-      { "titleKey": "linq.features.join", "descriptionKey": "linq.features.joinDescription" },
-      { "titleKey": "linq.features.aggregate", "descriptionKey": "linq.features.aggregateDescription" }
+      {
+        "titleKey": "linq.features.filter",
+        "descriptionKey": "linq.features.filterDescription"
+      },
+      {
+        "titleKey": "linq.features.order",
+        "descriptionKey": "linq.features.orderDescription"
+      },
+      {
+        "titleKey": "linq.features.join",
+        "descriptionKey": "linq.features.joinDescription"
+      },
+      {
+        "titleKey": "linq.features.aggregate",
+        "descriptionKey": "linq.features.aggregateDescription"
+      }
     ],
     "steps": [
-      { "titleKey": "linq.prepare", "descriptionKey": "linq.prepareDescription" },
-      { "titleKey": "linq.install", "descriptionKey": "linq.installDescription" },
-      { "titleKey": "linq.sample", "descriptionKey": "linq.sampleDescription" }
+      {
+        "titleKey": "linq.prepare",
+        "descriptionKey": "linq.prepareDescription"
+      },
+      {
+        "titleKey": "linq.install",
+        "descriptionKey": "linq.installDescription"
+      },
+      {
+        "titleKey": "linq.sample",
+        "descriptionKey": "linq.sampleDescription"
+      }
     ],
     "sections": [
       {
@@ -245,34 +468,91 @@
         "titleKey": "linq.enumerables",
         "introKey": "linq.enumerablesIntro",
         "items": [
-          { "id": "enumerable", "code": "Enumerable<T>", "titleKey": "linq.object", "descriptionKey": "linq.objectDescription" },
-          { "id": "int-enumerable", "code": "IntEnumerable", "term": "Int", "titleKey": "linq.sequences", "descriptionKey": "linq.intDescription" },
-          { "id": "long-enumerable", "code": "LongEnumerable", "term": "Long", "titleKey": "linq.sequences", "descriptionKey": "linq.longDescription" },
-          { "id": "double-enumerable", "code": "DoubleEnumerable", "term": "Double", "titleKey": "linq.sequences", "descriptionKey": "linq.doubleDescription" }
+          {
+            "id": "enumerable",
+            "code": "Enumerable<T>",
+            "titleKey": "linq.object",
+            "descriptionKey": "linq.objectDescription"
+          },
+          {
+            "id": "int-enumerable",
+            "code": "IntEnumerable",
+            "term": "Int",
+            "titleKey": "linq.sequences",
+            "descriptionKey": "linq.intDescription"
+          },
+          {
+            "id": "long-enumerable",
+            "code": "LongEnumerable",
+            "term": "Long",
+            "titleKey": "linq.sequences",
+            "descriptionKey": "linq.longDescription"
+          },
+          {
+            "id": "double-enumerable",
+            "code": "DoubleEnumerable",
+            "term": "Double",
+            "titleKey": "linq.sequences",
+            "descriptionKey": "linq.doubleDescription"
+          }
         ]
       }
     ],
     "facts": [
-      { "labelKey": "project.author", "value": "PiscesCup" },
-      { "labelKey": "project.runtime", "value": "Java 25+" },
-      { "labelKey": "linq.version", "value": "1.0.0" }
+      {
+        "labelKey": "project.author",
+        "value": "PiscesCup"
+      },
+      {
+        "labelKey": "project.runtime",
+        "value": "Java 25+"
+      },
+      {
+        "labelKey": "linq.version",
+        "value": "1.0.0"
+      }
     ],
     "asideLinks": [
-      { "href": "#enumerable", "label": "Enumerable<T>" },
-      { "href": "#int-enumerable", "label": "IntEnumerable" },
-      { "href": "#long-enumerable", "label": "LongEnumerable" },
-      { "href": "#double-enumerable", "label": "DoubleEnumerable" }
+      {
+        "href": "#enumerable",
+        "label": "Enumerable<T>"
+      },
+      {
+        "href": "#int-enumerable",
+        "label": "IntEnumerable"
+      },
+      {
+        "href": "#long-enumerable",
+        "label": "LongEnumerable"
+      },
+      {
+        "href": "#double-enumerable",
+        "label": "DoubleEnumerable"
+      }
     ],
     "related": {
       "descriptionKey": "linq.relatedDescription",
       "links": [
-        { "label": "Commons Lib", "href": "commons-lib.html" },
-        { "label": "linq-in-java", "href": "https://github.com/Piscescup/linq-in-java", "external": true }
+        {
+          "label": "Commons Lib",
+          "href": "commons-lib.html"
+        },
+        {
+          "label": "linq-in-java",
+          "href": "https://github.com/Piscescup/linq-in-java",
+          "external": true
+        }
       ]
     },
     "sourceLinks": [
-      { "url": "https://central.sonatype.com/artifact/io.github.piscescup/linq-for-java", "label": "Maven Central" },
-      { "url": "https://github.com/Piscescup/linq-for-java#readme", "labelKey": "linq.readme" }
+      {
+        "url": "https://central.sonatype.com/artifact/io.github.piscescup/linq-for-java",
+        "label": "Maven Central"
+      },
+      {
+        "url": "https://github.com/Piscescup/linq-for-java#readme",
+        "labelKey": "linq.readme"
+      }
     ],
     "repository": "https://github.com/Piscescup/linq-for-java",
     "javadoc": {
@@ -286,10 +566,445 @@
       "groupId": "io.github.piscescup",
       "artifactId": "linq-for-java",
       "defaultVersion": "1.0.0",
-      "versions": ["1.0.0"],
+      "versions": [
+        "1.0.0"
+      ],
       "status": "source",
       "checkedAt": "2026-09-07",
       "sourceUrl": "https://github.com/Piscescup/linq-for-java/blob/main/pom.xml"
+    }
+  },
+  {
+    "slug": "pcmc-dev-lib",
+    "name": "PCMC Develop Lib",
+    "heading": "PCMC Develop Lib",
+    "category": "minecraft",
+    "tags": [
+      "java",
+      "minecraft",
+      "fabric"
+    ],
+    "summaryKey": "pcmc-dev-lib.summary",
+    "eyebrowKey": "pcmc-dev-lib.eyebrow",
+    "leadKey": "pcmc-dev-lib.lead",
+    "overviewKey": "pcmc-dev-lib.overview",
+    "glyph": "[ pcmc ]",
+    "visual": "library",
+    "features": [
+      {
+        "titleKey": "pcmc-dev-lib.features.1.title",
+        "descriptionKey": "pcmc-dev-lib.features.1.description"
+      },
+      {
+        "titleKey": "pcmc-dev-lib.features.2.title",
+        "descriptionKey": "pcmc-dev-lib.features.2.description"
+      },
+      {
+        "titleKey": "pcmc-dev-lib.features.3.title",
+        "descriptionKey": "pcmc-dev-lib.features.3.description"
+      }
+    ],
+    "steps": [
+      {
+        "titleKey": "pcmc-dev-lib.steps.1.title",
+        "descriptionKey": "pcmc-dev-lib.steps.1.description"
+      },
+      {
+        "titleKey": "pcmc-dev-lib.steps.2.title",
+        "descriptionKey": "pcmc-dev-lib.steps.2.description"
+      },
+      {
+        "titleKey": "pcmc-dev-lib.steps.3.title",
+        "descriptionKey": "pcmc-dev-lib.steps.3.description"
+      }
+    ],
+    "sections": [
+      {
+        "type": "code",
+        "id": "usage",
+        "eyebrow": "WORKFLOW",
+        "titleKey": "pcmc-dev-lib.example.label",
+        "blocks": [
+          {
+            "id": "registration-example",
+            "code": "FACTORY.path(\"entry_path\")\n    // Configure the entry here.\n    .register()\n    .translate(MCLanguage.EN_US, \"Display Name\")\n    .get();"
+          }
+        ]
+      }
+    ],
+    "facts": [
+      {
+        "labelKey": "project.author",
+        "value": "PiscesCup"
+      },
+      {
+        "labelKey": "project.runtime",
+        "value": "Java 25"
+      },
+      {
+        "labelKey": "project.platform",
+        "value": "Minecraft Fabric"
+      },
+      {
+        "labelKey": "mc-wiki.versions",
+        "value": "26.2"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "url": "https://github.com/Piscescup/pcmc-dev-lib#readme",
+        "labelKey": "mc-wiki.readme"
+      }
+    ],
+    "repository": "https://github.com/Piscescup/pcmc-dev-lib",
+    "downloads": {
+      "github": "https://github.com/Piscescup/pcmc-dev-lib/releases"
+    }
+  },
+  {
+    "slug": "carpet-gui",
+    "name": "Carpet GUI",
+    "heading": "Carpet GUI",
+    "category": "minecraft",
+    "tags": [
+      "java",
+      "minecraft",
+      "fabric"
+    ],
+    "summaryKey": "carpet-gui.summary",
+    "eyebrowKey": "carpet-gui.eyebrow",
+    "leadKey": "carpet-gui.lead",
+    "overviewKey": "carpet-gui.overview",
+    "glyph": "[ carpet ]",
+    "visual": "rules",
+    "features": [
+      {
+        "titleKey": "carpet-gui.features.1.title",
+        "descriptionKey": "carpet-gui.features.1.description"
+      },
+      {
+        "titleKey": "carpet-gui.features.2.title",
+        "descriptionKey": "carpet-gui.features.2.description"
+      },
+      {
+        "titleKey": "carpet-gui.features.3.title",
+        "descriptionKey": "carpet-gui.features.3.description"
+      }
+    ],
+    "steps": [
+      {
+        "titleKey": "carpet-gui.steps.1.title",
+        "descriptionKey": "carpet-gui.steps.1.description"
+      },
+      {
+        "titleKey": "carpet-gui.steps.2.title",
+        "descriptionKey": "carpet-gui.steps.2.description"
+      },
+      {
+        "titleKey": "carpet-gui.steps.3.title",
+        "descriptionKey": "carpet-gui.steps.3.description"
+      }
+    ],
+    "facts": [
+      {
+        "labelKey": "project.author",
+        "value": "PiscesCup"
+      },
+      {
+        "labelKey": "project.runtime",
+        "value": "Java 21 / 25"
+      },
+      {
+        "labelKey": "project.platform",
+        "value": "Minecraft Fabric"
+      },
+      {
+        "labelKey": "mc-wiki.dependencies",
+        "value": "Fabric API · Carpet · TCDCommons"
+      },
+      {
+        "labelKey": "mc-wiki.versions",
+        "value": "1.21.1 – 26.3"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "url": "https://github.com/Piscescup/carpet-gui#readme",
+        "labelKey": "mc-wiki.readme"
+      }
+    ],
+    "repository": "https://github.com/Piscescup/carpet-gui",
+    "downloads": {
+      "github": "https://github.com/Piscescup/carpet-gui/releases"
+    }
+  },
+  {
+    "slug": "teamcraft",
+    "name": "TeamCraft",
+    "heading": "TeamCraft",
+    "category": "minecraft",
+    "tags": [
+      "java",
+      "minecraft",
+      "fabric"
+    ],
+    "summaryKey": "teamcraft.summary",
+    "eyebrowKey": "teamcraft.eyebrow",
+    "leadKey": "teamcraft.lead",
+    "overviewKey": "teamcraft.overview",
+    "glyph": "[ team ]",
+    "visual": "team",
+    "features": [
+      {
+        "titleKey": "teamcraft.features.1.title",
+        "descriptionKey": "teamcraft.features.1.description"
+      },
+      {
+        "titleKey": "teamcraft.features.2.title",
+        "descriptionKey": "teamcraft.features.2.description"
+      },
+      {
+        "titleKey": "teamcraft.features.3.title",
+        "descriptionKey": "teamcraft.features.3.description"
+      }
+    ],
+    "steps": [
+      {
+        "titleKey": "teamcraft.steps.1.title",
+        "descriptionKey": "teamcraft.steps.1.description"
+      },
+      {
+        "titleKey": "teamcraft.steps.2.title",
+        "descriptionKey": "teamcraft.steps.2.description"
+      },
+      {
+        "titleKey": "teamcraft.steps.3.title",
+        "descriptionKey": "teamcraft.steps.3.description"
+      }
+    ],
+    "sections": [
+      {
+        "type": "code",
+        "id": "commands",
+        "eyebrow": "COMMANDS",
+        "titleKey": "mc-wiki.commands",
+        "blocks": [
+          {
+            "id": "team-example",
+            "code": "/teamcraft init @a\n/teamcraft config players-per-team 2\n/teamcraft config mode random\n/teamcraft config friendlyfire false\n/teamcraft build-teams"
+          }
+        ]
+      }
+    ],
+    "facts": [
+      {
+        "labelKey": "project.author",
+        "value": "PiscesCup"
+      },
+      {
+        "labelKey": "project.platform",
+        "value": "Minecraft Fabric"
+      },
+      {
+        "labelKey": "mc-wiki.side",
+        "valueKey": "project.sideBoth"
+      },
+      {
+        "labelKey": "mc-wiki.dependencies",
+        "value": "Fabric API · Mod Menu (optional)"
+      },
+      {
+        "labelKey": "mc-wiki.versions",
+        "value": "1.21 – 26.3"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "url": "https://github.com/Piscescup/TeamCraft#readme",
+        "labelKey": "mc-wiki.readme"
+      }
+    ],
+    "repository": "https://github.com/Piscescup/TeamCraft",
+    "downloads": {
+      "github": "https://github.com/Piscescup/TeamCraft/releases"
+    }
+  },
+  {
+    "slug": "clear-f3",
+    "name": "Clear F3",
+    "heading": "Clear F3",
+    "category": "minecraft",
+    "tags": [
+      "java",
+      "minecraft",
+      "fabric"
+    ],
+    "summaryKey": "clear-f3.summary",
+    "eyebrowKey": "clear-f3.eyebrow",
+    "leadKey": "clear-f3.lead",
+    "overviewKey": "clear-f3.overview",
+    "glyph": "[ f3 ]",
+    "visual": "debug",
+    "features": [
+      {
+        "titleKey": "clear-f3.features.1.title",
+        "descriptionKey": "clear-f3.features.1.description"
+      },
+      {
+        "titleKey": "clear-f3.features.2.title",
+        "descriptionKey": "clear-f3.features.2.description"
+      },
+      {
+        "titleKey": "clear-f3.features.3.title",
+        "descriptionKey": "clear-f3.features.3.description"
+      }
+    ],
+    "steps": [
+      {
+        "titleKey": "clear-f3.steps.1.title",
+        "descriptionKey": "clear-f3.steps.1.description"
+      },
+      {
+        "titleKey": "clear-f3.steps.2.title",
+        "descriptionKey": "clear-f3.steps.2.description"
+      },
+      {
+        "titleKey": "clear-f3.steps.3.title",
+        "descriptionKey": "clear-f3.steps.3.description"
+      }
+    ],
+    "facts": [
+      {
+        "labelKey": "project.author",
+        "value": "PiscesCup"
+      },
+      {
+        "labelKey": "project.runtime",
+        "value": "Java 17 / 21 / 25"
+      },
+      {
+        "labelKey": "project.platform",
+        "value": "Fabric · NeoForge"
+      },
+      {
+        "labelKey": "mc-wiki.side",
+        "valueKey": "mc-wiki.client"
+      },
+      {
+        "labelKey": "mc-wiki.versions",
+        "value": "1.20.1 – 26.3"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "url": "https://github.com/Piscescup/clear-f3#readme",
+        "labelKey": "mc-wiki.readme"
+      }
+    ],
+    "repository": "https://github.com/Piscescup/clear-f3",
+    "downloads": {
+      "github": "https://github.com/Piscescup/clear-f3/releases"
+    }
+  },
+  {
+    "slug": "calc-commands",
+    "name": "Calc Commands",
+    "heading": "Calc Commands",
+    "category": "minecraft",
+    "tags": [
+      "java",
+      "minecraft",
+      "fabric"
+    ],
+    "summaryKey": "calc-commands.summary",
+    "eyebrowKey": "calc-commands.eyebrow",
+    "leadKey": "calc-commands.lead",
+    "overviewKey": "calc-commands.overview",
+    "glyph": "[ calc ]",
+    "visual": "calculator",
+    "features": [
+      {
+        "titleKey": "calc-commands.features.1.title",
+        "descriptionKey": "calc-commands.features.1.description"
+      },
+      {
+        "titleKey": "calc-commands.features.2.title",
+        "descriptionKey": "calc-commands.features.2.description"
+      },
+      {
+        "titleKey": "calc-commands.features.3.title",
+        "descriptionKey": "calc-commands.features.3.description"
+      }
+    ],
+    "steps": [
+      {
+        "titleKey": "calc-commands.steps.1.title",
+        "descriptionKey": "calc-commands.steps.1.description"
+      },
+      {
+        "titleKey": "calc-commands.steps.2.title",
+        "descriptionKey": "calc-commands.steps.2.description"
+      },
+      {
+        "titleKey": "calc-commands.steps.3.title",
+        "descriptionKey": "calc-commands.steps.3.description"
+      }
+    ],
+    "sections": [
+      {
+        "type": "code",
+        "id": "commands",
+        "eyebrow": "COMMANDS",
+        "titleKey": "mc-wiki.commands",
+        "blocks": [
+          {
+            "id": "basic-example",
+            "titleKey": "calc-commands.example.basic",
+            "code": "/calc expression 64*27\n/calc solve x^2-5*x+6=0 x\n/calc diff x^3 x --at x=2"
+          },
+          {
+            "id": "format-example",
+            "titleKey": "calc-commands.example.format",
+            "code": "/calc numfmt enable\n/calc expression 64*27+64+3"
+          }
+        ]
+      }
+    ],
+    "facts": [
+      {
+        "labelKey": "project.author",
+        "value": "PiscesCup"
+      },
+      {
+        "labelKey": "project.runtime",
+        "value": "Java 25"
+      },
+      {
+        "labelKey": "project.platform",
+        "value": "Minecraft Fabric"
+      },
+      {
+        "labelKey": "mc-wiki.side",
+        "valueKey": "mc-wiki.client"
+      },
+      {
+        "labelKey": "mc-wiki.dependencies",
+        "value": "Fabric API"
+      },
+      {
+        "labelKey": "mc-wiki.versions",
+        "value": "26.3"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "url": "https://github.com/Piscescup/calc-commands#readme",
+        "labelKey": "mc-wiki.readme"
+      }
+    ],
+    "repository": "https://github.com/Piscescup/calc-commands",
+    "downloads": {
+      "github": "https://github.com/Piscescup/calc-commands/releases"
     }
   }
 ]

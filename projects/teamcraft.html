@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#faf9f5" />
+  <meta name="description" content="一键给玩家分队：用界面或命令选人、设规则，按人数或队伍数自动分配，顺序或随机都行。" data-i18n-content="teamcraft.summary" />
+  <title>TeamCraft · PiscesCup</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/projects.css" />
+  <link rel="alternate" hreflang="zh-CN" href="./teamcraft.html?lang=zh-CN" />
+  <link rel="alternate" hreflang="en" href="./teamcraft.html?lang=en" />
+  <script src="../js/theme-boot.js"></script>
+  <script src="../js/translations.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/script.js" defer></script>
+</head>
+<body class="project-page" data-page="project" data-category="minecraft" id="top">
+  <a class="skip-link" href="#main" data-i18n="project.skip">跳到主要内容</a>
+<header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="../index.html#home" aria-label="PiscesCup 首页" data-i18n-aria-label="nav.brand"><span class="brand-mark" aria-hidden="true">P·</span><span class="brand-name">PiscesCup<span class="brand-dot">.</span></span></a>
+      <button class="menu-toggle" type="button" aria-label="展开导航" aria-controls="site-nav" aria-expanded="false" data-i18n-aria-label="nav.open"><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="主导航" data-i18n-aria-label="nav.label">
+        <a class="nav-link is-active" href="../index.html#home" aria-current="location" data-i18n="nav.home">首页</a>
+        <a class="nav-link" href="../index.html#directions" data-i18n="nav.directions">方向</a>
+        <a class="nav-link" href="../index.html#projects" data-i18n="nav.projects">项目</a>
+        <a class="nav-link" href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a class="nav-link" href="../tools/index.html" data-i18n="nav.tools">工具</a>
+        <a class="nav-link" href="../projects/index.html" data-i18n="nav.directory">目录</a>
+        <a class="nav-link" href="../index.html#about" data-i18n="nav.about">关于我</a>
+        <a class="nav-github" href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+      <div class="header-tools">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="切换明暗主题" data-i18n-aria-label="theme.toggle">
+          <svg class="icon-sun" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2.2v1.8M10 16v1.8M2.2 10H4M16 10h1.8M4.5 4.5l1.3 1.3M14.2 14.2l1.3 1.3M15.5 4.5l-1.3 1.3M5.8 14.2l-1.3 1.3"/></svg>
+          <svg class="icon-moon" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.2 11.9A6.6 6.6 0 0 1 8.1 3.8a6.6 6.6 0 1 0 8.1 8.1Z"/></svg>
+        </button>
+        <nav class="language-switch" aria-label="选择语言" data-i18n-aria-label="language.label">
+          <button type="button" lang="zh-CN" data-language="zh-CN" aria-pressed="true">中文</button>
+          <button type="button" lang="en" data-language="en" aria-pressed="false">EN</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="project-hero" aria-labelledby="project-title">
+      <div class="project-hero-inner">
+        <nav class="breadcrumbs" aria-label="当前位置" data-i18n-aria-label="nav.breadcrumb"><a href="../projects/index.html"><span data-i18n="catalog.heading">项目目录</span></a><span aria-hidden="true">/</span><a href="../categories/minecraft.html"><span data-i18n="category.minecraft">Minecraft 模组</span></a><span aria-hidden="true">/</span><span aria-current="page">TeamCraft</span></nav>
+        <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="teamcraft.eyebrow">Minecraft 队伍管理模组</span></p>
+        <h1 id="project-title">TeamCraft</h1>
+        <p class="project-lead" data-i18n="teamcraft.lead">办小游戏、搞比赛时手动建队太麻烦，所以我做了这个模组：选好玩家，设定分队规则，一次就能把队伍建好。</p>
+        <ul class="tag-row project-tags" aria-label="标签" data-i18n-aria-label="project.tagsLabel"><li>Java</li><li>Minecraft</li><li>Fabric</li></ul>
+        <div class="project-actions"><a class="hero-button" href="#getting-started"><span data-i18n="project.getStarted">开始使用</span> <span aria-hidden="true">↓</span></a>
+          <a class="source-button" href="https://github.com/Piscescup/TeamCraft" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">在 GitHub 查看</span> <span aria-hidden="true">↗</span></a>
+          <a href="../downloads/teamcraft.html" class="source-button" data-project-downloads><span data-i18n="downloads.label">下载 Mod</span></a></div>
+      </div>
+      <p class="project-plate" aria-hidden="true"><span class="project-plate-glyph">[ team ]</span><span class="project-plate-slug">teamcraft.md</span></p>
+    </section>
+    <div class="project-section-bar">
+      <div class="project-sections-shell">
+        <nav class="project-sections" aria-label="本页导航" data-i18n-aria-label="project.onPage"><a href="#overview"><span data-i18n="project.overview">项目简介</span></a><a href="#features"><span data-i18n="project.features">主要功能</span></a><a href="#commands"><span data-i18n="mc-wiki.commands">命令示例</span></a><a href="#getting-started"><span data-i18n="project.start">使用说明</span></a></nav>
+        <span class="project-section-meta" aria-hidden="true"><span data-i18n="category.minecraft">Minecraft 模组</span> · TeamCraft</span>
+      </div>
+    </div>
+    <div class="project-layout">
+      <div class="project-main">
+      <section id="overview" class="detail-section" aria-labelledby="overview-title">
+        <p class="eyebrow">01 / OVERVIEW</p>
+        <h2 id="overview-title"><span data-i18n="project.overview">项目简介</span></h2>
+        <p><span data-i18n="teamcraft.overview">TeamCraft 是用于快速创建和管理 Minecraft 队伍的 Fabric 模组。你可以在图形界面或通过命令选择玩家、配置队伍规则、设置队伍名称与颜色、控制友军伤害，并自动完成分队。联机时，服务器和所有客户端都需要安装 TeamCraft。</span></p>
+      </section>
+
+      <section id="features" class="detail-section" aria-labelledby="features-title">
+        <p class="eyebrow">02 / FEATURES</p>
+        <h2 id="features-title"><span data-i18n="project.features">主要功能</span></h2>
+        <div class="feature-grid">
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">01</span>
+            <h3><span data-i18n="teamcraft.features.1.title">灵活分队</span></h3>
+            <p><span data-i18n="teamcraft.features.1.description">可以按每队人数或固定的队伍数量分队，并选择按列表顺序或随机分配。</span></p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">02</span>
+            <h3><span data-i18n="teamcraft.features.2.title">自定义队伍</span></h3>
+            <p><span data-i18n="teamcraft.features.2.description">自定义队伍名称和颜色轮换，还能查看自己的队伍，浏览、编辑或解散已有队伍。</span></p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-index" aria-hidden="true">03</span>
+            <h3><span data-i18n="teamcraft.features.3.title">界面与命令</span></h3>
+            <p><span data-i18n="teamcraft.features.3.description">图形界面和命令都能完成配置，每条命令还可以单独设置权限等级。</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="commands" class="detail-section">
+        
+        <p class="eyebrow">03 / COMMANDS</p>
+        <h2><span data-i18n="mc-wiki.commands">命令示例</span></h2>
+        
+        <pre class="code-example" tabindex="0"><code translate="no" class="notranslate">/teamcraft init @a
+/teamcraft config players-per-team 2
+/teamcraft config mode random
+/teamcraft config friendlyfire false
+/teamcraft build-teams</code></pre>
+        
+      </section>
+
+      <section id="getting-started" class="detail-section" aria-labelledby="getting-started-title">
+        <p class="eyebrow">04 / GET STARTED</p>
+        <h2 id="getting-started-title"><span data-i18n="project.start">使用说明</span></h2>
+        <ol class="steps">
+          <li>
+            <span class="step-index" aria-hidden="true">01</span>
+            <div><h3><span data-i18n="teamcraft.steps.1.title">安装模组</span></h3><p><span data-i18n="teamcraft.steps.1.description">安装 Fabric Loader，并将匹配版本的 Fabric API 与 TeamCraft 放入游戏或服务器的 mods 文件夹。联机时服务器和客户端都要安装。</span></p></div>
+          </li>
+          <li>
+            <span class="step-index" aria-hidden="true">02</span>
+            <div><h3><span data-i18n="teamcraft.steps.2.title">打开界面或输入命令</span></h3><p><span data-i18n="teamcraft.steps.2.description">进入世界后按 Backspace 打开 TeamCraft（也可以在 Mod Menu 中打开配置），或直接输入上方的示例命令。</span></p></div>
+          </li>
+          <li>
+            <span class="step-index" aria-hidden="true">03</span>
+            <div><h3><span data-i18n="teamcraft.steps.3.title">创建队伍</span></h3><p><span data-i18n="teamcraft.steps.3.description">添加候选玩家并选择分队规则，点击「应用」保存设置，或点击「保存并分队」立即建队。</span></p></div>
+          </li>
+        </ol>
+        
+        
+        <div class="source-links"><a href="https://github.com/Piscescup/TeamCraft#readme" target="_blank" rel="noopener noreferrer"><span data-i18n="mc-wiki.readme">阅读完整使用说明</span> <span aria-hidden="true">↗</span></a></div>
+      </section></div>
+      <aside class="project-facts" aria-labelledby="facts-title">
+        <h2 id="facts-title" data-i18n="project.facts">项目信息</h2>
+        <dl><div><dt data-i18n="project.author">作者</dt><dd>PiscesCup</dd></div>
+        <div><dt data-i18n="project.platform">适用平台</dt><dd>Minecraft Fabric</dd></div>
+        <div><dt data-i18n="mc-wiki.side">运行端</dt><dd><span data-i18n="project.sideBoth">服务端与客户端</span></dd></div>
+        <div><dt data-i18n="mc-wiki.dependencies">所需依赖</dt><dd>Fabric API · Mod Menu (optional)</dd></div>
+        <div><dt data-i18n="mc-wiki.versions">支持的游戏版本</dt><dd>1.21 – 26.3</dd></div></dl>
+        <a href="https://github.com/Piscescup/TeamCraft" target="_blank" rel="noopener noreferrer"><span data-i18n="project.source">源代码</span> <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/Piscescup/TeamCraft/issues" target="_blank" rel="noopener noreferrer"><span data-i18n="project.feedback">问题反馈与建议</span> <span aria-hidden="true">↗</span></a>
+        
+        <a class="facts-back" href="../categories/minecraft.html" data-i18n="catalog.backCategory">返回所属分类</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <a class="footer-brand" href="../index.html#home">PiscesCup<span>.</span></a>
+        <p class="footer-motto" data-i18n="footer.motto">整理开源项目，沉淀技术实践。</p>
+      </div>
+      <nav class="footer-nav" aria-label="页脚导航" data-i18n-aria-label="footer.navLabel">
+        <p class="footer-col-title" data-i18n="footer.pages">页面</p>
+        <a href="../index.html#directions" data-i18n="nav.directions">方向</a>
+        <a href="../index.html#projects" data-i18n="nav.projects">项目</a>
+        <a href="../tutorials/index.html" data-i18n="nav.tutorials">教程</a>
+        <a href="../tools/index.html" data-i18n="nav.tools">工具</a>
+        <a href="../projects/index.html" data-i18n="nav.directory">目录</a>
+      </nav>
+      <div class="footer-meta">
+        <p class="footer-col-title" data-i18n="footer.contact">联系</p>
+        <a href="https://github.com/Piscescup" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <p class="mono">PLAIN HTML · CSS · JS</p>
+        <p>© <span id="year">2026</span> PiscesCup</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>PISCESCUP / WORKSPACE</span>
+      <a class="back-top" href="../index.html#home"><span data-i18n="footer.top">回到顶部</span> <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+</body>
+</html>
